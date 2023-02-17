@@ -24,5 +24,6 @@ public class GameWorld extends World {
         Student student = new Student(this);
         student.setPosition(new Vec2(7, -9));
         student.setCredits(15);
+        //student.startWalking(2);
     }
 }
