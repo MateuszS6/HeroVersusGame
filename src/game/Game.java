@@ -15,7 +15,6 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class Game {
     /** Initialise a new Game. */
     public Game() {
-
         //1. make an empty game world
         GameWorld world = new GameWorld();
 
@@ -24,7 +23,6 @@ public class Game {
 
         //optional: draw a 1-metre grid over the view
         // view.setGridResolution(1);
-
 
         //4. create a Java window (frame) and add the game
         //   view to it
