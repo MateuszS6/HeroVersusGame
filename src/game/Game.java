@@ -15,8 +15,6 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  * Your main game entry point
  */
 public class Game {
-
-
     /** Initialise a new Game. */
     public Game() {
 
@@ -36,11 +34,9 @@ public class Game {
         platform1.setPosition(new Vec2(-8, -4f));
 
         //make a character (with an overlaid image)
-        Shape studentShape = new BoxShape(1,2);
-        DynamicBody student = new DynamicBody(world, studentShape);
-        student.setPosition(new Vec2(4,-5));
-        student.addImage(new BodyImage("data/student.png", 4));
-
+        Student student = new Student(world);
+        student.setPosition(new Vec2(7, -9));
+        student.setCredits(15);
 
         //3. make a view to look into the game world
         UserView view = new UserView(world, 500, 500);
@@ -75,7 +71,6 @@ public class Game {
 
     /** Run the game. */
     public static void main(String[] args) {
-
         new Game();
     }
 }
