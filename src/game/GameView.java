@@ -6,6 +6,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
+/** Game view class. */
 public class GameView extends UserView {
     private final Image background = new ImageIcon("data/university.gif").getImage();
     public GameView(GameWorld world, int width, int height) {
