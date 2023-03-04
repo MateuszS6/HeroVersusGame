@@ -12,12 +12,12 @@ public class Game {
         GameWorld world = new GameWorld();
 
         // Game view
-        GameView view = new GameView(world, 500, 500);
-        // Optional: 1-meter grid over game view
+        GameView view = new GameView(world, 750, 500);
+        // Optional: 1-meter grid
         // view.setGridResolution(1);
 
         // Java window with game view
-        final JFrame frame = new JFrame("City Game");
+        final JFrame frame = new JFrame("Heroes Versus");
         frame.add(view);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationByPlatform(true);
@@ -26,7 +26,7 @@ public class Game {
         frame.pack();
         frame.setVisible(true);
 
-        JFrame debugView = new DebugViewer(world, 500, 500);
+        // JFrame debugView = new DebugViewer(world, 500, 500);
 
         world.start();
     }

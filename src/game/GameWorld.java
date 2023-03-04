@@ -23,9 +23,8 @@ public class GameWorld extends World {
         platform1.setPosition(new Vec2(-8, -4f));
 
         // Character
-        Student student = new Student(this);
-        student.setPosition(new Vec2(7, -9));
-        student.setCredits(15);
+        Knight knight = new Knight(this);
+        knight.setPosition(new Vec2(7, -9));
         // student.startWalking(2);
     }
 }
