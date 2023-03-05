@@ -13,18 +13,18 @@ public class GameWorld extends World {
         super();
 
         // Ground platform
-        Shape shape = new BoxShape(30, 0.5f);
+        BoxShape shape = new BoxShape(30, 0.5f);
         StaticBody ground = new StaticBody(this, shape);
         ground.setPosition(new Vec2(0f, -11.5f));
 
         // Suspended platform
-        Shape platformShape = new BoxShape(3, 0.5f);
+        BoxShape platformShape = new BoxShape(3, 0.5f);
         StaticBody platform1 = new StaticBody(this, platformShape);
         platform1.setPosition(new Vec2(-8, -4f));
 
         // Character
-        Knight knight = new Knight(this);
-        knight.setPosition(new Vec2(7, -9));
+        Knight knight1 = new Knight(this);
+        knight1.setPosition(new Vec2(7, -9));
         // student.startWalking(2);
     }
 }
