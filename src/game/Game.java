@@ -1,23 +1,23 @@
 package game;
 
-import city.cs.engine.*;
-
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /** The main game entry point. */
 public class Game {
     /** Initialise a new game. */
     public Game() {
         // Empty game world
-        GameWorld world = new GameWorld();
-
+        GameWorld arena = new GameWorld();
         // Game view
-        GameView view = new GameView(world, 750, 500);
-        // Optional: 1-meter grid
-        // view.setGridResolution(1);
+        GameView view = new GameView(arena, 750, 500);
+        view.setGridResolution(1);
+
+        // Character controller
+        CharacterController controller = new CharacterController(arena.getPlayer1(), 5, 3);
+        view.addKeyListener(controller);
 
         // Java window with game view
-        final JFrame frame = new JFrame("Heroes Versus");
+        final JFrame frame = new JFrame("HeroVersus");
         frame.add(view);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationByPlatform(true);
@@ -28,7 +28,8 @@ public class Game {
 
         // JFrame debugView = new DebugViewer(world, 500, 500);
 
-        world.start();
+        arena.start();
+        view.requestFocus();
     }
 
     /** Run the game. */
