@@ -1,5 +1,7 @@
 package game;
 
+import city.cs.engine.DebugViewer;
+
 import javax.swing.*;
 
 /** The main game entry point. */
@@ -26,7 +28,7 @@ public class Game {
         frame.pack();
         frame.setVisible(true);
 
-        // JFrame debugView = new DebugViewer(world, 500, 500);
+        JFrame debugView = new DebugViewer(arena, 800, 600);
 
         arena.start();
         view.requestFocus();
