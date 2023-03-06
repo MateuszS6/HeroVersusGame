@@ -9,11 +9,11 @@ public class Game {
         // Empty game world
         GameWorld arena = new GameWorld();
         // Game view
-        GameView view = new GameView(arena, 750, 500);
+        GameView view = new GameView(arena, 800, 600);
         view.setGridResolution(1);
 
         // Character controller
-        CharacterController controller = new CharacterController(arena.getPlayer1(), 5, 3);
+        CharacterController controller = new CharacterController(arena.getPlayer1(), 5, 5);
         view.addKeyListener(controller);
 
         // Java window with game view
