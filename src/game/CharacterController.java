@@ -3,7 +3,6 @@ package game;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-/** Game controller class. */
 public class CharacterController implements KeyListener {
     private final Player player;
     private final float RUN_SPEED;

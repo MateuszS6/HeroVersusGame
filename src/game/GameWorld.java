@@ -5,7 +5,6 @@ import city.cs.engine.StaticBody;
 import city.cs.engine.World;
 import org.jbox2d.common.Vec2;
 
-/** Game world class. */
 public class GameWorld extends World {
     private Player player1;
     private Player player2;

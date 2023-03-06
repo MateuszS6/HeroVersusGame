@@ -4,7 +4,7 @@ import city.cs.engine.DebugViewer;
 
 import javax.swing.*;
 
-/** The main game entry point. */
+/** Main game entry point. */
 public class Game {
     /** Initialise a new game. */
     public Game() {
