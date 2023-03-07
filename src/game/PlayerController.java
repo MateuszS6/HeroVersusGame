@@ -3,16 +3,16 @@ package game;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class CharacterController implements KeyListener {
+public class PlayerController implements KeyListener {
     private final Player player;
-    private final float RUN_SPEED;
-    private final float JUMP_SPEED;
+    private float runningSpeed;
+    private float jumpingSpeed;
 
     /** Initialise the game controller. */
-    public CharacterController(Player player, float runSpeed, float jumpSpeed) {
+    public PlayerController(Player player) {
         this.player = player;
-        RUN_SPEED = runSpeed;
-        JUMP_SPEED = jumpSpeed;
+        runningSpeed = player.getCharacter().getRunningSpeed();
+        jumpingSpeed = player.getCharacter().getJumpingSpeed();
     }
 
     @Override
@@ -22,9 +22,9 @@ public class CharacterController implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        if (key == KeyEvent.VK_LEFT) player.startWalking(-RUN_SPEED);
-        if (key == KeyEvent.VK_RIGHT) player.startWalking(RUN_SPEED);
-        if (key == KeyEvent.VK_UP) player.jump(JUMP_SPEED);
+        if (key == KeyEvent.VK_LEFT) player.startWalking(-runningSpeed);
+        if (key == KeyEvent.VK_RIGHT) player.startWalking(runningSpeed);
+        if (key == KeyEvent.VK_UP) player.jump(jumpingSpeed);
     }
 
     @Override

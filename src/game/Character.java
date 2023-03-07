@@ -1,10 +1,12 @@
 package game;
 
 import city.cs.engine.BodyImage;
-import city.cs.engine.BoxShape;
+import city.cs.engine.PolygonShape;
 
 public interface Character {
-    BoxShape getShape();
+    PolygonShape getShape();
     BodyImage getImage();
+    float getRunningSpeed();
+    float getJumpingSpeed();
     void attack();
 }

@@ -15,7 +15,7 @@ public class Game {
         view.setGridResolution(1);
 
         // Character controller
-        CharacterController controller = new CharacterController(arena.getPlayer1(), 5, 5);
+        PlayerController controller = new PlayerController(arena.getPlayer1());
         view.addKeyListener(controller);
 
         // Java window with game view

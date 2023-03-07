@@ -1,18 +1,15 @@
 package game;
-import javax.swing.JPanel;
-import javax.swing.JFrame;
-import javax.swing.ImageIcon;
-import java.awt.Image;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Color;
-import java.awt.Point;
-import java.awt.RenderingHints;
-import java.awt.event.*;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Very basic polygon editor.
@@ -241,7 +238,7 @@ public class PolygonEditor extends JPanel
      * @param args command line arguments.
      */
     public static void main(String[] args) {
-        String fileName = "data/student.png";
+        String fileName = "assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Idle.gif";
         float boxHeight = 4.0f;
         int firstCoordIndex = 0;
         if (args.length > 0) {
