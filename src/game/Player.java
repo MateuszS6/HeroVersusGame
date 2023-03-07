@@ -10,7 +10,7 @@ public class Player extends Walker {
     public Player(World world, Character character) {
         super(world, character.getShape());
         this.character = character;
-        addImage(this.character.getImage());
+        addImage(character.getImage());
     }
 
     public Character getCharacter() {
