@@ -5,6 +5,7 @@ import city.cs.engine.World;
 
 public class Player extends Walker {
     private Character character;
+    private Keybindings keybindings;
 
     /** Initialise a player. */
     public Player(World world, Character character) {
@@ -15,5 +16,13 @@ public class Player extends Walker {
 
     public Character getCharacter() {
         return character;
+    }
+
+    public Keybindings getKeybindings() {
+        return keybindings;
+    }
+
+    public void setKeybindings(Keybindings keybindings) {
+        this.keybindings = keybindings;
     }
 }
