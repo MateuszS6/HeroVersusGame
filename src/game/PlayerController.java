@@ -29,20 +29,26 @@ public class PlayerController implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
+
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        if (key == keyMap.get(player.getKeybindings().jumpKey)) player.jump(jumpingSpeed);
-        if (key == keyMap.get(player.getKeybindings().leftKey)) player.startWalking(-runningSpeed);
-        if (key == keyMap.get(player.getKeybindings().rightKey)) player.startWalking(runningSpeed);
+        if (key == keyMap.get(player.getKeybindings().jumpKey))
+            player.jump(jumpingSpeed);
+        else if (key == keyMap.get(player.getKeybindings().leftKey))
+            player.startWalking(-runningSpeed);
+        else if (key == keyMap.get(player.getKeybindings().rightKey))
+            player.startWalking(runningSpeed);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
-        if (key == keyMap.get(player.getKeybindings().leftKey)) player.stopWalking();
-        if (key == keyMap.get(player.getKeybindings().rightKey)) player.stopWalking();
+        if (key == keyMap.get(player.getKeybindings().leftKey))
+            player.stopWalking();
+        else if (key == keyMap.get(player.getKeybindings().rightKey))
+            player.stopWalking();
     }
 }

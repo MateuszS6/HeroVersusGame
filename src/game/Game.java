@@ -12,7 +12,11 @@ public class Game {
         GameWorld arena = new GameWorld();
         // Game view
         GameView view = new GameView(arena, 800, 600);
-        view.setGridResolution(1);
+        // view.setGridResolution(1);
+
+        // View focus
+        GiveFocus viewFocus = new GiveFocus(view);
+        view.addMouseListener(viewFocus);
 
         // Player controllers and keybindings
         PlayerController controller1 = new PlayerController(arena.getPlayer1());
@@ -35,7 +39,6 @@ public class Game {
         JFrame debugView = new DebugViewer(arena, 800, 600);
 
         arena.start();
-        view.requestFocus();
     }
 
     /** Run the game. */
