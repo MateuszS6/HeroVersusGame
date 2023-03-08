@@ -14,9 +14,11 @@ public class Game {
         GameView view = new GameView(arena, 800, 600);
         view.setGridResolution(1);
 
-        // Player controls
-        PlayerController controller = new PlayerController(arena.getPlayer1());
-        view.addKeyListener(controller);
+        // Player controllers and keybindings
+        PlayerController controller1 = new PlayerController(arena.getPlayer1());
+        PlayerController controller2 = new PlayerController(arena.getPlayer2());
+        view.addKeyListener(controller1);
+        view.addKeyListener(controller2);
         arena.getPlayer1().setKeybindings(new Keybindings("w", "a", "d"));
         arena.getPlayer2().setKeybindings(new Keybindings());
 
