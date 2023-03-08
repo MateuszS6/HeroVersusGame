@@ -27,11 +27,11 @@ public class GameWorld extends World {
 
         // Player 1
         player1 = new Player(this, new Knight());
-        player1.setPosition(new Vec2(8, -9));
+        player1.setPosition(new Vec2(2, -6));
 
         // Player 2
         player2 = new Player(this, new Skeleton());
-        player2.setPosition(new Vec2(-8, 9));
+        player2.setPosition(new Vec2(-8, 0));
     }
 
     public Player getPlayer1() {
