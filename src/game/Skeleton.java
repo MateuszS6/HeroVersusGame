@@ -22,7 +22,6 @@ public class Skeleton implements Character {
         return shape;
     }
 
-    @Override
     public BodyImage getImage() {
         return image;
     }
@@ -35,9 +34,5 @@ public class Skeleton implements Character {
     @Override
     public float getJumpingSpeed() {
         return JUMPING_SPEED;
-    }
-
-    @Override
-    public void attack() {
     }
 }

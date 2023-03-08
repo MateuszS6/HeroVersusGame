@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PlayerController implements KeyListener {
-    private final Player player;
-    private final float runningSpeed;
-    private final float jumpingSpeed;
-    private static final Map<String, Integer> keyMap = new HashMap<>();
+    private Player player;
+    private float runningSpeed;
+    private float jumpingSpeed;
+    private static final Map<String, Integer> KEY_MAP = new HashMap<>();
 
     /** Initialise the game controller. */
     public PlayerController(Player player) {
@@ -19,12 +19,12 @@ public class PlayerController implements KeyListener {
     }
 
     static {
-        keyMap.put("w", KeyEvent.VK_W);
-        keyMap.put("a", KeyEvent.VK_A);
-        keyMap.put("d", KeyEvent.VK_D);
-        keyMap.put("up", KeyEvent.VK_UP);
-        keyMap.put("left", KeyEvent.VK_LEFT);
-        keyMap.put("right", KeyEvent.VK_RIGHT);
+        KEY_MAP.put("w", KeyEvent.VK_W);
+        KEY_MAP.put("a", KeyEvent.VK_A);
+        KEY_MAP.put("d", KeyEvent.VK_D);
+        KEY_MAP.put("up", KeyEvent.VK_UP);
+        KEY_MAP.put("left", KeyEvent.VK_LEFT);
+        KEY_MAP.put("right", KeyEvent.VK_RIGHT);
     }
 
     @Override
@@ -35,20 +35,20 @@ public class PlayerController implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        if (key == keyMap.get(player.getKeybindings().jumpKey))
+        if (key == KEY_MAP.get(player.getKeybindings().jumpKey))
             player.jump(jumpingSpeed);
-        else if (key == keyMap.get(player.getKeybindings().leftKey))
+        else if (key == KEY_MAP.get(player.getKeybindings().leftKey))
             player.startWalking(-runningSpeed);
-        else if (key == keyMap.get(player.getKeybindings().rightKey))
+        else if (key == KEY_MAP.get(player.getKeybindings().rightKey))
             player.startWalking(runningSpeed);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
-        if (key == keyMap.get(player.getKeybindings().leftKey))
+        if (key == KEY_MAP.get(player.getKeybindings().leftKey))
             player.stopWalking();
-        else if (key == keyMap.get(player.getKeybindings().rightKey))
+        else if (key == KEY_MAP.get(player.getKeybindings().rightKey))
             player.stopWalking();
     }
 }
