@@ -7,15 +7,18 @@ import java.util.Map;
 
 public class PlayerController implements KeyListener {
     private final Player player;
-    private float runningSpeed;
-    private float jumpingSpeed;
-    private static Map<String, Integer> keyMap = new HashMap<>();
+    private final float runningSpeed;
+    private final float jumpingSpeed;
+    private static final Map<String, Integer> keyMap = new HashMap<>();
 
     /** Initialise the game controller. */
     public PlayerController(Player player) {
         this.player = player;
         runningSpeed = player.getCharacter().getRunningSpeed();
         jumpingSpeed = player.getCharacter().getJumpingSpeed();
+    }
+
+    static {
         keyMap.put("w", KeyEvent.VK_W);
         keyMap.put("a", KeyEvent.VK_A);
         keyMap.put("d", KeyEvent.VK_D);
