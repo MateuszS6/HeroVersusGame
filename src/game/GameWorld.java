@@ -5,21 +5,25 @@ import city.cs.engine.StaticBody;
 import city.cs.engine.World;
 import org.jbox2d.common.Vec2;
 
+import java.awt.*;
+
 public class GameWorld extends World {
-    private Player player1;
-    private Player player2;
+    private final Player player1;
+    private final Player player2;
 
     /** Initialise the game world. */
     public GameWorld() {
-        // Ground
-        BoxShape shape = new BoxShape(18, 1.5f);
-        StaticBody ground = new StaticBody(this, shape);
-        ground.setPosition(new Vec2(0, -11.5f));
+        // Stage
+        BoxShape stageShape = new BoxShape(7, 0.5f);
+        StaticBody stage = new StaticBody(this, stageShape);
+        stage.setPosition(new Vec2(0, -11.5f));
+        stage.setFillColor(new Color(0, true));
+        stage.setLineColor(new Color(0, true));
 
         // Suspended platform
         BoxShape platformShape = new BoxShape(2.5f, 0.5f);
-        StaticBody platform1 = new StaticBody(this, platformShape);
-        platform1.setPosition(new Vec2(-7.5f, -5.5f));
+        StaticBody platform = new StaticBody(this, platformShape);
+        platform.setPosition(new Vec2(-7.5f, -5.5f));
 
         // Player 1
         player1 = new Player(this, new Knight());
