@@ -18,6 +18,7 @@ public class Game {
         PlayerController controller = new PlayerController(arena.getPlayer1());
         view.addKeyListener(controller);
         arena.getPlayer1().setKeybindings(new Keybindings("a", "d", "w"));
+        arena.getPlayer2().setKeybindings(new Keybindings("left", "right", "up"));
 
         // Java window with game view
         final JFrame frame = new JFrame("HeroVersus");

@@ -21,9 +21,13 @@ public class GameWorld extends World {
         StaticBody platform1 = new StaticBody(this, platformShape);
         platform1.setPosition(new Vec2(-7.5f, -5.5f));
 
-        // Character
+        // Player 1
         player1 = new Player(this, new Knight());
         player1.setPosition(new Vec2(8, -9));
+
+        // Player 2
+        player2 = new Player(this, new Skeleton());
+        player2.setPosition(new Vec2(-8, 9));
     }
 
     public Player getPlayer1() {
