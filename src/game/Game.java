@@ -12,7 +12,7 @@ public class Game {
         GameWorld arena = new GameWorld();
         // Game view
         GameView view = new GameView(arena, 800, 600);
-        view.setGridResolution(1);
+        // view.setGridResolution(1);
 
         // Player controls
         PlayerController controller = new PlayerController(arena.getPlayer1());
