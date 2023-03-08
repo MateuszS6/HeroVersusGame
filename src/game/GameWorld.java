@@ -16,7 +16,7 @@ public class GameWorld extends World {
         // Stage
         BoxShape stageShape = new BoxShape(7, 0.5f);
         StaticBody stage = new StaticBody(this, stageShape);
-        stage.setPosition(new Vec2(0, -11.5f));
+        stage.setPosition(new Vec2(0, -12));
         stage.setFillColor(new Color(0, true));
         stage.setLineColor(new Color(0, true));
 
@@ -27,11 +27,11 @@ public class GameWorld extends World {
 
         // Player 1
         player1 = new Player(this, new Knight());
-        player1.setPosition(new Vec2(2, -6));
+        player1.setPosition(new Vec2(-3, -9.5f));
 
         // Player 2
         player2 = new Player(this, new Skeleton());
-        player2.setPosition(new Vec2(-8, 0));
+        player2.setPosition(new Vec2(3, -9.5f));
     }
 
     public Player getPlayer1() {

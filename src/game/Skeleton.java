@@ -5,17 +5,17 @@ import city.cs.engine.PolygonShape;
 
 public class Skeleton implements Character {
     private final PolygonShape shape = new PolygonShape(
-            -1.48f, -2.42f,
-            0.18f, -2.39f,
-            1.08f, -0.52f,
-            0.04f, 1.68f,
-            -1.08f, 1.14f,
-            -1.76f, -0.66f,
-            -1.55f, -2.24f);
+            -1.23f, -2.02f,
+            -0.12f, -2.02f,
+            0.78f, -0.46f,
+            -0.03f, 1.13f,
+            -0.84f, 1.13f,
+            -1.62f, -0.58f,
+            -1.32f, -1.9f);
     private final BodyImage image = new BodyImage(
-            "assets/Skeleton/GIFS/Idle2.gif", 12);
+            "assets/Skeleton/GIFS/Idle2.gif", 10);
     private static final float RUNNING_SPEED = 5;
-    private static final float JUMPING_SPEED = 5;
+    private static final float JUMPING_SPEED = 10;
 
     @Override
     public PolygonShape getShape() {

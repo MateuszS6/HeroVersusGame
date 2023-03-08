@@ -241,7 +241,7 @@ public class PolygonEditor extends JPanel
         String knight = "assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Idle.gif";
         String skeleton = "assets/Skeleton/GIFS/Idle2.gif";
         String fileName = skeleton;
-        float boxHeight = 12;
+        float boxHeight = 10;
         int firstCoordIndex = 0;
         if (args.length > 0) {
             try {

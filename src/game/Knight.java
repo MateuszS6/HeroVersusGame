@@ -15,7 +15,7 @@ public class Knight implements Character {
     private final BodyImage image = new BodyImage(
             "assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Idle.gif", 8);
     private static final float RUNNING_SPEED = 5;
-    private static final float JUMPING_SPEED = 5;
+    private static final float JUMPING_SPEED = 10;
 
     @Override
     public PolygonShape getShape() {
