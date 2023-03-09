@@ -1,5 +1,6 @@
 package game;
 
+import city.cs.engine.SolidFixture;
 import city.cs.engine.Walker;
 import city.cs.engine.World;
 
@@ -13,6 +14,8 @@ public class Player extends Walker {
         super(world, character.getDefaultShape());
         this.character = character;
         isFacingRight = startFacingRight;
+        SolidFixture fixture = new SolidFixture(this, character.getDefaultShape());
+        fixture.setFriction(70);
         if (isFacingRight)
             addImage(character.getIdleRightImage());
         else
