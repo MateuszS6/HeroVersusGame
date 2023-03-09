@@ -13,22 +13,22 @@ public class Knight implements Character {
             -1.63f, -2.22f,
             -1.34f, -3.94f);
     private final BodyImage IDLE_LEFT_IMG =
-            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Idle.gif", 8);
+            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_idle.gif", 8);
     private final BodyImage IDLE_RIGHT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Idle.gif", 8);
     private final BodyImage JUMPING_LEFT_IMG =
-            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Jump.gif", 8);
+            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_jump.gif", 8);
     private final BodyImage JUMPING_RIGHT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Jump.gif", 8);
     private final BodyImage RUNNING_LEFT_IMG =
-            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Run.gif", 8);
+            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_run.gif", 8);
     private final BodyImage RUNNING_RIGHT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Run.gif", 8);
     private final BodyImage ATTACK_LEFT_IMG =
-            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__AttackCombo2hit.gif", 8);
+            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_attack.gif", 8);
     private final BodyImage ATTACK_RIGHT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__AttackCombo2hit.gif", 8);
-    private static final float RUNNING_SPEED = 5;
+    private static final float RUNNING_SPEED = 6;
     private static final float JUMPING_SPEED = 10;
 
     @Override
