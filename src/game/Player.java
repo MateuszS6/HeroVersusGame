@@ -10,7 +10,7 @@ public class Player extends Walker {
 
     /** Initialise a player. */
     public Player(World world, Character character, boolean startFacingRight) {
-        super(world, character.getShape());
+        super(world, character.getDefaultShape());
         this.character = character;
         isFacingRight = startFacingRight;
         if (isFacingRight)

@@ -4,7 +4,7 @@ import city.cs.engine.BodyImage;
 import city.cs.engine.PolygonShape;
 
 public interface Character {
-    PolygonShape getShape();
+    PolygonShape getDefaultShape();
     BodyImage getIdleLeftImage();
     BodyImage getIdleRightImage();
     BodyImage getJumpingLeftImage();

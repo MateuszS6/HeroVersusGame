@@ -4,14 +4,14 @@ import city.cs.engine.BodyImage;
 import city.cs.engine.PolygonShape;
 
 public class Skeleton implements Character {
-    private final PolygonShape shape = new PolygonShape(
-            -1.23f, -2.02f,
-            -0.12f, -2.02f,
-            0.78f, -0.46f,
-            -0.03f, 1.13f,
-            -0.84f, 1.13f,
-            -1.62f, -0.58f,
-            -1.32f, -1.9f);
+    private final PolygonShape defaultShape = new PolygonShape(
+            -0.6f, -2.05f,
+            0.75f, -2.08f,
+            1.23f, -0.58f,
+            0.6f, 1.19f,
+            -0.6f, 1.19f,
+            -1.05f, -0.58f,
+            -0.72f, -1.96f);
     private final BodyImage IDLE_LEFT_IMG = new BodyImage(
             "assets/Skeleton/120x80_gifs/left_idle.gif", 10);
     private final BodyImage IDLE_RIGHT_IMG = new BodyImage(
@@ -30,8 +30,8 @@ public class Skeleton implements Character {
     private static final float JUMPING_SPEED = 10;
 
     @Override
-    public PolygonShape getShape() {
-        return shape;
+    public PolygonShape getDefaultShape() {
+        return defaultShape;
     }
 
     @Override

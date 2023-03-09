@@ -4,14 +4,13 @@ import city.cs.engine.BodyImage;
 import city.cs.engine.PolygonShape;
 
 public class Knight implements Character {
-    private final PolygonShape shape = new PolygonShape(
-            -1.3f, -4.04f,
-            0.31f, -4.04f,
-            0.46f, -2.29f,
-            -0.1f, -0.32f,
-            -0.7f, -0.32f,
-            -1.63f, -2.22f,
-            -1.34f, -3.94f);
+    private final PolygonShape defaultShape = new PolygonShape(
+            -0.22f, -0.01f,
+            1.25f, -2.02f,
+            0.5f, -4.09f,
+            -1.06f, -4.09f,
+            -1.8f, -2.02f,
+            -0.36f, -0.1f);
     private final BodyImage IDLE_LEFT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_idle.gif", 8);
     private final BodyImage IDLE_RIGHT_IMG =
@@ -32,8 +31,8 @@ public class Knight implements Character {
     private static final float JUMPING_SPEED = 10;
 
     @Override
-    public PolygonShape getShape() {
-        return shape;
+    public PolygonShape getDefaultShape() {
+        return defaultShape;
     }
 
     @Override
