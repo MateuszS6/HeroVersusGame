@@ -16,6 +16,16 @@ public class Skeleton implements Character {
             "assets/Skeleton/GIFS/Idle2.gif", 10);
     private final BodyImage IDLE_RIGHT_IMG = new BodyImage(
             "assets/Skeleton/GIFS/Idle2.gif", 10);
+    private final BodyImage JUMPING_LEFT_IMG = IDLE_LEFT_IMG;
+    private final BodyImage JUMPING_RIGHT_IMG = IDLE_RIGHT_IMG;
+    private final BodyImage RUNNING_LEFT_IMG =
+            new BodyImage("assets/Skeleton/GIFS/Walk.gif", 10);
+    private final BodyImage RUNNING_RIGHT_IMG =
+            new BodyImage("assets/Skeleton/GIFS/Walk.gif", 10);
+    private final BodyImage ATTACK_LEFT_IMG =
+            new BodyImage("assets/Skeleton/GIFS/Attack.gif", 10);
+    private final BodyImage ATTACK_RIGHT_IMG =
+            new BodyImage("assets/Skeleton/GIFS/Attack.gif", 10);
     private static final float RUNNING_SPEED = 5;
     private static final float JUMPING_SPEED = 10;
 
@@ -36,32 +46,32 @@ public class Skeleton implements Character {
 
     @Override
     public BodyImage getJumpingLeftImage() {
-        return null;
+        return JUMPING_LEFT_IMG;
     }
 
     @Override
     public BodyImage getJumpingRightImage() {
-        return null;
+        return JUMPING_RIGHT_IMG;
     }
 
     @Override
     public BodyImage getRunningLeftImage() {
-        return null;
+        return RUNNING_LEFT_IMG;
     }
 
     @Override
     public BodyImage getRunningRightImage() {
-        return null;
+        return RUNNING_RIGHT_IMG;
     }
 
     @Override
     public BodyImage getAttackLeftImage() {
-        return null;
+        return ATTACK_LEFT_IMG;
     }
 
     @Override
     public BodyImage getAttackRightImage() {
-        return null;
+        return ATTACK_RIGHT_IMG;
     }
 
     @Override
