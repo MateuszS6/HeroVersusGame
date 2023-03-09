@@ -4,7 +4,7 @@ import city.cs.engine.BodyImage;
 import city.cs.engine.PolygonShape;
 
 public class Skeleton implements Character {
-    private final PolygonShape defaultShape = new PolygonShape(
+    private final PolygonShape DEFAULT_SHAPE = new PolygonShape(
             -0.6f, -2.05f,
             0.75f, -2.08f,
             1.23f, -0.58f,
@@ -12,12 +12,16 @@ public class Skeleton implements Character {
             -0.6f, 1.19f,
             -1.05f, -0.58f,
             -0.72f, -1.96f);
-    private final BodyImage IDLE_LEFT_IMG = new BodyImage(
-            "assets/Skeleton/120x80_gifs/left_idle.gif", 10);
-    private final BodyImage IDLE_RIGHT_IMG = new BodyImage(
-            "assets/Skeleton/120x80_gifs/right_idle.gif", 10);
-    private final BodyImage JUMPING_LEFT_IMG = IDLE_LEFT_IMG;
-    private final BodyImage JUMPING_RIGHT_IMG = IDLE_RIGHT_IMG;
+    private final PolygonShape ATTACK_LEFT_SHAPE = new PolygonShape();
+    private final PolygonShape ATTACK_RIGHT_SHAPE = new PolygonShape();
+    private final BodyImage IDLE_LEFT_IMG =
+            new BodyImage("assets/Skeleton/120x80_gifs/left_idle.gif", 10);
+    private final BodyImage IDLE_RIGHT_IMG =
+            new BodyImage("assets/Skeleton/120x80_gifs/right_idle.gif", 10);
+    private final BodyImage JUMPING_LEFT_IMG =
+            IDLE_LEFT_IMG;
+    private final BodyImage JUMPING_RIGHT_IMG =
+            IDLE_RIGHT_IMG;
     private final BodyImage RUNNING_LEFT_IMG =
             new BodyImage("assets/Skeleton/120x80_gifs/left_walk.gif", 10);
     private final BodyImage RUNNING_RIGHT_IMG =
@@ -31,7 +35,17 @@ public class Skeleton implements Character {
 
     @Override
     public PolygonShape getDefaultShape() {
-        return defaultShape;
+        return DEFAULT_SHAPE;
+    }
+
+    @Override
+    public PolygonShape getAttackLeftShape() {
+        return ATTACK_LEFT_SHAPE;
+    }
+
+    @Override
+    public PolygonShape getAttackRightShape() {
+        return ATTACK_RIGHT_SHAPE;
     }
 
     @Override

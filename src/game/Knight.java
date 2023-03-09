@@ -4,13 +4,15 @@ import city.cs.engine.BodyImage;
 import city.cs.engine.PolygonShape;
 
 public class Knight implements Character {
-    private final PolygonShape defaultShape = new PolygonShape(
+    private final PolygonShape DEFAULT_SHAPE = new PolygonShape(
             -0.22f, -0.01f,
             1.25f, -2.02f,
             0.5f, -4.09f,
             -1.06f, -4.09f,
             -1.8f, -2.02f,
             -0.36f, -0.1f);
+    private final PolygonShape ATTACK_LEFT_SHAPE = new PolygonShape();
+    private final PolygonShape ATTACK_RIGHT_SHAPE = new PolygonShape();
     private final BodyImage IDLE_LEFT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_idle.gif", 8);
     private final BodyImage IDLE_RIGHT_IMG =
@@ -32,7 +34,17 @@ public class Knight implements Character {
 
     @Override
     public PolygonShape getDefaultShape() {
-        return defaultShape;
+        return DEFAULT_SHAPE;
+    }
+
+    @Override
+    public PolygonShape getAttackLeftShape() {
+        return ATTACK_LEFT_SHAPE;
+    }
+
+    @Override
+    public PolygonShape getAttackRightShape() {
+        return ATTACK_RIGHT_SHAPE;
     }
 
     @Override
