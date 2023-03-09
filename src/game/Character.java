@@ -6,7 +6,8 @@ import city.cs.engine.PolygonShape;
 
 public interface Character {
     PolygonShape getDefaultShape();
-    CircleShape getAttackAreaShape();
+    CircleShape getAttackLeftShape();
+    CircleShape getAttackRightShape();
     BodyImage getIdleLeftImage();
     BodyImage getIdleRightImage();
     BodyImage getJumpingLeftImage();
