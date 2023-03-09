@@ -71,18 +71,24 @@ public class PlayerController implements KeyListener {
                 player.addImage(jumpingLeftImg);
             }
             player.jump(jumpingSpeed);
-        }
-        else if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) {
+        } else if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) {
             player.setFacingRight(false);
             player.removeAllImages();
             player.addImage(runningLeftImg);
             player.startWalking(-runningSpeed);
-        }
-        else if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) {
+        } else if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) {
             player.setFacingRight(true);
             player.removeAllImages();
             player.addImage(runningRightImg);
             player.startWalking(runningSpeed);
+        } else if (key == KEY_MAP.get(player.getKeyBindings().attackKey)) {
+            if (player.isFacingRight()) {
+                player.removeAllImages();
+                player.addImage(attackRightImg);
+            } else {
+                player.removeAllImages();
+                player.addImage(attackLeftImg);
+            }
         }
     }
 
@@ -97,16 +103,22 @@ public class PlayerController implements KeyListener {
                 player.removeAllImages();
                 player.addImage(idleLeftImg);
             }
-        }
-        else if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) {
+        } else if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) {
             player.removeAllImages();
             player.addImage(idleLeftImg);
             player.stopWalking();
-        }
-        else if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) {
+        } else if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) {
             player.removeAllImages();
             player.addImage(idleRightImg);
             player.stopWalking();
+        } else if (key == KEY_MAP.get(player.getKeyBindings().attackKey)) {
+            if (player.isFacingRight()) {
+                player.removeAllImages();
+                player.addImage(idleRightImg);
+            } else {
+                player.removeAllImages();
+                player.addImage(idleLeftImg);
+            }
         }
     }
 }
