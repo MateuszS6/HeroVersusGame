@@ -56,17 +56,24 @@ public class PlayerController implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         if (key == KEY_MAP.get(player.getKeybindings().jumpKey)) {
-            if (player.isFacingRight())
+            if (player.isFacingRight()) {
+                player.removeAllImages();
                 player.addImage(jumpingRightImg);
-            else
+            } else {
+                player.removeAllImages();
                 player.addImage(jumpingLeftImg);
+            }
             player.jump(jumpingSpeed);
         }
         else if (key == KEY_MAP.get(player.getKeybindings().leftKey)) {
+            player.setFacingRight(false);
+            player.removeAllImages();
             player.addImage(runningLeftImg);
             player.startWalking(-runningSpeed);
         }
         else if (key == KEY_MAP.get(player.getKeybindings().rightKey)) {
+            player.setFacingRight(true);
+            player.removeAllImages();
             player.addImage(runningRightImg);
             player.startWalking(runningSpeed);
         }
@@ -76,16 +83,21 @@ public class PlayerController implements KeyListener {
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
         if (key == KEY_MAP.get(player.getKeybindings().jumpKey)) {
-            if (player.isFacingRight())
+            if (player.isFacingRight()) {
+                player.removeAllImages();
                 player.addImage(idleRightImg);
-            else
+            } else {
+                player.removeAllImages();
                 player.addImage(idleLeftImg);
+            }
         }
         else if (key == KEY_MAP.get(player.getKeybindings().leftKey)) {
+            player.removeAllImages();
             player.addImage(idleLeftImg);
             player.stopWalking();
         }
         else if (key == KEY_MAP.get(player.getKeybindings().rightKey)) {
+            player.removeAllImages();
             player.addImage(idleRightImg);
             player.stopWalking();
         }
