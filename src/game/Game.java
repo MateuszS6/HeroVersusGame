@@ -23,8 +23,8 @@ public class Game {
         PlayerController controller2 = new PlayerController(arena.getPlayer2());
         view.addKeyListener(controller1);
         view.addKeyListener(controller2);
-        arena.getPlayer1().setKeybindings(new Keybindings("w", "a", "d"));
-        arena.getPlayer2().setKeybindings(new Keybindings());
+        arena.getPlayer1().setKeyBindings(new KeyBindings("w", "a", "d", "r"));
+        arena.getPlayer2().setKeyBindings(new KeyBindings());
 
         // Java window with game view
         final JFrame frame = new JFrame("HeroVersus");

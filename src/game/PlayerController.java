@@ -39,12 +39,19 @@ public class PlayerController implements KeyListener {
     }
 
     static {
+        // Player 1
         KEY_MAP.put("w", KeyEvent.VK_W);
         KEY_MAP.put("a", KeyEvent.VK_A);
         KEY_MAP.put("d", KeyEvent.VK_D);
+        KEY_MAP.put("r", KeyEvent.VK_R);
+        KEY_MAP.put("lShift", KeyEvent.KEY_LOCATION_LEFT);
+
+        // Player 2
         KEY_MAP.put("up", KeyEvent.VK_UP);
         KEY_MAP.put("left", KeyEvent.VK_LEFT);
         KEY_MAP.put("right", KeyEvent.VK_RIGHT);
+        KEY_MAP.put("#", KeyEvent.VK_NUMBER_SIGN);
+        KEY_MAP.put("rShift", KeyEvent.KEY_LOCATION_RIGHT);
     }
 
     @Override
@@ -55,7 +62,7 @@ public class PlayerController implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        if (key == KEY_MAP.get(player.getKeybindings().jumpKey)) {
+        if (key == KEY_MAP.get(player.getKeyBindings().jumpKey)) {
             if (player.isFacingRight()) {
                 player.removeAllImages();
                 player.addImage(jumpingRightImg);
@@ -65,13 +72,13 @@ public class PlayerController implements KeyListener {
             }
             player.jump(jumpingSpeed);
         }
-        else if (key == KEY_MAP.get(player.getKeybindings().leftKey)) {
+        else if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) {
             player.setFacingRight(false);
             player.removeAllImages();
             player.addImage(runningLeftImg);
             player.startWalking(-runningSpeed);
         }
-        else if (key == KEY_MAP.get(player.getKeybindings().rightKey)) {
+        else if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) {
             player.setFacingRight(true);
             player.removeAllImages();
             player.addImage(runningRightImg);
@@ -82,7 +89,7 @@ public class PlayerController implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
-        if (key == KEY_MAP.get(player.getKeybindings().jumpKey)) {
+        if (key == KEY_MAP.get(player.getKeyBindings().jumpKey)) {
             if (player.isFacingRight()) {
                 player.removeAllImages();
                 player.addImage(idleRightImg);
@@ -91,12 +98,12 @@ public class PlayerController implements KeyListener {
                 player.addImage(idleLeftImg);
             }
         }
-        else if (key == KEY_MAP.get(player.getKeybindings().leftKey)) {
+        else if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) {
             player.removeAllImages();
             player.addImage(idleLeftImg);
             player.stopWalking();
         }
-        else if (key == KEY_MAP.get(player.getKeybindings().rightKey)) {
+        else if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) {
             player.removeAllImages();
             player.addImage(idleRightImg);
             player.stopWalking();

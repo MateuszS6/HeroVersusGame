@@ -1,20 +1,22 @@
 package game;
 
-public class Keybindings {
+public class KeyBindings {
     String jumpKey;
     String leftKey;
     String rightKey;
-    String attack;
+    String attackKey;
 
-    public Keybindings() {
+    public KeyBindings() {
         jumpKey = "up";
         leftKey = "left";
         rightKey = "right";
+        attackKey = "#";
     }
 
-    public Keybindings(String jump, String left, String right) {
+    public KeyBindings(String jump, String left, String right, String attack) {
         jumpKey = jump;
         leftKey = left;
         rightKey = right;
+        attackKey = attack;
     }
 }

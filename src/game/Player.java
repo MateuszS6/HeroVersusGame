@@ -5,7 +5,7 @@ import city.cs.engine.World;
 
 public class Player extends Walker {
     private Character character;
-    private Keybindings keybindings;
+    private KeyBindings keyBindings;
     private boolean isFacingRight;
 
     /** Initialise a player. */
@@ -23,12 +23,12 @@ public class Player extends Walker {
         return character;
     }
 
-    public Keybindings getKeybindings() {
-        return keybindings;
+    public KeyBindings getKeyBindings() {
+        return keyBindings;
     }
 
-    public void setKeybindings(Keybindings keybindings) {
-        this.keybindings = keybindings;
+    public void setKeyBindings(KeyBindings keybindings) {
+        this.keyBindings = keybindings;
     }
 
     public boolean isFacingRight() {
