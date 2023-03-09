@@ -1,6 +1,7 @@
 package game;
 
 import city.cs.engine.BodyImage;
+import city.cs.engine.CircleShape;
 import city.cs.engine.PolygonShape;
 
 public class Skeleton implements Character {
@@ -12,8 +13,7 @@ public class Skeleton implements Character {
             -0.6f, 1.19f,
             -1.05f, -0.58f,
             -0.72f, -1.96f);
-    private final PolygonShape ATTACK_LEFT_SHAPE = DEFAULT_SHAPE;
-    private final PolygonShape ATTACK_RIGHT_SHAPE = DEFAULT_SHAPE;
+    private final CircleShape ATTACK_AREA_SHAPE = new CircleShape(5);
     private final BodyImage IDLE_LEFT_IMG =
             new BodyImage("assets/Skeleton/120x80_gifs/left_idle.gif", 10);
     private final BodyImage IDLE_RIGHT_IMG =
@@ -39,13 +39,8 @@ public class Skeleton implements Character {
     }
 
     @Override
-    public PolygonShape getAttackLeftShape() {
-        return ATTACK_LEFT_SHAPE;
-    }
-
-    @Override
-    public PolygonShape getAttackRightShape() {
-        return ATTACK_RIGHT_SHAPE;
+    public CircleShape getAttackAreaShape() {
+        return ATTACK_AREA_SHAPE;
     }
 
     @Override

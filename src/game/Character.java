@@ -1,12 +1,12 @@
 package game;
 
 import city.cs.engine.BodyImage;
+import city.cs.engine.CircleShape;
 import city.cs.engine.PolygonShape;
 
 public interface Character {
     PolygonShape getDefaultShape();
-    PolygonShape getAttackLeftShape();
-    PolygonShape getAttackRightShape();
+    CircleShape getAttackAreaShape();
     BodyImage getIdleLeftImage();
     BodyImage getIdleRightImage();
     BodyImage getJumpingLeftImage();

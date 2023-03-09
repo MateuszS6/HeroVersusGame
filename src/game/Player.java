@@ -9,7 +9,7 @@ public class Player extends Walker {
     private Character character;
     private KeyBindings keyBindings;
     private boolean isFacingRight;
-    private GhostlyFixture attackLeftFixture
+    private GhostlyFixture attackArea;
 
     /** Initialise a player. */
     public Player(World world, Character character, boolean startFacingRight) {
@@ -18,6 +18,7 @@ public class Player extends Walker {
         isFacingRight = startFacingRight;
         SolidFixture fixture = new SolidFixture(this, character.getDefaultShape());
         fixture.setFriction(70);
+        attackArea = new GhostlyFixture(this, character.getAttackAreaShape());
         if (isFacingRight)
             addImage(character.getIdleRightImage());
         else
