@@ -1,5 +1,6 @@
 package game;
 
+import city.cs.engine.GhostlyFixture;
 import city.cs.engine.SolidFixture;
 import city.cs.engine.Walker;
 import city.cs.engine.World;
@@ -8,6 +9,7 @@ public class Player extends Walker {
     private Character character;
     private KeyBindings keyBindings;
     private boolean isFacingRight;
+    private GhostlyFixture attackLeftFixture
 
     /** Initialise a player. */
     public Player(World world, Character character, boolean startFacingRight) {

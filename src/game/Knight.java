@@ -11,8 +11,15 @@ public class Knight implements Character {
             -1.06f, -4.09f,
             -1.8f, -2.02f,
             -0.36f, -0.1f);
-    /* private final PolygonShape ATTACK_LEFT_SHAPE = new PolygonShape();
-    private final PolygonShape ATTACK_RIGHT_SHAPE = new PolygonShape(); */
+    private final PolygonShape ATTACK_LEFT_SHAPE = new PolygonShape(
+            0.41f, -4.06f,
+            0.74f, -2.26f,
+            -0.7f, -0.34f,
+            -2.98f, 0.74f,
+            -5.64f, -0.34f,
+            -5.62f, -4.04f,
+            0.24f, -4.06f);
+    private final PolygonShape ATTACK_RIGHT_SHAPE = DEFAULT_SHAPE;
     private final BodyImage IDLE_LEFT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_idle.gif", 8);
     private final BodyImage IDLE_RIGHT_IMG =
@@ -37,7 +44,7 @@ public class Knight implements Character {
         return DEFAULT_SHAPE;
     }
 
-    /* @Override
+    @Override
     public PolygonShape getAttackLeftShape() {
         return ATTACK_LEFT_SHAPE;
     }
@@ -45,7 +52,7 @@ public class Knight implements Character {
     @Override
     public PolygonShape getAttackRightShape() {
         return ATTACK_RIGHT_SHAPE;
-    } */
+    }
 
     @Override
     public BodyImage getIdleLeftImage() {
