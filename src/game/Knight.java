@@ -12,21 +12,21 @@ public class Knight implements Character {
             -0.7f, -0.32f,
             -1.63f, -2.22f,
             -1.34f, -3.94f);
-    private final BodyImage idleLeftImage =
+    private final BodyImage IDLE_LEFT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Idle.gif", 8);
-    private final BodyImage idleRightImage =
+    private final BodyImage IDLE_RIGHT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Idle.gif", 8);
-    private final BodyImage jumpingLeftImage =
+    private final BodyImage JUMPING_LEFT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Jump.gif", 8);
-    private final BodyImage jumpingRightImage =
+    private final BodyImage JUMPING_RIGHT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Jump.gif", 8);
-    private final BodyImage runningLeftImage =
-            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Run", 8);
-    private final BodyImage runningRightImage =
+    private final BodyImage RUNNING_LEFT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Run.gif", 8);
-    private final BodyImage attackLeftImage =
+    private final BodyImage RUNNING_RIGHT_IMG =
+            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Run.gif", 8);
+    private final BodyImage ATTACK_LEFT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__AttackCombo2hit.gif", 8);
-    private final BodyImage attackRightImage =
+    private final BodyImage ATTACK_RIGHT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__AttackCombo2hit.gif", 8);
     private static final float RUNNING_SPEED = 10;
     private static final float JUMPING_SPEED = 10;
@@ -38,42 +38,42 @@ public class Knight implements Character {
 
     @Override
     public BodyImage getIdleLeftImage() {
-        return idleLeftImage;
+        return IDLE_LEFT_IMG;
     }
 
     @Override
     public BodyImage getIdleRightImage() {
-        return idleRightImage;
+        return IDLE_RIGHT_IMG;
     }
 
     @Override
     public BodyImage getJumpingLeftImage() {
-        return jumpingLeftImage;
+        return JUMPING_LEFT_IMG;
     }
 
     @Override
     public BodyImage getJumpingRightImage() {
-        return jumpingRightImage;
+        return JUMPING_RIGHT_IMG;
     }
 
     @Override
     public BodyImage getRunningLeftImage() {
-        return runningLeftImage;
+        return RUNNING_LEFT_IMG;
     }
 
     @Override
     public BodyImage getRunningRightImage() {
-        return runningRightImage;
+        return RUNNING_RIGHT_IMG;
     }
 
     @Override
     public BodyImage getAttackLeftImage() {
-        return attackLeftImage;
+        return ATTACK_LEFT_IMG;
     }
 
     @Override
     public BodyImage getAttackRightImage() {
-        return attackRightImage;
+        return ATTACK_RIGHT_IMG;
     }
 
     @Override

@@ -9,14 +9,14 @@ public class Player extends Walker {
     private boolean isFacingRight;
 
     /** Initialise a player. */
-    public Player(World world, Character character, boolean isFacingRight) {
+    public Player(World world, Character character, boolean startFacingRight) {
         super(world, character.getShape());
         this.character = character;
+        isFacingRight = startFacingRight;
         if (isFacingRight)
             addImage(character.getIdleRightImage());
         else
             addImage(character.getIdleLeftImage());
-        this.isFacingRight = isFacingRight;
     }
 
     public Character getCharacter() {
@@ -29,5 +29,13 @@ public class Player extends Walker {
 
     public void setKeybindings(Keybindings keybindings) {
         this.keybindings = keybindings;
+    }
+
+    public boolean isFacingRight() {
+        return isFacingRight;
+    }
+
+    public void setFacingRight(boolean facingRight) {
+        isFacingRight = facingRight;
     }
 }

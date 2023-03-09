@@ -12,7 +12,9 @@ public class Skeleton implements Character {
             -0.84f, 1.13f,
             -1.62f, -0.58f,
             -1.32f, -1.9f);
-    private final BodyImage image = new BodyImage(
+    private final BodyImage IDLE_LEFT_IMG = new BodyImage(
+            "assets/Skeleton/GIFS/Idle2.gif", 10);
+    private final BodyImage IDLE_RIGHT_IMG = new BodyImage(
             "assets/Skeleton/GIFS/Idle2.gif", 10);
     private static final float RUNNING_SPEED = 5;
     private static final float JUMPING_SPEED = 10;
@@ -22,8 +24,44 @@ public class Skeleton implements Character {
         return shape;
     }
 
-    public BodyImage getImage() {
-        return image;
+    @Override
+    public BodyImage getIdleLeftImage() {
+        return IDLE_LEFT_IMG;
+    }
+
+    @Override
+    public BodyImage getIdleRightImage() {
+        return IDLE_RIGHT_IMG;
+    }
+
+    @Override
+    public BodyImage getJumpingLeftImage() {
+        return null;
+    }
+
+    @Override
+    public BodyImage getJumpingRightImage() {
+        return null;
+    }
+
+    @Override
+    public BodyImage getRunningLeftImage() {
+        return null;
+    }
+
+    @Override
+    public BodyImage getRunningRightImage() {
+        return null;
+    }
+
+    @Override
+    public BodyImage getAttackLeftImage() {
+        return null;
+    }
+
+    @Override
+    public BodyImage getAttackRightImage() {
+        return null;
     }
 
     @Override

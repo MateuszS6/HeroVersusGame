@@ -12,7 +12,7 @@ public interface Character {
     BodyImage getRunningLeftImage();
     BodyImage getRunningRightImage();
     BodyImage getAttackLeftImage();
-    BodyImage getAttackRightImage(;
+    BodyImage getAttackRightImage();
     float getRunningSpeed();
     float getJumpingSpeed();
 }
