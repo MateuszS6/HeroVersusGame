@@ -13,19 +13,19 @@ public class Skeleton implements Character {
             -1.62f, -0.58f,
             -1.32f, -1.9f);
     private final BodyImage IDLE_LEFT_IMG = new BodyImage(
-            "assets/Skeleton/GIFS/Idle2.gif", 10);
+            "assets/Skeleton/GIFS/left_idle.gif", 10);
     private final BodyImage IDLE_RIGHT_IMG = new BodyImage(
-            "assets/Skeleton/GIFS/Idle2.gif", 10);
+            "assets/Skeleton/GIFS/right_idle.gif", 10);
     private final BodyImage JUMPING_LEFT_IMG = IDLE_LEFT_IMG;
     private final BodyImage JUMPING_RIGHT_IMG = IDLE_RIGHT_IMG;
     private final BodyImage RUNNING_LEFT_IMG =
-            new BodyImage("assets/Skeleton/GIFS/Walk.gif", 10);
+            new BodyImage("assets/Skeleton/GIFS/left_walk.gif", 10);
     private final BodyImage RUNNING_RIGHT_IMG =
-            new BodyImage("assets/Skeleton/GIFS/Walk.gif", 10);
+            new BodyImage("assets/Skeleton/GIFS/right_walk.gif", 10);
     private final BodyImage ATTACK_LEFT_IMG =
-            new BodyImage("assets/Skeleton/GIFS/Attack.gif", 10);
+            new BodyImage("assets/Skeleton/GIFS/left_attack.gif", 10);
     private final BodyImage ATTACK_RIGHT_IMG =
-            new BodyImage("assets/Skeleton/GIFS/Attack.gif", 10);
+            new BodyImage("assets/Skeleton/GIFS/right_attack.gif", 10);
     private static final float RUNNING_SPEED = 5;
     private static final float JUMPING_SPEED = 10;
 

@@ -9,6 +9,7 @@ import java.util.Map;
 
 public class PlayerController implements KeyListener {
     private Player player;
+    private static final Map<String, Integer> KEY_MAP = new HashMap<>();
     private BodyImage idleLeftImg;
     private BodyImage idleRightImg;
     private BodyImage jumpingLeftImg;
@@ -19,7 +20,6 @@ public class PlayerController implements KeyListener {
     private BodyImage attackRightImg;
     private float runningSpeed;
     private float jumpingSpeed;
-    private static final Map<String, Integer> KEY_MAP = new HashMap<>();
 
     /** Initialise the game controller. */
     public PlayerController(Player player) {
