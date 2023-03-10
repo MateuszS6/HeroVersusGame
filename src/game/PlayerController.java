@@ -1,7 +1,5 @@
 package game;
 
-import city.cs.engine.BodyImage;
-
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashMap;
@@ -40,44 +38,26 @@ public class PlayerController implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        if (key == KEY_MAP.get(player.getKeyBindings().jumpKey)) {
+        if (key == KEY_MAP.get(player.getKeyBindings().jumpKey))
             player.jump();
-        } else if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) {
+        else if (key == KEY_MAP.get(player.getKeyBindings().leftKey))
             player.moveLeft();
-        } else if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) {
+        else if (key == KEY_MAP.get(player.getKeyBindings().rightKey))
             player.moveRight();
-        } else if (key == KEY_MAP.get(player.getKeyBindings().attackKey)) {
+        else if (key == KEY_MAP.get(player.getKeyBindings().attackKey))
             player.attack();
-        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
-        if (key == KEY_MAP.get(player.getKeyBindings().jumpKey)) {
-            if (player.isFacingRight()) {
-                player.removeAllImages();
-                player.addImage(idleRightImg);
-            } else {
-                player.removeAllImages();
-                player.addImage(idleLeftImg);
-            }
-        } else if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) {
-            player.removeAllImages();
-            player.addImage(idleLeftImg);
-            player.stopWalking();
-        } else if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) {
-            player.removeAllImages();
-            player.addImage(idleRightImg);
-            player.stopWalking();
-        } else if (key == KEY_MAP.get(player.getKeyBindings().attackKey)) {
-            if (player.isFacingRight()) {
-                player.removeAllImages();
-                player.addImage(idleRightImg);
-            } else {
-                player.removeAllImages();
-                player.addImage(idleLeftImg);
-            }
-        }
+        if (key == KEY_MAP.get(player.getKeyBindings().jumpKey))
+            player.idle();
+        else if (key == KEY_MAP.get(player.getKeyBindings().leftKey))
+            player.idle();
+        else if (key == KEY_MAP.get(player.getKeyBindings().rightKey))
+            player.idle();
+        else if (key == KEY_MAP.get(player.getKeyBindings().attackKey))
+            player.idle();
     }
 }

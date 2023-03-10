@@ -4,6 +4,8 @@ import city.cs.engine.*;
 
 public class Player extends Walker {
     private Character character;
+    private KeyBindings keyBindings;
+    private boolean isFacingRight;
     private GhostlyFixture leftAttackArea;
     private GhostlyFixture rightAttackArea;
     private BodyImage idleLeftImg;
@@ -16,25 +18,22 @@ public class Player extends Walker {
     private BodyImage attackRightImg;
     private float runningSpeed;
     private float jumpingSpeed;
-    private KeyBindings keyBindings;
-    private boolean isFacingRight;
 
     /** Initialise a player. */
     public Player(World world, Character character, boolean startFacingRight) {
         super(world, character.getDefaultShape());
         this.character = character;
         isFacingRight = startFacingRight;
-        SolidFixture fixture = new SolidFixture(this, character.getDefaultShape());
-        fixture.setFriction(70);
-        leftAttackArea = new GhostlyFixture(this, character.getAttackLeftShape());
-        rightAttackArea = new GhostlyFixture(this, character.getAttackRightShape());
         if (isFacingRight)
             addImage(character.getIdleRightImage());
         else
             addImage(character.getIdleLeftImage());
-    }
 
-    {
+        SolidFixture fixture = new SolidFixture(this, character.getDefaultShape());
+        fixture.setFriction(70);
+        leftAttackArea = new GhostlyFixture(this, character.getAttackLeftShape());
+        rightAttackArea = new GhostlyFixture(this, character.getAttackRightShape());
+
         idleLeftImg = getCharacter().getIdleLeftImage();
         idleRightImg = getCharacter().getIdleRightImage();
         jumpingLeftImg = getCharacter().getJumpingLeftImage();
@@ -67,14 +66,21 @@ public class Player extends Walker {
         this.keyBindings = keybindings;
     }
 
+    public void idle() {
+        removeAllImages();
+        if (isFacingRight)
+            addImage(idleRightImg);
+        else
+            addImage(idleLeftImg);
+        stopWalking();
+    }
+
     public void jump() {
-        if (isFacingRight) {
-            removeAllImages();
+        removeAllImages();
+        if (isFacingRight)
             addImage(jumpingRightImg);
-        } else {
-            removeAllImages();
+        else
             addImage(jumpingLeftImg);
-        }
         jump(jumpingSpeed);
     }
 
@@ -93,12 +99,10 @@ public class Player extends Walker {
     }
 
     public void attack() {
-        if (isFacingRight) {
-            removeAllImages();
+        removeAllImages();
+        if (isFacingRight)
             addImage(attackRightImg);
-        } else {
-            removeAllImages();
+        else
             addImage(attackLeftImg);
-        }
     }
 }
