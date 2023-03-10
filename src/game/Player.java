@@ -68,6 +68,14 @@ public class Player extends Walker {
         this.keyBindings = keybindings;
     }
 
+    public boolean isMidAir() {
+        return isMidAir;
+    }
+
+    public void setMidAir(boolean midAir) {
+        isMidAir = midAir;
+    }
+
     public void idle() {
         removeAllImages();
         if (isFacingRight)
@@ -88,31 +96,29 @@ public class Player extends Walker {
 
     public void moveLeft() {
         isFacingRight = false;
-        removeAllImages();
-        addImage(runningLeftImg);
+        if (!isMidAir) {
+            removeAllImages();
+            addImage(runningLeftImg);
+        }
         startWalking(-runningSpeed);
     }
 
     public void moveRight() {
         isFacingRight = true;
-        removeAllImages();
-        addImage(runningRightImg);
+        if (!isMidAir) {
+            removeAllImages();
+            addImage(runningRightImg);
+        }
         startWalking(runningSpeed);
     }
 
     public void attack() {
-        removeAllImages();
-        if (isFacingRight)
-            addImage(attackRightImg);
-        else
-            addImage(attackLeftImg);
-    }
-
-    public boolean isMidAir() {
-        return isMidAir;
-    }
-
-    public void setMidAir(boolean midAir) {
-        isMidAir = midAir;
+        if (!isMidAir) {
+            removeAllImages();
+            if (isFacingRight)
+                addImage(attackRightImg);
+            else
+                addImage(attackLeftImg);
+        }
     }
 }

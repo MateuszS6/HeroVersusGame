@@ -17,12 +17,9 @@ public class PlayerStepListener implements StepListener {
 
     }
 
+    /** If the player is moving vertically, set isMidAir to true. */
     @Override
     public void postStep(StepEvent stepEvent) {
-        if (player.getLinearVelocity().y != 0)
-            player.setMidAir(true);
-        else
-            player.setMidAir(false);
-        System.out.println(player.isMidAir());
+        player.setMidAir(player.getLinearVelocity().y != 0);
     }
 }

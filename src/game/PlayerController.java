@@ -40,24 +40,22 @@ public class PlayerController implements KeyListener {
         int key = e.getKeyCode();
         if (key == KEY_MAP.get(player.getKeyBindings().jumpKey))
             player.jump();
-        else if (key == KEY_MAP.get(player.getKeyBindings().leftKey))
+        if (key == KEY_MAP.get(player.getKeyBindings().leftKey))
             player.moveLeft();
-        else if (key == KEY_MAP.get(player.getKeyBindings().rightKey))
+        if (key == KEY_MAP.get(player.getKeyBindings().rightKey))
             player.moveRight();
-        else if (key == KEY_MAP.get(player.getKeyBindings().attackKey))
+        if (key == KEY_MAP.get(player.getKeyBindings().attackKey))
             player.attack();
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
-        if (key == KEY_MAP.get(player.getKeyBindings().jumpKey))
+        if (key == KEY_MAP.get(player.getKeyBindings().leftKey))
             player.idle();
-        else if (key == KEY_MAP.get(player.getKeyBindings().leftKey))
+        if (key == KEY_MAP.get(player.getKeyBindings().rightKey))
             player.idle();
-        else if (key == KEY_MAP.get(player.getKeyBindings().rightKey))
-            player.idle();
-        else if (key == KEY_MAP.get(player.getKeyBindings().attackKey))
+        if (key == KEY_MAP.get(player.getKeyBindings().attackKey))
             player.idle();
     }
 }
