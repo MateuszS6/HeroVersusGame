@@ -6,8 +6,10 @@ import city.cs.engine.World;
 import org.jbox2d.common.Vec2;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GameWorld extends World {
+public class GameWorld extends World implements ActionListener {
     private Player player1;
     private Player player2;
 
@@ -31,7 +33,7 @@ public class GameWorld extends World {
 
         // Player 2
         player2 = new Player(this, new Skeleton(), false);
-        player2.setPosition(new Vec2(4, -9));
+        player2.setPosition(new Vec2(4, -9.5f));
     }
 
     public Player getPlayer1() {
@@ -40,5 +42,10 @@ public class GameWorld extends World {
 
     public Player getPlayer2() {
         return player2;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 }
