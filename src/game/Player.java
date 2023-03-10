@@ -6,6 +6,7 @@ public class Player extends Walker {
     private Character character;
     private KeyBindings keyBindings;
     private boolean isFacingRight;
+    private boolean isMidAir;
     private GhostlyFixture leftAttackArea;
     private GhostlyFixture rightAttackArea;
     private BodyImage idleLeftImg;
@@ -28,6 +29,7 @@ public class Player extends Walker {
             addImage(character.getIdleRightImage());
         else
             addImage(character.getIdleLeftImage());
+        isMidAir = false;
 
         SolidFixture fixture = new SolidFixture(this, character.getDefaultShape());
         fixture.setFriction(70);
@@ -104,5 +106,13 @@ public class Player extends Walker {
             addImage(attackRightImg);
         else
             addImage(attackLeftImg);
+    }
+
+    public boolean isMidAir() {
+        return isMidAir;
+    }
+
+    public void setMidAir(boolean midAir) {
+        isMidAir = midAir;
     }
 }

@@ -24,6 +24,9 @@ public class Game {
         arena.getPlayer1().setKeyBindings(new KeyBindings("w", "a", "d", "r"));
         arena.getPlayer2().setKeyBindings(new KeyBindings());
 
+        // Player step listener
+        arena.addStepListener(new PlayerStepListener(view, arena.getPlayer1()));
+
         // Java window with game view
         final JFrame frame = new JFrame("HeroVersus");
         frame.add(view);
