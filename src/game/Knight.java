@@ -7,15 +7,15 @@ import org.jbox2d.common.Vec2;
 
 public class Knight implements Character {
     private final PolygonShape DEFAULT_SHAPE = new PolygonShape(
-            -0.22f, -0.01f,
-            1.25f, -2.02f,
-            0.5f, -4.09f,
-            -1.06f, -4.09f,
-            -1.8f, -2.02f,
-            -0.36f, -0.1f);
-    private final CircleShape ATTACK_LEFT_SHAPE = new CircleShape(2.5f, new Vec2(-1.8f, -2.02f));
+            -0.2f, -0.1f,
+            1.25f, -2.05f,
+            0.5f, -4.0f,
+            -1.0f, -4.0f,
+            -1.8f, -2.05f,
+            -0.3f, -0.1f);
+    private final CircleShape ATTACK_LEFT_SHAPE = new CircleShape(2.5f, new Vec2(-1.8f, -2.05f));
     // 0.41f, -4.06f, 0.74f, -2.26f, -0.7f, -0.34f, -2.98f, 0.74f, -5.64f, -0.34f, -5.62f, -4.04f, 0.24f, -4.06f
-    private final CircleShape ATTACK_RIGHT_SHAPE = new CircleShape(2.5f, new Vec2(1.25f, -2.02f));
+    private final CircleShape ATTACK_RIGHT_SHAPE = new CircleShape(2.5f, new Vec2(1.25f, -2.05f));
     private final BodyImage IDLE_LEFT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_idle.gif", 8);
     private final BodyImage IDLE_RIGHT_IMG =
