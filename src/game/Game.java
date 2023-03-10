@@ -8,15 +8,13 @@ import javax.swing.*;
 public class Game {
     /** Initialise a new game. */
     public Game() {
-        // Empty game world
-        GameWorld arena = new GameWorld();
-        // Game view
-        GameView view = new GameView(arena, 800, 600);
+        GameWorld arena = new GameWorld();  // Empty game world
+
+        GameView view = new GameView(arena, 800, 600);  // Game view
         // view.setGridResolution(1);
 
         // View focus
-        GiveFocus viewFocus = new GiveFocus(view);
-        view.addMouseListener(viewFocus);
+        view.addMouseListener(new GiveFocus(view));
 
         // Player controllers and keybindings
         PlayerController controller1 = new PlayerController(arena.getPlayer1());
