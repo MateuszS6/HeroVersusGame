@@ -7,6 +7,8 @@ public class Player extends Walker {
     private KeyBindings keyBindings;
     private boolean isFacingRight;
     private boolean isMidAir;
+    private SolidFixture hitbox;
+    private boolean isAttacking;
     private GhostlyFixture leftAttackArea;
     private GhostlyFixture rightAttackArea;
     private BodyImage idleLeftImg;
@@ -31,8 +33,8 @@ public class Player extends Walker {
             addImage(character.getIdleLeftImage());
         isMidAir = false;
 
-        SolidFixture fixture = new SolidFixture(this, character.getDefaultShape());
-        fixture.setFriction(70);
+        hitbox = new SolidFixture(this, character.getDefaultShape());
+        hitbox.setFriction(70);
         leftAttackArea = new GhostlyFixture(this, character.getAttackLeftShape());
         rightAttackArea = new GhostlyFixture(this, character.getAttackRightShape());
 
@@ -68,6 +70,10 @@ public class Player extends Walker {
         this.keyBindings = keybindings;
     }
 
+    public boolean isFacingRight() {
+        return isFacingRight;
+    }
+
     public boolean isMidAir() {
         return isMidAir;
     }
@@ -76,7 +82,20 @@ public class Player extends Walker {
         isMidAir = midAir;
     }
 
+    public SolidFixture getHitbox() {
+        return hitbox;
+    }
+
+    public boolean isAttacking() {
+        return isAttacking;
+    }
+
+    public void setAttacking(boolean attacking) {
+        isAttacking = attacking;
+    }
+
     public void idle() {
+        // isAttacking = false;
         removeAllImages();
         if (isFacingRight)
             addImage(idleRightImg);
@@ -119,6 +138,7 @@ public class Player extends Walker {
                 addImage(attackRightImg);
             else
                 addImage(attackLeftImg);
+            isAttacking = true;
         }
     }
 }

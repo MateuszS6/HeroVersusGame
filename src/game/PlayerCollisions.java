@@ -5,7 +5,9 @@ import city.cs.engine.CollisionListener;
 
 public class PlayerCollisions implements CollisionListener {
     private Player player;
+
     @Override
-    public void collide(CollisionEvent collisionEvent) {
+    public void collide(CollisionEvent e) {
+
     }
 }

@@ -13,9 +13,9 @@ public class Skeleton implements Character {
             0.6f, 1.19f,
             -0.6f, 1.19f,
             -1.25f, -0.6f);
-    private final CircleShape ATTACK_LEFT_SHAPE = new CircleShape(2.5f, new Vec2(-1.25f, -0.2f));
+    private final CircleShape ATTACK_LEFT_SHAPE = new CircleShape(3, new Vec2(-1.25f, -0.2f));
     // 0.41f, -4.06f, 0.74f, -2.26f, -0.7f, -0.34f, -2.98f, 0.74f, -5.64f, -0.34f, -5.62f, -4.04f, 0.24f, -4.06f
-    private final CircleShape ATTACK_RIGHT_SHAPE = new CircleShape(2.5f, new Vec2(1.25f, -0.2f));
+    private final CircleShape ATTACK_RIGHT_SHAPE = new CircleShape(3, new Vec2(1.25f, -0.2f));
 
     private final BodyImage IDLE_LEFT_IMG =
             new BodyImage("assets/Skeleton/120x80_gifs/left_idle.gif", 10);

@@ -17,15 +17,15 @@ public class Game {
         view.addMouseListener(new GiveFocus(view));
 
         // Player controllers and keybindings
-        PlayerController controller1 = new PlayerController(arena.getPlayer1());
-        PlayerController controller2 = new PlayerController(arena.getPlayer2());
-        view.addKeyListener(controller1);
-        view.addKeyListener(controller2);
+        view.addKeyListener(new PlayerController(arena.getPlayer1()));
+        view.addKeyListener(new PlayerController(arena.getPlayer2()));
         arena.getPlayer1().setKeyBindings(new KeyBindings("w", "a", "d", "r"));
         arena.getPlayer2().setKeyBindings(new KeyBindings());
 
         // Player step listener
-        arena.addStepListener(new PlayerStepListener(view, arena.getPlayer1()));
+        // arena.addStepListener(new PlayerStepListener(view, arena.getPlayer1()));
+
+        // Player collision listeners
 
         // Java window with game view
         final JFrame frame = new JFrame("HeroVersus");
