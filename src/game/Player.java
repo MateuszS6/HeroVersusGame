@@ -102,7 +102,7 @@ public class Player extends Walker implements ActionListener {
     }
 
     public void attack() {
-        if (!isMidAir ) {
+        if (!isMidAir && !isAttacking) {
             isAttacking = true;
             Timer timer = new Timer(getCharacter().getAttackDuration(), this);
             timer.setRepeats(false);
@@ -118,5 +118,6 @@ public class Player extends Walker implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         idle();
+        isAttacking = false;
     }
 }
