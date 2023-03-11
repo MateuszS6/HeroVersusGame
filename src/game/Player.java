@@ -2,14 +2,16 @@ package game;
 
 import city.cs.engine.*;
 
-public class Player extends Walker {
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Player extends Walker implements ActionListener {
     private Character character;
     private KeyBindings keyBindings;
     private boolean isFacingRight;
     private boolean isMidAir;
     private boolean isAttacking;
-    private GhostlyFixture leftAttackArea;
-    private GhostlyFixture rightAttackArea;
     private float runningSpeed;
     private float jumpingSpeed;
 
@@ -17,16 +19,14 @@ public class Player extends Walker {
     public Player(World world, Character character, boolean startFacingRight) {
         super(world, character.getDefaultShape());
         this.character = character;
+
         isFacingRight = startFacingRight;
         if (isFacingRight)
             addImage(character.getIdleRightImage());
         else
             addImage(character.getIdleLeftImage());
         isMidAir = false;
-
         isAttacking = false;
-        leftAttackArea = new GhostlyFixture(this, character.getAttackLeftShape());
-        rightAttackArea = new GhostlyFixture(this, character.getAttackRightShape());
 
         runningSpeed = getCharacter().getRunningSpeed();
         jumpingSpeed = getCharacter().getJumpingSpeed();
@@ -36,13 +36,6 @@ public class Player extends Walker {
         return character;
     }
 
-    public GhostlyFixture getLeftAttackArea() {
-        return leftAttackArea;
-    }
-
-    public GhostlyFixture getRightAttackArea() {
-        return rightAttackArea;
-    }
     public KeyBindings getKeyBindings() {
         return keyBindings;
     }
@@ -109,13 +102,21 @@ public class Player extends Walker {
     }
 
     public void attack() {
-        if (!isMidAir) {
+        if (!isMidAir ) {
+            isAttacking = true;
+            Timer timer = new Timer(getCharacter().getAttackDuration(), this);
+            timer.setRepeats(false);
+            timer.start();
             removeAllImages();
             if (isFacingRight)
                 addImage(getCharacter().getAttackRightImage());
             else
                 addImage(getCharacter().getAttackLeftImage());
-            isAttacking = true;
         }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        idle();
     }
 }

@@ -57,7 +57,5 @@ public class PlayerController implements KeyListener {
             player.idle();
         if (key == KEY_MAP.get(player.getKeyBindings().rightKey))
             player.idle();
-        if (key == KEY_MAP.get(player.getKeyBindings().attackKey))
-            player.idle();
     }
 }

@@ -35,6 +35,7 @@ public class Skeleton implements Character {
             new BodyImage("assets/Skeleton/120x80_gifs/right_attack.gif", 10);
     private static final float RUNNING_SPEED = 5;
     private static final float JUMPING_SPEED = 10;
+    private static final int ATTACK_DURATION = 1600;
 
     @Override
     public PolygonShape getDefaultShape() {
@@ -99,5 +100,10 @@ public class Skeleton implements Character {
     @Override
     public float getJumpingSpeed() {
         return JUMPING_SPEED;
+    }
+
+    @Override
+    public int getAttackDuration() {
+        return ATTACK_DURATION;
     }
 }

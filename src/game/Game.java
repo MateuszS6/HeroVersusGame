@@ -26,6 +26,7 @@ public class Game {
         // arena.addStepListener(new TestStepListener(view, arena.getPlayer1()));
 
         // Player collision listeners
+        arena.getPlayer1().addCollisionListener(new PlayerCollisions(arena.getPlayer1()));
 
         // Java window with game view
         final JFrame frame = new JFrame("HeroVersus");

@@ -18,4 +18,5 @@ public interface Character {
     BodyImage getAttackRightImage();
     float getRunningSpeed();
     float getJumpingSpeed();
+    int getAttackDuration();
 }
