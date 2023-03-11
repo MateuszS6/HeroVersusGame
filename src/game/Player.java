@@ -19,6 +19,7 @@ public class Player extends Walker implements ActionListener {
     public Player(World world, Character character, boolean startFacingRight) {
         super(world, character.getDefaultShape());
         this.character = character;
+        setGravityScale(2);
 
         isFacingRight = startFacingRight;
         if (isFacingRight)
@@ -31,7 +32,7 @@ public class Player extends Walker implements ActionListener {
         runningSpeed = getCharacter().getRunningSpeed();
         jumpingSpeed = getCharacter().getJumpingSpeed();
 
-        addCollisionListener(new PlayerCollisions(this));
+        addCollisionListener(new PlayerCollisions());
     }
 
     public Character getCharacter() {

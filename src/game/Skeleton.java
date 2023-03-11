@@ -33,8 +33,8 @@ public class Skeleton implements Character {
             new BodyImage("assets/Skeleton/120x80_gifs/left_attack.gif", 10);
     private final BodyImage ATTACK_RIGHT_IMG =
             new BodyImage("assets/Skeleton/120x80_gifs/right_attack.gif", 10);
-    private static final float RUNNING_SPEED = 5;
-    private static final float JUMPING_SPEED = 10;
+    private static final float RUNNING_SPEED = 7;
+    private static final float JUMPING_SPEED = 15;
     private static final int ATTACK_DURATION = 1600;
 
     @Override

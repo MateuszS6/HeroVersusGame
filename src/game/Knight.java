@@ -31,8 +31,8 @@ public class Knight implements Character {
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_attack.gif", 8);
     private final BodyImage ATTACK_RIGHT_IMG =
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__AttackCombo2hit.gif", 8);
-    private static final float RUNNING_SPEED = 8;
-    private static final float JUMPING_SPEED = 10;
+    private static final float RUNNING_SPEED = 11;
+    private static final float JUMPING_SPEED = 15;
     private static final int ATTACK_DURATION = 500;
 
     @Override

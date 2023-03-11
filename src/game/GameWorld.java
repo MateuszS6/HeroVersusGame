@@ -16,23 +16,28 @@ public class GameWorld extends World implements ActionListener {
      */
     public GameWorld() {
         // Stage
-        Platform stage = new Platform(this, 7, 0.5f, 0, -12);
+        Platform stage = new Platform(this, 7, 2, 0, -13.5f);
         stage.setFillColor(new Color(0, true));
         stage.setLineColor(new Color(0, true));
 
-        // Hovering platforms
-        HoveringPlatform platform1 = new HoveringPlatform(this, 3, 0.5f, -10, 0);
-        // platform1.hover();
+        // Platforms
+        Platform platform1 = new Platform(this, 4, 0.5f, -13, -8);
+        Platform platform2 = new Platform(this, 4, 0.5f, 13, -8);
+        Platform platform3 = new Platform(this, 4, 0.5f, 0, -3);
+
+        // Hovering platform
+        HoveringPlatform hoverer = new HoveringPlatform(this, 3, 0.5f, 0, 8);
+        hoverer.hover();
 
         // Player 1
         player1 = new Player(this, new Knight(), true);
         player1.setKeyBindings(new KeyBindings("w", "a", "d", "r"));
-        player1.setPosition(new Vec2(-4, -9));
+        player1.setPosition(new Vec2(-4, -8.5f));
 
         // Player 2
         player2 = new Player(this, new Skeleton(), false);
         player2.setKeyBindings(new KeyBindings());
-        player2.setPosition(new Vec2(4, -9.5f));
+        player2.setPosition(new Vec2(4, -9));
 
         // Attacking collision detection
         /* if (player1.isAttacking()) {

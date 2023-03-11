@@ -21,6 +21,7 @@ public class HoveringPlatform extends DynamicBody implements ActionListener {
 
     public void hover() {
         Timer timer = new Timer(1000, this);
+        // timer.setInitialDelay(5000);
         timer.start();
         setLinearVelocity(new Vec2(0, -1));
     }
