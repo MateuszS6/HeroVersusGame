@@ -32,7 +32,7 @@ public class Player extends Walker implements ActionListener {
         runningSpeed = getCharacter().getRunningSpeed();
         jumpingSpeed = getCharacter().getJumpingSpeed();
 
-        addCollisionListener(new PlayerCollisions());
+        addCollisionListener(new PlayerCollisions(this));
     }
 
     public Character getCharacter() {
@@ -68,7 +68,9 @@ public class Player extends Walker implements ActionListener {
     }
 
     public void idle() {
-        if (!isMidAir) {
+        if (isMidAir) {
+            jump();
+        } else {
             removeAllImages();
             if (isFacingRight)
                 addImage(getCharacter().getIdleRightImage());
@@ -89,7 +91,9 @@ public class Player extends Walker implements ActionListener {
 
     public void moveLeft() {
         isFacingRight = false;
-        if (!isMidAir) {
+        if (isMidAir) {
+            jump();
+        } else {
             removeAllImages();
             addImage(getCharacter().getRunningLeftImage());
         }
@@ -98,7 +102,9 @@ public class Player extends Walker implements ActionListener {
 
     public void moveRight() {
         isFacingRight = true;
-        if (!isMidAir) {
+        if (isMidAir) {
+            jump();
+        } else {
             removeAllImages();
             addImage(getCharacter().getRunningRightImage());
         }

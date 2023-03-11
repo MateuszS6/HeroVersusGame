@@ -21,9 +21,11 @@ public class GameWorld extends World implements ActionListener {
         stage.setLineColor(new Color(0, true));
 
         // Platforms
-        Platform platform1 = new Platform(this, 4, 0.5f, -13, -8);
-        Platform platform2 = new Platform(this, 4, 0.5f, 13, -8);
+        Platform platform1 = new Platform(this, 4, 0.5f, -14, -8);
+        Platform platform2 = new Platform(this, 4, 0.5f, 14, -8);
         Platform platform3 = new Platform(this, 4, 0.5f, 0, -3);
+        Platform platform4 = new Platform(this, 4, 0.5f, -14, 2);
+        Platform platform5 = new Platform(this, 4, 0.5f, 14, 2);
 
         // Hovering platform
         HoveringPlatform hoverer = new HoveringPlatform(this, 3, 0.5f, 0, 8);
