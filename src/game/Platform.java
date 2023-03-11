@@ -1,9 +1,6 @@
 package game;
 
-import city.cs.engine.BoxShape;
-import city.cs.engine.SolidFixture;
-import city.cs.engine.StaticBody;
-import city.cs.engine.World;
+import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
 
 public class Platform extends StaticBody {

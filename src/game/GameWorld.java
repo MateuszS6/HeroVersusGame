@@ -11,7 +11,9 @@ public class GameWorld extends World implements ActionListener {
     private Player player1;
     private Player player2;
 
-    /** Initialise the game world. */
+    /**
+     * Initialise the game world.
+     */
     public GameWorld() {
         // Stage
         Platform stage = new Platform(this, 7, 0.5f, 0, -12);
@@ -41,8 +43,11 @@ public class GameWorld extends World implements ActionListener {
             else if (player2.isFacingRight() && player2.getRightAttackArea().contains(player1.getPosition()))
                 System.out.println("player 2 right-attacked player 1");
         }
+    }
 
-        System.out.println("test");
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 
     public Player getPlayer1() {
@@ -51,10 +56,5 @@ public class GameWorld extends World implements ActionListener {
 
     public Player getPlayer2() {
         return player2;
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
     }
 }

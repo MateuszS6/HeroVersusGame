@@ -7,18 +7,9 @@ public class Player extends Walker {
     private KeyBindings keyBindings;
     private boolean isFacingRight;
     private boolean isMidAir;
-    private SolidFixture hitbox;
     private boolean isAttacking;
     private GhostlyFixture leftAttackArea;
     private GhostlyFixture rightAttackArea;
-    private BodyImage idleLeftImg;
-    private BodyImage idleRightImg;
-    private BodyImage jumpingLeftImg;
-    private BodyImage jumpingRightImg;
-    private BodyImage runningLeftImg;
-    private BodyImage runningRightImg;
-    private BodyImage attackLeftImg;
-    private BodyImage attackRightImg;
     private float runningSpeed;
     private float jumpingSpeed;
 
@@ -33,18 +24,9 @@ public class Player extends Walker {
             addImage(character.getIdleLeftImage());
         isMidAir = false;
 
-        hitbox = new SolidFixture(this, character.getDefaultShape());
+        isAttacking = false;
         leftAttackArea = new GhostlyFixture(this, character.getAttackLeftShape());
         rightAttackArea = new GhostlyFixture(this, character.getAttackRightShape());
-
-        idleLeftImg = getCharacter().getIdleLeftImage();
-        idleRightImg = getCharacter().getIdleRightImage();
-        jumpingLeftImg = getCharacter().getJumpingLeftImage();
-        jumpingRightImg = getCharacter().getJumpingRightImage();
-        runningLeftImg = getCharacter().getRunningLeftImage();
-        runningRightImg = getCharacter().getRunningRightImage();
-        attackLeftImg = getCharacter().getAttackLeftImage();
-        attackRightImg = getCharacter().getAttackRightImage();
 
         runningSpeed = getCharacter().getRunningSpeed();
         jumpingSpeed = getCharacter().getJumpingSpeed();
@@ -81,10 +63,6 @@ public class Player extends Walker {
         isMidAir = midAir;
     }
 
-    public SolidFixture getHitbox() {
-        return hitbox;
-    }
-
     public boolean isAttacking() {
         return isAttacking;
     }
@@ -97,18 +75,18 @@ public class Player extends Walker {
         // isAttacking = false;
         removeAllImages();
         if (isFacingRight)
-            addImage(idleRightImg);
+            addImage(getCharacter().getIdleRightImage());
         else
-            addImage(idleLeftImg);
+            addImage(getCharacter().getIdleLeftImage());
         stopWalking();
     }
 
     public void jump() {
         removeAllImages();
         if (isFacingRight)
-            addImage(jumpingRightImg);
+            addImage(getCharacter().getJumpingRightImage());
         else
-            addImage(jumpingLeftImg);
+            addImage(getCharacter().getJumpingLeftImage());
         jump(jumpingSpeed);
     }
 
@@ -116,7 +94,7 @@ public class Player extends Walker {
         isFacingRight = false;
         if (!isMidAir) {
             removeAllImages();
-            addImage(runningLeftImg);
+            addImage(getCharacter().getRunningLeftImage());
         }
         startWalking(-runningSpeed);
     }
@@ -125,7 +103,7 @@ public class Player extends Walker {
         isFacingRight = true;
         if (!isMidAir) {
             removeAllImages();
-            addImage(runningRightImg);
+            addImage(getCharacter().getRunningRightImage());
         }
         startWalking(runningSpeed);
     }
@@ -134,9 +112,9 @@ public class Player extends Walker {
         if (!isMidAir) {
             removeAllImages();
             if (isFacingRight)
-                addImage(attackRightImg);
+                addImage(getCharacter().getAttackRightImage());
             else
-                addImage(attackLeftImg);
+                addImage(getCharacter().getAttackLeftImage());
             isAttacking = true;
         }
     }
