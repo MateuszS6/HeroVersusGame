@@ -24,10 +24,12 @@ public class GameWorld extends World implements ActionListener {
 
         // Player 1
         player1 = new Player(this, new Knight(), true);
+        player1.setKeyBindings(new KeyBindings("w", "a", "d", "r"));
         player1.setPosition(new Vec2(-4, -9));
 
         // Player 2
         player2 = new Player(this, new Skeleton(), false);
+        player2.setKeyBindings(new KeyBindings());
         player2.setPosition(new Vec2(4, -9.5f));
 
         // Attacking collision detection

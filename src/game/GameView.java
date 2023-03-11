@@ -13,6 +13,9 @@ public class GameView extends UserView {
     public GameView(GameWorld world, int width, int height) {
         super(world, width, height);
         background = new ImageIcon("assets/background/arena_with_stage.jpg").getImage();
+
+        // View focus
+        addMouseListener(new GiveFocus(this));
     }
 
     @Override

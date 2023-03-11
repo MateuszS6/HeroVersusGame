@@ -13,20 +13,12 @@ public class Game {
         GameView view = new GameView(arena, 800, 600);  // Game view
         // view.setGridResolution(1);
 
-        // View focus
-        view.addMouseListener(new GiveFocus(view));
-
         // Player controllers and keybindings
         view.addKeyListener(new PlayerController(arena.getPlayer1()));
         view.addKeyListener(new PlayerController(arena.getPlayer2()));
-        arena.getPlayer1().setKeyBindings(new KeyBindings("w", "a", "d", "r"));
-        arena.getPlayer2().setKeyBindings(new KeyBindings());
 
         // Player step listener
         // arena.addStepListener(new TestStepListener(view, arena.getPlayer1()));
-
-        // Player collision listeners
-        arena.getPlayer1().addCollisionListener(new PlayerCollisions(arena.getPlayer1()));
 
         // Java window with game view
         final JFrame frame = new JFrame("HeroVersus");
