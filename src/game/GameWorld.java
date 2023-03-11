@@ -20,7 +20,9 @@ public class GameWorld extends World implements ActionListener {
         stage.setFillColor(new Color(0, true));
         stage.setLineColor(new Color(0, true));
 
-        // Suspended platform
+        // Hovering platforms
+        HoveringPlatform platform1 = new HoveringPlatform(this, 3, 0.5f, -10, 0);
+        // platform1.hover();
 
         // Player 1
         player1 = new Player(this, new Knight(), true);
