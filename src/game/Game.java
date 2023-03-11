@@ -40,6 +40,19 @@ public class Game {
         JFrame debugView = new DebugViewer(arena, 800, 600);
 
         arena.start();
+
+        /* if (arena.getPlayer1().isAttacking()) {
+            if (!arena.getPlayer1().isFacingRight() && arena.getPlayer1().getLeftAttackArea().contains(arena.getPlayer2().getPosition()))
+                System.out.println("player 1 left-attacked player 2");
+            else if (arena.getPlayer1().isFacingRight() && arena.getPlayer1().getRightAttackArea().contains(arena.getPlayer2().getPosition()))
+                System.out.println("player 1 right-attacked player 2");
+        }
+        if (arena.getPlayer2().isAttacking()) {
+            if (!arena.getPlayer2().isFacingRight() && arena.getPlayer2().getLeftAttackArea().contains(arena.getPlayer1().getPosition()))
+                System.out.println("player 2 left-attacked player 1");
+            else if (arena.getPlayer2().isFacingRight() && arena.getPlayer2().getRightAttackArea().contains(arena.getPlayer1().getPosition()))
+                System.out.println("player 2 right-attacked player 1");
+        } */
     }
 
     /** Run the game. */

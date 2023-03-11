@@ -34,7 +34,6 @@ public class Player extends Walker {
         isMidAir = false;
 
         hitbox = new SolidFixture(this, character.getDefaultShape());
-        hitbox.setFriction(70);
         leftAttackArea = new GhostlyFixture(this, character.getAttackLeftShape());
         rightAttackArea = new GhostlyFixture(this, character.getAttackRightShape());
 
