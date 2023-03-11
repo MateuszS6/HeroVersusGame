@@ -7,19 +7,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Player extends Walker implements ActionListener {
-    private Character character;
+    private final Character character;
     private KeyBindings keyBindings;
+    private int health;
+    private static final int MAX_HEALTH = 100;
     private boolean isFacingRight;
     private boolean isMidAir;
     private boolean isAttacking;
-    private float runningSpeed;
-    private float jumpingSpeed;
 
     /** Initialise a player. */
     public Player(World world, Character character, boolean startFacingRight) {
         super(world, character.getDefaultShape());
         this.character = character;
         setGravityScale(2);
+
+        health = 100;
 
         isFacingRight = startFacingRight;
         if (isFacingRight)
@@ -28,9 +30,6 @@ public class Player extends Walker implements ActionListener {
             addImage(character.getIdleLeftImage());
         isMidAir = false;
         isAttacking = false;
-
-        runningSpeed = getCharacter().getRunningSpeed();
-        jumpingSpeed = getCharacter().getJumpingSpeed();
 
         addCollisionListener(new PlayerCollisions(this));
     }
@@ -43,6 +42,14 @@ public class Player extends Walker implements ActionListener {
         return keyBindings;
     }
 
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
     public void setKeyBindings(KeyBindings keybindings) {
         this.keyBindings = keybindings;
     }
@@ -51,20 +58,8 @@ public class Player extends Walker implements ActionListener {
         return isFacingRight;
     }
 
-    public boolean isMidAir() {
-        return isMidAir;
-    }
-
     public void setMidAir(boolean midAir) {
         isMidAir = midAir;
-    }
-
-    public boolean isAttacking() {
-        return isAttacking;
-    }
-
-    public void setAttacking(boolean attacking) {
-        isAttacking = attacking;
     }
 
     public void idle() {
@@ -86,7 +81,7 @@ public class Player extends Walker implements ActionListener {
             addImage(getCharacter().getJumpingRightImage());
         else
             addImage(getCharacter().getJumpingLeftImage());
-        jump(jumpingSpeed);
+        jump(getCharacter().getJumpingSpeed());
     }
 
     public void moveLeft() {
@@ -97,7 +92,7 @@ public class Player extends Walker implements ActionListener {
             removeAllImages();
             addImage(getCharacter().getRunningLeftImage());
         }
-        startWalking(-runningSpeed);
+        startWalking(-getCharacter().getRunningSpeed());
     }
 
     public void moveRight() {
@@ -108,7 +103,7 @@ public class Player extends Walker implements ActionListener {
             removeAllImages();
             addImage(getCharacter().getRunningRightImage());
         }
-        startWalking(runningSpeed);
+        startWalking(getCharacter().getRunningSpeed());
     }
 
     public void attack() {

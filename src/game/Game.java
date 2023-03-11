@@ -11,23 +11,20 @@ public class Game {
         GameWorld arena = new GameWorld();  // Empty game world
 
         GameView view = new GameView(arena, 800, 600);  // Game view
-        view.setGridResolution(1);
+        // view.setGridResolution(1);
 
-        // Player controllers and keybindings
-        view.addKeyListener(new PlayerController(arena.getPlayer1()));
-        view.addKeyListener(new PlayerController(arena.getPlayer2()));
+        view.addKeyListener(new PlayerController(arena.getPlayer1()));  // Player 1 controller
+        view.addKeyListener(new PlayerController(arena.getPlayer2()));  // Player 2 controller
 
         // Player step listener
         // arena.addStepListener(new TestStepListener(view, arena.getPlayer1()));
 
-        // Java window with game view
-        final JFrame frame = new JFrame("HeroVersus");
-        frame.add(view);
+        final JFrame frame = new JFrame("HeroVersus: Battle Arena");    // Java window title
+        frame.add(view);    // View added to frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationByPlatform(true);
         frame.setResizable(false);
-        // Size frame to fit world view
-        frame.pack();
+        frame.pack();   // Frame resized to fit world view
         frame.setVisible(true);
 
         JFrame debugView = new DebugViewer(arena, 800, 600);
