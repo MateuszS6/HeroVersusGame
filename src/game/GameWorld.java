@@ -15,6 +15,12 @@ public class GameWorld extends World implements ActionListener {
      * Initialise the game world.
      */
     public GameWorld() {
+        // World borders
+        Platform left = new Platform(this, 0.5f, 30, -20.5f, 0);
+        Platform right = new Platform(this, 0.5f, 30, 20.5f, 0);
+        Platform ceiling = new Platform(this, 20, 0.5f, 0, 20);
+        Platform death = new Platform(this, 20, 0.5f, 0, -30);
+
         // Stage
         Platform stage = new Platform(this, 7, 2, 0, -13.5f);
         stage.setFillColor(new Color(0, true));

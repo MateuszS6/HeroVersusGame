@@ -11,7 +11,7 @@ public class Game {
         GameWorld arena = new GameWorld();  // Empty game world
 
         GameView view = new GameView(arena, 800, 600);  // Game view
-        // view.setGridResolution(1);
+        view.setGridResolution(1);
 
         // Player controllers and keybindings
         view.addKeyListener(new PlayerController(arena.getPlayer1()));
