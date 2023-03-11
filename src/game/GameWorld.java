@@ -27,9 +27,9 @@ public class GameWorld extends World implements ActionListener {
         Platform platform4 = new Platform(this, 4, 0.5f, -14, 2);
         Platform platform5 = new Platform(this, 4, 0.5f, 14, 2);
 
-        // Hovering platform
-        HoveringPlatform hoverer = new HoveringPlatform(this, 3, 0.5f, 0, 8);
-        hoverer.hover();
+        // Hovering ball
+        HoveringBall annoyingBall = new HoveringBall(this, 3, 0, 8);
+        annoyingBall.hover();
 
         // Player 1
         player1 = new Player(this, new Knight(), true);
