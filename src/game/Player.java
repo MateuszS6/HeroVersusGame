@@ -11,8 +11,7 @@ import java.awt.event.ActionListener;
 public class Player extends Walker implements ActionListener {
     private final Character character;
     private KeyBindings keyBindings;
-    private SolidFixture leftAttackShape;
-    private SolidFixture rightAttackShape;
+    private SolidFixture fixture;
     private int lives;
     private int health;
     private static final int MAX_HEALTH = 100;
@@ -22,8 +21,10 @@ public class Player extends Walker implements ActionListener {
 
     /** Initialise a player. */
     public Player(World world, Character character, boolean startFacingRight) {
-        super(world, character.getDefaultShape());
+        super(world);
         this.character = character;
+        fixture = new SolidFixture(this, character.getDefaultShape());
+        setAlwaysOutline(true);
         setGravityScale(2);
 
         lives = 3;
@@ -134,18 +135,28 @@ public class Player extends Walker implements ActionListener {
             Timer timer = new Timer(getCharacter().getAttackDuration(), this);
             timer.setRepeats(false);
             timer.start();
+            fixture.destroy();
             removeAllImages();
-            if (isFacingRight)
+            if (isFacingRight) {
+                fixture = new SolidFixture(this, character.getAttackRightShape());
                 addImage(getCharacter().getAttackRightImage());
-            else
+            } else {
+                fixture = new SolidFixture(this, character.getAttackLeftShape());
                 addImage(getCharacter().getAttackLeftImage());
+            }
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         // count attack here
-        idle();
         isAttacking = false;
+        fixture.destroy();
+        fixture = new SolidFixture(this, character.getDefaultShape());
+        removeAllImages();
+        if (isFacingRight)
+            addImage(getCharacter().getIdleRightImage());
+        else
+            addImage(getCharacter().getIdleLeftImage());
     }
 }

@@ -30,7 +30,7 @@ public class Knight implements Character {
             new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__AttackCombo2hit.gif", 8);
     private static final float RUNNING_SPEED = 11;
     private static final float JUMPING_SPEED = 15;
-    private static final int ATTACK_DURATION = 500;
+    private static final int ATTACK_DURATION = 600;
 
     @Override
     public PolygonShape getDefaultShape() {

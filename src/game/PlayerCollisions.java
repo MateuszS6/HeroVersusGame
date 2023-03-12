@@ -13,11 +13,12 @@ public class PlayerCollisions implements CollisionListener {
     @Override
     public void collide(CollisionEvent e) {
         if (e.getOtherBody() instanceof Platform) {
-            player.removeAllImages();
+            /* player.removeAllImages();
             if (player.isFacingRight())
                 player.addImage(player.getCharacter().getIdleRightImage());
             else
-                player.addImage(player.getCharacter().getIdleLeftImage());
+                player.addImage(player.getCharacter().getIdleLeftImage()); */
+            player.setMidAir(false);
         }
     }
 }
