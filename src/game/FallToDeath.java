@@ -14,7 +14,6 @@ public class FallToDeath implements CollisionListener {
     public void collide(CollisionEvent e) {
         if (e.getOtherBody() instanceof Player) {
             ((Player) e.getOtherBody()).setHealth(0);
-            System.out.println("attacked player health: " + ((Player) e.getOtherBody()).getHealth());
             world.respawnPlayer((Player) e.getOtherBody(), 0.5f);
         }
     }

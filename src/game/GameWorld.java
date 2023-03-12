@@ -85,7 +85,7 @@ public class GameWorld extends World implements ActionListener {
     }
 
     public void respawnPlayer(Player player, float decrementLives) {
-        if (player.getLives() <= 0) {
+        if (player.getLives() <= 1) {
             player.destroy();
             // this.stop();
         } else if (player.getHealth() <= 0) {
