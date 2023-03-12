@@ -238,10 +238,10 @@ public class PolygonEditor extends JPanel
      * @param args command line arguments.
      */
     public static void main(String[] args) {
-        String knight = "assets/FreeKnight/Colour1/NoOutline/120x80_gifs/right_attack.gif";
-        String skeleton = "assets/Skeleton/120x80_gifs/left_idle.gif";
-        String fileName = knight;
-        float boxHeight = 8;
+        String knight = "assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_attack.gif";
+        String skeleton = "assets/Skeleton/120x80_gifs/left_attack.gif";
+        String fileName = skeleton;
+        float boxHeight = 10;
         int firstCoordIndex = 0;
         if (args.length > 0) {
             try {
