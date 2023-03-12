@@ -30,5 +30,11 @@ public class PlayerCollisions implements CollisionListener {
                 world.respawnPlayer((Player) e.getOtherBody(), 1);
             }
         }
+        if (e.getOtherBody() instanceof HealthRefill) {
+            if (player.getHealth() < player.getMaxHealth()) {
+                player.setHealth(player.getMaxHealth());
+                e.getOtherBody().destroy();
+            }
+        }
     }
 }

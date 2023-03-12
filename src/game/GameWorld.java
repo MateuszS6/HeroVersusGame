@@ -3,6 +3,7 @@ package game;
 import city.cs.engine.World;
 import org.jbox2d.common.Vec2;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -40,7 +41,7 @@ public class GameWorld extends World implements ActionListener {
         HoveringBall annoyingBall = new HoveringBall(this, 3, 0, 8);
         annoyingBall.hover();
 
-        // Variable initialisation
+        // Player position
         p1StartPos = new Vec2(-4, -8.5f);
         p2StartPos = new Vec2(4, -9);
 
@@ -55,11 +56,16 @@ public class GameWorld extends World implements ActionListener {
         player2.setKeyBindings(new KeyBindings());
         player2.setPosition(p2StartPos);
         player2.addCollisionListener(new PlayerCollisions(this, player2));
+
+        Timer collectibleTimer = new Timer(10000, this);
+        collectibleTimer.setRepeats(false);
+        collectibleTimer.start();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        // Collectible
+        HealthRefill collectible = new HealthRefill(this, 0, -10);
     }
 
     public Player getPlayer1() {
@@ -72,6 +78,8 @@ public class GameWorld extends World implements ActionListener {
 
     public void respawnPlayer(Player player, float decrementLives) {
         if (player.getLives() <= 1) {
+            player.setLives(0);
+            player.setLives(0);
             player.destroy();
         } else if (player.getHealth() <= 0) {
             if (player == player1) {
@@ -82,8 +90,7 @@ public class GameWorld extends World implements ActionListener {
                 player.setPosition(p2StartPos);
             }
             player.setHealth(player.getMaxHealth());
-
+            player.setLives(player.getLives() - decrementLives);
         }
-        player.setLives(player.getLives() - decrementLives);
     }
 }
