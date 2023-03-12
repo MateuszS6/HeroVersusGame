@@ -18,10 +18,10 @@ public class GameWorld extends World implements ActionListener {
      */
     public GameWorld() {
         // World borders
-        Platform left = new Platform(this, 0.5f, 30, -20.5f, 0);
-        Platform right = new Platform(this, 0.5f, 30, 20.5f, 0);
+        Platform left = new Platform(this, 0.5f, 20, -20.5f, 0);
+        Platform right = new Platform(this, 0.5f, 20, 20.5f, 0);
         Platform ceiling = new Platform(this, 20, 0.5f, 0, 20);
-        Platform death = new Platform(this, 20, 0.5f, 0, -30);
+        Platform death = new Platform(this, 20, 0.5f, 0, -20);
         death.addCollisionListener(new FallToDeath(this));
 
         // Stage
@@ -84,8 +84,11 @@ public class GameWorld extends World implements ActionListener {
         return player2;
     }
 
-    public void respawnPlayer(Player player) {
-        if (player.getHealth() <= 0) {
+    public void respawnPlayer(Player player, float decrementLives) {
+        if (player.getLives() <= 0) {
+            player.destroy();
+            // this.stop();
+        } else if (player.getHealth() <= 0) {
             if (player == player1) {
                 player.setFacingRight(true);
                 player.setPosition(p1StartPos);
@@ -93,10 +96,10 @@ public class GameWorld extends World implements ActionListener {
                 player.setFacingRight(false);
                 player.setPosition(p2StartPos);
             }
-            player.setHealth(player1.getMaxHealth());
+            player.setHealth(player.getMaxHealth());
             System.out.println(player.getHealth());
-            // player.setLives(player.getLives() - 1);
-            // System.out.println(player.getLives());
+            player.setLives(player.getLives() - decrementLives);
+            System.out.println(player.getLives());
         }
     }
 }
