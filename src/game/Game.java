@@ -1,7 +1,5 @@
 package game;
 
-import city.cs.engine.DebugViewer;
-
 import javax.swing.*;
 
 /** Main game entry point. */
@@ -24,7 +22,7 @@ public class Game {
         frame.pack();   // Frame resized to fit world view
         frame.setVisible(true);
 
-        JFrame debugView = new DebugViewer(arena, 800, 600);
+        // JFrame debugView = new DebugViewer(arena, 800, 600);
 
         arena.start();
     }

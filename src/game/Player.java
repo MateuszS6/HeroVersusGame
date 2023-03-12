@@ -25,7 +25,7 @@ public class Player extends Walker implements ActionListener {
         super(world);
         this.character = character;
         fixture = new SolidFixture(this, character.getDefaultShape());
-        setAlwaysOutline(true);
+        // setAlwaysOutline(true);
         setGravityScale(2);
 
         health = MAX_HEALTH;

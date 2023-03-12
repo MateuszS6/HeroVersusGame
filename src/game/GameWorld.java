@@ -55,20 +55,6 @@ public class GameWorld extends World implements ActionListener {
         player2.setKeyBindings(new KeyBindings());
         player2.setPosition(p2StartPos);
         player2.addCollisionListener(new PlayerCollisions(this, player2));
-
-        // Attacking collision detection
-        /* if (player1.isAttacking()) {
-            if (!player1.isFacingRight() && player1.getLeftAttackArea().contains(player2.getPosition()))
-                System.out.println("player 1 left-attacked player 2");
-            else if (player1.isFacingRight() && player1.getRightAttackArea().contains(player2.getPosition()))
-                System.out.println("player 1 right-attacked player 2");
-        }
-        if (player2.isAttacking()) {
-            if (!player2.isFacingRight() && player2.getLeftAttackArea().contains(player1.getPosition()))
-                System.out.println("player 2 left-attacked player 1");
-            else if (player2.isFacingRight() && player2.getRightAttackArea().contains(player1.getPosition()))
-                System.out.println("player 2 right-attacked player 1");
-        } */
     }
 
     @Override
@@ -87,7 +73,6 @@ public class GameWorld extends World implements ActionListener {
     public void respawnPlayer(Player player, float decrementLives) {
         if (player.getLives() <= 1) {
             player.destroy();
-            // this.stop();
         } else if (player.getHealth() <= 0) {
             if (player == player1) {
                 player.setFacingRight(true);
@@ -97,9 +82,8 @@ public class GameWorld extends World implements ActionListener {
                 player.setPosition(p2StartPos);
             }
             player.setHealth(player.getMaxHealth());
-            System.out.println(player.getHealth());
-            player.setLives(player.getLives() - decrementLives);
-            System.out.println(player.getLives());
+
         }
+        player.setLives(player.getLives() - decrementLives);
     }
 }
