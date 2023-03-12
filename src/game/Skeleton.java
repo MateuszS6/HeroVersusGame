@@ -11,8 +11,20 @@ public class Skeleton implements Character {
             0.6f, 1.19f,
             -0.6f, 1.19f,
             -1.25f, -0.6f);
-    private final PolygonShape ATTACK_LEFT_SHAPE = new PolygonShape(1.98f,-2.38f, -2.82f,-2.38f, -2.85f,0.32f, -0.75f,2.45f, 2.13f,2.12f, 2.4f,-1.0f);
-    private final PolygonShape ATTACK_RIGHT_SHAPE = new PolygonShape(-1.95f,-2.38f, 2.85f,-2.38f, 2.85f,0.02f, 0.6f,2.27f, -1.95f,1.97f, -2.4f,-1.03f);
+    private final PolygonShape ATTACK_LEFT_SHAPE = new PolygonShape(
+            1.98f, -2.38f,
+            -2.82f, -2.38f,
+            -2.85f, 0.32f,
+            -0.75f, 2.45f,
+            2.13f, 2.12f,
+            2.4f, -1.0f);
+    private final PolygonShape ATTACK_RIGHT_SHAPE = new PolygonShape(
+            -1.95f, -2.38f,
+            2.85f, -2.38f,
+            2.85f, 0.02f,
+            0.6f, 2.27f,
+            -1.95f, 1.97f,
+            -2.4f, -1.03f);
 
     private final BodyImage IDLE_LEFT_IMG =
             new BodyImage("assets/Skeleton/120x80_gifs/left_idle.gif", 10);
@@ -32,7 +44,7 @@ public class Skeleton implements Character {
             new BodyImage("assets/Skeleton/120x80_gifs/right_attack.gif", 10);
     private static final float RUNNING_SPEED = 7;
     private static final float JUMPING_SPEED = 15;
-    private static final int ATTACK_DURATION = 1800;
+    private static final int ATTACK_DURATION = 1700;
 
     @Override
     public PolygonShape getDefaultShape() {
