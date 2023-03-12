@@ -48,11 +48,13 @@ public class GameWorld extends World implements ActionListener {
         player1 = new Player(this, new Knight(), true);
         player1.setKeyBindings(new KeyBindings("w", "a", "d", "r"));
         player1.setPosition(p1StartPos);
+        player1.addCollisionListener(new PlayerCollisions(this, player1));
 
         // Player 2
         player2 = new Player(this, new Skeleton(), false);
         player2.setKeyBindings(new KeyBindings());
         player2.setPosition(p2StartPos);
+        player2.addCollisionListener(new PlayerCollisions(this, player2));
 
         // Attacking collision detection
         /* if (player1.isAttacking()) {
@@ -83,16 +85,18 @@ public class GameWorld extends World implements ActionListener {
     }
 
     public void respawnPlayer(Player player) {
-        if (player == player1) {
-            player.setFacingRight(true);
-            player.setPosition(p1StartPos);
-        } else if (player == player2) {
-            player.setFacingRight(false);
-            player.setPosition(p2StartPos);
+        if (player.getHealth() <= 0) {
+            if (player == player1) {
+                player.setFacingRight(true);
+                player.setPosition(p1StartPos);
+            } else if (player == player2) {
+                player.setFacingRight(false);
+                player.setPosition(p2StartPos);
+            }
+            player.setHealth(player1.getMaxHealth());
+            System.out.println(player.getHealth());
+            // player.setLives(player.getLives() - 1);
+            // System.out.println(player.getLives());
         }
-        /* player.setLives(player.getLives() - 1);
-        player.setHealth(player1.getMaxHealth());
-        System.out.println(player.getLives());
-        System.out.println(player.getHealth()); */
     }
 }

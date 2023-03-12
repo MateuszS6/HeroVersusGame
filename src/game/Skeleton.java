@@ -43,6 +43,7 @@ public class Skeleton implements Character {
     private static final float RUNNING_SPEED = 7;
     private static final float JUMPING_SPEED = 15;
     private static final int ATTACK_DURATION = 1700;
+    private static final int ATTACK_DAMAGE = 40;
 
     @Override
     public PolygonShape getDefaultShape() {
@@ -112,5 +113,10 @@ public class Skeleton implements Character {
     @Override
     public int getAttackDuration() {
         return ATTACK_DURATION;
+    }
+
+    @Override
+    public int getAttackDamage() {
+        return ATTACK_DAMAGE;
     }
 }

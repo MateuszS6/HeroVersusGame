@@ -18,4 +18,5 @@ public interface Character {
     float getRunningSpeed();
     float getJumpingSpeed();
     int getAttackDuration();
+    int getAttackDamage();
 }

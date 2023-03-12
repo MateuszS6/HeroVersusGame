@@ -45,6 +45,7 @@ public class Knight implements Character {
     private static final float RUNNING_SPEED = 11;
     private static final float JUMPING_SPEED = 15;
     private static final int ATTACK_DURATION = 500;
+    private static final int ATTACK_DAMAGE = 20;
 
     @Override
     public PolygonShape getDefaultShape() {
@@ -114,5 +115,10 @@ public class Knight implements Character {
     @Override
     public int getAttackDuration() {
         return ATTACK_DURATION;
+    }
+
+    @Override
+    public int getAttackDamage() {
+        return ATTACK_DAMAGE;
     }
 }

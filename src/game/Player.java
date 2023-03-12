@@ -37,8 +37,6 @@ public class Player extends Walker implements ActionListener {
             addImage(character.getIdleLeftImage());
         isMidAir = false;
         isAttacking = false;
-
-        addCollisionListener(new PlayerCollisions(this));
     }
 
     public Character getCharacter() {
@@ -162,7 +160,6 @@ public class Player extends Walker implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // count attack here
         isAttacking = false;
         fixture.destroy();
         fixture = new SolidFixture(this, character.getDefaultShape());
