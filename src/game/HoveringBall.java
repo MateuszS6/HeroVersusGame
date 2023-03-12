@@ -12,7 +12,7 @@ public class HoveringBall extends DynamicBody implements ActionListener {
         super(world, new CircleShape(radius, x, y));
         setGravityScale(0);
         SolidFixture surface = new SolidFixture(this, new CircleShape(radius, x, y));
-        surface.setRestitution(1);
+        // surface.setRestitution(1);
     }
 
     public void hover() {

@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 public class GameWorld extends World implements ActionListener {
     private Player player1;
     private Player player2;
+    private Vec2 p1StartPos;
+    private Vec2 p2StartPos;
 
     /**
      * Initialise the game world.
@@ -20,6 +22,7 @@ public class GameWorld extends World implements ActionListener {
         Platform right = new Platform(this, 0.5f, 30, 20.5f, 0);
         Platform ceiling = new Platform(this, 20, 0.5f, 0, 20);
         Platform death = new Platform(this, 20, 0.5f, 0, -30);
+        death.addCollisionListener(new FallToDeath(this));
 
         // Stage
         Platform stage = new Platform(this, 7, 2, 0, -13.5f);
@@ -37,15 +40,19 @@ public class GameWorld extends World implements ActionListener {
         HoveringBall annoyingBall = new HoveringBall(this, 3, 0, 8);
         annoyingBall.hover();
 
+        // Variable initialisation
+        p1StartPos = new Vec2(-4, -8.5f);
+        p2StartPos = new Vec2(4, -9);
+
         // Player 1
         player1 = new Player(this, new Knight(), true);
         player1.setKeyBindings(new KeyBindings("w", "a", "d", "r"));
-        player1.setPosition(new Vec2(-4, -8.5f));
+        player1.setPosition(p1StartPos);
 
         // Player 2
         player2 = new Player(this, new Skeleton(), false);
         player2.setKeyBindings(new KeyBindings());
-        player2.setPosition(new Vec2(4, -9));
+        player2.setPosition(p2StartPos);
 
         // Attacking collision detection
         /* if (player1.isAttacking()) {
@@ -73,5 +80,19 @@ public class GameWorld extends World implements ActionListener {
 
     public Player getPlayer2() {
         return player2;
+    }
+
+    public void respawnPlayer(Player player) {
+        if (player == player1) {
+            player.setFacingRight(true);
+            player.setPosition(p1StartPos);
+        } else if (player == player2) {
+            player.setFacingRight(false);
+            player.setPosition(p2StartPos);
+        }
+        /* player.setLives(player.getLives() - 1);
+        player.setHealth(player1.getMaxHealth());
+        System.out.println(player.getLives());
+        System.out.println(player.getHealth()); */
     }
 }

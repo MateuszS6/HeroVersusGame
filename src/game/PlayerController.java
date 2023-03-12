@@ -20,14 +20,12 @@ public class PlayerController implements KeyListener {
         KEY_MAP.put("a", KeyEvent.VK_A);
         KEY_MAP.put("d", KeyEvent.VK_D);
         KEY_MAP.put("r", KeyEvent.VK_R);
-        KEY_MAP.put("lShift", KeyEvent.KEY_LOCATION_LEFT);
 
         // Player 2
         KEY_MAP.put("up", KeyEvent.VK_UP);
         KEY_MAP.put("left", KeyEvent.VK_LEFT);
         KEY_MAP.put("right", KeyEvent.VK_RIGHT);
         KEY_MAP.put("#", KeyEvent.VK_NUMBER_SIGN);
-        KEY_MAP.put("rShift", KeyEvent.KEY_LOCATION_RIGHT);
     }
 
     @Override

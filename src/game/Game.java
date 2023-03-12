@@ -16,9 +16,6 @@ public class Game {
         view.addKeyListener(new PlayerController(arena.getPlayer1()));  // Player 1 controller
         view.addKeyListener(new PlayerController(arena.getPlayer2()));  // Player 2 controller
 
-        // Player step listener
-        // arena.addStepListener(new TestStepListener(view, arena.getPlayer1()));
-
         final JFrame frame = new JFrame("HeroVersus: Battle Arena");    // Java window title
         frame.add(view);    // View added to frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

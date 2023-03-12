@@ -1,6 +1,8 @@
 package game;
 
-import city.cs.engine.*;
+import city.cs.engine.SolidFixture;
+import city.cs.engine.Walker;
+import city.cs.engine.World;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -9,6 +11,9 @@ import java.awt.event.ActionListener;
 public class Player extends Walker implements ActionListener {
     private final Character character;
     private KeyBindings keyBindings;
+    private SolidFixture leftAttackShape;
+    private SolidFixture rightAttackShape;
+    private int lives;
     private int health;
     private static final int MAX_HEALTH = 100;
     private boolean isFacingRight;
@@ -21,7 +26,8 @@ public class Player extends Walker implements ActionListener {
         this.character = character;
         setGravityScale(2);
 
-        health = 100;
+        lives = 3;
+        health = MAX_HEALTH;
 
         isFacingRight = startFacingRight;
         if (isFacingRight)
@@ -42,6 +48,14 @@ public class Player extends Walker implements ActionListener {
         return keyBindings;
     }
 
+    public int getLives() {
+        return lives;
+    }
+
+    public void setLives(int lives) {
+        this.lives = lives;
+    }
+
     public int getHealth() {
         return health;
     }
@@ -50,12 +64,20 @@ public class Player extends Walker implements ActionListener {
         this.health = health;
     }
 
+    public int getMaxHealth() {
+        return MAX_HEALTH;
+    }
+
     public void setKeyBindings(KeyBindings keybindings) {
         this.keyBindings = keybindings;
     }
 
     public boolean isFacingRight() {
         return isFacingRight;
+    }
+
+    public void setFacingRight(boolean facingRight) {
+        isFacingRight = facingRight;
     }
 
     public void setMidAir(boolean midAir) {
