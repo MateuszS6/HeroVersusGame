@@ -11,16 +11,16 @@ public class Knight implements Character {
             -1.0f, -4.0f,
             -1.8f, -2.05f);
     private final PolygonShape ATTACK_LEFT_SHAPE = new PolygonShape(
-            0.72f, -4.06f,
-            -1.68f, -4.06f,
+            0.72f, -4.0f,
+            -1.68f, -4.0f,
             -4.06f, -3.56f,
             -5.52f, -1.66f,
             -3.12f, 0.52f,
             0.0f, -0.44f,
             1.32f, -2.26f);
     private final PolygonShape ATTACK_RIGHT_SHAPE = new PolygonShape(
-            -0.72f, -4.06f,
-            1.8f, -4.06f,
+            -0.72f, -4.0f,
+            1.8f, -4.0f,
             4.46f, -3.68f,
             5.4f, -1.78f,
             2.64f, 0.5f,

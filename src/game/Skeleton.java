@@ -12,19 +12,17 @@ public class Skeleton implements Character {
             -0.6f, 1.19f,
             -1.25f, -0.6f);
     private final PolygonShape ATTACK_LEFT_SHAPE = new PolygonShape(
-            1.98f, -2.38f,
-            -2.82f, -2.38f,
-            -2.85f, 0.32f,
-            -0.75f, 2.45f,
-            2.13f, 2.12f,
-            2.4f, -1.0f);
+            1.23f, -2.08f,
+            -3.42f, -2.08f,
+            -3.45f, 1.07f,
+            -1.2f, 2.6f,
+            1.17f, 2.57f);
     private final PolygonShape ATTACK_RIGHT_SHAPE = new PolygonShape(
-            -1.95f, -2.38f,
-            2.85f, -2.38f,
-            2.85f, 0.02f,
-            0.6f, 2.27f,
-            -1.95f, 1.97f,
-            -2.4f, -1.03f);
+            -1.23f, -2.08f,
+            3.42f, -2.08f,
+            3.45f, 1.07f,
+            1.2f, 2.6f,
+            -1.17f, 2.57f);
 
     private final BodyImage IDLE_LEFT_IMG =
             new BodyImage("assets/Skeleton/120x80_gifs/left_idle.gif", 10);
@@ -39,9 +37,9 @@ public class Skeleton implements Character {
     private final BodyImage RUNNING_RIGHT_IMG =
             new BodyImage("assets/Skeleton/120x80_gifs/right_walk.gif", 10);
     private final BodyImage ATTACK_LEFT_IMG =
-            new BodyImage("assets/Skeleton/120x80_gifs/left_attack.gif", 10);
+            new BodyImage("assets/Skeleton/120x80_gifs/left_attack2.gif", 10);
     private final BodyImage ATTACK_RIGHT_IMG =
-            new BodyImage("assets/Skeleton/120x80_gifs/right_attack.gif", 10);
+            new BodyImage("assets/Skeleton/120x80_gifs/right_attack2.gif", 10);
     private static final float RUNNING_SPEED = 7;
     private static final float JUMPING_SPEED = 15;
     private static final int ATTACK_DURATION = 1700;

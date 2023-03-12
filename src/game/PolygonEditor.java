@@ -239,7 +239,7 @@ public class PolygonEditor extends JPanel
      */
     public static void main(String[] args) {
         String knight = "assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_attack.gif";
-        String skeleton = "assets/Skeleton/120x80_gifs/left_attack.gif";
+        String skeleton = "assets/Skeleton/120x80_gifs/right_attack2.gif";
         String fileName = skeleton;
         float boxHeight = 10;
         int firstCoordIndex = 0;
