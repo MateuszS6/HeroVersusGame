@@ -1,6 +1,11 @@
 package game;
 
+import characters.Knight;
+import characters.Skeleton;
 import city.cs.engine.World;
+import objects.HealthRefill;
+import objects.HoveringBall;
+import objects.Platform;
 import org.jbox2d.common.Vec2;
 
 import javax.swing.*;

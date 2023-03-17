@@ -1,4 +1,4 @@
-package game;
+package objects;
 
 import city.cs.engine.CircleShape;
 import city.cs.engine.StaticBody;

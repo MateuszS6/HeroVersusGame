@@ -1,51 +1,49 @@
-package game;
+package characters;
 
 import city.cs.engine.BodyImage;
 import city.cs.engine.PolygonShape;
 
-public class Knight implements Character {
+public class Skeleton implements Character {
     private final PolygonShape DEFAULT_SHAPE = new PolygonShape(
-            -0.3f, -0.1f,
-            1.25f, -2.05f,
-            0.5f, -4.0f,
-            -1.0f, -4.0f,
-            -1.8f, -2.05f);
+            -0.7f, -2.05f,
+            0.7f, -2.05f,
+            1.25f, -0.6f,
+            0.6f, 1.19f,
+            -0.6f, 1.19f,
+            -1.25f, -0.6f);
     private final PolygonShape ATTACK_LEFT_SHAPE = new PolygonShape(
-            0.72f, -4.0f,
-            -1.68f, -4.0f,
-            -4.06f, -3.56f,
-            -5.52f, -1.66f,
-            -3.12f, 0.52f,
-            0.0f, -0.44f,
-            1.32f, -2.26f);
+            1.23f, -2.08f,
+            -3.42f, -2.08f,
+            -3.45f, 1.07f,
+            -1.2f, 2.6f,
+            1.17f, 2.57f);
     private final PolygonShape ATTACK_RIGHT_SHAPE = new PolygonShape(
-            -0.72f, -4.0f,
-            1.8f, -4.0f,
-            4.46f, -3.68f,
-            5.4f, -1.78f,
-            2.64f, 0.5f,
-            -0.1f, -0.34f,
-            -1.2f, -2.46f);
+            -1.23f, -2.08f,
+            3.42f, -2.08f,
+            3.45f, 1.07f,
+            1.2f, 2.6f,
+            -1.17f, 2.57f);
+
     private final BodyImage IDLE_LEFT_IMG =
-            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_idle.gif", 8);
+            new BodyImage("assets/Skeleton/120x80_gifs/left_idle.gif", 10);
     private final BodyImage IDLE_RIGHT_IMG =
-            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Idle.gif", 8);
+            new BodyImage("assets/Skeleton/120x80_gifs/right_idle.gif", 10);
     private final BodyImage JUMPING_LEFT_IMG =
-            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_jump.gif", 8);
+            IDLE_LEFT_IMG;
     private final BodyImage JUMPING_RIGHT_IMG =
-            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Jump.gif", 8);
+            IDLE_RIGHT_IMG;
     private final BodyImage RUNNING_LEFT_IMG =
-            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_run.gif", 8);
+            new BodyImage("assets/Skeleton/120x80_gifs/left_walk.gif", 10);
     private final BodyImage RUNNING_RIGHT_IMG =
-            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Run.gif", 8);
+            new BodyImage("assets/Skeleton/120x80_gifs/right_walk.gif", 10);
     private final BodyImage ATTACK_LEFT_IMG =
-            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_attack.gif", 8);
+            new BodyImage("assets/Skeleton/120x80_gifs/left_attack2.gif", 10);
     private final BodyImage ATTACK_RIGHT_IMG =
-            new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__AttackCombo2hit.gif", 8);
-    private static final float RUNNING_SPEED = 11;
+            new BodyImage("assets/Skeleton/120x80_gifs/right_attack2.gif", 10);
+    private static final float RUNNING_SPEED = 7;
     private static final float JUMPING_SPEED = 15;
-    private static final int ATTACK_DURATION = 500;
-    private static final int ATTACK_DAMAGE = 20;
+    private static final int ATTACK_DURATION = 1700;
+    private static final int ATTACK_DAMAGE = 40;
 
     @Override
     public PolygonShape getDefaultShape() {

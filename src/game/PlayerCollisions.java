@@ -2,6 +2,8 @@ package game;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
+import objects.HealthRefill;
+import objects.Platform;
 
 public class PlayerCollisions implements CollisionListener {
     private GameWorld world;

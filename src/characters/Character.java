@@ -1,4 +1,4 @@
-package game;
+package characters;
 
 import city.cs.engine.BodyImage;
 import city.cs.engine.PolygonShape;

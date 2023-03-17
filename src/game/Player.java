@@ -1,5 +1,6 @@
 package game;
 
+import characters.Character;
 import city.cs.engine.SolidFixture;
 import city.cs.engine.Walker;
 import city.cs.engine.World;
