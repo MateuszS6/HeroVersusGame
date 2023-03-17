@@ -1,7 +1,8 @@
-package game;
+package player;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
+import game.GameWorld;
 import objects.HealthRefill;
 import objects.Platform;
 

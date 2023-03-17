@@ -2,6 +2,7 @@ package game;
 
 import city.cs.engine.StepEvent;
 import city.cs.engine.StepListener;
+import player.Player;
 
 public class TestStepListener implements StepListener {
     private GameView view;

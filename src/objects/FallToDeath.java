@@ -1,7 +1,9 @@
-package game;
+package objects;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
+import game.GameWorld;
+import player.Player;
 
 public class FallToDeath implements CollisionListener {
     private GameWorld world;

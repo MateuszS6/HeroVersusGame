@@ -1,4 +1,4 @@
-package game;
+package player;
 
 import characters.Character;
 import city.cs.engine.SolidFixture;

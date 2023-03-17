@@ -1,4 +1,4 @@
-package game;
+package player;
 
 public class KeyBindings {
     String jumpKey;
