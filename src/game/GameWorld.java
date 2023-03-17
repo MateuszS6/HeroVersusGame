@@ -23,9 +23,7 @@ public class GameWorld extends World implements ActionListener {
     private Vec2 p1StartPos;
     private Vec2 p2StartPos;
 
-    /**
-     * Initialise the game world.
-     */
+    /** Initialise a game world. */
     public GameWorld() {
         // World borders
         Platform left = new Platform(this, 0.5f, 20, -20.5f, 0);

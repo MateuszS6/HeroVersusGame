@@ -42,7 +42,7 @@ public class GameView extends UserView {
         g.setFont(new Font(fontName, Font.BOLD, 15));
         g.drawString("Health: " + player1.getHealth(), 10, 50);
         g.drawString("Health: " + player2.getHealth(), this.getWidth() - 90, 50);
-        g.drawString("Lives: " + ((int) player1.getLives()), 10, 70);
-        g.drawString("Lives: " + ((int) player2.getLives()), this.getWidth() - 70, 70);
+        g.drawString("Lives: " + player1.getLives(), 10, 70);
+        g.drawString("Lives: " + player2.getLives(), this.getWidth() - 70, 70);
     }
 }

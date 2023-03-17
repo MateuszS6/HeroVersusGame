@@ -1,5 +1,7 @@
 package game;
 
+import player.PlayerController;
+
 import javax.swing.*;
 
 /** Main game entry point. */
