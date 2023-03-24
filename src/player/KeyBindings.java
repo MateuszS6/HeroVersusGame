@@ -10,7 +10,7 @@ public class KeyBindings {
         jumpKey = "up";
         leftKey = "left";
         rightKey = "right";
-        attackKey = "#";
+        attackKey = ".";
     }
 
     public KeyBindings(String jump, String left, String right, String attack) {

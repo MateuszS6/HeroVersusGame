@@ -25,7 +25,7 @@ public class PlayerController implements KeyListener {
         KEY_MAP.put("up", KeyEvent.VK_UP);
         KEY_MAP.put("left", KeyEvent.VK_LEFT);
         KEY_MAP.put("right", KeyEvent.VK_RIGHT);
-        KEY_MAP.put("#", KeyEvent.VK_NUMBER_SIGN);
+        KEY_MAP.put(".", KeyEvent.VK_PERIOD);
     }
 
     @Override
