@@ -15,8 +15,8 @@ public class Player extends Walker implements ActionListener {
     private SolidFixture fixture;
     private int health;
     private static final int MAX_HEALTH = 100;
-    private float lives;
-    private static final float MAX_LIVES = 3;
+    private int lives;
+    private static final int MAX_LIVES = 3;
     private boolean isFacingRight;
     private boolean isMidAir;
     private boolean isAttacking;
@@ -61,15 +61,15 @@ public class Player extends Walker implements ActionListener {
         return MAX_HEALTH;
     }
 
-    public float getLives() {
+    public int getLives() {
         return lives;
     }
 
-    public void setLives(float lives) {
+    public void setLives(int lives) {
         this.lives = lives;
     }
 
-    public float getMaxLives() {
+    public int getMaxLives() {
         return MAX_LIVES;
     }
 

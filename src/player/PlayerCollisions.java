@@ -30,7 +30,7 @@ public class PlayerCollisions implements CollisionListener {
             if (player.isAttacking()) {
                 ((Player) e.getOtherBody()).setHealth(((Player) e.getOtherBody()).getHealth() - player.getCharacter().getAttackDamage());
                 System.out.println("attacked player health: " + ((Player) e.getOtherBody()).getHealth());
-                world.respawnPlayer((Player) e.getOtherBody(), 1);
+                world.respawnPlayer((Player) e.getOtherBody());
             }
         }
         if (e.getOtherBody() instanceof HealthRefill) {

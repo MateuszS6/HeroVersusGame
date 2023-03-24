@@ -22,6 +22,7 @@ public class GameWorld extends World implements ActionListener {
     private Player player2;
     private Vec2 p1StartPos;
     private Vec2 p2StartPos;
+    private boolean respawn = true;
 
     /** Initialise a game world. */
     public GameWorld() {
@@ -83,7 +84,15 @@ public class GameWorld extends World implements ActionListener {
         return player2;
     }
 
-    public void respawnPlayer(Player player, float decrementLives) {
+    public boolean isRespawn() {
+        return respawn;
+    }
+
+    public void setRespawn(boolean respawn) {
+        this.respawn = respawn;
+    }
+
+    public void respawnPlayer(Player player) {
         if (player.getLives() <= 1) {
             player.setLives(0);
             player.setLives(0);
@@ -97,7 +106,7 @@ public class GameWorld extends World implements ActionListener {
                 player.setPosition(p2StartPos);
             }
             player.setHealth(player.getMaxHealth());
-            player.setLives(player.getLives() - decrementLives);
+            player.setLives(player.getLives() - 1);
         }
     }
 }
