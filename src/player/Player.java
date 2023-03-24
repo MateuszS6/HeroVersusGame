@@ -69,6 +69,10 @@ public class Player extends Walker implements ActionListener {
         this.lives = lives;
     }
 
+    public void decrementlives() {
+        lives--;
+    }
+
     public int getMaxLives() {
         return MAX_LIVES;
     }
