@@ -3,7 +3,6 @@ package game;
 import characters.Knight;
 import characters.Skeleton;
 import city.cs.engine.World;
-import objects.FallToDeath;
 import objects.HealthRefill;
 import objects.HoveringBall;
 import objects.Platform;
@@ -29,8 +28,8 @@ public class GameWorld extends World implements ActionListener {
         Platform left = new Platform(this, 0.5f, 20, -20.5f, 0);
         Platform right = new Platform(this, 0.5f, 20, 20.5f, 0);
         Platform ceiling = new Platform(this, 20, 0.5f, 0, 20);
-        Platform death = new Platform(this, 20, 0.5f, 0, -20);
-        death.addCollisionListener(new FallToDeath(this));
+        // Platform death = new Platform(this, 20, 0.5f, 0, -20);
+        // death.addCollisionListener(new FallToDeath(this));
 
         // Stage
         Platform stage = new Platform(this, 7, 2, 0, -13.5f);
@@ -67,6 +66,9 @@ public class GameWorld extends World implements ActionListener {
         Timer collectibleTimer = new Timer(10000, this);
         collectibleTimer.setRepeats(false);
         collectibleTimer.start();
+
+        addStepListener(new TestStepListener(this, player1));
+        addStepListener(new TestStepListener(this, player2));
     }
 
     @Override

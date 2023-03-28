@@ -1,6 +1,5 @@
 package game;
 
-import city.cs.engine.DebugViewer;
 import player.PlayerController;
 
 import javax.swing.*;
@@ -25,7 +24,7 @@ public class Game {
         frame.pack();   // Frame resized to fit world view
         frame.setVisible(true);
 
-        JFrame debugView = new DebugViewer(arena, 800, 600);
+        // JFrame debugView = new DebugViewer(arena, 800, 600);
 
         arena.start();
     }
