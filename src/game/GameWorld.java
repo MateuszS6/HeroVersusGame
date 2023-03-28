@@ -67,8 +67,8 @@ public class GameWorld extends World implements ActionListener {
         collectibleTimer.setRepeats(false);
         collectibleTimer.start();
 
-        addStepListener(new TestStepListener(this, player1));
-        addStepListener(new TestStepListener(this, player2));
+        // addStepListener(new TestStepListener(this, player1));
+        // addStepListener(new TestStepListener(this, player2));
     }
 
     @Override

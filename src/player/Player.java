@@ -100,25 +100,21 @@ public class Player extends Walker implements ActionListener {
     public void idle() {
         removeAllImages();
         if (isMidAir) {
-            if (isFacingRight)
-                addImage(getCharacter().getJumpingRightImage());
-            else
-                addImage(getCharacter().getJumpingLeftImage());
+            if (isFacingRight) addImage(getCharacter().getJumpingRightImage());
+            else addImage(getCharacter().getJumpingLeftImage());
         } else {
-            if (isFacingRight)
-                addImage(getCharacter().getIdleRightImage());
-            else
-                addImage(getCharacter().getIdleLeftImage());
+            if (isFacingRight) addImage(getCharacter().getIdleRightImage());
+            else addImage(getCharacter().getIdleLeftImage());
         }
+
         stopWalking();
     }
 
     public void jump() {
         removeAllImages();
-        if (isFacingRight)
-            addImage(getCharacter().getJumpingRightImage());
-        else
-            addImage(getCharacter().getJumpingLeftImage());
+        if (isFacingRight) addImage(getCharacter().getJumpingRightImage());
+        else addImage(getCharacter().getJumpingLeftImage());
+
         jump(getCharacter().getJumpingSpeed());
     }
 
@@ -126,13 +122,10 @@ public class Player extends Walker implements ActionListener {
         isFacingRight = false;
         removeAllImages();
         if (isMidAir) {
-            if (isFacingRight)
-                addImage(getCharacter().getJumpingRightImage());
-            else
-                addImage(getCharacter().getJumpingLeftImage());
-        } else {
-            addImage(getCharacter().getRunningLeftImage());
-        }
+            if (isFacingRight) addImage(getCharacter().getJumpingRightImage());
+            else addImage(getCharacter().getJumpingLeftImage());
+        } else addImage(getCharacter().getRunningLeftImage());
+
         startWalking(-getCharacter().getRunningSpeed());
     }
 
@@ -140,13 +133,10 @@ public class Player extends Walker implements ActionListener {
         isFacingRight = true;
         removeAllImages();
         if (isMidAir) {
-            if (isFacingRight)
-                addImage(getCharacter().getJumpingRightImage());
-            else
-                addImage(getCharacter().getJumpingLeftImage());
-        } else {
-            addImage(getCharacter().getRunningRightImage());
-        }
+            if (isFacingRight) addImage(getCharacter().getJumpingRightImage());
+            else addImage(getCharacter().getJumpingLeftImage());
+        } else addImage(getCharacter().getRunningRightImage());
+
         startWalking(getCharacter().getRunningSpeed());
     }
 
@@ -157,6 +147,7 @@ public class Player extends Walker implements ActionListener {
             timer.setRepeats(false);
             timer.start();
             fixture.destroy();
+
             removeAllImages();
             if (isFacingRight) {
                 fixture = new SolidFixture(this, character.getAttackRightShape());
@@ -173,10 +164,9 @@ public class Player extends Walker implements ActionListener {
         isAttacking = false;
         fixture.destroy();
         fixture = new SolidFixture(this, character.getDefaultShape());
+
         removeAllImages();
-        if (isFacingRight)
-            addImage(getCharacter().getIdleRightImage());
-        else
-            addImage(getCharacter().getIdleLeftImage());
+        if (isFacingRight) addImage(getCharacter().getIdleRightImage());
+        else addImage(getCharacter().getIdleLeftImage());
     }
 }
