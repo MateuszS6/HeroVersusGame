@@ -22,6 +22,7 @@ public class GameWorld extends World implements ActionListener {
     private Player player2;
     private Vec2 p1StartPos;
     private Vec2 p2StartPos;
+    private Platform deathBarrier;
 
     /** Initialise a game world. */
     public GameWorld() {
@@ -29,9 +30,8 @@ public class GameWorld extends World implements ActionListener {
         Platform left = new Platform(this, 0.5f, 20, -20.5f, 0);
         Platform right = new Platform(this, 0.5f, 20, 20.5f, 0);
         Platform ceiling = new Platform(this, 20, 0.5f, 0, 20);
-        Platform death = new Platform(this, 20, 0.5f, 0, -20);
-        death.addCollisionListener(new FallToDeath(this));
-        // death.setName("death");
+        deathBarrier = new Platform(this, 20, 0.5f, 0, -20);
+        deathBarrier.addCollisionListener(new FallToDeath(this));
 
         // Stage
         Platform stage = new Platform(this, 7, 2, 0, -13.5f);
@@ -68,9 +68,6 @@ public class GameWorld extends World implements ActionListener {
         Timer collectibleTimer = new Timer(10000, this);
         collectibleTimer.setRepeats(false);
         collectibleTimer.start();
-
-        // addStepListener(new TestStepListener(this, player1));
-        // addStepListener(new TestStepListener(this, player2));
     }
 
     @Override
@@ -87,12 +84,16 @@ public class GameWorld extends World implements ActionListener {
         return player2;
     }
 
+    public Platform getDeathBarrier() {
+        return deathBarrier;
+    }
+
     public void respawnPlayer(Player player) {
-        if (player.getLives() <= 1) {
+        if (player.getLives() < 2) {
             player.setLives(0);
             player.setLives(0);
             player.destroy();
-        } else if (player.getHealth() <= 0) {
+        } else if (player.getHealth() < 1) {
             if (player == player1) {
                 player.setFacingRight(true);
                 player.setPosition(p1StartPos);

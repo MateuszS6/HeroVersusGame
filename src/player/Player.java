@@ -112,6 +112,7 @@ public class Player extends Walker implements ActionListener {
 
     public void moveLeft() {
         isFacingRight = false;
+
         removeAllImages();
         if (isMidAir) addImage(getCharacter().getJumpingImage(isFacingRight));
         else addImage(getCharacter().getRunningImage(isFacingRight));
@@ -121,6 +122,7 @@ public class Player extends Walker implements ActionListener {
 
     public void moveRight() {
         isFacingRight = true;
+
         removeAllImages();
         if (isMidAir) addImage(getCharacter().getJumpingImage(isFacingRight));
         else addImage(getCharacter().getRunningImage(isFacingRight));

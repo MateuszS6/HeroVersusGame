@@ -22,8 +22,9 @@ public class PlayerCollisions implements CollisionListener {
                 player.removeAllImages();
                 player.addImage(player.getCharacter().getIdleImage(player.isFacingRight()));
             }
-            // if (Objects.equals(e.getOtherBody().getName(), "death")) world.respawnPlayer(player);
+            // if (e.getOtherBody().getName().equals("death")) System.out.println("respawn");
         }
+
         if (e.getOtherBody() instanceof Player ) {
             if (player.isAttacking()) {
                 ((Player) e.getOtherBody()).setHealth(((Player) e.getOtherBody()).getHealth() - player.getCharacter().getAttackDamage());
@@ -31,6 +32,7 @@ public class PlayerCollisions implements CollisionListener {
                 world.respawnPlayer((Player) e.getOtherBody());
             }
         }
+
         if (e.getOtherBody() instanceof HealthRefill) {
             if (player.getHealth() < player.getMaxHealth()) {
                 player.setHealth(player.getMaxHealth());
