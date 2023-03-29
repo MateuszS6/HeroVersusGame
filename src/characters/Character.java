@@ -5,18 +5,22 @@ import city.cs.engine.PolygonShape;
 
 public interface Character {
     PolygonShape getDefaultShape();
-    PolygonShape getAttackLeftShape();
-    PolygonShape getAttackRightShape();
-    BodyImage getIdleLeftImage();
-    BodyImage getIdleRightImage();
-    BodyImage getJumpingLeftImage();
-    BodyImage getJumpingRightImage();
-    BodyImage getRunningLeftImage();
-    BodyImage getRunningRightImage();
-    BodyImage getAttackLeftImage();
-    BodyImage getAttackRightImage();
+
+    PolygonShape getAttackShape(boolean playerFacingRight);
+
+    BodyImage getIdleImage(boolean playerFacingRight);
+
+    BodyImage getJumpingImage(boolean playerFacingRight);
+
+    BodyImage getRunningImage(boolean playerFacingRight);
+
+    BodyImage getAttackImage(boolean playerFacingRight);
+
     float getRunningSpeed();
+
     float getJumpingSpeed();
+
     int getAttackDuration();
+
     int getAttackDamage();
 }

@@ -3,6 +3,7 @@ package game;
 import characters.Knight;
 import characters.Skeleton;
 import city.cs.engine.World;
+import objects.FallToDeath;
 import objects.HealthRefill;
 import objects.HoveringBall;
 import objects.Platform;
@@ -28,8 +29,9 @@ public class GameWorld extends World implements ActionListener {
         Platform left = new Platform(this, 0.5f, 20, -20.5f, 0);
         Platform right = new Platform(this, 0.5f, 20, 20.5f, 0);
         Platform ceiling = new Platform(this, 20, 0.5f, 0, 20);
-        // Platform death = new Platform(this, 20, 0.5f, 0, -20);
-        // death.addCollisionListener(new FallToDeath(this));
+        Platform death = new Platform(this, 20, 0.5f, 0, -20);
+        death.addCollisionListener(new FallToDeath(this));
+        // death.setName("death");
 
         // Stage
         Platform stage = new Platform(this, 7, 2, 0, -13.5f);
@@ -99,7 +101,7 @@ public class GameWorld extends World implements ActionListener {
                 player.setPosition(p2StartPos);
             }
             player.setHealth(player.getMaxHealth());
-            player.decrementlives();
+            player.decrementLives();
             System.out.println(player.getLives());
         }
     }

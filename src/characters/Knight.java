@@ -53,6 +53,32 @@ public class Knight implements Character {
     }
 
     @Override
+    public PolygonShape getAttackShape(boolean isFacingRight) {
+        if (isFacingRight) return ATTACK_RIGHT_SHAPE;
+        else return ATTACK_LEFT_SHAPE;
+    }
+
+    @Override
+    public BodyImage getIdleImage(boolean playerFacingRight) {
+        return null;
+    }
+
+    @Override
+    public BodyImage getJumpingImage(boolean playerFacingRight) {
+        return null;
+    }
+
+    @Override
+    public BodyImage getRunningImage(boolean playerFacingRight) {
+        return null;
+    }
+
+    @Override
+    public BodyImage getAttackImage(boolean playerFacingRight) {
+        return null;
+    }
+
+    @Override
     public PolygonShape getAttackLeftShape() {
         return ATTACK_LEFT_SHAPE;
     }

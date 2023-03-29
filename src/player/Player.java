@@ -69,7 +69,7 @@ public class Player extends Walker implements ActionListener {
         this.lives = lives;
     }
 
-    public void decrementlives() {
+    public void decrementLives() {
         lives--;
     }
 
@@ -149,13 +149,8 @@ public class Player extends Walker implements ActionListener {
             fixture.destroy();
 
             removeAllImages();
-            if (isFacingRight) {
-                fixture = new SolidFixture(this, character.getAttackRightShape());
-                addImage(getCharacter().getAttackRightImage());
-            } else {
-                fixture = new SolidFixture(this, character.getAttackLeftShape());
-                addImage(getCharacter().getAttackLeftImage());
-            }
+            fixture = new SolidFixture(this, character.getAttackShape(isFacingRight));
+            addImage(getCharacter().getAttackRightImage());
         }
     }
 
