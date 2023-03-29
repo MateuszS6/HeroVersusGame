@@ -20,8 +20,7 @@ public class PlayerCollisions implements CollisionListener {
         if (e.getOtherBody() instanceof Platform) {
             if (!player.isAttacking()) {
                 player.removeAllImages();
-                if (player.isFacingRight()) player.addImage(player.getCharacter().getIdleRightImage());
-                else player.addImage(player.getCharacter().getIdleLeftImage());
+                player.addImage(player.getCharacter().getIdleImage(player.isFacingRight()));
             }
             // if (Objects.equals(e.getOtherBody().getName(), "death")) world.respawnPlayer(player);
         }

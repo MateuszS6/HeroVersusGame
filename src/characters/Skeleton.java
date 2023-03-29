@@ -51,53 +51,33 @@ public class Skeleton implements Character {
     }
 
     @Override
-    public PolygonShape getAttackLeftShape() {
-        return ATTACK_LEFT_SHAPE;
+    public PolygonShape getAttackShape(boolean playerFacingRight) {
+        if (playerFacingRight) return ATTACK_RIGHT_SHAPE;
+        else return ATTACK_LEFT_SHAPE;
     }
 
     @Override
-    public PolygonShape getAttackRightShape() {
-        return ATTACK_RIGHT_SHAPE;
+    public BodyImage getIdleImage(boolean playerFacingRight) {
+        if (playerFacingRight) return IDLE_RIGHT_IMG;
+        else return IDLE_LEFT_IMG;
     }
 
     @Override
-    public BodyImage getIdleLeftImage() {
-        return IDLE_LEFT_IMG;
+    public BodyImage getJumpingImage(boolean playerFacingRight) {
+        if (playerFacingRight) return JUMPING_RIGHT_IMG;
+        else return JUMPING_LEFT_IMG;
     }
 
     @Override
-    public BodyImage getIdleRightImage() {
-        return IDLE_RIGHT_IMG;
+    public BodyImage getRunningImage(boolean playerFacingRight) {
+        if (playerFacingRight) return RUNNING_RIGHT_IMG;
+        else return RUNNING_LEFT_IMG;
     }
 
     @Override
-    public BodyImage getJumpingLeftImage() {
-        return JUMPING_LEFT_IMG;
-    }
-
-    @Override
-    public BodyImage getJumpingRightImage() {
-        return JUMPING_RIGHT_IMG;
-    }
-
-    @Override
-    public BodyImage getRunningLeftImage() {
-        return RUNNING_LEFT_IMG;
-    }
-
-    @Override
-    public BodyImage getRunningRightImage() {
-        return RUNNING_RIGHT_IMG;
-    }
-
-    @Override
-    public BodyImage getAttackLeftImage() {
-        return ATTACK_LEFT_IMG;
-    }
-
-    @Override
-    public BodyImage getAttackRightImage() {
-        return ATTACK_RIGHT_IMG;
+    public BodyImage getAttackImage(boolean playerFacingRight) {
+        if (playerFacingRight) return ATTACK_RIGHT_IMG;
+        else return ATTACK_LEFT_IMG;
     }
 
     @Override
