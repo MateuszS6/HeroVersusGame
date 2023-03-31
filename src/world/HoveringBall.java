@@ -1,4 +1,4 @@
-package objects;
+package world;
 
 import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
@@ -13,6 +13,8 @@ public class HoveringBall extends DynamicBody implements ActionListener {
         setGravityScale(0);
         SolidFixture surface = new SolidFixture(this, new CircleShape(radius, x, y));
         // surface.setRestitution(1);
+
+        hover();
     }
 
     public void hover() {

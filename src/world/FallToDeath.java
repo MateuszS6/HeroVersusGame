@@ -1,4 +1,4 @@
-package objects;
+package world;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
@@ -22,7 +22,7 @@ public class FallToDeath implements CollisionListener, ActionListener {
             e.getReportingBody().removeAllCollisionListeners();
             ((Player) e.getOtherBody()).setHealth(0);
             world.respawnPlayer((Player) e.getOtherBody());
-            
+
             Timer timer = new Timer(500, this);
             timer.setRepeats(false);
             timer.start();

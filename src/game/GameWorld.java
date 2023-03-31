@@ -3,10 +3,7 @@ package game;
 import characters.Knight;
 import characters.Skeleton;
 import city.cs.engine.World;
-import objects.FallToDeath;
-import objects.HealthRefill;
-import objects.HoveringBall;
-import objects.Platform;
+import world.*;
 import org.jbox2d.common.Vec2;
 import player.KeyBindings;
 import player.Player;
@@ -22,15 +19,15 @@ public class GameWorld extends World implements ActionListener {
     private Player player2;
     private Vec2 p1StartPos;
     private Vec2 p2StartPos;
-    private Platform deathBarrier;
+    private Barrier deathBarrier;
 
     /** Initialise a game world. */
     public GameWorld() {
         // World borders
-        Platform left = new Platform(this, 0.5f, 20, -20.5f, 0);
-        Platform right = new Platform(this, 0.5f, 20, 20.5f, 0);
-        Platform ceiling = new Platform(this, 20, 0.5f, 0, 20);
-        deathBarrier = new Platform(this, 20, 0.5f, 0, -20);
+        Barrier left = new Barrier(this, 0.5f, 20, -20.5f, 0);
+        Barrier right = new Barrier(this, 0.5f, 20, 20.5f, 0);
+        Barrier ceiling = new Barrier(this, 20, 0.5f, 0, 20);
+        deathBarrier = new Barrier(this, 20, 0.5f, 0, -20);
         deathBarrier.addCollisionListener(new FallToDeath(this));
 
         // Stage
@@ -47,7 +44,6 @@ public class GameWorld extends World implements ActionListener {
 
         // Hovering ball
         HoveringBall annoyingBall = new HoveringBall(this, 3, 0, 8);
-        annoyingBall.hover();
 
         // Player position
         p1StartPos = new Vec2(-4, -8.5f);
@@ -84,7 +80,7 @@ public class GameWorld extends World implements ActionListener {
         return player2;
     }
 
-    public Platform getDeathBarrier() {
+    public Barrier getDeathBarrier() {
         return deathBarrier;
     }
 

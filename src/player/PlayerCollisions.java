@@ -3,8 +3,8 @@ package player;
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
 import game.GameWorld;
-import objects.HealthRefill;
-import objects.Platform;
+import world.HealthRefill;
+import world.Platform;
 
 public class PlayerCollisions implements CollisionListener {
     private GameWorld world;
