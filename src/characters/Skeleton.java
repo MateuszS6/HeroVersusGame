@@ -4,6 +4,24 @@ import city.cs.engine.BodyImage;
 import city.cs.engine.PolygonShape;
 
 public class Skeleton extends Character {
+
+    public Skeleton() {
+        super(DEFAULT_SHAPE,
+                ATTACK_LEFT_SHAPE,
+                ATTACK_RIGHT_SHAPE,
+                IDLE_LEFT_IMG,
+                IDLE_RIGHT_IMG,
+                JUMPING_LEFT_IMG,
+                JUMPING_RIGHT_IMG,
+                RUNNING_LEFT_IMG,
+                RUNNING_RIGHT_IMG,
+                ATTACK_LEFT_IMG,
+                ATTACK_RIGHT_IMG,
+                RUNNING_SPEED,
+                JUMPING_SPEED,
+                ATTACK_DURATION,
+                ATTACK_DAMAGE);
+    }
     private final PolygonShape DEFAULT_SHAPE = new PolygonShape(
             -0.7f, -2.05f,
             0.7f, -2.05f,
