@@ -17,27 +17,20 @@ public class PlayerCollisions implements CollisionListener {
 
     @Override
     public void collide(CollisionEvent e) {
-        if (e.getOtherBody() instanceof Platform) {
-            if (!player.isAttacking()) {
-                player.removeAllImages();
-                player.addImage(player.getCharacter().getIdleImage(player.isFacingRight()));
-            }
-            // if (e.getOtherBody().getName().equals("death")) System.out.println("respawn");
+        if (e.getOtherBody() instanceof Platform) if (!player.isAttacking()) {
+            player.removeAllImages();
+            player.addImage(player.getCharacter().getIdleImage(player.isFacingRight()));
         }
 
-        if (e.getOtherBody() instanceof Player ) {
-            if (player.isAttacking()) {
-                ((Player) e.getOtherBody()).setHealth(((Player) e.getOtherBody()).getHealth() - player.getCharacter().getAttackDamage());
-                System.out.println("attacked player health: " + ((Player) e.getOtherBody()).getHealth());
-                world.respawnPlayer((Player) e.getOtherBody());
-            }
+        if (e.getOtherBody() instanceof Player ) if (player.isAttacking()) {
+            ((Player) e.getOtherBody()).setHealth(((Player) e.getOtherBody()).getHealth() - player.getCharacter().getAttackDamage());
+            System.out.println("attacked player health: " + ((Player) e.getOtherBody()).getHealth());
+            world.respawnPlayer((Player) e.getOtherBody());
         }
 
-        if (e.getOtherBody() instanceof HealthRefill) {
-            if (player.getHealth() < player.getMaxHealth()) {
-                player.setHealth(player.getMaxHealth());
-                e.getOtherBody().destroy();
-            }
+        if (e.getOtherBody() instanceof HealthRefill) if (player.getHealth() < player.getMaxHealth()) {
+            player.setHealth(player.getMaxHealth());
+            e.getOtherBody().destroy();
         }
     }
 }
