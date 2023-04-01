@@ -3,7 +3,7 @@ package characters;
 import city.cs.engine.BodyImage;
 import city.cs.engine.PolygonShape;
 
-public class Skeleton implements Character {
+public class Skeleton extends Character {
     private final PolygonShape DEFAULT_SHAPE = new PolygonShape(
             -0.7f, -2.05f,
             0.7f, -2.05f,
@@ -44,59 +44,4 @@ public class Skeleton implements Character {
     private static final float JUMPING_SPEED = 15;
     private static final int ATTACK_DURATION = 1700;
     private static final int ATTACK_DAMAGE = 40;
-
-    @Override
-    public PolygonShape getDefaultShape() {
-        return DEFAULT_SHAPE;
-    }
-
-    @Override
-    public PolygonShape getAttackShape(boolean playerFacingRight) {
-        if (playerFacingRight) return ATTACK_RIGHT_SHAPE;
-        else return ATTACK_LEFT_SHAPE;
-    }
-
-    @Override
-    public BodyImage getIdleImage(boolean playerFacingRight) {
-        if (playerFacingRight) return IDLE_RIGHT_IMG;
-        else return IDLE_LEFT_IMG;
-    }
-
-    @Override
-    public BodyImage getJumpingImage(boolean playerFacingRight) {
-        if (playerFacingRight) return JUMPING_RIGHT_IMG;
-        else return JUMPING_LEFT_IMG;
-    }
-
-    @Override
-    public BodyImage getRunningImage(boolean playerFacingRight) {
-        if (playerFacingRight) return RUNNING_RIGHT_IMG;
-        else return RUNNING_LEFT_IMG;
-    }
-
-    @Override
-    public BodyImage getAttackImage(boolean playerFacingRight) {
-        if (playerFacingRight) return ATTACK_RIGHT_IMG;
-        else return ATTACK_LEFT_IMG;
-    }
-
-    @Override
-    public float getRunningSpeed() {
-        return RUNNING_SPEED;
-    }
-
-    @Override
-    public float getJumpingSpeed() {
-        return JUMPING_SPEED;
-    }
-
-    @Override
-    public int getAttackDuration() {
-        return ATTACK_DURATION;
-    }
-
-    @Override
-    public int getAttackDamage() {
-        return ATTACK_DAMAGE;
-    }
 }
