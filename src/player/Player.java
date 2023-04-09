@@ -13,10 +13,10 @@ public class Player extends Walker implements ActionListener {
     private final Character character;
     private KeyBindings keyBindings;
     private SolidFixture fixture;
-    private int health;
     private static final int MAX_HEALTH = 100;
-    private int lives;
+    private int health;
     private static final int MAX_LIVES = 3;
+    private int lives;
     private boolean isFacingRight;
     private boolean isMidAir;
     private boolean isAttacking;

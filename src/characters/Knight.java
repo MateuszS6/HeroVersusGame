@@ -6,7 +6,7 @@ import city.cs.engine.PolygonShape;
 public class Knight extends Character {
     public Knight() {
         super(new PolygonShape(
-                        -0.3f, -0.1f,
+                -0.3f, -0.1f,
                         1.25f, -2.05f,
                         0.5f, -4.0f,
                         -1.0f, -4.0f,
@@ -19,7 +19,8 @@ public class Knight extends Character {
                         -3.12f, 0.52f,
                         0.0f, -0.44f,
                         1.32f, -2.26f),
-                new PolygonShape(-0.72f, -4.0f,
+                new PolygonShape(
+                        -0.72f, -4.0f,
                         1.8f, -4.0f,
                         4.46f, -3.68f,
                         5.4f, -1.78f,
