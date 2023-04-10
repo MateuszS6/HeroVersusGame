@@ -1,8 +1,6 @@
 package characters;
 
-import city.cs.engine.BodyImage;
-import city.cs.engine.PolygonShape;
-import city.cs.engine.Shape;
+import city.cs.engine.*;
 
 public class Knight extends Character {
     private Shape leftAttack = new PolygonShape(
@@ -24,13 +22,13 @@ public class Knight extends Character {
 
     public Knight() {
         super(new PolygonShape(
-                -0.3f, -0.1f,
+                        -0.3f, -0.1f,
                         1.25f, -2.05f,
                         0.5f, -4.0f,
                         -1.0f, -4.0f,
                         -1.8f, -2.05f),
-                null,
-                null,
+                new CircleShape(5, -1.8f, -2.05f),
+                new CircleShape(5, 1.25f, -2.05f),
                 new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_idle.gif", 8),
                 new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/__Idle.gif", 8),
                 new BodyImage("assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_jump.gif", 8),

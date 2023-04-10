@@ -38,8 +38,8 @@ public class PlayerController implements KeyListener {
         int key = e.getKeyCode();
         player.setMidAir(player.getLinearVelocity().y != 0);
         if (key == KEY_MAP.get(player.getKeyBindings().jumpKey)) player.jump();
-        if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) player.moveLeft();
-        if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) player.moveRight();
+        if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) player.runLeft();
+        if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) player.runRight();
         if (key == KEY_MAP.get(player.getKeyBindings().attackKey)) player.attack();
     }
 

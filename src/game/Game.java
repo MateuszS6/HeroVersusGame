@@ -25,7 +25,7 @@ public class Game {
         frame.pack(); // Resize the frame to fit world view
         frame.setVisible(true);
 
-        // JFrame debugView = new DebugViewer(arena, view.getWidth(), view.getHeight());
+        JFrame debugView = new DebugViewer(arena, view.getWidth(), view.getHeight());
 
         arena.start();
     }

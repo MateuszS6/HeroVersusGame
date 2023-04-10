@@ -1,12 +1,11 @@
 package characters;
 
-import city.cs.engine.BodyImage;
-import city.cs.engine.PolygonShape;
+import city.cs.engine.*;
 
 public abstract class Character {
-    private final PolygonShape DEFAULT_SHAPE;
-    private final PolygonShape L_ATTACK_SHAPE;
-    private final PolygonShape R_ATTACK_SHAPE;
+    private final PolygonShape DEFAULT_SHP;
+    private final CircleShape L_ATTACK_SHP;
+    private final CircleShape R_ATTACK_SHP;
     private final BodyImage L_IDLE_IMG;
     private final BodyImage R_IDLE_IMG;
     private final BodyImage L_JUMP_IMG;
@@ -21,8 +20,8 @@ public abstract class Character {
     private final int ATTACK_DMG;
 
     public Character(PolygonShape defaultShape,
-                     PolygonShape leftAttackShape,
-                     PolygonShape rightAttackShape,
+                     CircleShape leftAttackShape,
+                     CircleShape rightAttackShape,
                      BodyImage leftIdleImage,
                      BodyImage rightIdleImage,
                      BodyImage leftJumpImage,
@@ -35,9 +34,9 @@ public abstract class Character {
                      float jumpSpeed,
                      int attackDuration,
                      int attackDamage) {
-        DEFAULT_SHAPE = defaultShape;
-        L_ATTACK_SHAPE = leftAttackShape;
-        R_ATTACK_SHAPE = rightAttackShape;
+        DEFAULT_SHP = defaultShape;
+        L_ATTACK_SHP = leftAttackShape;
+        R_ATTACK_SHP = rightAttackShape;
         L_IDLE_IMG = leftIdleImage;
         R_IDLE_IMG = rightIdleImage;
         L_JUMP_IMG = leftJumpImage;
@@ -53,12 +52,12 @@ public abstract class Character {
     }
 
     public PolygonShape getDefaultShape() {
-        return DEFAULT_SHAPE;
+        return DEFAULT_SHP;
     }
 
-    public PolygonShape getAttackShape(boolean playerFacingRight) {
-        if (playerFacingRight) return R_ATTACK_SHAPE;
-        else return L_ATTACK_SHAPE;
+    public CircleShape getAttackShape(boolean playerFacingRight) {
+        if (playerFacingRight) return R_ATTACK_SHP;
+        else return L_ATTACK_SHP;
     }
 
     public BodyImage getIdleImage(boolean playerFacingRight) {

@@ -1,6 +1,7 @@
 package player;
 
 import characters.Character;
+import city.cs.engine.GhostlyFixture;
 import city.cs.engine.SolidFixture;
 import city.cs.engine.Walker;
 import city.cs.engine.World;
@@ -12,7 +13,8 @@ import java.awt.event.ActionListener;
 public class Player extends Walker implements ActionListener {
     private final Character character;
     private KeyBindings keyBindings;
-    private SolidFixture fixture;
+    // private SolidFixture fixture;
+    private GhostlyFixture attackFixture;
     private static final int MAX_HEALTH = 100;
     private int health;
     private static final int MAX_LIVES = 3;
@@ -25,7 +27,7 @@ public class Player extends Walker implements ActionListener {
     public Player(World world, Character character, boolean startFacingRight) {
         super(world);
         this.character = character;
-        fixture = new SolidFixture(this, character.getDefaultShape());
+        new SolidFixture(this, character.getDefaultShape());
         // setAlwaysOutline(true);
         setGravityScale(2);
 
@@ -97,60 +99,62 @@ public class Player extends Walker implements ActionListener {
 
     public void idle() {
         removeAllImages();
-        if (isMidAir) addImage(getCharacter().getJumpImage(isFacingRight));
-        else addImage(getCharacter().getIdleImage(isFacingRight));
+        if (isMidAir) addImage(character.getJumpImage(isFacingRight));
+        else addImage(character.getIdleImage(isFacingRight));
 
         stopWalking();
     }
 
     public void jump() {
         removeAllImages();
-        addImage(getCharacter().getJumpImage(isFacingRight));
+        addImage(character.getJumpImage(isFacingRight));
 
-        jump(getCharacter().getJumpSpeed());
+        jump(character.getJumpSpeed());
     }
 
-    public void moveLeft() {
+    public void runLeft() {
         isFacingRight = false;
 
         removeAllImages();
-        if (isMidAir) addImage(getCharacter().getJumpImage(isFacingRight));
-        else addImage(getCharacter().getRunImage(isFacingRight));
+        if (isMidAir) addImage(character.getJumpImage(isFacingRight));
+        else addImage(character.getRunImage(isFacingRight));
 
-        startWalking(-getCharacter().getRunSpeed());
+        startWalking(-character.getRunSpeed());
     }
 
-    public void moveRight() {
+    public void runRight() {
         isFacingRight = true;
 
         removeAllImages();
-        if (isMidAir) addImage(getCharacter().getJumpImage(isFacingRight));
-        else addImage(getCharacter().getRunImage(isFacingRight));
+        if (isMidAir) addImage(character.getJumpImage(isFacingRight));
+        else addImage(character.getRunImage(isFacingRight));
 
-        startWalking(getCharacter().getRunSpeed());
+        startWalking(character.getRunSpeed());
     }
 
     public void attack() {
         if (!isMidAir && !isAttacking) {
             isAttacking = true;
-            Timer timer = new Timer(getCharacter().getAttackDuration(), this);
+            Timer timer = new Timer(character.getAttackDuration(), this);
             timer.setRepeats(false);
             timer.start();
-            fixture.destroy();
+            // fixture.destroy();
 
             removeAllImages();
-            fixture = new SolidFixture(this, character.getAttackShape(isFacingRight));
-            addImage(getCharacter().getAttackImage(isFacingRight));
+            // fixture = new SolidFixture(this, character.getAttackShape(isFacingRight));
+            attackFixture = new GhostlyFixture(this, character.getAttackShape(isFacingRight));
+            addImage(character.getAttackImage(isFacingRight));
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         isAttacking = false;
-        fixture.destroy();
-        fixture = new SolidFixture(this, character.getDefaultShape());
+        // fixture.destroy();
+        // fixture = new SolidFixture(this, character.getDefaultShape());
+        attackFixture.destroy();
 
         removeAllImages();
-        addImage(getCharacter().getIdleImage(isFacingRight));
+        addImage(character.getIdleImage(isFacingRight));
     }
 }
