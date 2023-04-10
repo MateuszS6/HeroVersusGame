@@ -12,7 +12,7 @@ public class Player extends Walker implements ActionListener {
     private final Character character;
     private KeyBindings keyBindings;
     // private SolidFixture fixture;
-    private GhostlyFixture attackFixture;
+    private SolidFixture hitboxSensor;
     private static final int MAX_HEALTH = 100;
     private int health;
     private static final int MAX_LIVES = 3;
@@ -47,6 +47,10 @@ public class Player extends Walker implements ActionListener {
         return keyBindings;
     }
 
+    public SolidFixture getHitboxSensor() {
+        return hitboxSensor;
+    }
+
     public int getHealth() {
         return health;
     }
@@ -69,10 +73,6 @@ public class Player extends Walker implements ActionListener {
 
     public void decrementLives() {
         lives--;
-    }
-
-    public int getMaxLives() {
-        return MAX_LIVES;
     }
 
     public void setKeyBindings(KeyBindings keybindings) {
@@ -140,7 +140,7 @@ public class Player extends Walker implements ActionListener {
 
             removeAllImages();
             // fixture = new SolidFixture(this, character.getAttackShape(isFacingRight));
-            attackFixture = new GhostlyFixture(this, character.getAttackShape(isFacingRight));
+            hitboxSensor = new SolidFixture(this, character.getAttackShape(isFacingRight));
             addImage(character.getAttackImage(isFacingRight));
         }
     }
@@ -150,7 +150,7 @@ public class Player extends Walker implements ActionListener {
         isAttacking = false;
         // fixture.destroy();
         // fixture = new SolidFixture(this, character.getDefaultShape());
-        attackFixture.destroy();
+        hitboxSensor.destroy();
 
         removeAllImages();
         addImage(character.getIdleImage(isFacingRight));

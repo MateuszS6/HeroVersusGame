@@ -5,18 +5,18 @@ import city.cs.engine.PolygonShape;
 import city.cs.engine.Shape;
 
 public class Skeleton extends Character {
-    private Shape leftAttack = new PolygonShape(
+    /*new PolygonShape( LEFT ATTACK
             1.23f, -2.08f,
             -3.42f, -2.08f,
             -3.45f, 1.07f,
             -1.2f, 2.6f,
-            1.17f, 2.57f);
-    private Shape rightAttack = new PolygonShape(
+            1.17f, 2.57f),
+    new PolygonShape( RIGHT ATTACK
             -1.23f, -2.08f,
             3.42f, -2.08f,
             3.45f, 1.07f,
             1.2f, 2.6f,
-            -1.17f, 2.57f);
+            -1.17f, 2.57f)*/
 
     public Skeleton() {
         super(new PolygonShape(
