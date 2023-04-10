@@ -5,51 +5,51 @@ import city.cs.engine.PolygonShape;
 
 public abstract class Character {
     private final PolygonShape DEFAULT_SHAPE;
-    private final PolygonShape ATTACK_LEFT_SHAPE;
-    private final PolygonShape ATTACK_RIGHT_SHAPE;
-    private final BodyImage IDLE_LEFT_IMG;
-    private final BodyImage IDLE_RIGHT_IMG;
-    private final BodyImage JUMPING_LEFT_IMG;
-    private final BodyImage JUMPING_RIGHT_IMG;
-    private final BodyImage RUNNING_LEFT_IMG;
-    private final BodyImage RUNNING_RIGHT_IMG;
-    private final BodyImage ATTACK_LEFT_IMG;
-    private final BodyImage ATTACK_RIGHT_IMG;
-    private final float RUNNING_SPEED;
-    private final float JUMPING_SPEED;
-    private final int ATTACK_DURATION;
-    private final int ATTACK_DAMAGE;
+    private final PolygonShape L_ATTACK_SHAPE;
+    private final PolygonShape R_ATTACK_SHAPE;
+    private final BodyImage L_IDLE_IMG;
+    private final BodyImage R_IDLE_IMG;
+    private final BodyImage L_JUMP_IMG;
+    private final BodyImage R_JUMP_IMG;
+    private final BodyImage L_RUN_IMG;
+    private final BodyImage R_RUN_IMG;
+    private final BodyImage L_ATTACK_IMG;
+    private final BodyImage R_ATTACK_IMG;
+    private final float RUN_SPEED;
+    private final float JUMP_SPEED;
+    private final int ATTACK_DUR;
+    private final int ATTACK_DMG;
 
-    public Character(PolygonShape DEFAULT_SHAPE,
-                     PolygonShape ATTACK_LEFT_SHAPE,
-                     PolygonShape ATTACK_RIGHT_SHAPE,
-                     BodyImage IDLE_LEFT_IMG,
-                     BodyImage IDLE_RIGHT_IMG,
-                     BodyImage JUMPING_LEFT_IMG,
-                     BodyImage JUMPING_RIGHT_IMG,
-                     BodyImage RUNNING_LEFT_IMG,
-                     BodyImage RUNNING_RIGHT_IMG,
-                     BodyImage ATTACK_LEFT_IMG,
-                     BodyImage ATTACK_RIGHT_IMG,
-                     float RUNNING_SPEED,
-                     float JUMPING_SPEED,
-                     int ATTACK_DURATION,
-                     int ATTACK_DAMAGE) {
-        this.DEFAULT_SHAPE = DEFAULT_SHAPE;
-        this.ATTACK_LEFT_SHAPE = ATTACK_LEFT_SHAPE;
-        this.ATTACK_RIGHT_SHAPE = ATTACK_RIGHT_SHAPE;
-        this.IDLE_LEFT_IMG = IDLE_LEFT_IMG;
-        this.IDLE_RIGHT_IMG = IDLE_RIGHT_IMG;
-        this.JUMPING_LEFT_IMG = JUMPING_LEFT_IMG;
-        this.JUMPING_RIGHT_IMG = JUMPING_RIGHT_IMG;
-        this.RUNNING_LEFT_IMG = RUNNING_LEFT_IMG;
-        this.RUNNING_RIGHT_IMG = RUNNING_RIGHT_IMG;
-        this.ATTACK_LEFT_IMG = ATTACK_LEFT_IMG;
-        this.ATTACK_RIGHT_IMG = ATTACK_RIGHT_IMG;
-        this.RUNNING_SPEED = RUNNING_SPEED;
-        this.JUMPING_SPEED = JUMPING_SPEED;
-        this.ATTACK_DURATION = ATTACK_DURATION;
-        this.ATTACK_DAMAGE = ATTACK_DAMAGE;
+    public Character(PolygonShape defaultShape,
+                     PolygonShape leftAttackShape,
+                     PolygonShape rightAttackShape,
+                     BodyImage leftIdleImage,
+                     BodyImage rightIdleImage,
+                     BodyImage leftJumpImage,
+                     BodyImage rightJumpImage,
+                     BodyImage leftRunImage,
+                     BodyImage rightRunImage,
+                     BodyImage leftAttackImage,
+                     BodyImage rightAttackImage,
+                     float runSpeed,
+                     float jumpSpeed,
+                     int attackDuration,
+                     int attackDamage) {
+        DEFAULT_SHAPE = defaultShape;
+        L_ATTACK_SHAPE = leftAttackShape;
+        R_ATTACK_SHAPE = rightAttackShape;
+        L_IDLE_IMG = leftIdleImage;
+        R_IDLE_IMG = rightIdleImage;
+        L_JUMP_IMG = leftJumpImage;
+        R_JUMP_IMG = rightJumpImage;
+        L_RUN_IMG = leftRunImage;
+        R_RUN_IMG = rightRunImage;
+        L_ATTACK_IMG = leftAttackImage;
+        R_ATTACK_IMG = rightAttackImage;
+        RUN_SPEED = runSpeed;
+        JUMP_SPEED = jumpSpeed;
+        ATTACK_DUR = attackDuration;
+        ATTACK_DMG = attackDamage;
     }
 
     public PolygonShape getDefaultShape() {
@@ -57,43 +57,43 @@ public abstract class Character {
     }
 
     public PolygonShape getAttackShape(boolean playerFacingRight) {
-        if (playerFacingRight) return ATTACK_RIGHT_SHAPE;
-        else return ATTACK_LEFT_SHAPE;
+        if (playerFacingRight) return R_ATTACK_SHAPE;
+        else return L_ATTACK_SHAPE;
     }
 
     public BodyImage getIdleImage(boolean playerFacingRight) {
-        if (playerFacingRight) return IDLE_RIGHT_IMG;
-        else return IDLE_LEFT_IMG;
+        if (playerFacingRight) return R_IDLE_IMG;
+        else return L_IDLE_IMG;
     }
 
-    public BodyImage getJumpingImage(boolean playerFacingRight) {
-        if (playerFacingRight) return JUMPING_RIGHT_IMG;
-        else return JUMPING_LEFT_IMG;
+    public BodyImage getJumpImage(boolean playerFacingRight) {
+        if (playerFacingRight) return R_JUMP_IMG;
+        else return L_JUMP_IMG;
     }
 
-    public BodyImage getRunningImage(boolean playerFacingRight) {
-        if (playerFacingRight) return RUNNING_RIGHT_IMG;
-        else return RUNNING_LEFT_IMG;
+    public BodyImage getRunImage(boolean playerFacingRight) {
+        if (playerFacingRight) return R_RUN_IMG;
+        else return L_RUN_IMG;
     }
 
     public BodyImage getAttackImage(boolean playerFacingRight) {
-        if (playerFacingRight) return ATTACK_RIGHT_IMG;
-        else return ATTACK_LEFT_IMG;
+        if (playerFacingRight) return R_ATTACK_IMG;
+        else return L_ATTACK_IMG;
     }
 
-    public float getRunningSpeed() {
-        return RUNNING_SPEED;
+    public float getRunSpeed() {
+        return RUN_SPEED;
     }
 
-    public float getJumpingSpeed() {
-        return JUMPING_SPEED;
+    public float getJumpSpeed() {
+        return JUMP_SPEED;
     }
 
     public int getAttackDuration() {
-        return ATTACK_DURATION;
+        return ATTACK_DUR;
     }
 
     public int getAttackDamage() {
-        return ATTACK_DAMAGE;
+        return ATTACK_DMG;
     }
 }
