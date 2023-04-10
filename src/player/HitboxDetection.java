@@ -17,11 +17,13 @@ public class HitboxDetection implements SensorListener {
 
     @Override
     public void beginContact(SensorEvent e) {
-
+        if (e.getContactBody() instanceof Player) if (player.isAttacking()) {
+            System.out.println("hit");
+        }
     }
 
     @Override
     public void endContact(SensorEvent e) {
-
+        System.out.println("unhit");
     }
 }
