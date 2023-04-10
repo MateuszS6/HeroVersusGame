@@ -1,10 +1,8 @@
 package player;
 
 import characters.Character;
-import city.cs.engine.GhostlyFixture;
-import city.cs.engine.SolidFixture;
-import city.cs.engine.Walker;
-import city.cs.engine.World;
+import city.cs.engine.*;
+import game.GameWorld;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -25,9 +23,9 @@ public class Player extends Walker implements ActionListener {
 
     /** Initialise a player. */
     public Player(World world, Character character, boolean startFacingRight) {
-        super(world);
+        super(world, character.getDefaultShape());
         this.character = character;
-        new SolidFixture(this, character.getDefaultShape());
+        // fixture = new SolidFixture(this, character.getDefaultShape());
         // setAlwaysOutline(true);
         setGravityScale(2);
 

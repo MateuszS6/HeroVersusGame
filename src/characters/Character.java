@@ -2,6 +2,8 @@ package characters;
 
 import city.cs.engine.*;
 
+import javax.swing.*;
+
 public abstract class Character {
     private final PolygonShape DEFAULT_SHP;
     private final CircleShape L_ATTACK_SHP;

@@ -22,11 +22,11 @@ public class PlayerCollisions implements CollisionListener {
             player.addImage(player.getCharacter().getIdleImage(player.isFacingRight()));
         }
 
-        if (e.getOtherBody() instanceof Player ) if (player.isAttacking()) {
+        /*if (e.getOtherBody() instanceof Player) if (player.isAttacking()) {
             ((Player) e.getOtherBody()).setHealth(((Player) e.getOtherBody()).getHealth() - player.getCharacter().getAttackDamage());
             System.out.println("attacked player health: " + ((Player) e.getOtherBody()).getHealth());
             world.respawnPlayer((Player) e.getOtherBody());
-        }
+        }*/
 
         if (e.getOtherBody() instanceof HealthRefill) if (player.getHealth() < player.getMaxHealth()) {
             player.setHealth(player.getMaxHealth());
