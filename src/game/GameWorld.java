@@ -2,6 +2,8 @@ package game;
 
 import characters.Knight;
 import characters.Skeleton;
+import city.cs.engine.StepEvent;
+import city.cs.engine.StepListener;
 import city.cs.engine.World;
 import world.*;
 import org.jbox2d.common.Vec2;
@@ -14,7 +16,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GameWorld extends World implements ActionListener {
+public class GameWorld extends World implements ActionListener, StepListener {
     private Player player1;
     private Player player2;
     private Vec2 p1StartPos;
@@ -61,15 +63,17 @@ public class GameWorld extends World implements ActionListener {
         player2.setPosition(p2StartPos);
         player2.addCollisionListener(new PlayerCollisions(this, player2));
 
-        Timer collectibleTimer = new Timer(10000, this);
-        collectibleTimer.setRepeats(false);
-        collectibleTimer.start();
+        // Timer collectibleTimer = new Timer(10000, this);
+        // collectibleTimer.setRepeats(false);
+        // collectibleTimer.start();
+
+        addStepListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         // Collectible
-        HealthRefill collectible = new HealthRefill(this, 0, -10);
+        // HealthRefill collectible = new HealthRefill(this, 0, -10);
     }
 
     public Player getPlayer1() {
@@ -100,6 +104,20 @@ public class GameWorld extends World implements ActionListener {
             player.setHealth(player.getMaxHealth());
             player.decrementLives();
             System.out.println(player.getLives());
+        }
+    }
+
+    @Override
+    public void preStep(StepEvent e) {
+
+    }
+
+    @Override
+    public void postStep(StepEvent e) {
+        if (player1.isAttacking() && player1.getHitboxSensor().contains(player2.getPosition())) {
+            player2.setHealth(player2.getHealth() - player1.getCharacter().getAttackDamage());
+            respawnPlayer(player2);
+            player1.setAttacking(false);
         }
     }
 }

@@ -12,11 +12,11 @@ public class Player extends Walker implements ActionListener {
     private final Character character;
     private KeyBindings keyBindings;
     // private SolidFixture fixture;
-    private Sensor hitboxSensor;
-    private static final int MAX_HEALTH = 100;
+    private GhostlyFixture hitboxSensor;
     private int health;
-    private static final int MAX_LIVES = 3;
+    private static final int MAX_HEALTH = 100;
     private int lives;
+    private static final int MAX_LIVES = 3;
     private boolean isFacingRight;
     private boolean isMidAir;
     private boolean isAttacking;
@@ -47,7 +47,7 @@ public class Player extends Walker implements ActionListener {
         return keyBindings;
     }
 
-    public Sensor getHitboxSensor() {
+    public GhostlyFixture getHitboxSensor() {
         return hitboxSensor;
     }
 
@@ -95,6 +95,10 @@ public class Player extends Walker implements ActionListener {
         return isAttacking;
     }
 
+    public void setAttacking(boolean attacking) {
+        isAttacking = attacking;
+    }
+
     public void idle() {
         removeAllImages();
         if (isMidAir) addImage(character.getJumpImage(isFacingRight));
@@ -140,18 +144,17 @@ public class Player extends Walker implements ActionListener {
 
             removeAllImages();
             // fixture = new SolidFixture(this, character.getAttackShape(isFacingRight));
-            hitboxSensor = new Sensor(this, character.getAttackShape(isFacingRight));
-            hitboxSensor.addSensorListener(new HitboxDetection((GameWorld) getWorld(), this));
+            hitboxSensor = new GhostlyFixture(this, character.getAttackShape(isFacingRight));
+            // hitboxSensor.addSensorListener(new HitboxDetection((GameWorld) getWorld(), this));
             addImage(character.getAttackImage(isFacingRight));
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        isAttacking = false;
+        // isAttacking = false;
         // fixture.destroy();
         // fixture = new SolidFixture(this, character.getDefaultShape());
-        hitboxSensor.removeAllSensorListeners();
         hitboxSensor.destroy();
 
         removeAllImages();

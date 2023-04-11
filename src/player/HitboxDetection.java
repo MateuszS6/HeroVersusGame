@@ -6,7 +6,7 @@ import city.cs.engine.StepEvent;
 import city.cs.engine.StepListener;
 import game.GameWorld;
 
-public class HitboxDetection implements SensorListener {
+public class HitboxDetection implements SensorListener, StepListener {
     private GameWorld world;
     private Player player;
 
@@ -25,5 +25,15 @@ public class HitboxDetection implements SensorListener {
     @Override
     public void endContact(SensorEvent e) {
         System.out.println("unhit");
+    }
+
+    @Override
+    public void preStep(StepEvent stepEvent) {
+
+    }
+
+    @Override
+    public void postStep(StepEvent stepEvent) {
+
     }
 }
