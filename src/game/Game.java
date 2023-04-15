@@ -1,7 +1,7 @@
 package game;
 
 import city.cs.engine.DebugViewer;
-import player.PlayerController;
+import player.Controller;
 
 import javax.swing.*;
 
@@ -14,8 +14,8 @@ public class Game {
         GameView view = new GameView(arena, 800, 600); // Game view
         // view.setGridResolution(1);
 
-        view.addKeyListener(new PlayerController(arena.getPlayer1())); // Player 1 controller
-        view.addKeyListener(new PlayerController(arena.getPlayer2())); // Player 2 controller
+        view.addKeyListener(new Controller(arena.getPlayer1())); // Player 1 controller
+        view.addKeyListener(new Controller(arena.getPlayer2())); // Player 2 controller
 
         final JFrame frame = new JFrame("HeroVersus: Battle Arena");
         frame.add(view); // Add the game view to the frame

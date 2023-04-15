@@ -111,24 +111,15 @@ public class Player extends Walker implements ActionListener {
         jump(character.getJumpSpeed());
     }
 
-    public void runLeft() {
-        isFacingRight = false;
+    public void run(boolean facingRight) {
+        isFacingRight = facingRight;
 
         removeAllImages();
         if (isMidAir) addImage(character.getJumpImage());
         else addImage(character.getRunImage());
 
-        startWalking(-character.getRunSpeed());
-    }
-
-    public void runRight() {
-        isFacingRight = true;
-
-        removeAllImages();
-        if (isMidAir) addImage(character.getJumpImage());
-        else addImage(character.getRunImage());
-
-        startWalking(character.getRunSpeed());
+        if (isFacingRight) startWalking(character.getRunSpeed());
+        else startWalking(-character.getRunSpeed());
     }
 
     public void attack() {

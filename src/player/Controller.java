@@ -5,12 +5,13 @@ import java.awt.event.KeyListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PlayerController implements KeyListener {
+public class Controller implements KeyListener {
     private Player player;
     private static final Map<String, Integer> KEY_MAP = new HashMap<>();
+    private int key;
 
     /** Initialise the game controller. */
-    public PlayerController(Player player) {
+    public Controller(Player player) {
         this.player = player;
     }
 
@@ -35,19 +36,19 @@ public class PlayerController implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        int key = e.getKeyCode();
+        key = e.getKeyCode();
         player.setMidAir(player.getLinearVelocity().y != 0);
         if (key == KEY_MAP.get(player.getKeyBindings().jumpKey)) player.jump();
-        if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) player.runLeft();
-        if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) player.runRight();
+        if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) player.run(false);
+        if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) player.run(true);
         if (key == KEY_MAP.get(player.getKeyBindings().attackKey)) player.attack();
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        int key = e.getKeyCode();
+        key = e.getKeyCode();
         player.setMidAir(player.getLinearVelocity().y != 0);
-        if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) player.idle();
-        if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) player.idle();
+        if (key == KEY_MAP.get(player.getKeyBindings().leftKey) ||
+                key == KEY_MAP.get(player.getKeyBindings().rightKey)) player.idle();
     }
 }

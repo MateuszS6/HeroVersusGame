@@ -2,16 +2,13 @@ package game;
 
 import characters.Knight;
 import characters.Skeleton;
-import city.cs.engine.StepEvent;
-import city.cs.engine.StepListener;
 import city.cs.engine.World;
 import world.*;
 import org.jbox2d.common.Vec2;
 import player.KeyBindings;
 import player.Player;
-import player.PlayerCollisions;
+import player.Collisions;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -55,13 +52,13 @@ public class GameWorld extends World implements ActionListener {
         player1 = new Player(this, new Knight(), true);
         player1.setKeyBindings(new KeyBindings("w", "a", "d", "r"));
         player1.setPosition(p1StartPos);
-        player1.addCollisionListener(new PlayerCollisions(this, player1));
+        player1.addCollisionListener(new Collisions(this, player1));
 
         // Player 2
         player2 = new Player(this, new Skeleton(), false);
         player2.setKeyBindings(new KeyBindings());
         player2.setPosition(p2StartPos);
-        player2.addCollisionListener(new PlayerCollisions(this, player2));
+        player2.addCollisionListener(new Collisions(this, player2));
 
         // Timer collectibleTimer = new Timer(10000, this);
         // collectibleTimer.setRepeats(false);

@@ -6,11 +6,11 @@ import game.GameWorld;
 import world.HealthRefill;
 import world.Platform;
 
-public class PlayerCollisions implements CollisionListener {
+public class Collisions implements CollisionListener {
     private GameWorld world;
     private Player player;
 
-    public PlayerCollisions(GameWorld world, Player player) {
+    public Collisions(GameWorld world, Player player) {
         this.world = world;
         this.player = player;
     }
