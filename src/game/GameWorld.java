@@ -16,7 +16,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GameWorld extends World implements ActionListener, StepListener {
+public class GameWorld extends World implements ActionListener {
     private Player player1;
     private Player player2;
     private Vec2 p1StartPos;
@@ -104,20 +104,6 @@ public class GameWorld extends World implements ActionListener, StepListener {
             player.setHealth(player.getMaxHealth());
             player.decrementLives();
             System.out.println(player.getLives());
-        }
-    }
-
-    @Override
-    public void preStep(StepEvent e) {
-
-    }
-
-    @Override
-    public void postStep(StepEvent e) {
-        if (player1.isAttacking() && player1.getHitboxSensor().contains(player2.getPosition())) {
-            player2.setHealth(player2.getHealth() - player1.getCharacter().getAttackDamage());
-            respawnPlayer(player2);
-            player1.setAttacking(false);
         }
     }
 }

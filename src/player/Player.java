@@ -11,8 +11,7 @@ import java.awt.event.ActionListener;
 public class Player extends Walker implements ActionListener {
     private final Character character;
     private KeyBindings keyBindings;
-    // private SolidFixture fixture;
-    private GhostlyFixture hitboxSensor;
+    private SolidFixture hitbox;
     private int health;
     private static final int MAX_HEALTH = 100;
     private int lives;
@@ -23,9 +22,9 @@ public class Player extends Walker implements ActionListener {
 
     /** Initialise a player. */
     public Player(World world, Character character, boolean startFacingRight) {
-        super(world, character.getDefaultShape());
+        super(world);
         this.character = character;
-        // fixture = new SolidFixture(this, character.getDefaultShape());
+        hitbox = new SolidFixture(this, character.getDefaultShape());
         // setAlwaysOutline(true);
         setGravityScale(2);
 
@@ -45,10 +44,6 @@ public class Player extends Walker implements ActionListener {
 
     public KeyBindings getKeyBindings() {
         return keyBindings;
-    }
-
-    public GhostlyFixture getHitboxSensor() {
-        return hitboxSensor;
     }
 
     public int getHealth() {
@@ -140,22 +135,19 @@ public class Player extends Walker implements ActionListener {
             Timer timer = new Timer(character.getAttackDuration(), this);
             timer.setRepeats(false);
             timer.start();
-            // fixture.destroy();
+            hitbox.destroy();
 
             removeAllImages();
-            // fixture = new SolidFixture(this, character.getAttackShape(isFacingRight));
-            hitboxSensor = new GhostlyFixture(this, character.getAttackShape(isFacingRight));
-            // hitboxSensor.addSensorListener(new HitboxDetection((GameWorld) getWorld(), this));
+            hitbox = new SolidFixture(this, character.getAttackShape(isFacingRight));
             addImage(character.getAttackImage(isFacingRight));
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // isAttacking = false;
-        // fixture.destroy();
-        // fixture = new SolidFixture(this, character.getDefaultShape());
-        hitboxSensor.destroy();
+        isAttacking = false;
+        hitbox.destroy();
+        hitbox = new SolidFixture(this, character.getDefaultShape());
 
         removeAllImages();
         addImage(character.getIdleImage(isFacingRight));
