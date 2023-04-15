@@ -1,10 +1,11 @@
 package characters;
 
-import city.cs.engine.*;
-
-import javax.swing.*;
+import city.cs.engine.BodyImage;
+import city.cs.engine.PolygonShape;
+import player.Player;
 
 public abstract class Character {
+    private Player player;
     private final PolygonShape DEFAULT_SHP;
     private final PolygonShape L_ATTACK_SHP;
     private final PolygonShape R_ATTACK_SHP;
@@ -53,32 +54,36 @@ public abstract class Character {
         ATTACK_DMG = attackDamage;
     }
 
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
     public PolygonShape getDefaultShape() {
         return DEFAULT_SHP;
     }
 
-    public PolygonShape getAttackShape(boolean playerFacingRight) {
-        if (playerFacingRight) return R_ATTACK_SHP;
+    public PolygonShape getAttackShape() {
+        if (player.isFacingRight()) return R_ATTACK_SHP;
         else return L_ATTACK_SHP;
     }
 
-    public BodyImage getIdleImage(boolean playerFacingRight) {
-        if (playerFacingRight) return R_IDLE_IMG;
+    public BodyImage getIdleImage() {
+        if (player.isFacingRight()) return R_IDLE_IMG;
         else return L_IDLE_IMG;
     }
 
-    public BodyImage getJumpImage(boolean playerFacingRight) {
-        if (playerFacingRight) return R_JUMP_IMG;
+    public BodyImage getJumpImage() {
+        if (player.isFacingRight()) return R_JUMP_IMG;
         else return L_JUMP_IMG;
     }
 
-    public BodyImage getRunImage(boolean playerFacingRight) {
-        if (playerFacingRight) return R_RUN_IMG;
+    public BodyImage getRunImage() {
+        if (player.isFacingRight()) return R_RUN_IMG;
         else return L_RUN_IMG;
     }
 
-    public BodyImage getAttackImage(boolean playerFacingRight) {
-        if (playerFacingRight) return R_ATTACK_IMG;
+    public BodyImage getAttackImage() {
+        if (player.isFacingRight()) return R_ATTACK_IMG;
         else return L_ATTACK_IMG;
     }
 

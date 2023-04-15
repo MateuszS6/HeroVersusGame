@@ -24,6 +24,8 @@ public class Player extends Walker implements ActionListener {
     public Player(World world, Character character, boolean startFacingRight) {
         super(world);
         this.character = character;
+        this.character.setPlayer(this);
+
         hitbox = new SolidFixture(this, character.getDefaultShape());
         // setAlwaysOutline(true);
         setGravityScale(2);
@@ -32,7 +34,7 @@ public class Player extends Walker implements ActionListener {
         lives = MAX_LIVES;
 
         isFacingRight = startFacingRight;
-        addImage(character.getIdleImage(isFacingRight));
+        addImage(character.getIdleImage());
 
         isMidAir = false;
         isAttacking = false;
@@ -96,15 +98,15 @@ public class Player extends Walker implements ActionListener {
 
     public void idle() {
         removeAllImages();
-        if (isMidAir) addImage(character.getJumpImage(isFacingRight));
-        else addImage(character.getIdleImage(isFacingRight));
+        if (isMidAir) addImage(character.getJumpImage());
+        else addImage(character.getIdleImage());
 
         stopWalking();
     }
 
     public void jump() {
         removeAllImages();
-        addImage(character.getJumpImage(isFacingRight));
+        addImage(character.getJumpImage());
 
         jump(character.getJumpSpeed());
     }
@@ -113,8 +115,8 @@ public class Player extends Walker implements ActionListener {
         isFacingRight = false;
 
         removeAllImages();
-        if (isMidAir) addImage(character.getJumpImage(isFacingRight));
-        else addImage(character.getRunImage(isFacingRight));
+        if (isMidAir) addImage(character.getJumpImage());
+        else addImage(character.getRunImage());
 
         startWalking(-character.getRunSpeed());
     }
@@ -123,8 +125,8 @@ public class Player extends Walker implements ActionListener {
         isFacingRight = true;
 
         removeAllImages();
-        if (isMidAir) addImage(character.getJumpImage(isFacingRight));
-        else addImage(character.getRunImage(isFacingRight));
+        if (isMidAir) addImage(character.getJumpImage());
+        else addImage(character.getRunImage());
 
         startWalking(character.getRunSpeed());
     }
@@ -151,11 +153,11 @@ public class Player extends Walker implements ActionListener {
         hitbox.destroy();
         removeAllImages();
         if (isAttacking) {
-            hitbox = new SolidFixture(this, character.getAttackShape(isFacingRight));
-            addImage(character.getAttackImage(isFacingRight));
+            hitbox = new SolidFixture(this, character.getAttackShape());
+            addImage(character.getAttackImage());
         } else {
             hitbox = new SolidFixture(this, character.getDefaultShape());
-            addImage(character.getIdleImage(isFacingRight));
+            addImage(character.getIdleImage());
         }
     }
 }

@@ -66,8 +66,6 @@ public class GameWorld extends World implements ActionListener {
         // Timer collectibleTimer = new Timer(10000, this);
         // collectibleTimer.setRepeats(false);
         // collectibleTimer.start();
-
-        addStepListener(this);
     }
 
     @Override

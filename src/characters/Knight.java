@@ -1,6 +1,7 @@
 package characters;
 
 import city.cs.engine.*;
+import player.Player;
 
 public class Knight extends Character {
     public Knight() {
