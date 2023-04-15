@@ -2,7 +2,7 @@ package world;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
-import game.GameWorld;
+import game.BattleArena;
 import player.Player;
 
 import javax.swing.*;
@@ -10,9 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FallToDeath implements CollisionListener, ActionListener {
-    private GameWorld world;
+    private BattleArena world;
 
-    public FallToDeath(GameWorld world) {
+    public FallToDeath(BattleArena world) {
         this.world = world;
     }
 

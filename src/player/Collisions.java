@@ -2,15 +2,15 @@ package player;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
-import game.GameWorld;
+import game.BattleArena;
 import world.HealthRefill;
 import world.Platform;
 
 public class Collisions implements CollisionListener {
-    private GameWorld world;
+    private BattleArena world;
     private Player player;
 
-    public Collisions(GameWorld world, Player player) {
+    public Collisions(BattleArena world, Player player) {
         this.world = world;
         this.player = player;
     }

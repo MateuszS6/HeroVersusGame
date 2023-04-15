@@ -2,7 +2,6 @@ package player;
 
 import characters.Character;
 import city.cs.engine.*;
-import game.GameWorld;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

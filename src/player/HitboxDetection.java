@@ -4,13 +4,13 @@ import city.cs.engine.SensorEvent;
 import city.cs.engine.SensorListener;
 import city.cs.engine.StepEvent;
 import city.cs.engine.StepListener;
-import game.GameWorld;
+import game.BattleArena;
 
 public class HitboxDetection implements SensorListener, StepListener {
-    private GameWorld world;
+    private BattleArena world;
     private Player player;
 
-    public HitboxDetection(GameWorld world, Player player) {
+    public HitboxDetection(BattleArena world, Player player) {
         this.world = world;
         this.player = player;
     }

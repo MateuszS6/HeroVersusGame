@@ -13,7 +13,7 @@ public class GameView extends UserView {
     private Player player2;
 
     /** Initialise the game view. */
-    public GameView(GameWorld world, int width, int height) {
+    public GameView(BattleArena world, int width, int height) {
         super(world, width, height);
         background = new ImageIcon("assets/background/arena_with_stage.jpg").getImage();
 

@@ -1,18 +1,20 @@
 package game;
 
-import city.cs.engine.DebugViewer;
 import player.Controller;
 
 import javax.swing.*;
 
 /** Main game entry point. */
 public class Game {
+    private BattleArena arena;
+    private GameView view;
+
     /** Initialise a new game. */
     public Game() {
-        GameWorld arena = new GameWorld(); // Empty game world
+        arena = new BattleArena(); // Empty game world
 
-        GameView view = new GameView(arena, 800, 600); // Game view
-        // view.setGridResolution(1);
+        view = new GameView(arena, 800, 600); // Game view
+//        view.setGridResolution(1);
 
         view.addKeyListener(new Controller(arena.getPlayer1())); // Player 1 controller
         view.addKeyListener(new Controller(arena.getPlayer2())); // Player 2 controller
@@ -25,7 +27,7 @@ public class Game {
         frame.pack(); // Resize the frame to fit world view
         frame.setVisible(true);
 
-        JFrame debugView = new DebugViewer(arena, view.getWidth(), view.getHeight());
+//        JFrame debugView = new DebugViewer(arena, view.getWidth(), view.getHeight());
 
         arena.start();
     }

@@ -13,7 +13,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GameWorld extends World implements ActionListener {
+public class BattleArena extends World implements ActionListener {
     private Player player1;
     private Player player2;
     private Vec2 p1StartPos;
@@ -21,7 +21,7 @@ public class GameWorld extends World implements ActionListener {
     private Barrier deathBarrier;
 
     /** Initialise a game world. */
-    public GameWorld() {
+    public BattleArena() {
         // World borders
         Barrier left = new Barrier(this, 0.5f, 20, -20.5f, 0);
         Barrier right = new Barrier(this, 0.5f, 20, 20.5f, 0);
