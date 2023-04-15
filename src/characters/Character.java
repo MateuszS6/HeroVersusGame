@@ -6,8 +6,8 @@ import javax.swing.*;
 
 public abstract class Character {
     private final PolygonShape DEFAULT_SHP;
-    private final CircleShape L_ATTACK_SHP;
-    private final CircleShape R_ATTACK_SHP;
+    private final PolygonShape L_ATTACK_SHP;
+    private final PolygonShape R_ATTACK_SHP;
     private final BodyImage L_IDLE_IMG;
     private final BodyImage R_IDLE_IMG;
     private final BodyImage L_JUMP_IMG;
@@ -22,8 +22,8 @@ public abstract class Character {
     private final int ATTACK_DMG;
 
     public Character(PolygonShape defaultShape,
-                     CircleShape leftAttackShape,
-                     CircleShape rightAttackShape,
+                     PolygonShape leftAttackShape,
+                     PolygonShape rightAttackShape,
                      BodyImage leftIdleImage,
                      BodyImage rightIdleImage,
                      BodyImage leftJumpImage,
@@ -57,7 +57,7 @@ public abstract class Character {
         return DEFAULT_SHP;
     }
 
-    public CircleShape getAttackShape(boolean playerFacingRight) {
+    public PolygonShape getAttackShape(boolean playerFacingRight) {
         if (playerFacingRight) return R_ATTACK_SHP;
         else return L_ATTACK_SHP;
     }
