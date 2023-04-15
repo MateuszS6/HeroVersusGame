@@ -132,24 +132,30 @@ public class Player extends Walker implements ActionListener {
     public void attack() {
         if (!isMidAir && !isAttacking) {
             isAttacking = true;
+
             Timer timer = new Timer(character.getAttackDuration(), this);
             timer.setRepeats(false);
             timer.start();
-            hitbox.destroy();
 
-            removeAllImages();
-            hitbox = new SolidFixture(this, character.getAttackShape(isFacingRight));
-            addImage(character.getAttackImage(isFacingRight));
+            updateHitbox();
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         isAttacking = false;
-        hitbox.destroy();
-        hitbox = new SolidFixture(this, character.getDefaultShape());
+        updateHitbox();
+    }
 
+    public void updateHitbox() {
+        hitbox.destroy();
         removeAllImages();
-        addImage(character.getIdleImage(isFacingRight));
+        if (isAttacking) {
+            hitbox = new SolidFixture(this, character.getAttackShape(isFacingRight));
+            addImage(character.getAttackImage(isFacingRight));
+        } else {
+            hitbox = new SolidFixture(this, character.getDefaultShape());
+            addImage(character.getIdleImage(isFacingRight));
+        }
     }
 }
