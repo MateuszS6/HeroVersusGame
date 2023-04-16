@@ -28,6 +28,7 @@ public class Player extends Walker implements ActionListener {
                   Character character,
                   Vec2 startPos) {
         super(world);
+
         NUM = num;
         this.character = character;
         this.character.setPlayer(this);
