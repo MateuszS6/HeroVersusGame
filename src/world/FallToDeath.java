@@ -21,7 +21,7 @@ public class FallToDeath implements CollisionListener, ActionListener {
         if (e.getOtherBody() instanceof Player) {
             e.getReportingBody().removeAllCollisionListeners();
             ((Player) e.getOtherBody()).setHealth(0);
-            world.respawnPlayer((Player) e.getOtherBody());
+            ((Player) e.getOtherBody()).respawn();
 
             Timer timer = new Timer(500, this);
             timer.setRepeats(false);

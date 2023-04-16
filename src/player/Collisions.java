@@ -22,9 +22,9 @@ public class Collisions implements CollisionListener {
             player.addImage(player.getCharacter().getIdleImage());
         }
 
-        if (e.getOtherBody() instanceof Player) if (player.isAttacking()) {
-            ((Player) e.getOtherBody()).setHealth(((Player) e.getOtherBody()).getHealth() - player.getCharacter().getAttackDamage());
-            System.out.println("Attacked player health: " + ((Player) e.getOtherBody()).getHealth());
+        if (e.getOtherBody() instanceof Player) if (((Player) e.getOtherBody()).isAttacking()) {
+            player.setHealth(player.getHealth() - ((Player) e.getOtherBody()).getCharacter().getAttackDamage());
+            System.out.println("Attacked player health: " + player.getHealth());
             player.respawn();
         }
 
