@@ -1,5 +1,6 @@
 package game;
 
+import arenas.Classic;
 import player.Controller;
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ public class Game {
 
     /** Initialise a new game. */
     public Game() {
-        arena = new BattleArena(); // Empty game world
+        arena = new Classic(); // Empty game world
 
         view = new GameView(arena, 800, 600); // Game view
 //        view.setGridResolution(1);

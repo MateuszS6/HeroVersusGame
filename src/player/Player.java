@@ -2,6 +2,7 @@ package player;
 
 import characters.Character;
 import city.cs.engine.*;
+import org.jbox2d.common.Vec2;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -89,10 +90,6 @@ public class Player extends Walker implements ActionListener {
 
     public boolean isAttacking() {
         return isAttacking;
-    }
-
-    public void setAttacking(boolean attacking) {
-        isAttacking = attacking;
     }
 
     public void idle() {
