@@ -9,8 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Player extends Walker implements ActionListener {
-    private final Character character;
+    private final int NUM;
+    private Character character;
     private KeyBindings keyBindings;
+    private final Vec2 START_POS;
     private SolidFixture hitbox;
     private int health;
     private static final int MAX_HEALTH = 100;
@@ -21,10 +23,15 @@ public class Player extends Walker implements ActionListener {
     private boolean isAttacking;
 
     /** Initialise a player. */
-    public Player(World world, Character character, boolean startFacingRight) {
+    public Player(World world,
+                  int num,
+                  Character character,
+                  Vec2 startPos) {
         super(world);
+        NUM = num;
         this.character = character;
         this.character.setPlayer(this);
+        START_POS = startPos;
 
         hitbox = new SolidFixture(this, character.getDefaultShape());
         // setAlwaysOutline(true);
@@ -33,11 +40,13 @@ public class Player extends Walker implements ActionListener {
         health = MAX_HEALTH;
         lives = MAX_LIVES;
 
-        isFacingRight = startFacingRight;
+        isFacingRight = NUM == 1;
         addImage(character.getIdleImage());
 
         isMidAir = false;
         isAttacking = false;
+
+        setPosition(START_POS);
     }
 
     public Character getCharacter() {
@@ -64,10 +73,6 @@ public class Player extends Walker implements ActionListener {
         return lives;
     }
 
-    public void setLives(int lives) {
-        this.lives = lives;
-    }
-
     public void decrementLives() {
         lives--;
     }
@@ -78,10 +83,6 @@ public class Player extends Walker implements ActionListener {
 
     public boolean isFacingRight() {
         return isFacingRight;
-    }
-
-    public void setFacingRight(boolean facingRight) {
-        isFacingRight = facingRight;
     }
 
     public void setMidAir(boolean midAir) {
@@ -145,6 +146,23 @@ public class Player extends Walker implements ActionListener {
         } else {
             hitbox = new SolidFixture(this, character.getDefaultShape());
             addImage(character.getIdleImage());
+        }
+    }
+
+    public void respawn() {
+        if (lives < 2) {
+
+            lives = 0;
+            destroy();
+            System.out.println("Player " + NUM + " is dead.");
+
+        } else if (health < 1) {
+
+            isFacingRight = NUM == 1;
+            setPosition(START_POS);
+
+            health = MAX_HEALTH;
+            decrementLives();
         }
     }
 }
