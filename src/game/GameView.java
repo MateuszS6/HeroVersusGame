@@ -13,12 +13,12 @@ public class GameView extends UserView {
     private Player player2;
 
     /** Initialise the game view. */
-    public GameView(BattleArena world, int width, int height) {
-        super(world, width, height);
+    public GameView(BattleArena arena, int width, int height) {
+        super(arena, width, height);
         background = new ImageIcon("assets/background/arena_with_stage.jpg").getImage();
 
-        player1 = world.getPlayer1();
-        player2 = world.getPlayer2();
+        player1 = arena.getPlayer1();
+        player2 = arena.getPlayer2();
 
         // View focus
         addMouseListener(new GiveFocus(this));

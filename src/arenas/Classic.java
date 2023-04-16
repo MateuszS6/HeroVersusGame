@@ -2,6 +2,7 @@ package arenas;
 
 import game.BattleArena;
 import org.jbox2d.common.Vec2;
+import world.Barrier;
 import world.HoveringBall;
 import world.Platform;
 
@@ -13,6 +14,9 @@ public class Classic extends BattleArena implements ActionListener {
     public Classic() {
         super(new Vec2(-4, -8.5f),
                 new Vec2(4, -9));
+
+        // Death barrier
+        setDeathBarrier(new Barrier(this, 20, 0.5f, 0, -20));
 
         // Stage
         Platform stage = new Platform(this, 7, 2, 0, -13.5f);
