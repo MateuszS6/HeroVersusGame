@@ -15,7 +15,10 @@ public class Classic extends BattleArena implements ActionListener {
         super(new Vec2(-4, -8.5f),
                 new Vec2(4, -9));
 
-        // Death barrier
+        // Background image
+        setBackground("assets/background/arena_with_stage.jpg");
+
+        // Death barrier TODO: Simplify param inputs
         setDeathBarrier(new Barrier(this, 20, 0.5f, 0, -20));
 
         // Stage

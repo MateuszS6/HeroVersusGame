@@ -3,7 +3,6 @@ package game;
 import city.cs.engine.UserView;
 import player.Player;
 
-import javax.swing.*;
 import java.awt.*;
 
 /** Game view class. */
@@ -15,7 +14,7 @@ public class GameView extends UserView {
     /** Initialise the game view. */
     public GameView(BattleArena arena, int width, int height) {
         super(arena, width, height);
-        background = new ImageIcon("assets/background/arena_with_stage.jpg").getImage();
+        background = arena.getBackground();
 
         player1 = arena.getPlayer1();
         player2 = arena.getPlayer2();

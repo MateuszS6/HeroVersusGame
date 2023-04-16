@@ -12,7 +12,7 @@ public class Game {
 
     /** Initialise a new game. */
     public Game() {
-        arena = new Classic(); // Empty game world
+        arena = new Classic(); // Game world
 
         view = new GameView(arena, 800, 600); // Game view
 //        view.setGridResolution(1);
