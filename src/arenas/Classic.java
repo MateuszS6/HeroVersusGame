@@ -12,14 +12,13 @@ import java.awt.event.ActionListener;
 
 public class Classic extends BattleArena implements ActionListener {
     public Classic() {
-        super(new Vec2(-4, -8.5f),
-                new Vec2(4, -9));
+        super(-4, 4, -8.5f, -9);
 
         // Background image
         setBackground("assets/background/arena_with_stage.jpg");
 
-        // Death barrier TODO: Simplify param inputs
-        setDeathBarrier(new Barrier(this, 20, 0.5f, 0, -20));
+        // Death barrier
+        setDeathBarrier(this, 20, 0.5f, 0, -20);
 
         // Stage
         Platform stage = new Platform(this, 7, 2, 0, -13.5f);
