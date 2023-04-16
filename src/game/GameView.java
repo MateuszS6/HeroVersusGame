@@ -12,7 +12,7 @@ public class GameView extends UserView {
     /** Initialise the game view. */
     public GameView(BattleArena arena, int width, int height) {
         super(arena, width, height);
-        
+
         this.arena = arena;
 
         // View focus
