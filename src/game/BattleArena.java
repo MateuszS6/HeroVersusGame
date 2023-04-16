@@ -21,7 +21,7 @@ public abstract class BattleArena extends World {
 
     /** Initialise a game world. */
     public BattleArena(float x1, float x2, float y1, float y2) {
-        // World borders TODO: Walk off screen teleports to opposite side
+        // World borders TODO: Walking off-screen teleports player to opposite side
         Barrier left = new Barrier(this, 0.5f, 20, -20.5f, 0);
         Barrier right = new Barrier(this, 0.5f, 20, 20.5f, 0);
 

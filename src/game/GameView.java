@@ -1,7 +1,7 @@
 package game;
 
+import city.cs.engine.BoxShape;
 import city.cs.engine.UserView;
-import player.Player;
 
 import java.awt.*;
 
