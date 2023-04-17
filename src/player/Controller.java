@@ -39,8 +39,8 @@ public class Controller implements KeyListener {
         key = e.getKeyCode();
         player.setMidAir(player.getLinearVelocity().y != 0);
         if (key == KEY_MAP.get(player.getKeyBindings().jumpKey)) player.jump();
-        if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) player.run(false);
-        if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) player.run(true);
+        if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) player.run(-1);
+        if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) player.run(1);
         if (key == KEY_MAP.get(player.getKeyBindings().attackKey)) player.attack();
     }
 
