@@ -41,8 +41,8 @@ public class GameView extends UserView {
         g.drawString("Lives: " + arena.getPlayer2().getLives(), this.getWidth() - 70, 70);
 
         g.setColor(Color.WHITE);
-        Shape healthBar = new Rectangle(100, 100, arena.getPlayer1().getHealth(), 50);
-        g.draw(healthBar);
-        g.fill(healthBar);
+        Shape healthBar1 = new Rectangle(100, 100, arena.getPlayer1().getHealth(), 50);
+        g.draw(healthBar1);
+        g.fill(healthBar1);
     }
 }
