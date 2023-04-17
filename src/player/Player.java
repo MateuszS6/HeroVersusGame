@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Player extends Walker implements ActionListener {
-    private final int NUM;
+    private final int ID;
     private Character character;
     private KeyBindings keyBindings;
     private final Vec2 START_POS;
@@ -24,12 +24,12 @@ public class Player extends Walker implements ActionListener {
 
     /** Initialise a player. */
     public Player(World world,
-                  int num,
+                  int ID,
                   Character character,
                   Vec2 startPos) {
         super(world);
 
-        NUM = num;
+        this.ID = ID;
         this.character = character;
         this.character.setPlayer(this);
         START_POS = startPos;
@@ -41,7 +41,7 @@ public class Player extends Walker implements ActionListener {
         health = MAX_HEALTH;
         lives = MAX_LIVES;
 
-        isFacingRight = NUM == 1;
+        isFacingRight = this.ID == 1;
         addImage(character.getIdleImage());
 
         isMidAir = false;
@@ -155,11 +155,11 @@ public class Player extends Walker implements ActionListener {
 
             lives = 0;
             destroy();
-            System.out.println("Player " + NUM + " is dead.");
+            System.out.println("Player " + ID + " is dead.");
 
         } else if (health < 1) {
 
-            isFacingRight = NUM == 1;
+            isFacingRight = ID == 1;
             setPosition(START_POS);
 
             health = MAX_HEALTH;

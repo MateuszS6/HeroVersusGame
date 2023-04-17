@@ -1,5 +1,6 @@
 package game;
 
+import city.cs.engine.BoxShape;
 import city.cs.engine.UserView;
 
 import java.awt.*;
@@ -38,5 +39,10 @@ public class GameView extends UserView {
         g.drawString("Health: " + arena.getPlayer2().getHealth(), this.getWidth() - 90, 50);
         g.drawString("Lives: " + arena.getPlayer1().getLives(), 10, 70);
         g.drawString("Lives: " + arena.getPlayer2().getLives(), this.getWidth() - 70, 70);
+
+        g.setColor(Color.WHITE);
+        Shape healthBar = new Rectangle(100, 100, arena.getPlayer1().getHealth(), 50);
+        g.draw(healthBar);
+        g.fill(healthBar);
     }
 }

@@ -12,6 +12,7 @@ import world.FallToDeath;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public abstract class BattleArena extends World {
     // TODO: 1 life, best of 3, winning player chooses next arena to play in
