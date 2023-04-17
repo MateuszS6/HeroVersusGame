@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Controller implements KeyListener {
-    private Player player;
+    private final Player player;
     private static final Map<String, Integer> KEY_MAP = new HashMap<>();
     private int key;
 

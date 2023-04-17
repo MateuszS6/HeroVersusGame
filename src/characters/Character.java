@@ -6,21 +6,25 @@ import player.Player;
 
 public abstract class Character {
     private Player player;
-    private final PolygonShape DEFAULT_SHP;
-    private final PolygonShape L_ATTACK_SHP;
-    private final PolygonShape R_ATTACK_SHP;
-    private final BodyImage L_IDLE_IMG;
-    private final BodyImage R_IDLE_IMG;
-    private final BodyImage L_JUMP_IMG;
-    private final BodyImage R_JUMP_IMG;
-    private final BodyImage L_RUN_IMG;
-    private final BodyImage R_RUN_IMG;
-    private final BodyImage L_ATTACK_IMG;
-    private final BodyImage R_ATTACK_IMG;
-    private final float RUN_SPEED;
-    private final float JUMP_SPEED;
-    private final int ATTACK_DUR;
-    private final int ATTACK_DMG;
+    private final PolygonShape
+            DEFAULT_SHP,
+            L_ATTACK_SHP,
+            R_ATTACK_SHP;
+    private final BodyImage
+            L_IDLE_IMG,
+            R_IDLE_IMG,
+            L_JUMP_IMG,
+            R_JUMP_IMG,
+            L_RUN_IMG,
+            R_RUN_IMG,
+            L_ATTACK_IMG,
+            R_ATTACK_IMG;
+    private final float
+            RUN_SPEED,
+            JUMP_SPEED;
+    private final int
+            ATTACK_DUR,
+            ATTACK_DMG;
 
     public Character(PolygonShape defaultShape,
                      PolygonShape leftAttackShape,

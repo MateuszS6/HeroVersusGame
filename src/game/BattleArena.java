@@ -12,13 +12,13 @@ import world.FallToDeath;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public abstract class BattleArena extends World {
     // TODO: 1 life, best of 3, winning player chooses next arena to play in
     private Image background;
-    private final Player PLAYER_1;
-    private final Player PLAYER_2;
+    private final Player
+            player1,
+            player2;
     private Barrier deathBarrier;
 
     /** Initialise a game world. */
@@ -28,14 +28,14 @@ public abstract class BattleArena extends World {
         Barrier right = new Barrier(this, 0.5f, 20, 20.5f, 0);
 
         // Player 1
-        PLAYER_1 = new Player(this, 1, new Knight(), new Vec2(x1, y1));
-        PLAYER_1.setKeyBindings(new KeyBindings("w", "a", "d", "r"));
-        PLAYER_1.addCollisionListener(new Collisions(this, PLAYER_1));
+        player1 = new Player(this, 1, new Knight(), new Vec2(x1, y1));
+        player1.setKeyBindings(new KeyBindings("w", "a", "d", "r"));
+        player1.addCollisionListener(new Collisions(this, player1));
 
         // Player 2
-        PLAYER_2 = new Player(this, 2, new Skeleton(), new Vec2(x2, y2));
-        PLAYER_2.setKeyBindings(new KeyBindings());
-        PLAYER_2.addCollisionListener(new Collisions(this, PLAYER_2));
+        player2 = new Player(this, 2, new Skeleton(), new Vec2(x2, y2));
+        player2.setKeyBindings(new KeyBindings());
+        player2.addCollisionListener(new Collisions(this, player2));
     }
 
     public Image getBackground() {
@@ -47,11 +47,11 @@ public abstract class BattleArena extends World {
     }
 
     public Player getPlayer1() {
-        return PLAYER_1;
+        return player1;
     }
 
     public Player getPlayer2() {
-        return PLAYER_2;
+        return player2;
     }
 
     public Barrier getDeathBarrier() {

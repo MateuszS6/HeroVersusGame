@@ -12,15 +12,17 @@ public class Player extends Walker implements ActionListener {
     private final int ID;
     private Character character;
     private KeyBindings keyBindings;
-    private final Vec2 START_POS;
+    private final Vec2 startPos;
     private SolidFixture hitbox;
-    private int health;
+    private int
+            health,
+            lives;
     private static final int MAX_HEALTH = 100;
-    private int lives;
     private static final int MAX_LIVES = 3;
-    private boolean isFacingRight;
-    private boolean isMidAir;
-    private boolean isAttacking;
+    private boolean
+            isFacingRight,
+            isMidAir,
+            isAttacking;
 
     /** Initialise a player. */
     public Player(World world,
@@ -32,7 +34,7 @@ public class Player extends Walker implements ActionListener {
         this.ID = ID;
         this.character = character;
         this.character.setPlayer(this);
-        START_POS = startPos;
+        this.startPos = startPos;
 
         hitbox = new SolidFixture(this, character.getDefaultShape());
         // setAlwaysOutline(true);
@@ -47,7 +49,7 @@ public class Player extends Walker implements ActionListener {
         isMidAir = false;
         isAttacking = false;
 
-        setPosition(START_POS);
+        setPosition(this.startPos);
     }
 
     public Character getCharacter() {
@@ -160,7 +162,7 @@ public class Player extends Walker implements ActionListener {
         } else if (health < 1) {
 
             isFacingRight = ID == 1;
-            setPosition(START_POS);
+            setPosition(startPos);
 
             health = MAX_HEALTH;
             decrementLives();
