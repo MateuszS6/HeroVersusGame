@@ -14,6 +14,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class BattleArena extends World {
+    // TODO: 1 life, best of 3, winning player chooses next arena to play in
     private Image background;
     private final Player PLAYER_1;
     private final Player PLAYER_2;

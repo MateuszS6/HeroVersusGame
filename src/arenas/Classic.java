@@ -1,8 +1,6 @@
 package arenas;
 
 import game.BattleArena;
-import org.jbox2d.common.Vec2;
-import world.Barrier;
 import world.HoveringBall;
 import world.Platform;
 
@@ -15,7 +13,7 @@ public class Classic extends BattleArena implements ActionListener {
         super(-4, 4, -8.5f, -9);
 
         // Background image
-        setBackground("assets/background/arena_with_stage.jpg");
+        setBackground("assets/background/arena_with_stage_animated.gif");
 
         // Death barrier
         setDeathBarrier(this, 20, 0.5f, 0, -20);

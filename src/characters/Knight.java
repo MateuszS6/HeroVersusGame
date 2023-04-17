@@ -1,7 +1,7 @@
 package characters;
 
-import city.cs.engine.*;
-import player.Player;
+import city.cs.engine.BodyImage;
+import city.cs.engine.PolygonShape;
 
 public class Knight extends Character {
     public Knight() {

@@ -2,7 +2,6 @@ package characters;
 
 import city.cs.engine.BodyImage;
 import city.cs.engine.PolygonShape;
-import city.cs.engine.Shape;
 
 public class Skeleton extends Character {
     public Skeleton() {
