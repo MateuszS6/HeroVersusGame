@@ -155,13 +155,11 @@ public class Player extends Walker implements ActionListener {
 
     public void respawn() {
         if (lives < 2 && health < 1) {
-
             lives = 0;
             destroy();
             System.out.println("Player " + ID + " is dead.");
 
         } else if (health < 1) {
-
             isFacingRight = ID == 1;
             setPosition(startPos);
 
@@ -173,11 +171,13 @@ public class Player extends Walker implements ActionListener {
     public void drawHUD(Graphics2D g, int x, int y, int w, int h) {
         Color reset = g.getColor();
 
+        Color backBlack = new Color(0, 0, 0, 65);
+
         // Back panel
-        g.setColor(Color.BLACK);
+        g.setColor(backBlack);
         g.fillRect(x, y, w, h);
-        g.setColor(Color.WHITE);
-        g.fillRect(x + 2, y + 2, w - 4, h - 4);
+//        g.setColor(backBlack);
+//        g.fillRect(x + 2, y + 2, w - 4, h - 4);
 
         // Name
         g.setFont(new Font("Bahnschrift", Font.BOLD, 15));

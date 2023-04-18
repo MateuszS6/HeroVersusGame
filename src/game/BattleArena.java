@@ -60,6 +60,6 @@ public abstract class BattleArena extends World {
 
     public void setDeathBarrier(World world, float halfWidth, float halfHeight, float x, float y) {
         deathBarrier = new Barrier(world, halfWidth, halfHeight, x, y);
-        this.deathBarrier.addCollisionListener(new FallToDeath(this));
+        deathBarrier.addCollisionListener(new FallToDeath(this));
     }
 }
