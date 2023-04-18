@@ -1,6 +1,7 @@
 package game;
 
 import arenas.Classic;
+import arenas.Volcano;
 import city.cs.engine.DebugViewer;
 import player.Controller;
 
@@ -13,7 +14,7 @@ public class Game {
 
     /** Initialise a new game. */
     public Game() {
-        arena = new Classic(); // Game world
+        arena = new Volcano(); // Game world
 
         view = new GameView(arena, 800, 600); // Game view
 //        view.setGridResolution(1);
