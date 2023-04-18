@@ -1,6 +1,7 @@
 package game;
 
 import arenas.Classic;
+import city.cs.engine.DebugViewer;
 import player.Controller;
 
 import javax.swing.*;

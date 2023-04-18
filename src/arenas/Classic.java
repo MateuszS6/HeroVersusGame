@@ -26,12 +26,12 @@ public class Classic extends BattleArena implements ActionListener {
         // Platforms
         Platform platform1 = new Platform(this, 4, 0.5f, -14, -8);
         Platform platform2 = new Platform(this, 4, 0.5f, 14, -8);
-        Platform platform3 = new Platform(this, 4, 0.5f, 0, -3);
-        Platform platform4 = new Platform(this, 4, 0.5f, -14, 2);
-        Platform platform5 = new Platform(this, 4, 0.5f, 14, 2);
+//        Platform platform3 = new Platform(this, 4, 0.5f, 0, -3);
+//        Platform platform4 = new Platform(this, 4, 0.5f, -14, 2);
+//        Platform platform5 = new Platform(this, 4, 0.5f, 14, 2);
 
         // Hovering ball
-        HoveringBall annoyingBall = new HoveringBall(this, 3, 0, 8);
+//        HoveringBall annoyingBall = new HoveringBall(this, 3, 0, 8);
 
 //        Timer collectibleTimer = new Timer(10000, this);
 //        collectibleTimer.setRepeats(false);

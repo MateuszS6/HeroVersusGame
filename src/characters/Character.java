@@ -4,6 +4,7 @@ import city.cs.engine.BodyImage;
 import city.cs.engine.PolygonShape;
 import player.Player;
 
+// TODO: Add simple abilities such as double-jump
 public abstract class Character {
     private Player player;
     private final PolygonShape
