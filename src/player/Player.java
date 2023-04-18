@@ -154,7 +154,7 @@ public class Player extends Walker implements ActionListener {
     }
 
     public void respawn() {
-        if (lives < 2) {
+        if (lives < 2 && health < 1) {
 
             lives = 0;
             destroy();
@@ -170,19 +170,37 @@ public class Player extends Walker implements ActionListener {
         }
     }
 
-    public void drawHealthBar(Graphics2D g, int x, int y, int w, int h) {
+    public void drawHUD(Graphics2D g, int x, int y, int w, int h) {
         Color reset = g.getColor();
 
+        // Back panel
         g.setColor(Color.BLACK);
         g.fillRect(x, y, w, h);
-
-        g.setColor(Color.RED);
+        g.setColor(Color.WHITE);
         g.fillRect(x + 2, y + 2, w - 4, h - 4);
 
+        // Name
+        g.setFont(new Font("Bahnschrift", Font.BOLD, 15));
+        g.setColor(Color.BLACK);
+        g.drawString("Player " + ID, x + 7, y + 20);
+
+        // Health bar
+        int xPos = x + 7;
+        int yPos = y + 25;
+        int width = w - 14;
+        int height = 15;
+        g.setColor(Color.RED);
+        g.fillRect(xPos, yPos, width, height);
         float factor = (float) health / 100;
         g.setColor(Color.GREEN);
-        g.fillRect(x + 2, y + 2, (int) ((w - 4) * factor), h - 4);
+        g.fillRect(xPos, yPos, (int) (width * factor), height);
 
+        // Lives
+        g.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+        g.setColor(Color.BLACK);
+        g.drawString("Lives: " + lives, x + 7, y + 55);
+
+        // Reset colour
         g.setColor(reset);
     }
 }

@@ -33,18 +33,17 @@ public class GameView extends UserView {
 
     @Override
     protected void paintForeground(Graphics2D g) {
-        g.setColor(Color.BLACK);
-        g.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+        Color backBlack = new Color(0, 0, 0, 65);
+
+        int x = 10;
+        int y = 10;
+        int w = 120;
+        int h = 65;
 
         // Player 1 HUD
-        g.drawString("Player 1", 10, 25);
-        player1.drawHealthBar(g, 10, 40, 100, 20);
+        player1.drawHUD(g, x, y, w, h);
 
         // Player 2 HUD
-        g.drawString("Player 2", getWidth() - 110, 25);
-        player2.drawHealthBar(g, getWidth() - 110, 40, 100, 20);
-
-//        g.drawString("Health: " + arena.getPlayer2().getHealth(), this.getWidth() - 90, 50);
-//        g.drawString("Lives: " + arena.getPlayer2().getLives(), this.getWidth() - 70, 70);
+        player2.drawHUD(g, getWidth() - (w + x), y, w, h);
     }
 }
