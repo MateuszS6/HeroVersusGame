@@ -5,6 +5,7 @@ import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -167,5 +168,21 @@ public class Player extends Walker implements ActionListener {
             health = MAX_HEALTH;
             decrementLives();
         }
+    }
+
+    public void drawHealthBar(Graphics2D g, int x, int y, int w, int h) {
+        Color reset = g.getColor();
+
+        g.setColor(Color.BLACK);
+        g.fillRect(x, y, w, h);
+
+        g.setColor(Color.RED);
+        g.fillRect(x + 2, y + 2, w - 4, h - 4);
+
+        float factor = (float) health / 100;
+        g.setColor(Color.GREEN);
+        g.fillRect(x + 2, y + 2, (int) ((w - 4) * factor), h - 4);
+
+        g.setColor(reset);
     }
 }
