@@ -16,7 +16,7 @@ public class Game {
         arena = new Classic(); // Game world
 
         view = new GameView(arena, 800, 600); // Game view
-        view.setGridResolution(1);
+//        view.setGridResolution(1);
 
         view.addKeyListener(new Controller(arena.getPlayer1())); // Player 1 controller
         view.addKeyListener(new Controller(arena.getPlayer2())); // Player 2 controller

@@ -35,7 +35,9 @@ public class GameView extends UserView {
 
     @Override
     protected void paintForeground(Graphics2D g) {
-        g.setColor(Color.WHITE);
+        Color backBlack = new Color(0, 0, 0, 165);
+        g.setColor(backBlack);
+        g.setFont(new Font("Bahnschrift", Font.BOLD, 17));
 
         int x = 10;
         int y = getHeight() - 75;
@@ -45,11 +47,11 @@ public class GameView extends UserView {
         // Player 1 HUD
         player1.drawHUD(g, x, y, w, h);
         Point2D.Float p1 = worldToView(player1.getPosition());
-        g.drawString("Player 1", p1.x - 35, p1.y - 5);
+        if (player1.getLives() > 0) g.drawString("Player 1", p1.x - 30, p1.y - 5);
 
         // Player 2 HUD
         player2.drawHUD(g, getWidth() - (w + x), y, w, h);
         Point2D.Float p2 = worldToView(player2.getPosition());
-        g.drawString("Player 2", p2.x - 20, p2.y - 45);
+        if (player2.getLives() > 0) g.drawString("Player 2", p2.x - 30, p2.y - 45);
     }
 }
