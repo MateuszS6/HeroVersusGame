@@ -35,18 +35,18 @@ public class GameView extends UserView {
         g.setColor(labelBlack);
         g.setFont(new Font("Bahnschrift", Font.BOLD, 15));
 
-        int x = (getWidth() / 2) - 125;
-        int y = 10; // getHeight() - 75
         int w = 120;
         int h = 65;
+        int x = (getWidth() / 2) - (w + 5);
+        int y = 10;
 
         // Player 1 HUD
-        player1.drawHUD(g, x, y, w, h);
+        player1.drawHUD(g, w, h, x, y);
         Point2D.Float p1 = worldToView(player1.getPosition());
         if (player1.getRespawns() > 0) g.drawString("Player 1", p1.x - 30, p1.y - 5);
 
         // Player 2 HUD
-        player2.drawHUD(g, getWidth() - (w + x), y, w, h);
+        player2.drawHUD(g, w, h, getWidth() - (w + x), y);
         Point2D.Float p2 = worldToView(player2.getPosition());
         if (player2.getRespawns() > 0) g.drawString("Player 2", p2.x - 30, p2.y - 45);
     }
