@@ -35,8 +35,8 @@ public class GameView extends UserView {
         g.setColor(labelBlack);
         g.setFont(new Font("Bahnschrift", Font.BOLD, 15));
 
-        int x = 10;
-        int y = getHeight() - 75;
+        int x = (getWidth() / 2) - 125;
+        int y = 10; // getHeight() - 75
         int w = 120;
         int h = 65;
 
