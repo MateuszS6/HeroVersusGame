@@ -17,9 +17,9 @@ public class Player extends Walker implements ActionListener {
     private SolidFixture hitbox;
     private int
             health,
-            lives;
+            respawns;
     private static final int MAX_HEALTH = 100;
-    private static final int MAX_LIVES = 3;
+    private static final int MAX_RESPAWNS = 3;
     private boolean
             isFacingRight,
             isMidAir,
@@ -42,7 +42,7 @@ public class Player extends Walker implements ActionListener {
         setGravityScale(2);
 
         health = MAX_HEALTH;
-        lives = MAX_LIVES;
+        respawns = MAX_RESPAWNS;
 
         isFacingRight = this.ID == 1;
         addImage(character.getIdleImage());
@@ -61,6 +61,10 @@ public class Player extends Walker implements ActionListener {
         return keyBindings;
     }
 
+    public void setKeyBindings(KeyBindings keybindings) {
+        this.keyBindings = keybindings;
+    }
+
     public int getHealth() {
         return health;
     }
@@ -73,16 +77,12 @@ public class Player extends Walker implements ActionListener {
         return MAX_HEALTH;
     }
 
-    public int getLives() {
-        return lives;
+    public int getRespawns() {
+        return respawns;
     }
 
-    public void decrementLives() {
-        lives--;
-    }
-
-    public void setKeyBindings(KeyBindings keybindings) {
-        this.keyBindings = keybindings;
+    public void decrementRespawns() {
+        respawns--;
     }
 
     public boolean isFacingRight() {
@@ -154,8 +154,8 @@ public class Player extends Walker implements ActionListener {
     }
 
     public void respawn() {
-        if (lives < 2 && health < 1) {
-            lives = 0;
+        if (respawns < 2 && health < 1) {
+            respawns = 0;
             destroy();
             System.out.println("Player " + ID + " is defeated.");
 
@@ -164,7 +164,7 @@ public class Player extends Walker implements ActionListener {
             setPosition(startPos);
 
             health = MAX_HEALTH;
-            decrementLives();
+            decrementRespawns();
         }
     }
 
@@ -173,12 +173,12 @@ public class Player extends Walker implements ActionListener {
         Color savedColour = g.getColor();
         Font savedFont = g.getFont();
 
-        Color backBlack = new Color(0, 0, 0, 65);
+        Color panelBlack = new Color(0, 0, 0, 65);
 
         // Back panel
-        g.setColor(backBlack);
+        g.setColor(panelBlack);
         g.fillRoundRect(x, y, w, h, 10, 10);
-//        g.setColor(backBlack);
+//        g.setColor(panelBlack);
 //        g.fillRect(x + 2, y + 2, w - 4, h - 4);
 
         // Name
@@ -200,7 +200,7 @@ public class Player extends Walker implements ActionListener {
         // Lives
         g.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
         g.setColor(Color.BLACK);
-        g.drawString("Lives: " + lives, x + 7, y + 55);
+        g.drawString("Respawns: " + respawns, x + 7, y + 55);
 
         // Reset to saved colour and font
         g.setColor(savedColour);
