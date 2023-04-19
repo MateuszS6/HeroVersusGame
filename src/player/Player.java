@@ -38,7 +38,7 @@ public class Player extends Walker implements ActionListener {
         this.startPos = startPos;
 
         hitbox = new SolidFixture(this, character.getDefaultShape());
-        // setAlwaysOutline(true);
+        setAlwaysOutline(false);
         setGravityScale(2);
 
         health = MAX_HEALTH;

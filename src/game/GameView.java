@@ -3,6 +3,7 @@ package game;
 import city.cs.engine.UserView;
 import player.Player;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
@@ -27,6 +28,8 @@ public class GameView extends UserView {
     @Override
     protected void paintBackground(Graphics2D g) {
         g.drawImage(arena.getBackground(), 0, 0, this);
+
+        g.drawImage(new ImageIcon("").getImage(), 100, 100, this);
     }
 
     @Override

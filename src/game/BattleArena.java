@@ -2,7 +2,9 @@ package game;
 
 import characters.Knight;
 import characters.Skeleton;
+import city.cs.engine.BoxShape;
 import city.cs.engine.CollisionListener;
+import city.cs.engine.GhostlyFixture;
 import city.cs.engine.World;
 import org.jbox2d.common.Vec2;
 import player.Collisions;
