@@ -2,6 +2,7 @@ package game;
 
 import characters.Knight;
 import characters.Skeleton;
+import city.cs.engine.CollisionListener;
 import city.cs.engine.World;
 import org.jbox2d.common.Vec2;
 import player.Collisions;
@@ -19,13 +20,18 @@ public abstract class BattleArena extends World {
     private final Player
             player1,
             player2;
+    private final Barrier
+            left,
+            right;
     private Barrier deathBarrier;
 
     /** Initialise a game world. */
     public BattleArena(float x1, float x2, float y1, float y2) {
-        // World borders TODO: Walking off-screen teleports player to opposite side
-        Barrier left = new Barrier(this, 0.5f, 20, -20.5f, 0);
-        Barrier right = new Barrier(this, 0.5f, 20, 20.5f, 0);
+        // World borders
+        left = new Barrier(this, 0.5f, 20, -21, 0);
+        left.addCollisionListener(new TeleportToOtherSide(this));
+        right = new Barrier(this, 0.5f, 20, 21, 0);
+        right.addCollisionListener(new TeleportToOtherSide(this));
 
         // Player 1
         player1 = new Player(this, 1, new Knight(), new Vec2(x1, y1));
@@ -54,12 +60,19 @@ public abstract class BattleArena extends World {
         return player2;
     }
 
+    public Barrier getOtherSide(Barrier barrier) {
+        Barrier other = null;
+        if (barrier == left) other = right;
+        else if (barrier == right) other = left;
+        return other;
+    }
+
     public Barrier getDeathBarrier() {
         return deathBarrier;
     }
 
-    public void setDeathBarrier(World world, float halfWidth, float halfHeight, float x, float y) {
-        deathBarrier = new Barrier(world, halfWidth, halfHeight, x, y);
+    public void setDeathBarrier(World world, float y) {
+        deathBarrier = new Barrier(world, right.getPosition().x, 0.5f, 0, y);
         deathBarrier.addCollisionListener(new FallToDeath(this));
     }
 }

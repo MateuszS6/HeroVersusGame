@@ -16,7 +16,7 @@ public class Classic extends BattleArena implements ActionListener {
         setBackground("assets/background/arena_with_stage.jpg");
 
         // Death barrier
-        setDeathBarrier(this, 20, 0.5f, 0, -20);
+        setDeathBarrier(this, -20);
 
         // Stage
         Platform stage = new Platform(this, 7, 2, 0, -13.5f);
