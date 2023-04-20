@@ -18,7 +18,9 @@ public class TeleportToOtherSide implements CollisionListener {
         if (e.getOtherBody() instanceof Player) {
             float xPos = (arena.getOtherSide((Barrier) e.getReportingBody()).getPosition().x) * 0.88f;
             float yPos = e.getOtherBody().getPosition().y;
+            Vec2 velocity = e.getVelocity();
             e.getOtherBody().setPosition(new Vec2(xPos, yPos));
+            ((Player) e.getOtherBody()).setLinearVelocity(velocity);
         }
     }
 }
