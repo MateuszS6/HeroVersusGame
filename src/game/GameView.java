@@ -28,8 +28,6 @@ public class GameView extends UserView {
     @Override
     protected void paintBackground(Graphics2D g) {
         g.drawImage(arena.getBackground(), 0, 0, this);
-
-        g.drawImage(new ImageIcon("").getImage(), 100, 100, this);
     }
 
     @Override

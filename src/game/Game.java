@@ -1,8 +1,6 @@
 package game;
 
 import arenas.Classic;
-import arenas.Volcano;
-import city.cs.engine.DebugViewer;
 import player.Controller;
 
 import javax.swing.*;
