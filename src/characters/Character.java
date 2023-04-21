@@ -30,14 +30,15 @@ public abstract class Character {
     public Character(PolygonShape defaultShape,
                      PolygonShape leftAttackShape,
                      PolygonShape rightAttackShape,
-                     BodyImage leftIdleImage,
-                     BodyImage rightIdleImage,
-                     BodyImage leftJumpImage,
-                     BodyImage rightJumpImage,
-                     BodyImage leftRunImage,
-                     BodyImage rightRunImage,
-                     BodyImage leftAttackImage,
-                     BodyImage rightAttackImage,
+                     String leftIdleImage,
+                     String rightIdleImage,
+                     String leftJumpImage,
+                     String rightJumpImage,
+                     String leftRunImage,
+                     String rightRunImage,
+                     String leftAttackImage,
+                     String rightAttackImage,
+                     int height,
                      float runSpeed,
                      float jumpSpeed,
                      int attackDuration,
@@ -45,14 +46,14 @@ public abstract class Character {
         DEFAULT_SHP = defaultShape;
         L_ATTACK_SHP = leftAttackShape;
         R_ATTACK_SHP = rightAttackShape;
-        L_IDLE_IMG = leftIdleImage;
-        R_IDLE_IMG = rightIdleImage;
-        L_JUMP_IMG = leftJumpImage;
-        R_JUMP_IMG = rightJumpImage;
-        L_RUN_IMG = leftRunImage;
-        R_RUN_IMG = rightRunImage;
-        L_ATTACK_IMG = leftAttackImage;
-        R_ATTACK_IMG = rightAttackImage;
+        L_IDLE_IMG = new BodyImage(leftIdleImage, height);
+        R_IDLE_IMG = new BodyImage(rightIdleImage, height);
+        L_JUMP_IMG = new BodyImage(leftJumpImage, height);
+        R_JUMP_IMG = new BodyImage(rightJumpImage, height);
+        L_RUN_IMG = new BodyImage(leftRunImage, height);
+        R_RUN_IMG = new BodyImage(rightRunImage, height);
+        L_ATTACK_IMG = new BodyImage(leftAttackImage, height);
+        R_ATTACK_IMG = new BodyImage(rightAttackImage, height);
         RUN_SPEED = runSpeed;
         JUMP_SPEED = jumpSpeed;
         ATTACK_DUR = attackDuration;

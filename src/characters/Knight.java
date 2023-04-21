@@ -1,6 +1,5 @@
 package characters;
 
-import city.cs.engine.BodyImage;
 import city.cs.engine.PolygonShape;
 
 public class Knight extends Character {
@@ -30,14 +29,15 @@ public class Knight extends Character {
                         -0.1f, -0.34f,
                         -1.2f, -2.46f
                 ),
-                new BodyImage("assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/left_idle.gif", 8),
-                new BodyImage("assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/__Idle.gif", 8),
-                new BodyImage("assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/left_jump.gif", 8),
-                new BodyImage("assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/__Jump.gif", 8),
-                new BodyImage("assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/left_run.gif", 8),
-                new BodyImage("assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/__Run.gif", 8),
-                new BodyImage("assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/left_attack.gif", 8),
-                new BodyImage("assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/__AttackCombo2hit.gif", 8),
+                "assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/left_idle.gif",
+                "assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/__Idle.gif",
+                "assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/left_jump.gif",
+                "assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/__Jump.gif",
+                "assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/left_run.gif",
+                "assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/__Run.gif",
+                "assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/left_attack.gif",
+                "assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/__AttackCombo2hit.gif",
+                8,
                 11,
                 15,
                 500,

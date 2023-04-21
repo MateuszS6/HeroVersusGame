@@ -13,7 +13,7 @@ public class Knight2 extends Character {
                 null,
                 null,
                 null,
-                0,
+                height, 0,
                 0,
                 0,
                 0);
