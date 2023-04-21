@@ -18,7 +18,8 @@ import java.awt.*;
 
 public abstract class BattleArena extends World {
     // TODO: 1 life, best of 3, winning player chooses next arena to play in
-    private Image background;
+    private Color bgColour;
+    private Image bgImage;
     private final Player
             player1,
             player2;
@@ -46,12 +47,20 @@ public abstract class BattleArena extends World {
         player2.addCollisionListener(new Collisions(this, player2));
     }
 
-    public Image getBackground() {
-        return background;
+    public Color getBgColour() {
+        return bgColour;
+    }
+
+    public Image getBgImage() {
+        return bgImage;
+    }
+
+    public void setBackground(Color color) {
+        bgColour = color;
     }
 
     public void setBackground(String filename) {
-        background = new ImageIcon(filename).getImage();
+        bgImage = new ImageIcon(filename).getImage();
     }
 
     public Player getPlayer1() {

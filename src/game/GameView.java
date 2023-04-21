@@ -27,7 +27,10 @@ public class GameView extends UserView {
 
     @Override
     protected void paintBackground(Graphics2D g) {
-        g.drawImage(arena.getBackground(), 0, 0, this);
+        if (arena.getBgImage() == null) {
+            g.setColor(arena.getBgColour());
+            g.fillRect(0, 0, getWidth(), getHeight());
+        } else g.drawImage(arena.getBgImage(), 0, 0, this);
     }
 
     @Override
