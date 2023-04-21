@@ -12,8 +12,8 @@ import java.awt.event.ActionListener;
 public class FallToDeath implements CollisionListener, ActionListener {
     private BattleArena world;
 
-    public FallToDeath(BattleArena world) {
-        this.world = world;
+    public FallToDeath(BattleArena w) {
+        world = w;
     }
 
     @Override

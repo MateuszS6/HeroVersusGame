@@ -1,7 +1,6 @@
 package arenas;
 
 import game.BattleArena;
-import world.HoveringBall;
 import world.Platform;
 
 import java.awt.*;

@@ -26,11 +26,11 @@ public class Player extends Walker implements ActionListener {
             isAttacking;
 
     /** Initialise a player. */
-    public Player(World world,
+    public Player(World w,
                   int ID,
                   Character character,
                   Vec2 startPos) {
-        super(world);
+        super(w);
 
         this.ID = ID;
         this.character = character;

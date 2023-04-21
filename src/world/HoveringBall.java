@@ -8,8 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class HoveringBall extends DynamicBody implements ActionListener {
-    public HoveringBall(World world, float radius, float x, float y) {
-        super(world, new CircleShape(radius, x, y));
+    public HoveringBall(World w, float radius, float x, float y) {
+        super(w, new CircleShape(radius, x, y));
         setGravityScale(0);
         SolidFixture surface = new SolidFixture(this, new CircleShape(radius, x, y));
         // surface.setRestitution(1);
