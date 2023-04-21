@@ -1,10 +1,13 @@
 package player;
 
+import city.cs.engine.BoxShape;
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
+import city.cs.engine.StaticBody;
 import game.BattleArena;
 import world.HealthRefill;
 import world.Platform;
+import world.Tile;
 
 public class Collisions implements CollisionListener {
     private BattleArena world;
@@ -17,7 +20,7 @@ public class Collisions implements CollisionListener {
 
     @Override
     public void collide(CollisionEvent e) {
-        if (e.getOtherBody() instanceof Platform) if (!player.isAttacking()) {
+        if (e.getOtherBody() instanceof StaticBody) if (!player.isAttacking()) {
             player.removeAllImages();
             player.addImage(player.getCharacter().getIdleImage());
         }

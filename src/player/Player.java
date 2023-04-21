@@ -173,12 +173,12 @@ public class Player extends Walker implements ActionListener {
         Color savedColour = g.getColor();
         Font savedFont = g.getFont();
 
-        Color panelBlack = new Color(0, 0, 0, 65);
+        Color panel = new Color(255, 255, 255, 65);
 
         // Back panel
-        g.setColor(panelBlack);
+        g.setColor(panel);
         g.fillRoundRect(x, y, w, h, 10, 10);
-//        g.setColor(panelBlack);
+//        g.setColor(panel);
 //        g.fillRect(x + 2, y + 2, w - 4, h - 4);
 
         // Name

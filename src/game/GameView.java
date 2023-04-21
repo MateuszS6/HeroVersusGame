@@ -35,13 +35,13 @@ public class GameView extends UserView {
 
     @Override
     protected void paintForeground(Graphics2D g) {
-        Color labelBlack = new Color(0, 0, 0, 165);
-        g.setColor(labelBlack);
+        Color label = new Color(255, 255, 255, 165);
+        g.setColor(label);
         g.setFont(new Font("Bahnschrift", Font.BOLD, 15));
 
         int w = 120;
         int h = 65;
-        int x = (getWidth() / 2) - (w + 5);
+        int x = 10; // (getWidth() / 2) - (w + 5);
         int y = 10;
 
         // Player 1 HUD
