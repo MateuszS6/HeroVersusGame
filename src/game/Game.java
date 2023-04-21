@@ -1,5 +1,6 @@
 package game;
 
+import arenas.Classic;
 import arenas.Void;
 import city.cs.engine.DebugViewer;
 import player.Controller;
@@ -10,13 +11,14 @@ import javax.swing.*;
 public class Game {
     private BattleArena arena;
     private GameView view;
+    public static final float GRID_RES = 1;
 
     /** Initialise a new game. */
     public Game() {
         arena = new Void(); // Game world
 
         view = new GameView(arena, 800, 600); // Game view
-        view.setGridResolution(1);
+//        view.setGridResolution(GRID_RES);
 
         view.addKeyListener(new Controller(arena.getPlayer1())); // Player 1 controller
         view.addKeyListener(new Controller(arena.getPlayer2())); // Player 2 controller
