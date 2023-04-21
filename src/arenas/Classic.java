@@ -42,4 +42,9 @@ public class Classic extends BattleArena implements ActionListener {
         // Collectible
 //        HealthRefill collectible = new HealthRefill(this, 0, -10);
     }
+
+    @Override
+    public void populate() {
+
+    }
 }

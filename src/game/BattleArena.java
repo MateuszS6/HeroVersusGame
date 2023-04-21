@@ -12,6 +12,7 @@ import player.KeyBindings;
 import player.Player;
 import world.Barrier;
 import world.FallToDeath;
+import world.Tile;
 
 import javax.swing.*;
 import java.awt.*;
@@ -86,4 +87,10 @@ public abstract class BattleArena extends World {
         deathBarrier = new Barrier(world, right.getPosition().x, 0.5f, 0, y);
         deathBarrier.addCollisionListener(new FallToDeath(this));
     }
+
+    public void addTile(String type, float x, float y) {
+        new Tile(this, type, x, y);
+    }
+
+    public abstract void populate();
 }

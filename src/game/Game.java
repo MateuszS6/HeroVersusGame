@@ -18,7 +18,7 @@ public class Game {
         arena = new Void(); // Game world
 
         view = new GameView(arena, 800, 600); // Game view
-//        view.setGridResolution(GRID_RES);
+        view.setGridResolution(GRID_RES);
 
         view.addKeyListener(new Controller(arena.getPlayer1())); // Player 1 controller
         view.addKeyListener(new Controller(arena.getPlayer2())); // Player 2 controller
@@ -31,7 +31,7 @@ public class Game {
         frame.pack(); // Resize the frame to fit world view
         frame.setVisible(true);
 
-        JFrame debugView = new DebugViewer(arena, view.getWidth(), view.getHeight());
+//        JFrame debugView = new DebugViewer(arena, view.getWidth(), view.getHeight());
 
         arena.start();
     }

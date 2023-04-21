@@ -7,7 +7,9 @@ import org.jbox2d.common.Vec2;
 public class Tile extends StaticBody {
     public static final String TOP = "assets/tiles/witchcraft/tileset/outlined/top.png";
     public static final String TOP_LEFT = "assets/tiles/witchcraft/tileset/outlined/top_left.png";
+    public static final String TOP_LEFT_END = "assets/tiles/witchcraft/tileset/outlined/top_left_end.png";
     public static final String TOP_RIGHT = "assets/tiles/witchcraft/tileset/outlined/top_right.png";
+    public static final String TOP_RIGHT_END = "assets/tiles/witchcraft/tileset/outlined/top_right_end.png";
     public static final String TOP_TO_LEFT = "assets/tiles/witchcraft/tileset/outlined/top_to_left_join.png";
     public static final String BOTTOM = "assets/tiles/witchcraft/tileset/outlined/bottom.png";
     public static final String BOTTOM_LEFT = "assets/tiles/witchcraft/tileset/outlined/bottom_left.png";

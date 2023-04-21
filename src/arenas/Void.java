@@ -1,25 +1,38 @@
 package arenas;
 
 import game.BattleArena;
-import world.Platform;
 import world.Tile;
 
 import java.awt.*;
 
 public class Void extends BattleArena {
     public Void() {
-        super(-4, 4, -8.5f, -9);
+        super(-15, 4, 9, -9);
 
-        // Background colour
-        setBackground(Color.BLACK);
+        setBackground(Color.BLACK); // Background colour
 
-        // Death barrier
-        setDeathBarrier(this, -20);
+        setDeathBarrier(this, -20); // Death barrier
 
-        Platform stage = new Platform(this, 7, 2, 0, -13.5f);
+        populate(); // Populate world with tiles
+    }
 
-        new Tile(this, Tile.RIGHT_TO_TOP, -1, 1);
-        new Tile(this, Tile.TOP, 1, 1);
-        new Tile(this, Tile.TOP_RIGHT, 3, 1);
+    @Override
+    public void populate() {
+        addTile(Tile.TOP, -19, 4);
+        addTile(Tile.TOP, -17, 4);
+        addTile(Tile.TOP, -15, 4);
+        addTile(Tile.TOP, -13, 4);
+        addTile(Tile.TOP_RIGHT, -11, 4);
+        addTile(Tile.RIGHT, -11, 2);
+        addTile(Tile.BOTTOM_RIGHT, -11, 0);
+        addTile(Tile.BOTTOM, -13, 0);
+        addTile(Tile.BOTTOM, -15, 0);
+        addTile(Tile.BOTTOM, -17, 0);
+        addTile(Tile.BOTTOM, -19, 0);
+
+        addTile(Tile.TOP_LEFT_END, 1, -1);
+        addTile(Tile.TOP, 3, -1);
+        addTile(Tile.TOP, 5, -1);
+        addTile(Tile.TOP_RIGHT_END, 7, -1);
     }
 }
