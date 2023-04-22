@@ -20,11 +20,6 @@ public class Collisions implements CollisionListener {
 
     @Override
     public void collide(CollisionEvent e) {
-        /*if (e.getOtherBody() instanceof StaticBody) if (!player.isAttacking()) {
-            player.removeAllImages();
-            player.addImage(player.getCharacter().getIdleImage());
-        }*/
-
         if (e.getOtherBody() instanceof Player) if (((Player) e.getOtherBody()).isAttacking()) {
             player.setHealth(player.getHealth() - ((Player) e.getOtherBody()).getCharacter().getAttackDamage());
             System.out.println("Attacked player health: " + player.getHealth());

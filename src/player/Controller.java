@@ -37,7 +37,6 @@ public class Controller implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         key = e.getKeyCode();
-        player.setMidAir(player.getLinearVelocity().y != 0);
         if (key == KEY_MAP.get(player.getKeyBindings().jumpKey)) player.jump();
         if (key == KEY_MAP.get(player.getKeyBindings().leftKey)) player.run(-1);
         if (key == KEY_MAP.get(player.getKeyBindings().rightKey)) player.run(1);
@@ -47,7 +46,6 @@ public class Controller implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         key = e.getKeyCode();
-        player.setMidAir(player.getLinearVelocity().y != 0);
         if (key == KEY_MAP.get(player.getKeyBindings().leftKey) ||
                 key == KEY_MAP.get(player.getKeyBindings().rightKey)) player.idle();
     }

@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Player extends Walker implements ActionListener {
+public class Player extends Walker implements ActionListener, StepListener {
     private final int ID;
     private Character character;
     private KeyBindings keyBindings;
@@ -51,6 +51,7 @@ public class Player extends Walker implements ActionListener {
         isAttacking = false;
 
         setPosition(this.startPos);
+        getWorld().addStepListener(this);
     }
 
     public Character getCharacter() {
@@ -81,10 +82,6 @@ public class Player extends Walker implements ActionListener {
         return respawns;
     }
 
-    public void decrementRespawns() {
-        respawns--;
-    }
-
     public boolean isFacingRight() {
         return isFacingRight;
     }
@@ -95,6 +92,23 @@ public class Player extends Walker implements ActionListener {
 
     public boolean isAttacking() {
         return isAttacking;
+    }
+
+    @Override
+    public void preStep(StepEvent stepEvent) {
+        if (isMidAir && getLinearVelocity().y == 0) isMidAir = false;
+        else if (!isMidAir && getLinearVelocity().y != 0) isMidAir = true;
+//        if (ID == 1) System.out.println(isMidAir);
+    }
+
+    @Override
+    public void postStep(StepEvent stepEvent) {
+        if (!isMidAir) {
+            if (getLinearVelocity().x == 0) {
+                removeAllImages();
+                addImage(character.getIdleImage());
+            }
+        }
     }
 
     public void idle() {
@@ -164,7 +178,7 @@ public class Player extends Walker implements ActionListener {
             setPosition(startPos);
 
             health = MAX_HEALTH;
-            decrementRespawns();
+            respawns--;
         }
     }
 
