@@ -7,8 +7,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Classic extends BattleArena implements ActionListener {
-    public Classic() {
+public class Royal extends BattleArena implements ActionListener {
+    public Royal() {
         super(-4, 4, -8.5f, -9);
 
         // Background image

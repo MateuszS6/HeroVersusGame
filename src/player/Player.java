@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class Player extends Walker implements ActionListener {
     private final int ID;
-    private Character character;
+    private final Character character;
     private KeyBindings keyBindings;
     private final Vec2 startPos;
     private SolidFixture hitbox;

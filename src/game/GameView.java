@@ -1,6 +1,7 @@
 package game;
 
 import city.cs.engine.UserView;
+import player.Controller;
 import player.Player;
 
 import javax.swing.*;
@@ -9,9 +10,9 @@ import java.awt.geom.Point2D;
 
 /** Game view class. */
 public class GameView extends UserView {
-    private BattleArena arena;
-    private Player player1;
-    private Player player2;
+    private final BattleArena arena;
+    private final Player player1;
+    private final Player player2;
 
     /** Initialise the game view. */
     public GameView(BattleArena arena, int width, int height) {
@@ -20,6 +21,9 @@ public class GameView extends UserView {
         this.arena = arena;
         player1 = this.arena.getPlayer1();
         player2 = this.arena.getPlayer2();
+
+        addKeyListener(new Controller(player1)); // Player 1 controller
+        addKeyListener(new Controller(player2)); // Player 2 controller
 
         // View focus
         addMouseListener(new GiveFocus(this));
