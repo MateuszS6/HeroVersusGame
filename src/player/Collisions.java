@@ -15,7 +15,10 @@ public class Collisions implements CollisionListener {
 
     @Override
     public void collide(CollisionEvent e) {
-        if (e.getOtherBody() instanceof Platform platform) if (player.isMidAir()) player.land();
+        if (e.getOtherBody() instanceof Platform platform) {
+            // if (platform.getPosition().y < player.getPosition().y - player.getCharacter().getHeight() * 0.5)
+                if (player.isMidAir()) player.land();
+        }
 
         if (e.getOtherBody() instanceof Player otherPlayer) {
             if (otherPlayer.isAttacking()) {

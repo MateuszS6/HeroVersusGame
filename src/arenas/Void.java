@@ -6,6 +6,7 @@ import world.Tile;
 import java.awt.*;
 
 public class Void extends BattleArena {
+    // TODO: Pick-ups that select random spawn location from list - spawn every set time, only when previous collected
     public Void() {
         super(-15, 15, 9, -7.5f);
 
