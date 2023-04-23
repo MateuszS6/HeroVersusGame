@@ -27,15 +27,15 @@ public class Player extends Walker implements ActionListener {
 
     /** Initialise a player. */
     public Player(World w,
-                  int ID,
+                  int number,
                   Character character,
-                  Vec2 startPos) {
+                  Vec2 position) {
         super(w);
 
-        this.ID = ID;
+        ID = number;
         this.character = character;
         this.character.setPlayer(this);
-        this.startPos = startPos;
+        startPos = position;
 
         hitbox = new SolidFixture(this, character.getDefaultShape());
         setAlwaysOutline(false);
@@ -44,13 +44,13 @@ public class Player extends Walker implements ActionListener {
         health = MAX_HEALTH;
         respawns = MAX_RESPAWNS;
 
-        isFacingRight = this.ID == 1;
+        isFacingRight = ID == 1;
         addImage(character.getIdleImage());
-
         isMidAir = false;
         isAttacking = false;
 
-        setPosition(this.startPos);
+        setPosition(startPos);
+        addCollisionListener(new Collisions(this));
     }
 
     public Character getCharacter() {

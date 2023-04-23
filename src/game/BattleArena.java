@@ -40,12 +40,10 @@ public abstract class BattleArena extends World {
         // Player 1
         player1 = new Player(this, 1, new Knight(), new Vec2(x1, y1));
         player1.setKeyBindings(new KeyBindings("w", "a", "d", "r"));
-        player1.addCollisionListener(new Collisions(this, player1));
 
         // Player 2
         player2 = new Player(this, 2, new Skeleton(), new Vec2(x2, y2));
         player2.setKeyBindings(new KeyBindings());
-        player2.addCollisionListener(new Collisions(this, player2));
     }
 
     public Color getBgColour() {
