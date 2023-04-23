@@ -11,6 +11,7 @@ public abstract class Character {
             DEFAULT_SHP,
             L_ATTACK_SHP,
             R_ATTACK_SHP;
+    private final String IMG_PATH;
     private final BodyImage
             L_IDLE_IMG,
             R_IDLE_IMG,
@@ -30,6 +31,7 @@ public abstract class Character {
     public Character(PolygonShape defaultShape,
                      PolygonShape leftAttackShape,
                      PolygonShape rightAttackShape,
+                     String imgPath,
                      String leftIdleImage,
                      String rightIdleImage,
                      String leftJumpImage,
@@ -46,14 +48,15 @@ public abstract class Character {
         DEFAULT_SHP = defaultShape;
         L_ATTACK_SHP = leftAttackShape;
         R_ATTACK_SHP = rightAttackShape;
-        L_IDLE_IMG = new BodyImage(leftIdleImage, height);
-        R_IDLE_IMG = new BodyImage(rightIdleImage, height);
-        L_JUMP_IMG = new BodyImage(leftJumpImage, height);
-        R_JUMP_IMG = new BodyImage(rightJumpImage, height);
-        L_RUN_IMG = new BodyImage(leftRunImage, height);
-        R_RUN_IMG = new BodyImage(rightRunImage, height);
-        L_ATTACK_IMG = new BodyImage(leftAttackImage, height);
-        R_ATTACK_IMG = new BodyImage(rightAttackImage, height);
+        IMG_PATH = imgPath;
+        L_IDLE_IMG = new BodyImage(imgPath + leftIdleImage, height);
+        R_IDLE_IMG = new BodyImage(imgPath + rightIdleImage, height);
+        L_JUMP_IMG = new BodyImage(imgPath + leftJumpImage, height);
+        R_JUMP_IMG = new BodyImage(imgPath + rightJumpImage, height);
+        L_RUN_IMG = new BodyImage(imgPath + leftRunImage, height);
+        R_RUN_IMG = new BodyImage(imgPath + rightRunImage, height);
+        L_ATTACK_IMG = new BodyImage(imgPath + leftAttackImage, height);
+        R_ATTACK_IMG = new BodyImage(imgPath + rightAttackImage, height);
         RUN_SPEED = runSpeed;
         JUMP_SPEED = jumpSpeed;
         ATTACK_DUR = attackDuration;

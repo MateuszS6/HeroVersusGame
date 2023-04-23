@@ -1,6 +1,5 @@
 package characters;
 
-import city.cs.engine.BodyImage;
 import city.cs.engine.PolygonShape;
 
 public class Skeleton extends Character {
@@ -27,14 +26,15 @@ public class Skeleton extends Character {
                         1.2f, 2.6f,
                         -1.17f, 2.57f
                 ),
-                "assets/characters/Skeleton/120x80_gifs/left_idle.gif",
-                "assets/characters/Skeleton/120x80_gifs/right_idle.gif",
-                "assets/characters/Skeleton/120x80_gifs/left_idle.gif",
-                "assets/characters/Skeleton/120x80_gifs/right_idle.gif",
-                "assets/characters/Skeleton/120x80_gifs/left_walk.gif",
-                "assets/characters/Skeleton/120x80_gifs/right_walk.gif",
-                "assets/characters/Skeleton/120x80_gifs/left_attack2.gif",
-                "assets/characters/Skeleton/120x80_gifs/right_attack2.gif",
+                "assets/characters/Skeleton/120x80_gifs/",
+                "left_idle.gif",
+                "right_idle.gif",
+                "left_idle.gif",
+                "right_idle.gif",
+                "left_walk.gif",
+                "right_walk.gif",
+                "left_attack2.gif",
+                "right_attack2.gif",
                 10,
                 7,
                 15,
