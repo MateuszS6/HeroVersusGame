@@ -1,10 +1,10 @@
 package world;
 
-import city.cs.engine.*;
+import city.cs.engine.BodyImage;
+import city.cs.engine.World;
 import game.Game;
-import org.jbox2d.common.Vec2;
 
-public class Tile extends StaticBody {
+public class Tile extends Platform {
     public static final String TOP = "assets/tiles/witchcraft/tileset/outlined/top.png";
     public static final String TOP_LEFT = "assets/tiles/witchcraft/tileset/outlined/top_left.png";
     public static final String TOP_LEFT_END = "assets/tiles/witchcraft/tileset/outlined/top_left_end.png";
@@ -21,10 +21,7 @@ public class Tile extends StaticBody {
     public static final String RIGHT_TO_TOP = "assets/tiles/witchcraft/tileset/outlined/right_to_top_join.png";
 
     public Tile(World w, String type, float x, float y) {
-        super(w);
-        setPosition(new Vec2(x, y));
-        SolidFixture surface = new SolidFixture(this, new BoxShape(Game.GRID_RES, Game.GRID_RES));
-        surface.setFriction(70);
+        super(w, Game.GRID_RES, Game.GRID_RES, x, y);
         addImage(new BodyImage(type, Game.GRID_RES * 2));
     }
 }

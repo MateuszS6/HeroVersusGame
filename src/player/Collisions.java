@@ -10,8 +10,8 @@ import world.Platform;
 import world.Tile;
 
 public class Collisions implements CollisionListener {
-    private BattleArena world;
-    private Player player;
+    private final BattleArena world;
+    private final Player player;
 
     public Collisions(BattleArena world, Player player) {
         this.world = world;
@@ -20,11 +20,17 @@ public class Collisions implements CollisionListener {
 
     @Override
     public void collide(CollisionEvent e) {
-        if (e.getOtherBody() instanceof Player) if (((Player) e.getOtherBody()).isAttacking()) {
-            player.setHealth(player.getHealth() - ((Player) e.getOtherBody()).getCharacter().getAttackDamage());
-            System.out.println("Attacked player health: " + player.getHealth());
+        if (e.getOtherBody() instanceof Platform platform) {
+            if (player.isMidAir()) player.land();
+        }
 
-            player.respawn();
+        if (e.getOtherBody() instanceof Player otherPlayer) {
+            if (otherPlayer.isAttacking()) {
+                player.setHealth(player.getHealth() - otherPlayer.getCharacter().getAttackDamage());
+                System.out.println("Attacked player health: " + player.getHealth());
+
+                player.respawn();
+            }
         }
 
         if (e.getOtherBody() instanceof HealthRefill) if (player.getHealth() < player.getMaxHealth()) {

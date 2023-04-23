@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Player extends Walker implements ActionListener, StepListener {
+public class Player extends Walker implements ActionListener {
     private final int ID;
     private Character character;
     private KeyBindings keyBindings;
@@ -51,7 +51,6 @@ public class Player extends Walker implements ActionListener, StepListener {
         isAttacking = false;
 
         setPosition(this.startPos);
-        getWorld().addStepListener(this);
     }
 
     public Character getCharacter() {
@@ -86,29 +85,12 @@ public class Player extends Walker implements ActionListener, StepListener {
         return isFacingRight;
     }
 
-    public void setMidAir(boolean midAir) {
-        isMidAir = midAir;
+    public boolean isMidAir() {
+        return isMidAir;
     }
 
     public boolean isAttacking() {
         return isAttacking;
-    }
-
-    @Override
-    public void preStep(StepEvent stepEvent) {
-        if (isMidAir && getLinearVelocity().y == 0) isMidAir = false;
-        else if (!isMidAir && getLinearVelocity().y != 0) isMidAir = true;
-//        if (ID == 1) System.out.println(isMidAir);
-    }
-
-    @Override
-    public void postStep(StepEvent stepEvent) {
-        if (!isMidAir) {
-            if (getLinearVelocity().x == 0) {
-                removeAllImages();
-                addImage(character.getIdleImage());
-            }
-        }
     }
 
     public void idle() {
@@ -120,10 +102,17 @@ public class Player extends Walker implements ActionListener, StepListener {
     }
 
     public void jump() {
+        isMidAir = true;
         removeAllImages();
         addImage(character.getJumpImage());
 
         jump(character.getJumpSpeed());
+    }
+
+    public void land() {
+        isMidAir = false;
+        removeAllImages();
+        addImage(character.getIdleImage());
     }
 
     public void run(int direction) {
