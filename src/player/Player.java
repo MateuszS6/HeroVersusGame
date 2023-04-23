@@ -105,14 +105,14 @@ public class Player extends Walker implements ActionListener {
         jump(character.getJumpSpeed());
 
         isMidAir = true;
-        System.out.println("in air");
+//        System.out.println("in air");
         removeAllImages();
         addImage(character.getJumpImage());
     }
 
     public void land() {
         isMidAir = false;
-        System.out.println("landed");
+//        System.out.println("landed");
         removeAllImages();
         addImage(character.getIdleImage());
         if (getLinearVelocity().x != 0) addImage(character.getRunImage());

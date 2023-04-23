@@ -19,6 +19,8 @@ import java.awt.*;
 
 public abstract class BattleArena extends World {
     // TODO: 1 life, best of 3, winning player chooses next arena to play in
+    // TODO: Add PRACTICE ARENA with grey tiles - unlimited respawns, advances to arenas on completion OR on SKIP button
+    // TODO: Desert arena, minimalistic/paper arena
     private Color bgColour;
     private Image bgImage;
     private final Player

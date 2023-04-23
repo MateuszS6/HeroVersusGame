@@ -1,5 +1,6 @@
 package game;
 
+import arenas.Royal;
 import arenas.Void;
 import city.cs.engine.DebugViewer;
 import player.Controller;
@@ -14,7 +15,7 @@ public class Game {
 
     /** Initialise a new game. */
     public Game() {
-        arena = new Void(); // Game world
+        arena = new Royal(); // Game world
 
         view = new GameView(arena, 800, 600); // Game view
 
