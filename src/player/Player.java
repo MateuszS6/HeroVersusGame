@@ -24,6 +24,7 @@ public class Player extends Walker implements ActionListener {
     private boolean
             isFacingRight,
             isMidAir,
+            isRunning,
             isAttacking;
 
     /** Initialise a player. */
@@ -96,6 +97,7 @@ public class Player extends Walker implements ActionListener {
 
     public void idle() {
         stopWalking();
+        isRunning = false;
 
         removeAllImages();
         if (isMidAir) addImage(character.getJumpImage());
@@ -104,8 +106,8 @@ public class Player extends Walker implements ActionListener {
 
     public void jump() {
         jump(character.getJumpSpeed());
-
         isMidAir = true;
+
 //        System.out.println("in air");
         removeAllImages();
         addImage(character.getJumpImage());
@@ -114,13 +116,15 @@ public class Player extends Walker implements ActionListener {
     public void land() {
         isMidAir = false;
 //        System.out.println("landed");
+
         removeAllImages();
-        addImage(character.getIdleImage());
-        if (getLinearVelocity().x != 0) addImage(character.getRunImage());
+        if (isRunning) addImage(character.getRunImage());
+        else addImage(character.getIdleImage());
     }
 
     public void run(int direction) {
         startWalking(character.getRunSpeed() * direction);
+        isRunning = true;
 
         if (direction == 1) isFacingRight = true;
         else if (direction == -1) isFacingRight = false;

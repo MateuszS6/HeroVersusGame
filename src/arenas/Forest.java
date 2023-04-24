@@ -15,8 +15,10 @@ public class Forest extends BattleArena {
         setTilePath("assets/tileset/village/tiles"); // File path for tiles
 
         for (int x = -19; x < 20; x = x + 2) {
-            addTile(Tile.TOP, x, -12);
-            addTile(Tile.UNDER, x, -14);
+            placeTile(Tile.TOP, x, -12);
+            placeTile(Tile.UNDER, x, -14);
         }
+
+//        placeTile();
     }
 }

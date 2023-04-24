@@ -16,7 +16,7 @@ public class Game {
 
     /** Initialise a new game. */
     public Game() {
-        arena = new Forest(); // Game world
+        arena = new Void(); // Game world
 
         view = new GameView(arena, 800, 600); // Game view
 
@@ -29,8 +29,8 @@ public class Game {
         frame.setVisible(true);
 
         // Debug tools
-//        view.setGridResolution(GRID_RES);
-//        new DebugViewer(arena, view.getWidth(), view.getHeight());
+        view.setGridResolution(GRID_RES);
+        new DebugViewer(arena, view.getWidth(), view.getHeight());
 
         arena.start();
     }

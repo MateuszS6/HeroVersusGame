@@ -2,12 +2,8 @@ package game;
 
 import characters.Knight;
 import characters.Skeleton;
-import city.cs.engine.BoxShape;
-import city.cs.engine.CollisionListener;
-import city.cs.engine.GhostlyFixture;
 import city.cs.engine.World;
 import org.jbox2d.common.Vec2;
-import player.Collisions;
 import player.KeyBindings;
 import player.Player;
 import world.Barrier;
@@ -68,10 +64,6 @@ public abstract class BattleArena extends World {
         bgImage = new ImageIcon(fileName).getImage();
     }
 
-    public String getTilePath() {
-        return tilePath;
-    }
-
     public void setTilePath(String tilePath) {
         this.tilePath = tilePath;
     }
@@ -100,7 +92,7 @@ public abstract class BattleArena extends World {
         deathBarrier.addCollisionListener(new FallToDeath(this));
     }
 
-    public void addTile(String type, float x, float y) {
+    public void placeTile(String type, float x, float y) {
         new Tile(this, tilePath + "/" + type, x, y);
     }
 

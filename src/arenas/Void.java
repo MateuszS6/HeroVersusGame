@@ -19,47 +19,33 @@ public class Void extends BattleArena {
     public void populate() {
         setTilePath("assets/tileset/witchcraft/tiles/outlined"); // File path for tiles
 
-        addTile(Tile.END_TOP_LEFT, -1, 9);
-        addTile(Tile.TOP, 1, 9);
-        addTile(Tile.TOP, 3, 9);
-        addTile(Tile.TOP, 5, 9);
-        addTile(Tile.END_TOP_RIGHT, 7, 9);
+        placeTile(Tile.END_TOP_LEFT, -1, 9);
+        for (int x = 1; x < 6; x = x + 2) placeTile(Tile.TOP, x, 9);
+        placeTile(Tile.END_TOP_RIGHT, 7, 9);
 
         // Player 1 spawn
-        addTile(Tile.TOP, -19, 4);
-        addTile(Tile.TOP, -17, 4);
-        addTile(Tile.TOP, -15, 4);
-        addTile(Tile.TOP, -13, 4);
-        addTile(Tile.TOP_RIGHT, -11, 4);
-        addTile(Tile.RIGHT, -11, 2);
-        addTile(Tile.JOIN_TOP_RIGHT, -11, 0);
-        addTile(Tile.TOP, -9, 0);
-        addTile(Tile.END_TOP_RIGHT, -7, 0);
+        for (int x = -19; x < -12; x = x + 2) placeTile(Tile.TOP, x, 4);
+        placeTile(Tile.TOP_RIGHT, -11, 4);
+        placeTile(Tile.RIGHT, -11, 2);
+        placeTile(Tile.JOIN_TOP_RIGHT, -11, 0);
+        placeTile(Tile.TOP, -9, 0);
+        placeTile(Tile.END_TOP_RIGHT, -7, 0);
 
-        addTile(Tile.TOP, 19, 4);
-        addTile(Tile.END_TOP_LEFT, 17, 4);
+        placeTile(Tile.TOP, 19, 4);
+        placeTile(Tile.END_TOP_LEFT, 17, 4);
 
-        addTile(Tile.END_TOP_LEFT, 3, -7);
-        addTile(Tile.JOIN_TOP_LEFT, 5, -7);
-        addTile(Tile.LEFT, 5, -5);
-        addTile(Tile.TOP_LEFT, 5, -3);
-        addTile(Tile.TOP, 7, -3);
-        addTile(Tile.END_TOP_RIGHT, 9, -3);
+        placeTile(Tile.END_TOP_LEFT, 3, -7);
+        placeTile(Tile.JOIN_TOP_LEFT, 5, -7);
+        placeTile(Tile.LEFT, 5, -5);
+        placeTile(Tile.TOP_LEFT, 5, -3);
+        placeTile(Tile.TOP, 7, -3);
+        placeTile(Tile.END_TOP_RIGHT, 9, -3);
 
-        addTile(Tile.TOP, -19, -11);
-        addTile(Tile.TOP, -17, -11);
-        addTile(Tile.TOP, -15, -11);
-        addTile(Tile.TOP, -13, -11);
-        addTile(Tile.TOP, -11, -11);
-        addTile(Tile.TOP, -9, -11);
-        addTile(Tile.TOP, -7, -11);
-        addTile(Tile.END_TOP_RIGHT, -5, -11);
+        for (int x = -19; x < -6; x = x + 2) placeTile(Tile.TOP, x, -11);
+        placeTile(Tile.END_TOP_RIGHT, -5, -11);
 
         // Player 2 spawn
-        addTile(Tile.TOP, 19, -11);
-        addTile(Tile.TOP, 17, -11);
-        addTile(Tile.TOP, 15, -11);
-        addTile(Tile.TOP, 13, -11);
-        addTile(Tile.END_TOP_LEFT, 11, -11);
+        for (int x = 13; x < 20; x = x + 2) placeTile(Tile.TOP, x, -11);
+        placeTile(Tile.END_TOP_LEFT, 11, -11);
     }
 }
