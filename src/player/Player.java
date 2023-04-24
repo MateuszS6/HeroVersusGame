@@ -2,6 +2,7 @@ package player;
 
 import characters.Character;
 import city.cs.engine.*;
+import game.BattleArena;
 import org.jbox2d.common.Vec2;
 
 import javax.swing.*;
@@ -26,7 +27,7 @@ public class Player extends Walker implements ActionListener {
             isAttacking;
 
     /** Initialise a player. */
-    public Player(World w,
+    public Player(BattleArena w,
                   int number,
                   Character character,
                   Vec2 position) {

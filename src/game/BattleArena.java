@@ -23,6 +23,7 @@ public abstract class BattleArena extends World {
     // TODO: Desert arena, minimalistic/paper arena
     private Color bgColour;
     private Image bgImage;
+    private String tilePath;
     private final Player
             player1,
             player2;
@@ -63,8 +64,16 @@ public abstract class BattleArena extends World {
         bgColour = color;
     }
 
-    public void setBackground(String filename) {
-        bgImage = new ImageIcon(filename).getImage();
+    public void setBackground(String fileName) {
+        bgImage = new ImageIcon(fileName).getImage();
+    }
+
+    public String getTilePath() {
+        return tilePath;
+    }
+
+    public void setTilePath(String tilePath) {
+        this.tilePath = tilePath;
     }
 
     public Player getPlayer1() {
@@ -92,7 +101,7 @@ public abstract class BattleArena extends World {
     }
 
     public void addTile(String type, float x, float y) {
-        new Tile(this, type, x, y);
+        new Tile(this, tilePath + "/" + type, x, y);
     }
 
     public abstract void populate();

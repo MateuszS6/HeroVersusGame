@@ -10,15 +10,15 @@ public class Void extends BattleArena {
     public Void() {
         super(-15, 15, 9, -7.5f);
 
-        // Background
-        setBackground(Color.BLACK);
+        setBackground(Color.BLACK); // Background
 
-        // Death barrier
-        setDeathBarrier(this, -20);
+        setDeathBarrier(this, -20);// Death barrier
     }
 
     @Override
     public void populate() {
+        setTilePath("assets/tileset/witchcraft/tiles/outlined"); // File path for tiles
+
         addTile(Tile.END_TOP_LEFT, -1, 9);
         addTile(Tile.TOP, 1, 9);
         addTile(Tile.TOP, 3, 9);
