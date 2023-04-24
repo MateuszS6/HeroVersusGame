@@ -14,6 +14,9 @@ public class Forest extends BattleArena {
     public void populate() {
         setTilePath("assets/tileset/village/tiles"); // File path for tiles
 
-        addTile(Tile.TOP, -19, -12);
+        for (int x = -19; x < 20; x = x + 2) {
+            addTile(Tile.TOP, x, -12);
+            addTile(Tile.UNDER, x, -14);
+        }
     }
 }

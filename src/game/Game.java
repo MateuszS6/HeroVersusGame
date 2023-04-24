@@ -29,7 +29,7 @@ public class Game {
         frame.setVisible(true);
 
         // Debug tools
-        view.setGridResolution(GRID_RES);
+//        view.setGridResolution(GRID_RES);
 //        new DebugViewer(arena, view.getWidth(), view.getHeight());
 
         arena.start();

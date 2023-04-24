@@ -9,6 +9,7 @@ public class Tile extends Platform {
     public static final String LEFT = "left.png";
     public static final String RIGHT = "right.png";
     public static final String BOTTOM = "bottom.png";
+    public static final String UNDER = "under.png";
     public static final String TOP_LEFT = "top_left.png";
     public static final String TOP_RIGHT = "top_right.png";
     public static final String BOTTOM_LEFT = "bottom_left.png";
