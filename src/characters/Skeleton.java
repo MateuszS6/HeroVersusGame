@@ -26,7 +26,7 @@ public class Skeleton extends Character {
                         1.2f, 2.6f,
                         -1.17f, 2.57f
                 ),
-                "assets/characters/Skeleton/120x80_gifs/",
+                "assets/character/Skeleton/120x80_gifs/",
                 "left_idle.gif",
                 "right_idle.gif",
                 "left_idle.gif",

@@ -29,7 +29,7 @@ public class Knight extends Character {
                         -0.1f, -0.34f,
                         -1.2f, -2.46f
                 ),
-                "assets/characters/FreeKnight/Colour1/NoOutline/120x80_gifs/",
+                "assets/character/FreeKnight/Colour1/NoOutline/120x80_gifs/",
                 "left_idle.gif",
                 "__Idle.gif",
                 "left_jump.gif",

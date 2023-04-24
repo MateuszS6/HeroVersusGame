@@ -15,7 +15,7 @@ public class Game {
 
     /** Initialise a new game. */
     public Game() {
-        arena = new Royal(); // Game world
+        arena = new Void(); // Game world
 
         view = new GameView(arena, 800, 600); // Game view
 

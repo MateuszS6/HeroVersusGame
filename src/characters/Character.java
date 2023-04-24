@@ -11,7 +11,6 @@ public abstract class Character {
             DEFAULT_SHP,
             L_ATTACK_SHP,
             R_ATTACK_SHP;
-    private final String IMG_PATH;
     private final BodyImage
             L_IDLE_IMG,
             R_IDLE_IMG,
@@ -48,7 +47,6 @@ public abstract class Character {
         DEFAULT_SHP = defaultShape;
         L_ATTACK_SHP = leftAttackShape;
         R_ATTACK_SHP = rightAttackShape;
-        IMG_PATH = imgPath;
         L_IDLE_IMG = new BodyImage(imgPath + leftIdleImage, height);
         R_IDLE_IMG = new BodyImage(imgPath + rightIdleImage, height);
         L_JUMP_IMG = new BodyImage(imgPath + leftJumpImage, height);
