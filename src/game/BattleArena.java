@@ -46,6 +46,9 @@ public abstract class BattleArena extends World {
         // Player 2
         player2 = new Player(this, 2, new Skeleton(), new Vec2(x2, y2));
         player2.setKeyBindings(new KeyBindings());
+
+        // Fill the world with tiles
+        populate();
     }
 
     public Color getBgColour() {

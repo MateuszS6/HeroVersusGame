@@ -15,9 +15,6 @@ public class Void extends BattleArena {
 
         // Death barrier
         setDeathBarrier(this, -20);
-
-        // Populate world with tiles
-        populate();
     }
 
     @Override
