@@ -4,7 +4,6 @@ import arenas.Forest;
 import arenas.Royal;
 import arenas.Void;
 import city.cs.engine.DebugViewer;
-import player.Controller;
 
 import javax.swing.*;
 
@@ -16,7 +15,7 @@ public class Game {
 
     /** Initialise a new game. */
     public Game() {
-        arena = new Void(); // Game world
+        arena = new Forest(); // Game world
 
         view = new GameView(arena, 800, 600); // Game view
 
@@ -29,8 +28,8 @@ public class Game {
         frame.setVisible(true);
 
         // Debug tools
-        view.setGridResolution(GRID_RES);
-        new DebugViewer(arena, view.getWidth(), view.getHeight());
+//        view.setGridResolution(GRID_RES);
+//        new DebugViewer(arena, view.getWidth(), view.getHeight());
 
         arena.start();
     }

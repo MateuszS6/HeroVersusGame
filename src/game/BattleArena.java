@@ -14,9 +14,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class BattleArena extends World {
-    // TODO: 1 life, best of 3, winning player chooses next arena to play in
-    // TODO: Add PRACTICE ARENA with grey tiles - unlimited respawns, advances to arenas on completion OR on SKIP button
-    // TODO: Desert arena, minimalistic/paper arena
+    // TODO: 24/04/2023
+    //  1 life, best of 3, winning player chooses next arena to play in
+    // TODO: 24/04/2023
+    //  Add PRACTICE ARENA with grey tiles - unlimited respawns, advances to arenas on completion OR on SKIP button
+    // TODO: 24/04/2023
+    //  Desert arena, minimalistic/paper arena
+    // TODO: 24/04/2023
+    //  When player attacking, do not teleport
     private Color bgColour;
     private Image bgImage;
     private String tilePath;
@@ -92,7 +97,7 @@ public abstract class BattleArena extends World {
         deathBarrier.addCollisionListener(new FallToDeath(this));
     }
 
-    public void placeTile(String type, float x, float y) {
+    public void placeBlock(String type, float x, float y) {
         new Tile(this, tilePath + "/" + type, x, y);
     }
 

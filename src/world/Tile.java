@@ -20,6 +20,13 @@ public class Tile extends Platform {
     public static final String JOIN_TOP_RIGHT = "join_top_right.png";
     public static final String JOIN_BOTTOM_LEFT = "join_bottom_left.png";
     public static final String JOIN_BOTTOM_RIGHT = "join_bottom_right.png";
+    public static final String ROW_CENTRE = "row_centre.png";
+    public static final String ROW_LEFT = "row_left.png";
+    public static final String ROW_RIGHT = "row_right.png";
+    public static final String ROW_TOP_LEFT = "row_top_left.png";
+    public static final String ROW_TOP_RIGHT = "row_top_right.png";
+    public static final String ROW_BOTTOM_LEFT = "row_bottom_left.png";
+    public static final String ROW_BOTTOM_RIGHT = "row_bottom_right.png";
 
     public Tile(BattleArena w, String type, float x, float y) {
         super(w, Game.GRID_RES, Game.GRID_RES, x, y);
