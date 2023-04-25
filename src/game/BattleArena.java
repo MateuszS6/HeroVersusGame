@@ -12,6 +12,7 @@ import world.Tile;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public abstract class BattleArena extends World {
     // TODO: 24/04/2023
@@ -43,7 +44,7 @@ public abstract class BattleArena extends World {
 
         // Player 1
         player1 = new Player(this, 1, new Knight(), new Vec2(x1, y1));
-        player1.setKeyBindings(new KeyBindings("w", "a", "d", "r"));
+        player1.setKeyBindings(new KeyBindings(KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_R));
 
         // Player 2
         player2 = new Player(this, 2, new Skeleton(), new Vec2(x2, y2));
