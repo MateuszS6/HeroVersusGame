@@ -1,7 +1,12 @@
 package arenas;
 
+import city.cs.engine.BoxShape;
+import city.cs.engine.DynamicBody;
+import city.cs.engine.StaticBody;
 import game.BattleArena;
+import org.jbox2d.common.Vec2;
 import world.Platform;
+import world.Tile;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -19,12 +24,11 @@ public class Royal extends BattleArena implements ActionListener {
         setDeathBarrier(this, -20);
 
         // Stage
+        Color transparent = new Color(0, 0, 0, 0);
         Platform stage = new Platform(this, 7, 2, 0, -13.5f);
-        stage.setFillColor(new Color(0, true));
-        stage.setLineColor(new Color(0, true));
+        stage.setFillColor(transparent);
+        stage.setLineColor(transparent);
 
-        // Platforms
-        Platform platform1 = new Platform(this, 4, 0.5f, -14, -8);
         Platform platform2 = new Platform(this, 4, 0.5f, 14, -8);
         Platform platform3 = new Platform(this, 4, 0.5f, 0, -3);
         Platform platform4 = new Platform(this, 4, 0.5f, -14, 2);
@@ -46,6 +50,11 @@ public class Royal extends BattleArena implements ActionListener {
 
     @Override
     public void populate() {
+        setTilePath("assets/tileset/grasslands/tiles");
 
+        placeBlock(Tile.ROW_LEFT, -17, -7);
+        placeBlock(Tile.ROW, -15, -7);
+        placeBlock(Tile.ROW, -13, -7);
+        placeBlock(Tile.ROW_RIGHT, -11, -7);
     }
 }

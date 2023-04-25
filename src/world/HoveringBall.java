@@ -1,6 +1,7 @@
 package world;
 
 import city.cs.engine.*;
+import game.BattleArena;
 import org.jbox2d.common.Vec2;
 
 import javax.swing.*;
@@ -8,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class HoveringBall extends DynamicBody implements ActionListener {
-    public HoveringBall(World w, float radius, float x, float y) {
+    public HoveringBall(BattleArena w, float radius, float x, float y) {
         super(w, new CircleShape(radius, x, y));
         setGravityScale(0);
         SolidFixture surface = new SolidFixture(this, new CircleShape(radius, x, y));

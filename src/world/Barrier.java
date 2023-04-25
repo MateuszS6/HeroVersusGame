@@ -3,10 +3,11 @@ package world;
 import city.cs.engine.BoxShape;
 import city.cs.engine.StaticBody;
 import city.cs.engine.World;
+import game.BattleArena;
 import org.jbox2d.common.Vec2;
 
 public class Barrier extends StaticBody {
-    public Barrier(World w, float halfWidth, float halfHeight, float x, float y) {
+    public Barrier(BattleArena w, float halfWidth, float halfHeight, float x, float y) {
         super(w, new BoxShape(halfWidth, halfHeight));
         setPosition(new Vec2(x, y));
     }
