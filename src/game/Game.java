@@ -28,7 +28,7 @@ public class Game {
         frame.setVisible(true);
 
         // Debug tools
-        view.setGridResolution(2);
+//        view.setGridResolution(2);
 //        new DebugViewer(arena, view.getWidth(), view.getHeight());
 
         arena.start();
