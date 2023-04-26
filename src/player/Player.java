@@ -63,8 +63,12 @@ public class Player extends Walker implements ActionListener {
         return keyBindings;
     }
 
-    public void setKeyBindings(KeyBindings keybindings) {
-        this.keyBindings = keybindings;
+    public void setKeyBindings(int jump, int left, int right, int attack) {
+        keyBindings = new KeyBindings(jump, left, right, attack);
+    }
+
+    public void setKeyBindings() {
+        keyBindings = new KeyBindings();
     }
 
     public int getHealth() {
