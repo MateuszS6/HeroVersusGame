@@ -11,9 +11,11 @@ public class Void extends BattleArena {
     public Void() {
         super(-15, 15, 9, -7.5f);
 
-        setBackground(Color.BLACK); // Background
+        setName("The Void");
 
-        setDeathBarrier(this, -20);// Death barrier
+        setBackground(Color.BLACK);
+
+        setDeathBarrier(this, -20);
     }
 
     @Override

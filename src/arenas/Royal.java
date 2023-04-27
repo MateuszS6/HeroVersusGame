@@ -17,10 +17,10 @@ public class Royal extends BattleArena implements ActionListener {
     public Royal() {
         super(-4, 4, -8, -9);
 
-        // Background image
+        setName("Royal Arena");
+
         setBackground("assets/background/arena_with_stage.jpg");
 
-        // Death barrier
         setDeathBarrier(this, -20);
 
         // Stage (player spawns)

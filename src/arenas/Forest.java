@@ -7,7 +7,9 @@ public class Forest extends BattleArena {
     public Forest() {
         super(-17, 17, -7, -8);
 
-        setBackground("assets/background/forest/forest_resized.png"); // Background
+        setName("Wild Forest");
+
+        setBackground("assets/background/forest/forest_resized.png");
     }
 
     @Override

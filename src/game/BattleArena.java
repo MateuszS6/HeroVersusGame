@@ -21,6 +21,7 @@ public abstract class BattleArena extends World {
     //  Add PRACTICE ARENA with grey tiles - unlimited respawns, advances to arenas on completion OR on SKIP button
     // TODO: 24/04/2023
     //  Desert arena, minimalistic/paper arena
+    private String name;
     private Color bgColour;
     private Image bgImage;
     private String tilePath;
@@ -52,6 +53,14 @@ public abstract class BattleArena extends World {
         populate();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Color getBgColour() {
         return bgColour;
     }
@@ -80,11 +89,9 @@ public abstract class BattleArena extends World {
         return player2;
     }
 
-    public Barrier getOtherSide(Barrier barrier) {
-        Barrier other = null;
-        if (barrier == left) other = right;
-        else if (barrier == right) other = left;
-        return other;
+    public Barrier getOtherSide(Barrier thisSide) {
+        if (thisSide == left) return right;
+        return left;
     }
 
     public Barrier getDeathBarrier() {

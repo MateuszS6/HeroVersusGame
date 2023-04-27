@@ -40,6 +40,11 @@ public class GameView extends UserView {
     @Override
     protected void paintForeground(Graphics2D g) {
         Color label = new Color(255, 255, 255, 165);
+
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("Bahnschrift", Font.BOLD, 20));
+        g.drawString(arena.getName(), (getWidth() / 2) - 60, 30);
+
         g.setColor(label);
         g.setFont(new Font("Bahnschrift", Font.BOLD, 15));
 
