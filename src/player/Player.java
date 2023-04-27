@@ -184,7 +184,7 @@ public class Player extends Walker implements ActionListener {
         }
     }
 
-    public void drawHUD(Graphics2D g, int w, int h, int x, int y) {
+    public void drawStatsBox(Graphics2D g, int w, int h, int x, int y) {
         // Save colour and font
         Color savedColour = g.getColor();
         Font savedFont = g.getFont();

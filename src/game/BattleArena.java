@@ -4,7 +4,6 @@ import characters.Knight;
 import characters.Skeleton;
 import city.cs.engine.World;
 import org.jbox2d.common.Vec2;
-import player.KeyBindings;
 import player.Player;
 import world.Barrier;
 import world.FallToDeath;
@@ -13,6 +12,8 @@ import world.Tile;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.geom.Point2D;
+import java.util.Objects;
 
 public abstract class BattleArena extends World {
     // TODO: 24/04/2023
@@ -108,4 +109,30 @@ public abstract class BattleArena extends World {
     }
 
     public abstract void populate();
+
+    public void drawHUD(Graphics2D g, int scrW, int scrH, Point2D.Float p1, Point2D.Float p2) {
+        Color label = new Color(255, 255, 255, 165);
+        String font = "Bahnschrift";
+
+        if (Objects.equals(name, "Royal Arena")) g.setColor(Color.BLACK);
+        else g.setColor(Color.WHITE);
+        g.setFont(new Font(font, Font.BOLD, 20));
+        g.drawString(name, (scrW / 2) - 60, 30);
+
+        g.setColor(label);
+        g.setFont(new Font(font, Font.BOLD, 15));
+
+        int w = 120;
+        int h = 65;
+        int x = 10; // (scrW / 2) - (w + 5);
+        int y = 10;
+
+        // Player 1 HUD
+        player1.drawStatsBox(g, w, h, x, y);
+        if (player1.getRespawns() > 0) g.drawString("Player 1", p1.x - 30, p1.y - 5);
+
+        // Player 2 HUD
+        player2.drawStatsBox(g, w, h, scrW - (w + x), y);
+        if (player2.getRespawns() > 0) g.drawString("Player 2", p2.x - 30, p2.y - 45);
+    }
 }
