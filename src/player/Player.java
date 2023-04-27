@@ -139,6 +139,7 @@ public class Player extends Walker implements ActionListener {
     }
 
     public void attack() {
+        if (isRunning) idle();
         if (!isMidAir && !isAttacking) {
             isAttacking = true;
 
