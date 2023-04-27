@@ -21,8 +21,6 @@ public abstract class BattleArena extends World {
     //  Add PRACTICE ARENA with grey tiles - unlimited respawns, advances to arenas on completion OR on SKIP button
     // TODO: 24/04/2023
     //  Desert arena, minimalistic/paper arena
-    // TODO: 24/04/2023
-    //  When player attacking, do not teleport
     private Color bgColour;
     private Image bgImage;
     private String tilePath;
