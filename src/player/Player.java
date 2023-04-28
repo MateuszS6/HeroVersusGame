@@ -31,13 +31,14 @@ public class Player extends Walker implements ActionListener {
     public Player(BattleArena w,
                   int number,
                   Character character,
-                  Vec2 position) {
+                  float x,
+                  float y) {
         super(w);
 
         ID = number;
         this.character = character;
         this.character.setPlayer(this);
-        startPos = position;
+        startPos = new Vec2(x, y);
 
         hitbox = new SolidFixture(this, character.getDefaultShape());
         setAlwaysOutline(false);
@@ -109,17 +110,17 @@ public class Player extends Walker implements ActionListener {
     }
 
     public void jump() {
-        jump(character.getJumpSpeed());
-        isMidAir = true;
+        if (!isAttacking) {
+            jump(character.getJumpSpeed());
+            isMidAir = true;
 
-//        System.out.println("in air");
-        removeAllImages();
-        addImage(character.getJumpImage());
+            removeAllImages();
+            addImage(character.getJumpImage());
+        }
     }
 
     public void land() {
         isMidAir = false;
-//        System.out.println("landed");
 
         removeAllImages();
         if (isRunning) addImage(character.getRunImage());
@@ -127,15 +128,18 @@ public class Player extends Walker implements ActionListener {
     }
 
     public void run(int direction) {
-        startWalking(character.getRunSpeed() * direction);
-        isRunning = true;
+        if (!isAttacking) {
+            startWalking(character.getRunSpeed() * direction);
+            isRunning = true;
 
-        if (direction == 1) isFacingRight = true;
-        else if (direction == -1) isFacingRight = false;
+            if (direction == 1) isFacingRight = true;
+            else if (direction == -1) isFacingRight = false;
+            else throw new RuntimeException("Invalid direction chosen.");
 
-        removeAllImages();
-        if (isMidAir) addImage(character.getJumpImage());
-        else addImage(character.getRunImage());
+            removeAllImages();
+            if (isMidAir) addImage(character.getJumpImage());
+            else addImage(character.getRunImage());
+        }
     }
 
     public void attack() {
@@ -184,6 +188,7 @@ public class Player extends Walker implements ActionListener {
         }
     }
 
+    // TODO: 28/04/2023 Changeable player username
     public void drawStatsBox(Graphics2D g, int w, int h, int x, int y) {
         // Save colour and font
         Color savedColour = g.getColor();
