@@ -39,5 +39,9 @@ public class Game {
         new Game();
     }
 
-    public 
+    public void goToNextArena(BattleArena w) {
+        arena.stop();
+        arena = w;
+        view.setWorld(arena);
+    }
 }
