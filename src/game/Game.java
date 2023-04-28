@@ -8,7 +8,7 @@ import city.cs.engine.DebugViewer;
 import javax.swing.*;
 
 /** Main game entry point. */
-public class Game {
+public final class Game {
     private BattleArena arena;
     private GameView view;
     public static final float GRID_RES = 1;
@@ -39,9 +39,15 @@ public class Game {
         new Game();
     }
 
-    public void goToNextArena(BattleArena w) {
+    public void goToArena(BattleArena w) {
         arena.stop();
         arena = w;
         view.setWorld(arena);
+    }
+
+    public void restart() {
+    }
+
+    public void backToTitleScreen() {
     }
 }
