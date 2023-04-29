@@ -179,7 +179,7 @@ public class Player extends Walker implements ActionListener {
             respawns = 0;
             destroy();
             System.out.println("Player " + ID + " is defeated.");
-            gameRound.isComplete(this);
+            gameRound.isComplete(ID == 1 ? 2 : 1);
         } else if (health < 1) {
             isFacingRight = ID == 1;
             setPosition(startPos);

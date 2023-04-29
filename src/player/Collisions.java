@@ -28,7 +28,6 @@ public class Collisions implements CollisionListener {
                 System.out.println("Attacked player health: " + player.getHealth());
 
                 player.respawn();
-                if (player.getRespawns() < 1) round.isComplete(otherPlayer);
             }
         }
 

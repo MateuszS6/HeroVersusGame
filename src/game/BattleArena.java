@@ -138,8 +138,7 @@ public abstract class BattleArena extends World {
         if (player2.getRespawns() > 0) g.drawString("Player 2", p2.x - 30, p2.y - 45);
     }
 
-    public void isComplete(Player loser) {
-        if (loser == player1) System.out.println("Player 2 wins.");
-        else System.out.println("Player 1 wins.");
+    public void isComplete(int winnerID) {
+        System.out.println("Player " + winnerID + " is the arena champion.");
     }
 }
