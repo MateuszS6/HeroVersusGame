@@ -1,5 +1,6 @@
 package game;
 
+import arenas.Royal;
 import characters.Character;
 import characters.Knight;
 import characters.Skeleton;
@@ -115,7 +116,7 @@ public abstract class BattleArena extends World {
         Color label = new Color(255, 255, 255, 165);
         String font = "Bahnschrift";
 
-        if (Objects.equals(name, "Royal Arena")) g.setColor(Color.BLACK);
+        if (this instanceof Royal) g.setColor(Color.BLACK);
         else g.setColor(Color.WHITE);
         g.setFont(new Font(font, Font.BOLD, 20));
         g.drawString(name, (scrW / 2) - 60, 30);
@@ -135,5 +136,10 @@ public abstract class BattleArena extends World {
         // Player 2 HUD
         player2.drawStatsBox(g, w, h, scrW - (w + x), y);
         if (player2.getRespawns() > 0) g.drawString("Player 2", p2.x - 30, p2.y - 45);
+    }
+
+    public void isComplete(Player loser) {
+        if (loser == player1) System.out.println("Player 2 wins.");
+        else System.out.println("Player 1 wins.");
     }
 }

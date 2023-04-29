@@ -1,6 +1,6 @@
 package characters;
 
-public class Knight2 extends Character {
+public final class Knight2 extends Character {
     public Knight2() {
         super(null,
                 null,

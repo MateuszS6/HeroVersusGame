@@ -10,18 +10,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FallToDeath implements CollisionListener, ActionListener {
-    private BattleArena world;
+    private final BattleArena arena;
 
     public FallToDeath(BattleArena w) {
-        world = w;
+        arena = w;
     }
 
     @Override
     public void collide(CollisionEvent e) {
-        if (e.getOtherBody() instanceof Player) {
-            e.getReportingBody().removeAllCollisionListeners();
-            ((Player) e.getOtherBody()).setHealth(0);
-            ((Player) e.getOtherBody()).respawn();
+        Barrier deathBarrier = (Barrier) e.getReportingBody();
+        if (e.getOtherBody() instanceof Player player) {
+            deathBarrier.removeAllCollisionListeners();
+            player.setHealth(0);
+            player.respawn();
 
             Timer timer = new Timer(500, this);
             timer.setRepeats(false);
@@ -31,6 +32,6 @@ public class FallToDeath implements CollisionListener, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        world.getDeathBarrier().addCollisionListener(this);
+        arena.getDeathBarrier().addCollisionListener(this);
     }
 }

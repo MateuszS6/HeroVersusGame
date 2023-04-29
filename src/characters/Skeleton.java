@@ -2,7 +2,7 @@ package characters;
 
 import city.cs.engine.PolygonShape;
 
-public class Skeleton extends Character {
+public final class Skeleton extends Character {
     public Skeleton() {
         super(new PolygonShape(
                 -0.7f, -2.05f,

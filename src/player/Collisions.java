@@ -8,9 +8,11 @@ import world.Platform;
 
 public class Collisions implements CollisionListener {
     private final Player player;
+    private final BattleArena round;
 
     public Collisions(Player player) {
         this.player = player;
+        round = (BattleArena) this.player.getWorld();
     }
 
     @Override
@@ -26,6 +28,7 @@ public class Collisions implements CollisionListener {
                 System.out.println("Attacked player health: " + player.getHealth());
 
                 player.respawn();
+                if (player.getRespawns() < 1) round.isComplete(otherPlayer);
             }
         }
 

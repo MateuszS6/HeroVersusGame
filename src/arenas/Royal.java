@@ -66,5 +66,10 @@ public class Royal extends BattleArena implements ActionListener {
         placeBlock(Tile.ROW_RIGHT, -11, 3);
         placeBlock(Tile.ROW_LEFT, 11, 3);
         for (int x = 13; x < 20; x += 2) placeBlock(Tile.ROW, x, 3);
+
+        placeBlock(Tile.ROW_LEFT, -3, 8);
+        placeBlock(Tile.ROW, -1, 8);
+        placeBlock(Tile.ROW, 1, 8);
+        placeBlock(Tile.ROW_RIGHT, 3, 8);
     }
 }

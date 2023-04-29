@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Player extends Walker implements ActionListener {
+    private final BattleArena gameRound;
     private final int ID;
     private final Character character;
     private KeyBindings keyBindings;
@@ -34,7 +35,7 @@ public class Player extends Walker implements ActionListener {
                   float x,
                   float y) {
         super(w);
-
+        gameRound = w;
         ID = number;
         this.character = character;
         this.character.setPlayer(this);
@@ -178,7 +179,7 @@ public class Player extends Walker implements ActionListener {
             respawns = 0;
             destroy();
             System.out.println("Player " + ID + " is defeated.");
-
+            gameRound.isComplete(this);
         } else if (health < 1) {
             isFacingRight = ID == 1;
             setPosition(startPos);
@@ -188,7 +189,7 @@ public class Player extends Walker implements ActionListener {
         }
     }
 
-    // TODO: 28/04/2023 Changeable player username
+    // TODO: 28/04/2023 Changeable player username, once text outline is implemented
     public void drawStatsBox(Graphics2D g, int w, int h, int x, int y) {
         // Save colour and font
         Color savedColour = g.getColor();

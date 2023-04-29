@@ -15,7 +15,7 @@ public final class Game {
 
     /** Initialise a new game. */
     public Game() {
-        arena = new Forest(); // Game world
+        arena = new Royal(); // Game world
 
         view = new GameView(arena, 800, 600); // Game view
 
@@ -39,10 +39,13 @@ public final class Game {
         new Game();
     }
 
+    // TODO: 29/04/2023 Winning player of final round is CHAMPION
     public void goToArena(BattleArena w) {
         arena.stop();
         arena = w;
         view.setWorld(arena);
+        // TODO: 29/04/2023 Update player controllers
+        arena.start();
     }
 
     public void restart() {
