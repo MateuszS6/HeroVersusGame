@@ -29,7 +29,7 @@ public class Tile extends Platform {
     public static final String ROW_BOTTOM_RIGHT = "row_bottom_right.png";
 
     public Tile(BattleArena w, String type, float x, float y) {
-        super(w, Game.GRID_RES, Game.GRID_RES, x, y);
-        addImage(new BodyImage(type, Game.GRID_RES * 2));
+        super(w, Game.GRID, Game.GRID, x, y);
+        addImage(new BodyImage(type, Game.GRID * 2));
     }
 }

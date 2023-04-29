@@ -1,8 +1,6 @@
 package game;
 
-import arenas.Forest;
 import arenas.Royal;
-import arenas.Void;
 import city.cs.engine.DebugViewer;
 
 import javax.swing.*;
@@ -11,7 +9,7 @@ import javax.swing.*;
 public final class Game {
     private BattleArena arena;
     private GameView view;
-    public static final float GRID_RES = 1;
+    public static final float GRID = 1;
 
     /** Initialise a new game. */
     public Game() {
@@ -19,17 +17,9 @@ public final class Game {
 
         view = new GameView(arena, 800, 600); // Game view
 
-        final JFrame frame = new JFrame("HeroVersus: Battle Arena");
-        frame.add(view); // Add the game view to the frame
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationByPlatform(true);
-        frame.setResizable(false);
-        frame.pack(); // Resize the frame to fit world view
-        frame.setVisible(true);
+        buildWindow(); // Create and build the JFrame
 
-        // Debug tools
-//        view.setGridResolution(2);
-//        new DebugViewer(arena, view.getWidth(), view.getHeight());
+        debugTools(false, 2, false);
 
         arena.start();
     }
@@ -37,6 +27,21 @@ public final class Game {
     /** Run the game. */
     public static void main(String[] args) {
         new Game();
+    }
+
+    private void buildWindow() {
+        final JFrame frame = new JFrame("HeroVersus: Battle Arena");
+        frame.add(view); // Add the game view to the frame
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationByPlatform(true);
+        frame.setResizable(false);
+        frame.pack(); // Resize the frame to fit world view
+        frame.setVisible(true);
+    }
+
+    public void debugTools(boolean grid, int res, boolean viewer) {
+        if (grid) view.setGridResolution(res);
+        if (viewer) new DebugViewer(arena, view.getWidth(), view.getHeight());
     }
 
     // TODO: 29/04/2023 Winning player of final round is CHAMPION
