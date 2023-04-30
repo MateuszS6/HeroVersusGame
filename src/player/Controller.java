@@ -22,7 +22,6 @@ public class Controller implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         key = e.getKeyCode();
-//        if (key = KeyEvent.VK_ESCAPE) = Game.
         if (key == player.getKeyBindings().jumpKey) player.jump();
         if (key == player.getKeyBindings().leftKey) player.run(-1);
         if (key == player.getKeyBindings().rightKey) player.run(1);

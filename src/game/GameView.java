@@ -5,6 +5,7 @@ import player.Controller;
 import player.Player;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.geom.Point2D;
 
 /** Game view class. */
