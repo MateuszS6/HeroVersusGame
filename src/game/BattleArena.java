@@ -51,6 +51,10 @@ public abstract class BattleArena extends World {
         populate();
     }
 
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
     public String getName() {
         return name;
     }
@@ -88,8 +92,7 @@ public abstract class BattleArena extends World {
     }
 
     public SideBorder getOtherSide(SideBorder thisSide) {
-        if (thisSide == left) return right;
-        return left;
+        return thisSide == left ? right : left;
     }
 
     public void setDeathZone(BattleArena w, float y) {

@@ -17,6 +17,7 @@ public final class Game {
         // TODO: 30/04/2023 Main menu book-style as imagined
 
         arena = new Royal(); // Game world
+        arena.setGame(this);
 
         view = new GameView(arena, 800, 600); // Game view
 
