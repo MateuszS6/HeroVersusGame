@@ -1,10 +1,6 @@
 package arenas;
 
-import city.cs.engine.BoxShape;
-import city.cs.engine.DynamicBody;
-import city.cs.engine.StaticBody;
 import game.BattleArena;
-import org.jbox2d.common.Vec2;
 import world.Platform;
 import world.Tile;
 
@@ -21,7 +17,7 @@ public class Royal extends BattleArena implements ActionListener {
 
         setBackground("assets/background/arena_with_stage.jpg");
 
-        setDeathBarrier(this, -20);
+        setDeathZone(this, -20);
 
         // Stage (player spawns)
         Color transparent = new Color(0, 0, 0, 0);

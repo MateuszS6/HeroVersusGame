@@ -54,7 +54,7 @@ public final class Game {
         view.setWorld(arena);
         // TODO: 29/04/2023 Update player controllers
         arena.start();
-        
+
     }
 
     public void restart() {

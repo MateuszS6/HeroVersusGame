@@ -1,23 +1,25 @@
-package game;
+package world;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
+import game.BattleArena;
 import org.jbox2d.common.Vec2;
 import player.Player;
-import world.Barrier;
 
-public class TeleportToOtherSide implements CollisionListener {
-    private BattleArena arena;
+public class SideBorder extends Barrier implements CollisionListener {
+    private final BattleArena arena;
 
-    public TeleportToOtherSide(BattleArena arena) {
-        this.arena = arena;
+    public SideBorder(BattleArena w, float x) {
+        super(w, 0.5f, 20, x, 0);
+        arena = w;
+        addCollisionListener(this);
     }
+
 
     @Override
     public void collide(CollisionEvent e) {
-        Barrier thisSide = (Barrier) e.getReportingBody();
         if (e.getOtherBody() instanceof Player player) {
-            float xPos = (arena.getOtherSide(thisSide).getPosition().x) * 0.88f;
+            float xPos = (arena.getOtherSide(this).getPosition().x) * 0.88f;
             float yPos = player.getPosition().y;
             Vec2 velocity = e.getVelocity();
             if (!player.isAttacking()) {

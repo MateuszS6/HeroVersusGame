@@ -1,21 +1,18 @@
 package game;
 
 import arenas.Royal;
-import characters.Character;
 import characters.Knight;
 import characters.Skeleton;
 import city.cs.engine.World;
-import org.jbox2d.common.Vec2;
 import player.Player;
-import world.Barrier;
-import world.FallToDeath;
+import world.DeathZone;
+import world.SideBorder;
 import world.Tile;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.geom.Point2D;
-import java.util.Objects;
 
 public abstract class BattleArena extends World {
     // TODO: 24/04/2023
@@ -24,6 +21,7 @@ public abstract class BattleArena extends World {
     //  Add PRACTICE ARENA with grey tiles - unlimited respawns, advances to arenas on completion OR on SKIP button
     // TODO: 24/04/2023
     //  Desert arena, minimalistic/paper arena
+    private Game game;
     private String name;
     private Color bgColour;
     private Image bgImage;
@@ -31,18 +29,16 @@ public abstract class BattleArena extends World {
     private final Player
             player1,
             player2;
-    private final Barrier
+    private final SideBorder
             left,
             right;
-    private Barrier deathBarrier;
+    private DeathZone deathZone;
 
     /** Initialise a game world. */
     public BattleArena(float x1, float x2, float y1, float y2) {
-        // World borders
-        left = new Barrier(this, 0.5f, 20, -21, 0);
-        left.addCollisionListener(new TeleportToOtherSide(this));
-        right = new Barrier(this, 0.5f, 20, 21, 0);
-        right.addCollisionListener(new TeleportToOtherSide(this));
+        // Player-teleporting world borders
+        left = new SideBorder(this, -21);
+        right = new SideBorder(this, 21);
 
         // Player 1
         player1 = new Player(this, 1, new Knight(), x1, y1);
@@ -92,18 +88,13 @@ public abstract class BattleArena extends World {
         return player2;
     }
 
-    public Barrier getOtherSide(Barrier thisSide) {
+    public SideBorder getOtherSide(SideBorder thisSide) {
         if (thisSide == left) return right;
         return left;
     }
 
-    public Barrier getDeathBarrier() {
-        return deathBarrier;
-    }
-
-    public void setDeathBarrier(BattleArena w, float y) {
-        deathBarrier = new Barrier(w, right.getPosition().x, 0.5f, 0, y);
-        deathBarrier.addCollisionListener(new FallToDeath(this));
+    public void setDeathZone(BattleArena w, float y) {
+        if (deathZone == null) deathZone = new DeathZone(w, right.getPosition().x, y);
     }
 
     public void placeBlock(String type, float x, float y) {

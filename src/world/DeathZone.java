@@ -9,18 +9,19 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FallToDeath implements CollisionListener, ActionListener {
+public class DeathZone extends Barrier implements CollisionListener, ActionListener {
     private final BattleArena arena;
 
-    public FallToDeath(BattleArena w) {
+    public DeathZone(BattleArena w, float halfWidth, float y) {
+        super(w, halfWidth, 0.5f, 0, y);
         arena = w;
+        addCollisionListener(this);
     }
 
     @Override
     public void collide(CollisionEvent e) {
-        Barrier deathBarrier = (Barrier) e.getReportingBody();
         if (e.getOtherBody() instanceof Player player) {
-            deathBarrier.removeAllCollisionListeners();
+            removeAllCollisionListeners();
             player.setHealth(0);
             player.respawn();
 
@@ -32,6 +33,6 @@ public class FallToDeath implements CollisionListener, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        arena.getDeathBarrier().addCollisionListener(this);
+        addCollisionListener(this);
     }
 }
