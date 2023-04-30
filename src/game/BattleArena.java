@@ -1,9 +1,8 @@
 package game;
 
 import arenas.Royal;
-import characters.Knight;
-import characters.Skeleton;
 import city.cs.engine.World;
+import player.Characters;
 import player.Player;
 import world.DeathZone;
 import world.SideBorder;
@@ -41,11 +40,11 @@ public abstract class BattleArena extends World {
         right = new SideBorder(this, 21);
 
         // Player 1
-        player1 = new Player(this, 1, new Knight(), x1, y1);
+        player1 = new Player(this, 1, Characters.KNIGHT, x1, y1);
         player1.setKeyBindings(KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_R);
 
         // Player 2
-        player2 = new Player(this, 2, new Skeleton(), x2, y2);
+        player2 = new Player(this, 2, Characters.SKELETON, x2, y2);
         player2.setKeyBindings();
 
         // Fill the world with tiles

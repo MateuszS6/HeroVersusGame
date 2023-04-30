@@ -1,6 +1,8 @@
 package player;
 
 import characters.Character;
+import characters.Knight;
+import characters.Skeleton;
 import city.cs.engine.*;
 import game.BattleArena;
 import org.jbox2d.common.Vec2;
@@ -31,14 +33,17 @@ public class Player extends Walker implements ActionListener {
     /** Initialise a player. */
     public Player(BattleArena w,
                   int number,
-                  Character character,
+                  Characters c,
                   float x,
                   float y) {
         super(w);
         gameRound = w;
         ID = number;
-        this.character = character;
-        this.character.setPlayer(this);
+        character = switch (c) {
+            case KNIGHT -> new Knight();
+            case SKELETON -> new Skeleton();
+        };
+        character.setPlayer(this);
         startPos = new Vec2(x, y);
 
         hitbox = new SolidFixture(this, character.getDefaultShape());
