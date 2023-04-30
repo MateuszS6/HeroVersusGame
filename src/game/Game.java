@@ -4,7 +4,6 @@ import arenas.Royal;
 import city.cs.engine.DebugViewer;
 
 import javax.swing.*;
-import java.awt.event.KeyEvent;
 
 /** Main game entry point. */
 public final class Game {
@@ -19,6 +18,8 @@ public final class Game {
         // TODO: 30/04/2023 Main menu book-style as imagined
 
         window = new JFrame("HeroVersus: Battle Arena");
+
+        // TODO: 01/05/2023 Start with title screen!
 
         arena = new Royal(); // Game world
         arena.setGame(this);
@@ -61,7 +62,6 @@ public final class Game {
         view.setWorld(arena);
         // TODO: 29/04/2023 Update player controllers
         arena.start();
-
     }
 
     public void restart() {
