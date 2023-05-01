@@ -2,6 +2,7 @@ package characters;
 
 import city.cs.engine.BodyImage;
 import city.cs.engine.PolygonShape;
+import game.Game;
 import player.Player;
 
 // TODO: Add simple abilities such as double-jump
@@ -27,7 +28,8 @@ public abstract class Character {
             ATTACK_DUR,
             ATTACK_DMG;
 
-    public Character(PolygonShape defaultShape,
+    public Character(Player p,
+                     PolygonShape defaultShape,
                      PolygonShape leftAttackShape,
                      PolygonShape rightAttackShape,
                      String imgPath,
@@ -39,30 +41,27 @@ public abstract class Character {
                      String rightRunImage,
                      String leftAttackImage,
                      String rightAttackImage,
-                     int height,
+                     int h,
                      float runSpeed,
                      float jumpSpeed,
                      int attackDuration,
                      int attackDamage) {
+        player = p;
         DEFAULT_SHP = defaultShape;
         L_ATTACK_SHP = leftAttackShape;
         R_ATTACK_SHP = rightAttackShape;
-        L_IDLE_IMG = new BodyImage(imgPath + leftIdleImage, height);
-        R_IDLE_IMG = new BodyImage(imgPath + rightIdleImage, height);
-        L_JUMP_IMG = new BodyImage(imgPath + leftJumpImage, height);
-        R_JUMP_IMG = new BodyImage(imgPath + rightJumpImage, height);
-        L_RUN_IMG = new BodyImage(imgPath + leftRunImage, height);
-        R_RUN_IMG = new BodyImage(imgPath + rightRunImage, height);
-        L_ATTACK_IMG = new BodyImage(imgPath + leftAttackImage, height);
-        R_ATTACK_IMG = new BodyImage(imgPath + rightAttackImage, height);
+        L_IDLE_IMG = new BodyImage(imgPath + leftIdleImage, h);
+        R_IDLE_IMG = new BodyImage(imgPath + rightIdleImage, h);
+        L_JUMP_IMG = new BodyImage(imgPath + leftJumpImage, h);
+        R_JUMP_IMG = new BodyImage(imgPath + rightJumpImage, h);
+        L_RUN_IMG = new BodyImage(imgPath + leftRunImage, h);
+        R_RUN_IMG = new BodyImage(imgPath + rightRunImage, h);
+        L_ATTACK_IMG = new BodyImage(imgPath + leftAttackImage, h);
+        R_ATTACK_IMG = new BodyImage(imgPath + rightAttackImage, h);
         RUN_SPEED = runSpeed;
         JUMP_SPEED = jumpSpeed;
         ATTACK_DUR = attackDuration;
         ATTACK_DMG = attackDamage;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
     }
 
     public PolygonShape getDefaultShape() {

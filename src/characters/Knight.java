@@ -1,10 +1,12 @@
 package characters;
 
 import city.cs.engine.PolygonShape;
+import player.Player;
 
 public final class Knight extends Character {
-    public Knight() {
-        super(new PolygonShape(
+    public Knight(Player p) {
+        super(p,
+                new PolygonShape(
                         -0.3f, -0.1f,
                         1.25f, -2.05f,
                         0.5f, -4.0f,

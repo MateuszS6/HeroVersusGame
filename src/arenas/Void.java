@@ -1,6 +1,7 @@
 package arenas;
 
 import game.BattleArena;
+import game.Game;
 import world.Tile;
 
 import java.awt.*;
@@ -8,8 +9,8 @@ import java.awt.*;
 public class Void extends BattleArena {
     // TODO: 24/04/2023
     //  Pick-ups that select random spawn location from list - spawn every set time, only when previous collected
-    public Void() {
-        super(-15, 15, 9, -7.5f);
+    public Void(Game g) {
+        super(g, -15, 15, 9, -7.5f);
 
         setName("The Void");
 

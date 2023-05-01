@@ -40,10 +40,9 @@ public class Player extends Walker implements ActionListener {
         gameRound = w;
         ID = number;
         character = switch (c) {
-            case KNIGHT -> new Knight();
-            case SKELETON -> new Skeleton();
+            case KNIGHT -> new Knight(this);
+            case SKELETON -> new Skeleton(this);
         };
-        character.setPlayer(this);
         startPos = new Vec2(x, y);
 
         hitbox = new SolidFixture(this, character.getDefaultShape());

@@ -1,10 +1,8 @@
 package game;
 
-import arenas.Royal;
-import city.cs.engine.DebugViewer;
+import arenas.Forest;
 
 import javax.swing.*;
-import java.awt.*;
 
 /** Main game entry point. */
 public final class Game {
@@ -39,19 +37,18 @@ public final class Game {
         new Game();
     }
 
-    private void replacePanel(JPanel remove, JPanel add) {
+    private void switchPanel(JPanel remove, JPanel add) {
         window.remove(remove);
         window.add(add);
         window.pack();
     }
 
     public void play() {
-        arena = new Royal(); // Game world
-        arena.setGame(this);
+        arena = new Forest(this); // Game world
 
         view = new GameView(arena, WIDTH, HEIGHT); // Game view
 
-        replacePanel(currentScreen, view);
+        switchPanel(currentScreen, view);
 
         arena.start();
     }

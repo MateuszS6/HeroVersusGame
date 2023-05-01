@@ -34,7 +34,13 @@ public abstract class BattleArena extends World {
     private DeathZone deathZone;
 
     /** Initialise a game world. */
-    public BattleArena(float x1, float x2, float y1, float y2) {
+    public BattleArena(Game g,
+                       float x1,
+                       float x2,
+                       float y1,
+                       float y2) {
+        game = g;
+
         // Player-teleporting world borders
         left = new SideBorder(this, -21);
         right = new SideBorder(this, 21);
@@ -49,10 +55,6 @@ public abstract class BattleArena extends World {
 
         // Fill the world with tiles
         populate();
-    }
-
-    public void setGame(Game g) {
-        game = g;
     }
 
     public String getName() {

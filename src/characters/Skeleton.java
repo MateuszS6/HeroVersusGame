@@ -1,10 +1,12 @@
 package characters;
 
 import city.cs.engine.PolygonShape;
+import player.Player;
 
 public final class Skeleton extends Character {
-    public Skeleton() {
-        super(new PolygonShape(
+    public Skeleton(Player p) {
+        super(p,
+                new PolygonShape(
                 -0.7f, -2.05f,
                         0.7f, -2.05f,
                         1.25f, -0.6f,

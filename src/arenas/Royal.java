@@ -1,6 +1,7 @@
 package arenas;
 
 import game.BattleArena;
+import game.Game;
 import world.Platform;
 import world.Tile;
 
@@ -10,8 +11,8 @@ import java.awt.event.ActionListener;
 
 public class Royal extends BattleArena implements ActionListener {
     // TODO: 24/04/2023 WOODEN TILES???
-    public Royal() {
-        super(-4, 4, -8, -9);
+    public Royal(Game g) {
+        super(g, -4, 4, -8, -9);
 
         setName("Royal Arena");
 

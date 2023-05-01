@@ -1,11 +1,12 @@
 package arenas;
 
 import game.BattleArena;
+import game.Game;
 import world.Tile;
 
 public class Forest extends BattleArena {
-    public Forest() {
-        super(-17, 17, -7, -8);
+    public Forest(Game g) {
+        super(g, -17, 17, -7, -8);
 
         setName("Wild Forest");
 
