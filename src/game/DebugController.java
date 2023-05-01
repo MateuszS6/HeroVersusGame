@@ -24,10 +24,7 @@ public class DebugController implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         key = e.getKeyCode();
-        if (key == G) {
-            gToggle = !gToggle;
-            game.debugGrid(gToggle, GRID);
-        }
+        if (key == G) gToggle = game.debugGrid(!gToggle, GRID);
         if (key == H) game.runDebugViewer();
     }
 

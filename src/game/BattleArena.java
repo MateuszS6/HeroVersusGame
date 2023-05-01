@@ -51,8 +51,8 @@ public abstract class BattleArena extends World {
         populate();
     }
 
-    public void setGame(Game game) {
-        this.game = game;
+    public void setGame(Game g) {
+        game = g;
     }
 
     public String getName() {
