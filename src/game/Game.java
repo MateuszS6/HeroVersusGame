@@ -9,13 +9,11 @@ import java.awt.*;
 /** Main game entry point. */
 public final class Game {
     private final JFrame window;
-    public static final int WIDTH = 816;
-    public static final int HEIGHT = 638;
     private JPanel currentScreen;
     private BattleArena arena;
     private GameView view;
-    public static final float GRID = 1;
-    private DebugViewer debugViewer;
+    public static final int WIDTH = 800;
+    public static final int HEIGHT = 600;
 
     /** Initialise a new game. */
     public Game() {
@@ -24,8 +22,11 @@ public final class Game {
         window = new JFrame("HeroVersus: Battle Arena");
 
         currentScreen = new TitleScreen(this).getMainPanel();
+        // This JPanel screen is resized instead of the JFrame window,
+        // due to the window size including the borders and top bar
+        // - meaning it is larger (816x639) than the intended GameView size (800x600),
+        // so that the GameView sized correctly when it is created
         window.add(currentScreen); // Add the component to the window
-        window.setPreferredSize(new Dimension(WIDTH, HEIGHT)); // Set the correct window size
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLocationByPlatform(true);
         window.setResizable(false);
@@ -38,30 +39,19 @@ public final class Game {
         new Game();
     }
 
-    private void rebuildWindow(Component remove, Component add) {
+    private void replacePanel(JPanel remove, JPanel add) {
         window.remove(remove);
         window.add(add);
         window.pack();
-    }
-
-    public boolean debugGrid(boolean on, int res) {
-        if (on) view.setGridResolution(res);
-        else view.setGridResolution(0);
-        return on;
-    }
-
-    public void runDebugViewer() {
-        if (debugViewer == null) debugViewer = new DebugViewer(arena, view.getWidth(), view.getHeight());
     }
 
     public void play() {
         arena = new Royal(); // Game world
         arena.setGame(this);
 
-        view = new GameView(arena, 800, 600); // Game view
-        view.addKeyListener(new DebugController(this, 2));
+        view = new GameView(arena, WIDTH, HEIGHT); // Game view
 
-        rebuildWindow(currentScreen, view);
+        replacePanel(currentScreen, view);
 
         arena.start();
     }

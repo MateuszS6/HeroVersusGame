@@ -3,6 +3,7 @@ package world;
 import city.cs.engine.BodyImage;
 import game.BattleArena;
 import game.Game;
+import game.GameView;
 
 public class Tile extends Platform {
     public static final String TOP = "top.png";
@@ -29,7 +30,7 @@ public class Tile extends Platform {
     public static final String ROW_BOTTOM_RIGHT = "row_bottom_right.png";
 
     public Tile(BattleArena w, String type, float x, float y) {
-        super(w, Game.GRID, Game.GRID, x, y);
-        addImage(new BodyImage(type, Game.GRID * 2));
+        super(w, GameView.GRID, GameView.GRID, x, y);
+        addImage(new BodyImage(type, GameView.GRID * 2));
     }
 }

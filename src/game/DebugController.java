@@ -4,15 +4,15 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class DebugController implements KeyListener {
-    private final Game game;
+    private GameView view;
     private int key;
     private boolean gToggle = false;
-    private final int GRID;
+    private final float GRID;
     private final int G = KeyEvent.VK_G;
     private final int H = KeyEvent.VK_H;
 
-    public DebugController(Game game, int grid) {
-        this.game = game;
+    public DebugController(GameView v, float grid) {
+        view = v;
         GRID = grid;
     }
 
@@ -24,8 +24,12 @@ public class DebugController implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         key = e.getKeyCode();
-        if (key == G) gToggle = game.debugGrid(!gToggle, GRID);
-        if (key == H) game.runDebugViewer();
+        if (key == G) {
+            gToggle = !gToggle;
+            if (gToggle) view.setGridResolution(GRID);
+            else view.setGridResolution(0);
+        }
+        if (key == H) view.runDebugViewer();
     }
 
     @Override

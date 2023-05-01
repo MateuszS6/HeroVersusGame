@@ -1,5 +1,6 @@
 package game;
 
+import city.cs.engine.DebugViewer;
 import city.cs.engine.UserView;
 import player.Controller;
 import player.Player;
@@ -11,22 +12,19 @@ import java.awt.geom.Point2D;
 /** Game view class. */
 public class GameView extends UserView {
     private final BattleArena arena;
-    private final Player player1;
-    private final Player player2;
+    public static final float GRID = 1;
+    private DebugViewer debugViewer;
 
     /** Initialise the game view. */
     public GameView(BattleArena w, int width, int height) {
         super(w, width, height);
-
         arena = w;
-        player1 = arena.getPlayer1();
-        player2 = arena.getPlayer2();
 
-        addKeyListener(new Controller(player1)); // Player 1 controller
-        addKeyListener(new Controller(player2)); // Player 2 controller
+        addKeyListener(new Controller(arena.getPlayer1())); // Player 1 controller
+        addKeyListener(new Controller(arena.getPlayer2())); // Player 2 controller
 
-        // View focus
-        addMouseListener(new GiveFocus(this));
+        addMouseListener(new GiveFocus(this)); // View focus
+        addKeyListener(new DebugController(this, GRID)); // Debug controller
     }
 
     @Override
@@ -39,9 +37,13 @@ public class GameView extends UserView {
 
     @Override
     protected void paintForeground(Graphics2D g) {
-        Point2D.Float p1 = worldToView(player1.getPosition());
-        Point2D.Float p2 = worldToView(player2.getPosition());
+        Point2D.Float p1 = worldToView(arena.getPlayer1().getPosition());
+        Point2D.Float p2 = worldToView(arena.getPlayer2().getPosition());
 
         arena.drawHUD(g, getWidth(), getHeight(), p1, p2);
+    }
+
+    public void runDebugViewer() {
+        if (debugViewer == null) debugViewer = new DebugViewer(arena, getWidth(), getHeight());
     }
 }
