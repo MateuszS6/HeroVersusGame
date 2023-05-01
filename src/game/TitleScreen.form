@@ -26,20 +26,22 @@
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="1be5b" class="javax.swing.JButton" binding="play">
+      <component id="1be5b" class="javax.swing.JButton" binding="playButton">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <font name="Bahnschrift" size="20" style="1"/>
           <text value="Play"/>
           <toolTipText value="Select an arena to play in"/>
         </properties>
       </component>
-      <component id="6d7d6" class="javax.swing.JButton" binding="quit">
+      <component id="6d7d6" class="javax.swing.JButton" binding="quitButton">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <font name="Bahnschrift" size="20" style="1"/>
           <text value="Quit"/>
           <toolTipText value=""/>
         </properties>
