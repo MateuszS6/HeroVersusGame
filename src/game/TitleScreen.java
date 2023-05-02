@@ -12,7 +12,7 @@ public class TitleScreen {
     public TitleScreen(Game g) {
         game = g;
         mainPanel.setPreferredSize(new Dimension(Game.WIDTH, Game.HEIGHT));
-        playButton.addActionListener(e -> game.play());
+        playButton.addActionListener(e -> game.switchPanel(getMainPanel(), new ArenaSelection(game).getMainPanel()));
         quitButton.addActionListener(e -> System.exit(0));
     }
 

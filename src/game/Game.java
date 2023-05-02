@@ -37,34 +37,28 @@ public final class Game {
         new Game();
     }
 
-    private void switchPanel(JPanel remove, JPanel add) {
-        window.remove(remove);
-        window.add(add);
+    public void switchPanel(JPanel from, JPanel to) {
+        window.remove(from);
+        window.add(to);
         window.pack();
+//        window.repaint();
+        currentScreen = to;
     }
 
-    public void play() {
-        arena = new Forest(this); // Game world
+    // TODO: 29/04/2023 Winning player of final round is ULTIMATE CHAMPION
+    public void goToArena(BattleArena w) {
+        if (arena != null) arena.stop();
+        arena = w; // Game world
 
-        view = new GameView(arena, WIDTH, HEIGHT); // Game view
+        if (view == null) view = new GameView(arena, WIDTH, HEIGHT); // Game view
+        else view.setWorld(arena);
+        // TODO: 29/04/2023 Update player controllers
 
         switchPanel(currentScreen, view);
 
         arena.start();
     }
 
-    // TODO: 29/04/2023 Winning player of final round is ULTIMATE CHAMPION
-    public void goToArena(BattleArena w) {
-        arena.stop();
-        arena = w;
-        view.setWorld(arena);
-        // TODO: 29/04/2023 Update player controllers
-        arena.start();
-    }
-
     public void restart() {
-    }
-
-    public void backToTitleScreen() {
     }
 }
