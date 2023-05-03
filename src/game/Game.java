@@ -55,8 +55,6 @@ public final class Game {
 
             view = new GameView(arena, WIDTH, HEIGHT); // Game view
 
-            switchPanel(currentScreen, view);
-
             isNew = false;
         } else {
             arena.stop();
@@ -65,11 +63,9 @@ public final class Game {
 
             view.setWorld(arena);
             // TODO: 29/04/2023 Update player controllers
-
-            switchPanel(currentScreen, view);
-
-            arena.start();
         }
+        switchPanel(currentScreen, view);
+        arena.start();
     }
 
     public void setArena(Arenas a) {
