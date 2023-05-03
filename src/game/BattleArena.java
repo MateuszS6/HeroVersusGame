@@ -131,5 +131,6 @@ public abstract class BattleArena extends World {
 
     public void isComplete(int winnerID) {
         System.out.println("Player " + winnerID + " is the arena champion.");
+        game.goToArena(Arenas.WILD_FOREST);
     }
 }

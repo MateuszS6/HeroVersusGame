@@ -1,6 +1,8 @@
 package game;
 
 import arenas.Forest;
+import arenas.Royal;
+import arenas.Void;
 
 import javax.swing.*;
 
@@ -8,6 +10,7 @@ import javax.swing.*;
 public final class Game {
     private final JFrame window;
     private JPanel currentScreen;
+    private boolean isNew = true;
     private BattleArena arena;
     private GameView view;
     public static final int WIDTH = 800;
@@ -46,17 +49,35 @@ public final class Game {
     }
 
     // TODO: 29/04/2023 Winning player of final round is ULTIMATE CHAMPION
-    public void goToArena(BattleArena w) {
-        if (arena != null) arena.stop();
-        arena = w; // Game world
+    public void goToArena(Arenas a) {
+        if (isNew) {
+            setArena(a);
 
-        if (view == null) view = new GameView(arena, WIDTH, HEIGHT); // Game view
-        else view.setWorld(arena);
-        // TODO: 29/04/2023 Update player controllers
+            view = new GameView(arena, WIDTH, HEIGHT); // Game view
 
-        switchPanel(currentScreen, view);
+            switchPanel(currentScreen, view);
 
-        arena.start();
+            isNew = false;
+        } else {
+            arena.stop();
+
+            setArena(a);
+
+            view.setWorld(arena);
+            // TODO: 29/04/2023 Update player controllers
+
+            switchPanel(currentScreen, view);
+
+            arena.start();
+        }
+    }
+
+    public void setArena(Arenas a) {
+        arena = switch (a) {
+            case ROYAL_ARENA -> new Royal(this);
+            case WILD_FOREST -> new Forest(this);
+            case THE_VOID -> new Void(this);
+        }; // Game world
     }
 
     public void restart() {
