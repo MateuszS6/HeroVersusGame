@@ -5,14 +5,17 @@ import java.awt.event.KeyListener;
 
 public class DebugController implements KeyListener {
     private GameView view;
+    private BattleArena arena;
     private int key;
     private boolean gToggle = false;
     private final float GRID;
+    private final int T = KeyEvent.VK_T;
     private final int G = KeyEvent.VK_G;
     private final int H = KeyEvent.VK_H;
 
-    public DebugController(GameView v, float grid) {
+    public DebugController(GameView v, BattleArena w, float grid) {
         view = v;
+        arena = w;
         GRID = grid;
     }
 
@@ -30,6 +33,7 @@ public class DebugController implements KeyListener {
             else view.setGridResolution(0);
         }
         if (key == H) view.runDebugViewer();
+        if (key == T) arena.isComplete(1);
     }
 
     @Override

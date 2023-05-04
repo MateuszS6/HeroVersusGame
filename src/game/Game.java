@@ -3,6 +3,8 @@ package game;
 import arenas.Forest;
 import arenas.Royal;
 import arenas.Void;
+import menu.PlayScreen;
+import menu.TitleScreen;
 
 import javax.swing.*;
 
@@ -10,7 +12,6 @@ import javax.swing.*;
 public final class Game {
     private final JFrame window;
     private JPanel currentScreen;
-    private boolean isNew = true;
     private BattleArena arena;
     private GameView view;
     public static final int WIDTH = 800;
@@ -20,7 +21,7 @@ public final class Game {
     public Game() {
         // TODO: 30/04/2023 Main menu book-style as imagined
 
-        window = new JFrame("HeroVersus: Battle Arena");
+        window = new JFrame("HeroVersus");
 
         currentScreen = new TitleScreen(this).getMainPanel();
         // This JPanel screen is resized instead of the JFrame window,
@@ -40,8 +41,8 @@ public final class Game {
         new Game();
     }
 
-    public void switchPanel(JPanel from, JPanel to) {
-        window.remove(from);
+    public void switchPanel(JPanel to) {
+        window.remove(currentScreen);
         window.add(to);
         window.pack();
 //        window.repaint();
@@ -50,26 +51,14 @@ public final class Game {
 
     // TODO: 29/04/2023 Winning player of final round is ULTIMATE CHAMPION
     public void goToArena(Arenas a) {
-        if (isNew) {
-            setArena(a);
-
-            view = new GameView(arena, WIDTH, HEIGHT); // Game view
-
-            isNew = false;
-        } else {
-            arena.stop();
-
-            setArena(a);
-
-            view.setWorld(arena);
-            // TODO: 29/04/2023 Update player controllers
-        }
-        switchPanel(currentScreen, view);
+        arena = getArena(a);
+        view = new GameView(arena, WIDTH, HEIGHT); // Game view
+        switchPanel(view);
         arena.start();
     }
 
-    public void setArena(Arenas a) {
-        arena = switch (a) {
+    public BattleArena getArena(Arenas a) {
+        return switch (a) {
             case ROYAL_ARENA -> new Royal(this);
             case WILD_FOREST -> new Forest(this);
             case THE_VOID -> new Void(this);

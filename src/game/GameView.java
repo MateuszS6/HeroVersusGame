@@ -24,7 +24,7 @@ public class GameView extends UserView {
         addKeyListener(new Controller(arena.getPlayer2())); // Player 2 controller
 
         addMouseListener(new GiveFocus(this)); // View focus
-        addKeyListener(new DebugController(this, GRID)); // Debug controller
+        addKeyListener(new DebugController(this, arena, GRID)); // Debug controller
     }
 
     @Override
@@ -46,4 +46,6 @@ public class GameView extends UserView {
     public void runDebugViewer() {
         if (debugViewer == null) debugViewer = new DebugViewer(arena, getWidth(), getHeight());
     }
+
+    // TODO: 04/05/2023 Update key listeners and stuff as if it were creating a whole new view
 }

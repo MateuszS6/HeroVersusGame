@@ -2,6 +2,7 @@ package game;
 
 import arenas.Royal;
 import city.cs.engine.World;
+import menu.PlayScreen;
 import player.Characters;
 import player.Player;
 import world.DeathZone;
@@ -131,6 +132,7 @@ public abstract class BattleArena extends World {
 
     public void isComplete(int winnerID) {
         System.out.println("Player " + winnerID + " is the arena champion.");
-        game.goToArena(Arenas.WILD_FOREST);
+        stop();
+        game.switchPanel(new PlayScreen(game).getMainPanel());
     }
 }

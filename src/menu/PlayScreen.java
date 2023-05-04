@@ -1,8 +1,7 @@
-package game;
+package menu;
 
-import arenas.Forest;
-import arenas.Royal;
-import arenas.Void;
+import game.Arenas;
+import game.Game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,7 +28,7 @@ public class PlayScreen {
         fightButton.addActionListener(e -> {
             if (selection != null) game.goToArena(selection);
         });
-        backButton.addActionListener(e -> game.switchPanel(getMainPanel(), new TitleScreen(game).getMainPanel()));
+        backButton.addActionListener(e -> game.switchPanel(new TitleScreen(game).getMainPanel()));
     }
 
     public JPanel getMainPanel() {
