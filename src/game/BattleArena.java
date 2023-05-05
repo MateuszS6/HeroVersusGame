@@ -56,7 +56,7 @@ public abstract class BattleArena extends World {
         player1.setKeyBindings(KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_R);
 
         // Player 2
-        player2 = new Player(this, 2, Characters.SKELETON, x2, y2);
+        player2 = new Player(this, 2, Characters.WIZARD, x2, y2);
         player2.setKeyBindings();
 
         // Fill the world with tiles

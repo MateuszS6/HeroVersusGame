@@ -3,6 +3,7 @@ package player;
 import characters.Character;
 import characters.Knight;
 import characters.Skeleton;
+import characters.Wizard;
 import city.cs.engine.*;
 import game.BattleArena;
 import org.jbox2d.common.Vec2;
@@ -42,6 +43,7 @@ public class Player extends Walker implements ActionListener {
         character = switch (c) {
             case KNIGHT -> new Knight(this);
             case SKELETON -> new Skeleton(this);
+            case WIZARD -> new Wizard(this);
         };
         startPos = new Vec2(x, y);
 

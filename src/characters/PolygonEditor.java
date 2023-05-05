@@ -240,9 +240,9 @@ public class PolygonEditor extends JPanel
     public static void main(String[] args) {
         String knight = "assets/FreeKnight/Colour1/NoOutline/120x80_gifs/left_attack.gif";
         String skeleton = "assets/Skeleton/120x80_gifs/right_attack2.gif";
-        String knight2 = "";
-        String fileName = skeleton;
-        float boxHeight = 10;
+        String wizard = "assets/character/Wizard/gif/r_idle.gif";
+        String fileName = wizard;
+        float boxHeight = 8;
         int firstCoordIndex = 0;
         if (args.length > 0) {
             try {

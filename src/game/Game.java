@@ -52,8 +52,8 @@ public final class Game {
         try {
             if (soundtrack != null) soundtrack.stop();
             soundtrack = new SoundClip("assets/sound/music/" + fileName);
-            soundtrack.setVolume(0.1);
-            soundtrack.loop();
+            soundtrack.setVolume(0.3);
+//            soundtrack.loop();
         } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             throw new RuntimeException(e);
         }
