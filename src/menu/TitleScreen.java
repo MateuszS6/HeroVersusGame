@@ -16,7 +16,6 @@ public class TitleScreen {
         mainPanel.setPreferredSize(new Dimension(Game.WIDTH, Game.HEIGHT));
         playButton.addActionListener(e -> game.switchPanel(new PlayScreen(game).getMainPanel()));
         quitButton.addActionListener(e -> System.exit(0));
-        game.setSoundtrack(Game.MENU_MUSIC);
     }
 
     public JPanel getMainPanel() {

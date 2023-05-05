@@ -25,7 +25,8 @@ public class Collisions implements CollisionListener {
         if (e.getOtherBody() instanceof Player otherPlayer) {
             if (otherPlayer.isAttacking()) {
                 player.setHealth(player.getHealth() - otherPlayer.getCharacter().getAttackDamage());
-                System.out.println("Attacked player health: " + player.getHealth());
+//                System.out.println("Attacked player health: " + player.getHealth());
+                otherPlayer.resetHitbox();
 
                 player.respawn();
             }

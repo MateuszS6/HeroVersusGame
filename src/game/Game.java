@@ -34,6 +34,7 @@ public final class Game {
         // due to the window size including the borders and top bar
         // - meaning it is larger (816x639) than the intended GameView size (800x600),
         // so that the GameView sized correctly when it is created
+        setSoundtrack(MENU_MUSIC);
         window.add(currentScreen); // Add the component to the window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLocationByPlatform(true);
@@ -51,7 +52,7 @@ public final class Game {
         try {
             if (soundtrack != null) soundtrack.stop();
             soundtrack = new SoundClip("assets/sound/music/" + fileName);
-            soundtrack.setVolume(0.3);
+            soundtrack.setVolume(0.1);
             soundtrack.loop();
         } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             throw new RuntimeException(e);
@@ -67,10 +68,10 @@ public final class Game {
     }
 
     public void switchPanel(JPanel to) {
-//        if (currentScreen != view) playSound(null);
         window.remove(currentScreen);
         window.add(to);
         window.pack();
+        if (currentScreen == view) setSoundtrack(MENU_MUSIC);
         currentScreen = to;
     }
 

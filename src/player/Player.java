@@ -152,17 +152,17 @@ public class Player extends Walker implements ActionListener {
             timer.setRepeats(false);
             timer.start();
 
-            updateHitbox();
+            updateHitboxAndImage();
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         isAttacking = false;
-        updateHitbox();
+        updateHitboxAndImage();
     }
 
-    public void updateHitbox() {
+    public void updateHitboxAndImage() {
         hitbox.destroy();
         removeAllImages();
         if (isAttacking) {
@@ -172,6 +172,11 @@ public class Player extends Walker implements ActionListener {
             hitbox = new SolidFixture(this, character.getDefaultShape());
             addImage(character.getIdleImage());
         }
+    }
+
+    public void resetHitbox() {
+        hitbox.destroy();
+        hitbox = new SolidFixture(this, character.getDefaultShape());
     }
 
     public void respawn() {
