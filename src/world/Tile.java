@@ -2,7 +2,6 @@ package world;
 
 import city.cs.engine.BodyImage;
 import game.BattleArena;
-import game.Game;
 import game.GameView;
 
 public class Tile extends Platform {

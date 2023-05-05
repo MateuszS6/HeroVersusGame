@@ -3,15 +3,20 @@ package game;
 import arenas.Forest;
 import arenas.Royal;
 import arenas.Void;
+import city.cs.engine.SoundClip;
 import menu.PlayScreen;
 import menu.TitleScreen;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
+import java.io.IOException;
 
 /** Main game entry point. */
 public final class Game {
     private final JFrame window;
     private JPanel currentScreen;
+    private SoundClip soundtrack;
     private BattleArena arena;
     private GameView view;
     public static final int WIDTH = 800;
@@ -34,11 +39,23 @@ public final class Game {
         window.setResizable(false);
         window.setVisible(true);
         window.pack(); // Resize the window to fit the preferred size
+
+        setSoundtrack("to_boldly_go.wav");
     }
 
     /** Run the game. */
     public static void main(String[] args) {
         new Game();
+    }
+
+    public void setSoundtrack(String fileName) {
+        try {
+            if (soundtrack != null) soundtrack.stop();
+            soundtrack = new SoundClip("assets/sound/music/" + fileName);
+            soundtrack.loop();
+        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void switchPanel(JPanel to) {

@@ -10,12 +10,12 @@ public class Forest extends BattleArena {
 
         setName("Wild Forest");
 
-        setBackground("assets/background/forest/forest_resized.png");
+        setBackground("forest/forest_resized.png");
     }
 
     @Override
     public void populate() {
-        setTilePath("assets/tileset/village/tiles"); // File path for tiles
+        setTilePath("village/tiles"); // File path for tiles
 
         for (int x = -19; x < 20; x += 2) {
             placeBlock(Tile.UNDER, x, -14);

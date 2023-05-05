@@ -16,7 +16,7 @@ public class Royal extends BattleArena implements ActionListener {
 
         setName("Royal Arena");
 
-        setBackground("assets/background/arena_with_stage.jpg");
+        setBackground("arena_with_stage.jpg");
 
         setDeathZone(this, -20);
 
@@ -42,7 +42,7 @@ public class Royal extends BattleArena implements ActionListener {
 
     @Override
     public void populate() {
-        setTilePath("assets/tileset/grasslands/tiles");
+        setTilePath("grasslands/tiles");
 
         placeBlock(Tile.ROW_LEFT, -17, -7);
         placeBlock(Tile.ROW, -15, -7);

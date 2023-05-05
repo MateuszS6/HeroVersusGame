@@ -21,7 +21,7 @@ public class Void extends BattleArena {
 
     @Override
     public void populate() {
-        setTilePath("assets/tileset/witchcraft/tiles/outlined"); // File path for tiles
+        setTilePath("witchcraft/tiles/outlined"); // File path for tiles
 
         placeBlock(Tile.END_TOP_LEFT, -1, 9);
         for (int x = 1; x < 6; x += 2) placeBlock(Tile.TOP, x, 9);

@@ -75,11 +75,11 @@ public abstract class BattleArena extends World {
     }
 
     public void setBackground(String fileName) {
-        bgImage = new ImageIcon(fileName).getImage();
+        bgImage = new ImageIcon("assets/background/" + fileName).getImage();
     }
 
-    public void setTilePath(String tilePath) {
-        this.tilePath = tilePath;
+    public void setTilePath(String localTilePath) {
+        tilePath = "assets/tileset/" + localTilePath + "/";
     }
 
     public Player getPlayer1() {
@@ -99,7 +99,7 @@ public abstract class BattleArena extends World {
     }
 
     public void placeBlock(String type, float x, float y) {
-        new Tile(this, tilePath + "/" + type, x, y);
+        new Tile(this, tilePath + type, x, y);
     }
 
     public abstract void populate();
