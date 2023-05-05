@@ -40,8 +40,6 @@ public final class Game {
         window.setResizable(false);
         window.setVisible(true);
         window.pack(); // Resize the window to fit the preferred size
-
-        setSoundtrack(MENU_MUSIC);
     }
 
     /** Run the game. */
@@ -60,11 +58,19 @@ public final class Game {
         }
     }
 
+    public void playSound(String fileName) {
+        try {
+            new SoundClip("assets/sound/" + fileName).play();
+        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void switchPanel(JPanel to) {
+//        if (currentScreen != view) playSound(null);
         window.remove(currentScreen);
         window.add(to);
         window.pack();
-//        window.repaint();
         currentScreen = to;
     }
 

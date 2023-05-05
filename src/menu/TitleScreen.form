@@ -33,7 +33,7 @@
         <properties>
           <font name="Bahnschrift" size="20" style="1"/>
           <text value="Play"/>
-          <toolTipText value="Select an arena to play in"/>
+          <toolTipText value=""/>
         </properties>
       </component>
       <component id="6d7d6" class="javax.swing.JButton" binding="quitButton">
