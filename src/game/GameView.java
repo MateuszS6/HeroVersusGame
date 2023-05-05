@@ -11,8 +11,8 @@ import java.awt.geom.Point2D;
 
 /** Game view class. */
 public class GameView extends UserView {
-    private final BattleArena arena;
     public static final float GRID = 1;
+    private final BattleArena arena;
     private DebugViewer debugViewer;
 
     /** Initialise the game view. */

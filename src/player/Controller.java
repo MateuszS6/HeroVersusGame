@@ -20,16 +20,16 @@ public class Controller implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         key = e.getKeyCode();
-        if (key == player.getKeyBindings().jumpKey) player.jump();
-        if (key == player.getKeyBindings().leftKey) player.run(-1);
-        if (key == player.getKeyBindings().rightKey) player.run(1);
-        if (key == player.getKeyBindings().attackKey) player.attack();
+        if (key == player.getKeyBindings().JUMP) player.jump();
+        if (key == player.getKeyBindings().LEFT) player.run(-1);
+        if (key == player.getKeyBindings().RIGHT) player.run(1);
+        if (key == player.getKeyBindings().ATTACK) player.attack();
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         key = e.getKeyCode();
-        if (key == player.getKeyBindings().leftKey ||
-                key == player.getKeyBindings().rightKey) player.idle();
+        if (key == player.getKeyBindings().LEFT ||
+                key == player.getKeyBindings().RIGHT) player.idle();
     }
 }

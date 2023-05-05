@@ -12,9 +12,7 @@ import java.awt.event.ActionListener;
 public class Royal extends BattleArena implements ActionListener {
     // TODO: 24/04/2023 WOODEN TILES???
     public Royal(Game g) {
-        super(g, -4, 4, -8, -9);
-
-        setName("Royal Arena");
+        super(g, "Royal Arena", -4, 4, -8, -9);
 
         setBackground("arena_with_stage.jpg");
 

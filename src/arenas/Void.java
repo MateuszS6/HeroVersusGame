@@ -10,9 +10,7 @@ public class Void extends BattleArena {
     // TODO: 24/04/2023
     //  Pick-ups that select random spawn location from list - spawn every set time, only when previous collected
     public Void(Game g) {
-        super(g, -15, 15, 9, -7.5f);
-
-        setName("The Void");
+        super(g, "The Void", -15, 15, 9, -7.5f);
 
         setBackground(Color.BLACK);
 

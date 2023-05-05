@@ -14,13 +14,14 @@ import java.io.IOException;
 
 /** Main game entry point. */
 public final class Game {
+    public static final String MENU_MUSIC = "tension_mode.mp3";
+    public static final int WIDTH = 800;
+    public static final int HEIGHT = 600;
     private final JFrame window;
     private JPanel currentScreen;
     private SoundClip soundtrack;
     private BattleArena arena;
     private GameView view;
-    public static final int WIDTH = 800;
-    public static final int HEIGHT = 600;
 
     /** Initialise a new game. */
     public Game() {
@@ -40,7 +41,7 @@ public final class Game {
         window.setVisible(true);
         window.pack(); // Resize the window to fit the preferred size
 
-        setSoundtrack("to_boldly_go.wav");
+        setSoundtrack(MENU_MUSIC);
     }
 
     /** Run the game. */
@@ -52,6 +53,7 @@ public final class Game {
         try {
             if (soundtrack != null) soundtrack.stop();
             soundtrack = new SoundClip("assets/sound/music/" + fileName);
+            soundtrack.setVolume(0.3);
             soundtrack.loop();
         } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             throw new RuntimeException(e);

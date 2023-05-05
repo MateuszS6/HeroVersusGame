@@ -13,17 +13,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Player extends Walker implements ActionListener {
+    public static final int MAX_HEALTH = 100;
+    public static final int MAX_RESPAWNS = 3;
     private final BattleArena gameRound;
     private final int ID;
     private final Character character;
-    private KeyBindings keyBindings;
     private final Vec2 startPos;
+    private KeyBindings keyBindings;
     private SolidFixture hitbox;
     private int
             health,
             respawns;
-    private static final int MAX_HEALTH = 100;
-    private static final int MAX_RESPAWNS = 3;
     private boolean
             isFacingRight,
             isMidAir,
@@ -83,10 +83,6 @@ public class Player extends Walker implements ActionListener {
 
     public void setHealth(int health) {
         this.health = health;
-    }
-
-    public int getMaxHealth() {
-        return MAX_HEALTH;
     }
 
     public int getRespawns() {

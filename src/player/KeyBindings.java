@@ -3,16 +3,16 @@ package player;
 import java.awt.event.KeyEvent;
 
 public class KeyBindings {
-    final int jumpKey;
-    final int leftKey;
-    final int rightKey;
-    final int attackKey;
+    final int JUMP;
+    final int LEFT;
+    final int RIGHT;
+    final int ATTACK;
 
     public KeyBindings(int jump, int left, int right, int attack) {
-        jumpKey = jump;
-        leftKey = left;
-        rightKey = right;
-        attackKey = attack;
+        JUMP = jump;
+        LEFT = left;
+        RIGHT = right;
+        ATTACK = attack;
     }
 
     public KeyBindings() {

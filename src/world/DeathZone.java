@@ -10,11 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class DeathZone extends Barrier implements CollisionListener, ActionListener {
-    private final BattleArena arena;
-
     public DeathZone(BattleArena w, float halfWidth, float y) {
         super(w, halfWidth, 0.5f, 0, y);
-        arena = w;
         addCollisionListener(this);
     }
 

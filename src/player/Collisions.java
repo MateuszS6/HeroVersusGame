@@ -31,8 +31,8 @@ public class Collisions implements CollisionListener {
             }
         }
 
-        if (e.getOtherBody() instanceof HealthRefill refill) if (player.getHealth() < player.getMaxHealth()) {
-            player.setHealth(player.getMaxHealth());
+        if (e.getOtherBody() instanceof HealthRefill refill) if (player.getHealth() < Player.MAX_HEALTH) {
+            player.setHealth(Player.MAX_HEALTH);
             refill.destroy();
         }
     }

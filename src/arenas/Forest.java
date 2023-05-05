@@ -6,9 +6,7 @@ import world.Tile;
 
 public class Forest extends BattleArena {
     public Forest(Game g) {
-        super(g, -17, 17, -7, -8);
-
-        setName("Wild Forest");
+        super(g, "Wild Forest", -17, 17, -7, -8);
 
         setBackground("forest/forest_resized.png");
     }

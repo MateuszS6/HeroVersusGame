@@ -21,26 +21,30 @@ public abstract class BattleArena extends World {
     //  Add PRACTICE ARENA with grey tiles - unlimited respawns, advances to arenas on completion OR on SKIP button
     // TODO: 24/04/2023
     //  Desert arena, minimalistic/paper arena
-    private Game game;
-    private String name;
-    private Color bgColour;
-    private Image bgImage;
-    private String tilePath;
-    private final Player
-            player1,
-            player2;
+    private final Game game;
+    private final String title;
     private final SideBorder
             left,
             right;
+    private final Player
+            player1,
+            player2;
+    private Color bgColour;
+    private Image bgImage;
     private DeathZone deathZone;
+    private String tilePath;
 
-    /** Initialise a game world. */
+    /**
+     * Initialise a game world.
+     */
     public BattleArena(Game g,
+                       String title,
                        float x1,
                        float x2,
                        float y1,
                        float y2) {
         game = g;
+        this.title = title;
 
         // Player-teleporting world borders
         left = new SideBorder(this, -21);
@@ -56,10 +60,21 @@ public abstract class BattleArena extends World {
 
         // Fill the world with tiles
         populate();
+
+        // Change the soundtrack
+        game.setSoundtrack("crime_is_everywhere.mp3");
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public SideBorder getOtherSide(SideBorder thisSide) {
+        return thisSide == left ? right : left;
+    }
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
     }
 
     public Color getBgColour() {
@@ -78,31 +93,19 @@ public abstract class BattleArena extends World {
         bgImage = new ImageIcon("assets/background/" + fileName).getImage();
     }
 
-    public void setTilePath(String localTilePath) {
-        tilePath = "assets/tileset/" + localTilePath + "/";
-    }
-
-    public Player getPlayer1() {
-        return player1;
-    }
-
-    public Player getPlayer2() {
-        return player2;
-    }
-
-    public SideBorder getOtherSide(SideBorder thisSide) {
-        return thisSide == left ? right : left;
-    }
-
     public void setDeathZone(BattleArena w, float y) {
         if (deathZone == null) deathZone = new DeathZone(w, right.getPosition().x, y);
+    }
+
+    public abstract void populate();
+
+    public void setTilePath(String localTilePath) {
+        tilePath = "assets/tileset/" + localTilePath + "/";
     }
 
     public void placeBlock(String type, float x, float y) {
         new Tile(this, tilePath + type, x, y);
     }
-
-    public abstract void populate();
 
     public void drawHUD(Graphics2D g, int scrW, int scrH, Point2D.Float p1, Point2D.Float p2) {
         Color label = new Color(255, 255, 255, 165);
@@ -111,7 +114,7 @@ public abstract class BattleArena extends World {
         if (this instanceof Royal) g.setColor(Color.BLACK);
         else g.setColor(Color.WHITE);
         g.setFont(new Font(font, Font.BOLD, 20));
-        g.drawString(name, (scrW / 2) - 60, 30);
+        g.drawString(title, (scrW / 2) - 60, 30);
 
         g.setColor(label);
         g.setFont(new Font(font, Font.BOLD, 15));
