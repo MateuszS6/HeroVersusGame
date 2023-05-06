@@ -7,11 +7,11 @@ public final class Knight extends Character {
     public Knight(Player p) {
         super(p,
                 new PolygonShape(
-                        -0.3f, -0.1f,
-                        1.25f, -2.05f,
-                        0.5f, -4.0f,
-                        -1.0f, -4.0f,
-                        -1.8f, -2.05f
+                        -0.1f, -0.1f,
+                        1.45f, -2.05f,
+                        0.7f, -4.0f,
+                        -0.8f, -4.0f,
+                        -1.6f, -2.05f
                 ),
                 new PolygonShape(
                         0.72f, -4.0f,
@@ -41,7 +41,7 @@ public final class Knight extends Character {
                 "left_attack.gif",
                 "__AttackCombo2hit.gif",
                 8,
-                11,
+                10,
                 15,
                 500,
                 20);

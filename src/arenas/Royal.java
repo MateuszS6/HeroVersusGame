@@ -2,6 +2,7 @@ package arenas;
 
 import game.BattleArena;
 import game.Game;
+import org.jbox2d.common.Vec2;
 import world.Platform;
 import world.Tile;
 
@@ -12,7 +13,11 @@ import java.awt.event.ActionListener;
 public class Royal extends BattleArena implements ActionListener {
     // TODO: 24/04/2023 WOODEN TILES???
     public Royal(Game g) {
-        super(g, "Royal Arena", -4, 4, -8, -9);
+        super(g,
+                "Royal Arena",
+                "grasslands/tiles",
+                new Vec2(-4, -8),
+                new Vec2(4, -9));
 
         setBackground("arena_with_stage.jpg");
 
@@ -40,8 +45,6 @@ public class Royal extends BattleArena implements ActionListener {
 
     @Override
     public void populate() {
-        setTilePath("grasslands/tiles");
-
         placeBlock(Tile.ROW_LEFT, -17, -7);
         placeBlock(Tile.ROW, -15, -7);
         placeBlock(Tile.ROW, -13, -7);

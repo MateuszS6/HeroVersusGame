@@ -2,19 +2,22 @@ package arenas;
 
 import game.BattleArena;
 import game.Game;
+import org.jbox2d.common.Vec2;
 import world.Tile;
 
 public class Forest extends BattleArena {
     public Forest(Game g) {
-        super(g, "Wild Forest", -17, 17, -7, -8);
+        super(g,
+                "Wild Forest",
+                "village/tiles",
+                new Vec2(-17, -7),
+                new Vec2(17, -8));
 
         setBackground("forest/forest_resized.png");
     }
 
     @Override
     public void populate() {
-        setTilePath("village/tiles"); // File path for tiles
-
         for (int x = -19; x < 20; x += 2) {
             placeBlock(Tile.UNDER, x, -14);
             // Player spawns

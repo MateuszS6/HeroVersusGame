@@ -4,6 +4,7 @@ import arenas.Royal;
 import city.cs.engine.World;
 import menu.PlayScreen;
 import menu.TitleScreen;
+import org.jbox2d.common.Vec2;
 import player.Characters;
 import player.Player;
 import world.DeathZone;
@@ -24,6 +25,7 @@ public abstract class BattleArena extends World {
     //  Desert arena, minimalistic/paper arena
     private final Game game;
     private final String title;
+    private final String tilePath;
     private final SideBorder
             left,
             right;
@@ -33,30 +35,29 @@ public abstract class BattleArena extends World {
     private Color bgColour;
     private Image bgImage;
     private DeathZone deathZone;
-    private String tilePath;
 
     /**
      * Initialise a game world.
      */
     public BattleArena(Game g,
                        String title,
-                       float x1,
-                       float x2,
-                       float y1,
-                       float y2) {
+                       String localTilePath,
+                       Vec2 spawn1,
+                       Vec2 spawn2) {
         game = g;
         this.title = title;
+        tilePath = "assets/tileset/" + localTilePath + "/";
 
         // Player-teleporting world borders
         left = new SideBorder(this, -21);
         right = new SideBorder(this, 21);
 
         // Player 1
-        player1 = new Player(this, 1, Characters.KNIGHT, x1, y1);
+        player1 = new Player(this, 1, Characters.KNIGHT, spawn1);
         player1.setKeyBindings(KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_R);
 
         // Player 2
-        player2 = new Player(this, 2, Characters.WIZARD, x2, y2);
+        player2 = new Player(this, 2, Characters.WIZARD, spawn2);
         player2.setKeyBindings();
 
         // Fill the world with tiles
@@ -99,10 +100,6 @@ public abstract class BattleArena extends World {
     }
 
     public abstract void populate();
-
-    public void setTilePath(String localTilePath) {
-        tilePath = "assets/tileset/" + localTilePath + "/";
-    }
 
     public void placeBlock(String type, float x, float y) {
         new Tile(this, tilePath + type, x, y);

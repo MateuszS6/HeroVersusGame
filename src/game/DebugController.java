@@ -11,7 +11,8 @@ public class DebugController implements KeyListener {
     private GameView view;
     private BattleArena arena;
     private int key;
-    private boolean gToggle = false;
+    private boolean gridToggle = false;
+    private boolean outlineToggle = false;
 
     public DebugController(GameView v, BattleArena w, float grid) {
         view = v;
@@ -28,12 +29,16 @@ public class DebugController implements KeyListener {
     public void keyPressed(KeyEvent e) {
         key = e.getKeyCode();
         if (key == G) {
-            gToggle = !gToggle;
-            if (gToggle) view.setGridResolution(GRID);
+            gridToggle = !gridToggle;
+            if (gridToggle) view.setGridResolution(GRID);
             else view.setGridResolution(0);
         }
         if (key == H) view.runDebugViewer();
-        if (key == T) arena.isComplete(1);
+        if (key == T) {
+            outlineToggle = !outlineToggle;
+            arena.getPlayer1().setAlwaysOutline(outlineToggle);
+            arena.getPlayer2().setAlwaysOutline(outlineToggle);
+        }
     }
 
     @Override

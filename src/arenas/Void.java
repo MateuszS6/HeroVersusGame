@@ -2,6 +2,7 @@ package arenas;
 
 import game.BattleArena;
 import game.Game;
+import org.jbox2d.common.Vec2;
 import world.Tile;
 
 import java.awt.*;
@@ -10,7 +11,11 @@ public class Void extends BattleArena {
     // TODO: 24/04/2023
     //  Pick-ups that select random spawn location from list - spawn every set time, only when previous collected
     public Void(Game g) {
-        super(g, "The Void", -15, 15, 9, -7.5f);
+        super(g,
+                "The Void",
+                "witchcraft/tiles/outlined",
+                new Vec2(-15, 9),
+                new Vec2(15, -7.5f));
 
         setBackground(Color.BLACK);
 
@@ -19,8 +24,6 @@ public class Void extends BattleArena {
 
     @Override
     public void populate() {
-        setTilePath("witchcraft/tiles/outlined"); // File path for tiles
-
         placeBlock(Tile.END_TOP_LEFT, -1, 9);
         for (int x = 1; x < 6; x += 2) placeBlock(Tile.TOP, x, 9);
         placeBlock(Tile.END_TOP_RIGHT, 7, 9);

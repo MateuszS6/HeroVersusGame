@@ -35,8 +35,7 @@ public class Player extends Walker implements ActionListener {
     public Player(BattleArena w,
                   int number,
                   Characters c,
-                  float x,
-                  float y) {
+                  Vec2 spawn) {
         super(w);
         gameRound = w;
         ID = number;
@@ -45,10 +44,9 @@ public class Player extends Walker implements ActionListener {
             case SKELETON -> new Skeleton(this);
             case WIZARD -> new Wizard(this);
         };
-        startPos = new Vec2(x, y);
+        startPos = spawn;
 
         hitbox = new SolidFixture(this, character.getDefaultShape());
-        setAlwaysOutline(false);
         setGravityScale(2);
 
         health = MAX_HEALTH;
