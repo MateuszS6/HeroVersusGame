@@ -1,16 +1,15 @@
 package arenas;
 
-import game.BattleArena;
 import game.Game;
 import org.jbox2d.common.Vec2;
 import world.Tile;
 
 import java.awt.*;
 
-public class Void extends BattleArena {
+public class TheVoid extends BattleArena {
     // TODO: 24/04/2023
     //  Pick-ups that select random spawn location from list - spawn every set time, only when previous collected
-    public Void(Game g) {
+    public TheVoid(Game g) {
         super(g,
                 "The Void",
                 "witchcraft/tiles/outlined",

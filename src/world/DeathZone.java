@@ -2,7 +2,7 @@ package world;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
-import game.BattleArena;
+import arenas.BattleArena;
 import player.Player;
 
 import javax.swing.*;

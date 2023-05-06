@@ -2,7 +2,7 @@ package player;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
-import game.BattleArena;
+import arenas.BattleArena;
 import world.HealthRefill;
 import world.Platform;
 

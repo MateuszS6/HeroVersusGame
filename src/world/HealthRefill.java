@@ -2,8 +2,7 @@ package world;
 
 import city.cs.engine.CircleShape;
 import city.cs.engine.StaticBody;
-import city.cs.engine.World;
-import game.BattleArena;
+import arenas.BattleArena;
 
 import java.awt.*;
 

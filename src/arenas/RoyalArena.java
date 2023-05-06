@@ -1,18 +1,19 @@
 package arenas;
 
-import game.BattleArena;
 import game.Game;
 import org.jbox2d.common.Vec2;
+import world.HealthRefill;
 import world.Platform;
 import world.Tile;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Royal extends BattleArena implements ActionListener {
+public class RoyalArena extends BattleArena implements ActionListener {
     // TODO: 24/04/2023 WOODEN TILES???
-    public Royal(Game g) {
+    public RoyalArena(Game g) {
         super(g,
                 "Royal Arena",
                 "grasslands/tiles",
@@ -32,15 +33,15 @@ public class Royal extends BattleArena implements ActionListener {
         // Hovering ball
 //        HoveringBall annoyingBall = new HoveringBall(this, 3, 0, 8);
 
-//        Timer collectibleTimer = new Timer(10000, this);
-//        collectibleTimer.setRepeats(false);
-//        collectibleTimer.start();
+        Timer collectibleTimer = new Timer(10000, this);
+        collectibleTimer.setRepeats(false);
+        collectibleTimer.start();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         // Collectible
-//        HealthRefill collectible = new HealthRefill(this, 0, -10);
+        HealthRefill collectible = new HealthRefill(this, 0, 10);
     }
 
     @Override

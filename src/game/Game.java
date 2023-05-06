@@ -1,8 +1,9 @@
 package game;
 
-import arenas.Forest;
-import arenas.Royal;
-import arenas.Void;
+import arenas.BattleArena;
+import arenas.WildForest;
+import arenas.RoyalArena;
+import arenas.TheVoid;
 import city.cs.engine.SoundClip;
 import menu.TitleScreen;
 
@@ -52,7 +53,7 @@ public final class Game {
             if (soundtrack != null) soundtrack.stop();
             soundtrack = new SoundClip("assets/sound/music/" + fileName);
             soundtrack.setVolume(0.3);
-//            soundtrack.loop();
+            soundtrack.loop();
         } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             throw new RuntimeException(e);
         }
@@ -84,9 +85,9 @@ public final class Game {
 
     public BattleArena getArena(Arenas a) {
         return switch (a) {
-            case ROYAL_ARENA -> new Royal(this);
-            case WILD_FOREST -> new Forest(this);
-            case THE_VOID -> new Void(this);
+            case ROYAL_ARENA -> new RoyalArena(this);
+            case WILD_FOREST -> new WildForest(this);
+            case THE_VOID -> new TheVoid(this);
         }; // Game world
     }
 

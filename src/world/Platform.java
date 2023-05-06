@@ -1,7 +1,7 @@
 package world;
 
 import city.cs.engine.*;
-import game.BattleArena;
+import arenas.BattleArena;
 import org.jbox2d.common.Vec2;
 
 public class Platform extends StaticBody {

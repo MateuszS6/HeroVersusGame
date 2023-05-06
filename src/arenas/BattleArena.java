@@ -1,8 +1,7 @@
-package game;
+package arenas;
 
-import arenas.Royal;
 import city.cs.engine.World;
-import menu.PlayScreen;
+import game.Game;
 import menu.TitleScreen;
 import org.jbox2d.common.Vec2;
 import player.Characters;
@@ -109,7 +108,7 @@ public abstract class BattleArena extends World {
         Color label = new Color(255, 255, 255, 165);
         String font = "Bahnschrift";
 
-        if (this instanceof Royal) g.setColor(Color.BLACK);
+        if (this instanceof RoyalArena) g.setColor(Color.BLACK);
         else g.setColor(Color.WHITE);
         g.setFont(new Font(font, Font.BOLD, 20));
         g.drawString(title, (scrW / 2) - 60, 30);

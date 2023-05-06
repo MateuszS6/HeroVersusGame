@@ -1,12 +1,11 @@
 package arenas;
 
-import game.BattleArena;
 import game.Game;
 import org.jbox2d.common.Vec2;
 import world.Tile;
 
-public class Forest extends BattleArena {
-    public Forest(Game g) {
+public class WildForest extends BattleArena {
+    public WildForest(Game g) {
         super(g,
                 "Wild Forest",
                 "village/tiles",

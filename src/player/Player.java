@@ -5,7 +5,7 @@ import characters.Knight;
 import characters.Skeleton;
 import characters.Wizard;
 import city.cs.engine.*;
-import game.BattleArena;
+import arenas.BattleArena;
 import org.jbox2d.common.Vec2;
 
 import javax.swing.*;

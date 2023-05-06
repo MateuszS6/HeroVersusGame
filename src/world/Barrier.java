@@ -2,8 +2,7 @@ package world;
 
 import city.cs.engine.BoxShape;
 import city.cs.engine.StaticBody;
-import city.cs.engine.World;
-import game.BattleArena;
+import arenas.BattleArena;
 import org.jbox2d.common.Vec2;
 
 public class Barrier extends StaticBody {

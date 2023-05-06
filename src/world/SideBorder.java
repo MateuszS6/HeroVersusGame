@@ -2,7 +2,7 @@ package world;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
-import game.BattleArena;
+import arenas.BattleArena;
 import org.jbox2d.common.Vec2;
 import player.Player;
 
