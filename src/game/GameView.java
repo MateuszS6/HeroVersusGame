@@ -23,7 +23,7 @@ public class GameView extends UserView {
         addKeyListener(new PlayerController(arena.getPlayer2())); // Player 2 controller
 
         addMouseListener(new GiveFocus(this)); // View focus
-        addKeyListener(new GameController(this, arena, GRID)); // Debug controller
+        addKeyListener(new GameController(this, arena, 2)); // Debug controller
     }
 
     @Override

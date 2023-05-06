@@ -30,7 +30,5 @@ public class OldHangar extends BattleArena {
     }
 
     @Override
-    public void populate() {
-        placeBlock(Tile.TOP, 0, 0);
-    }
+    public void populate() {}
 }

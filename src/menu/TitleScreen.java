@@ -23,4 +23,8 @@ public class TitleScreen {
     public JPanel getMainPanel() {
         return mainPanel;
     }
+
+    private void createUIComponents() {
+        mainPanel = new MenuBackground();
+    }
 }
