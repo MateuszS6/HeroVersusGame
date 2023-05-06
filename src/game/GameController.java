@@ -5,22 +5,20 @@ import arenas.BattleArena;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class DebugController implements KeyListener {
+public class GameController implements KeyListener {
     private final float GRID;
-    private final int T = KeyEvent.VK_T;
-    private final int G = KeyEvent.VK_G;
-    private final int H = KeyEvent.VK_H;
-    private GameView view;
-    private BattleArena arena;
+    private final GameView view;
+    private final BattleArena arena;
     private int key;
     private boolean debugModeOn = false;
     private boolean playerOutlineOn = false;
     private boolean gridOn = false;
 
-    public DebugController(GameView v, BattleArena w, float grid) {
+    public GameController(GameView v, BattleArena w, float grid) {
         view = v;
         arena = w;
         GRID = grid;
+        System.out.println("Debug mode off");
     }
 
     @Override
@@ -32,21 +30,24 @@ public class DebugController implements KeyListener {
     public void keyPressed(KeyEvent e) {
         key = e.getKeyCode();
         if (debugModeOn) {
-            if (key == T) {
+            if (key == KeyEvent.VK_T) {
                 playerOutlineOn = !playerOutlineOn;
                 arena.getPlayer1().setAlwaysOutline(playerOutlineOn);
                 arena.getPlayer2().setAlwaysOutline(playerOutlineOn);
             }
-            if (key == G) {
+            if (key == KeyEvent.VK_G) {
                 gridOn = !gridOn;
                 if (gridOn) view.setGridResolution(GRID);
                 else view.setGridResolution(0);
             }
-            if (key == H) view.runDebugViewer();
+            if (key == KeyEvent.VK_H) view.runDebugViewer();
         }
         if (key == KeyEvent.VK_0) {
             debugModeOn = !debugModeOn;
             System.out.println("Debug mode " + (debugModeOn ? "on" : "off"));
+        }
+        if (key == KeyEvent.VK_ESCAPE) {
+            System.out.println("pause");
         }
     }
 

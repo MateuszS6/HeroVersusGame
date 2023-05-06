@@ -44,7 +44,7 @@ public final class Wizard extends Character {
                 9,
                 10,
                 15,
-                700,
+                800,
                 25);
     }
 }

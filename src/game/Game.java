@@ -1,9 +1,6 @@
 package game;
 
-import arenas.BattleArena;
-import arenas.WildForest;
-import arenas.RoyalArena;
-import arenas.TheVoid;
+import arenas.*;
 import city.cs.engine.SoundClip;
 import menu.TitleScreen;
 
@@ -88,6 +85,7 @@ public final class Game {
             case ROYAL_ARENA -> new RoyalArena(this);
             case WILD_FOREST -> new WildForest(this);
             case THE_VOID -> new TheVoid(this);
+            case OLD_HANGAR -> new OldHangar(this);
         }; // Game world
     }
 

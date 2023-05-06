@@ -25,7 +25,7 @@ public class RoyalArena extends BattleArena implements ActionListener {
         setDeathZone(this, -20);
 
         // Stage (player spawns)
-        Color transparent = new Color(0, 0, 0, 0);
+        Color transparent = new Color(0, true);
         Platform stage = new Platform(this, 7, 2, 0, -13.5f);
         stage.setFillColor(transparent);
         stage.setLineColor(transparent);

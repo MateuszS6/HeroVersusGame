@@ -3,12 +3,12 @@ package player;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Controller implements KeyListener {
+public class PlayerController implements KeyListener {
     private final Player player;
     private int key;
 
     /** Initialise the game controller. */
-    public Controller(Player player) {
+    public PlayerController(Player player) {
         this.player = player;
     }
 

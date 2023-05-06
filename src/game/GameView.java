@@ -3,7 +3,7 @@ package game;
 import arenas.BattleArena;
 import city.cs.engine.DebugViewer;
 import city.cs.engine.UserView;
-import player.Controller;
+import player.PlayerController;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -19,11 +19,11 @@ public class GameView extends UserView {
         super(w, width, height);
         arena = w;
 
-        addKeyListener(new Controller(arena.getPlayer1())); // Player 1 controller
-        addKeyListener(new Controller(arena.getPlayer2())); // Player 2 controller
+        addKeyListener(new PlayerController(arena.getPlayer1())); // Player 1 controller
+        addKeyListener(new PlayerController(arena.getPlayer2())); // Player 2 controller
 
         addMouseListener(new GiveFocus(this)); // View focus
-        addKeyListener(new DebugController(this, arena, GRID)); // Debug controller
+        addKeyListener(new GameController(this, arena, GRID)); // Debug controller
     }
 
     @Override

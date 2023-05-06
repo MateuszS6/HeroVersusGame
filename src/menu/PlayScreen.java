@@ -22,6 +22,7 @@ public class PlayScreen {
                 case 1 -> Arenas.ROYAL_ARENA;
                 case 2 -> Arenas.WILD_FOREST;
                 case 3 -> Arenas.THE_VOID;
+                case 4 -> Arenas.OLD_HANGAR;
                 default -> null;
             };
         });
