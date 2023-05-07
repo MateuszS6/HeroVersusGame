@@ -31,7 +31,14 @@ public class Player extends Walker implements ActionListener {
             isRunning,
             isAttacking;
 
-    /** Initialise a player. */
+    /** Player constructor.
+     * <p>
+     * Creates and spawns new player in the arena.
+     * @param w the arena in which the player should spawn
+     * @param number the ID of the player (either 1 or 2)
+     * @param c a character enum to bind the corresponding character object to the player
+     * @param spawn the spawn location for the player in the world
+     */
     public Player(BattleArena w,
                   int number,
                   Characters c,

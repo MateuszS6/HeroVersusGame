@@ -14,7 +14,13 @@ public class GameView extends UserView {
     private final BattleArena arena;
     private DebugViewer debugViewer;
 
-    /** Initialise the game view. */
+    /** View constructor.
+     * <p>
+     * Creates a new view to look onto the BattleArena.
+     * @param w the arena
+     * @param width the width of the view in pixels
+     * @param height the height of the view in pixels
+     */
     public GameView(BattleArena w, int width, int height) {
         super(w, width, height);
         arena = w;

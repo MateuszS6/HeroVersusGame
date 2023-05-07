@@ -41,7 +41,14 @@ public abstract class BattleArena extends World {
     private boolean isEnded = false;
 
     /**
-     * Initialise a game world.
+     * World constructor.
+     * <p>
+     * Creates a new arena based on the calling subclass.
+     * @param g the game containing the arena
+     * @param title the name of the arena
+     * @param localTilePath the file path for tile images of the arena under assets/tileset
+     * @param spawn1 the spawn location for player 1
+     * @param spawn2 the spawn location for player 2
      */
     public BattleArena(Game g,
                        String title,

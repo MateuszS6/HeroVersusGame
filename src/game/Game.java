@@ -21,7 +21,10 @@ public final class Game {
     private BattleArena arena;
     private GameView view;
 
-    /** Initialise a new game. */
+    /** Game constructor.
+     * <p>
+     * Creates a new game with the title screen and soundtrack.
+     */
     public Game() {
         // TODO: 30/04/2023 Main menu book-style as imagined
 
