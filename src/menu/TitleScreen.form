@@ -85,7 +85,7 @@
         </constraints>
         <properties>
           <font name="Bahnschrift" size="20"/>
-          <text value="Controls (W.I.P)"/>
+          <text value="Controls"/>
         </properties>
       </component>
       <component id="dff5a" class="javax.swing.JButton" binding="quitButton" default-binding="true">
