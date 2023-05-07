@@ -80,10 +80,15 @@ public final class Game {
     // TODO: 29/04/2023 Winning player of final round is ULTIMATE CHAMPION
 
     public void goToArena(Arenas a) {
+        if (a == null) throw new RuntimeException("ARENA IS NULL.");
         arena = getArena(a);
         view = new GameView(arena, WIDTH, HEIGHT); // Game view
         switchPanel(view);
         arena.start();
+    }
+
+    public void restartArena(BattleArena w) {
+
     }
 
     public BattleArena getArena(Arenas a) {

@@ -36,8 +36,10 @@ public class GameController implements KeyListener {
             if (key == KeyEvent.VK_G) toggleGrid();
             if (key == KeyEvent.VK_H) view.runDebugViewer();
         }
-        if (key == KeyEvent.VK_ESCAPE) arena.togglePause();
+        if (!arena.isEnded())
+            if (key == KeyEvent.VK_ESCAPE) arena.togglePause(arena.isEnded());
         if (arena.isPaused()) {
+            if (arena.isEnded()) if (key == KeyEvent.VK_ESCAPE) arena.restart();
             if (key == KeyEvent.VK_ENTER) arena.exit();
         }
     }

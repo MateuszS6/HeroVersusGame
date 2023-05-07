@@ -37,7 +37,7 @@ public class GameView extends UserView {
     @Override
     protected void paintForeground(Graphics2D g) {
         arena.drawHUD(g, this);
-        if (arena.isPaused()) drawPauseMenu(g);
+        if (arena.isPaused() || arena.isEnded()) drawPauseMenu(g);
     }
 
 
@@ -55,11 +55,23 @@ public class GameView extends UserView {
 
         int centre = getWidth() / 2;
         int middle = getHeight() / 2;
-        g.setFont(new Font("Impact", Font.PLAIN, 72));
-        betterDrawString(g, "Game Paused", centre, middle);
-        g.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-        betterDrawString(g, "[ESC] Resume", centre, middle + 20);
-        betterDrawString(g, "[ENTER] Exit", centre, middle + 60);
+        if (arena.isEnded()) {
+            g.setFont(new Font("Eras Bold ITC", Font.PLAIN, 72));
+            betterDrawString(g, "Player" + arena.getWinner(), centre, middle - 30);
+            g.setFont(new Font("Impact", Font.PLAIN, 36));
+            g.setColor(new Color(0xBBBBBB));
+            betterDrawString(g, "ARENA CHAMPION", centre, middle + 20);
+            g.setColor(new Color(0xFFFFFF));
+            g.setFont(new Font("Bahnschrift", Font.BOLD, 20));
+            betterDrawString(g, "[ESC] Rematch", centre, middle + 60);
+            betterDrawString(g, "[ENTER] Exit", centre, middle + 100);
+        } else {
+            g.setFont(new Font("Impact", Font.PLAIN, 72));
+            betterDrawString(g, "Game Paused", centre, middle);
+            g.setFont(new Font("Bahnschrift", Font.BOLD, 20));
+            betterDrawString(g, "[ESC] Resume", centre, middle + 20);
+            betterDrawString(g, "[ENTER] Exit", centre, middle + 60);
+        }
     }
 
     public void betterDrawString(Graphics2D g, String str, float x, float y) {

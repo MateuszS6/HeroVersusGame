@@ -1,6 +1,7 @@
 package arenas;
 
 import city.cs.engine.World;
+import game.Arenas;
 import game.Game;
 import game.GameView;
 import menu.TitleScreen;
@@ -32,10 +33,12 @@ public abstract class BattleArena extends World {
     private final Player
             player1,
             player2;
+    private int winner;
     private Color bgColour;
     private Image bgImage;
     private DeathZone deathZone;
     private boolean isPaused = false;
+    private boolean isEnded = false;
 
     /**
      * Initialise a game world.
@@ -78,6 +81,14 @@ public abstract class BattleArena extends World {
 
     public Player getPlayer2() {
         return player2;
+    }
+
+    public int getWinner() {
+        return winner;
+    }
+
+    public void setWinner(int winner) {
+        this.winner = winner;
     }
 
     public Color getBgColour() {
@@ -141,20 +152,30 @@ public abstract class BattleArena extends World {
         return isPaused;
     }
 
-    public void togglePause() {
+    public boolean isEnded() {
+        return isEnded;
+    }
+
+    public void togglePause(boolean roundEnded) {
+        isEnded = roundEnded;
         isPaused = !isPaused;
         game.toggleSoundtrack();
         if (isPaused) stop();
         else start();
     }
 
-    public void exit() {
-        game.switchPanel(new TitleScreen(game).getMainPanel());
+    public void restart() {
+        Arenas a = switch (title) {
+            case "ROYAL ARENA" -> Arenas.ROYAL_ARENA;
+            case "WILD FOREST" -> Arenas.WILD_FOREST;
+            case "THE VOID" -> Arenas.THE_VOID;
+            case "OLD HANGAR" -> Arenas.OLD_HANGAR;
+            default -> null;
+        };
+        game.goToArena(a);
     }
 
-    public void isComplete(int winnerID) {
-        System.out.println("Player " + winnerID + " is the arena champion.");
-        stop();
+    public void exit() {
         game.switchPanel(new TitleScreen(game).getMainPanel());
     }
 }
