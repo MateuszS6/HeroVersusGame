@@ -13,22 +13,21 @@ public class ControlsPage {
     Game game;
     private JPanel mainPanel;
     private JButton backButton;
-    private JPanel controlsPanel;
-    private JButton left1;
     private JButton jump1;
-    private JButton right1;
-    private JButton attack1;
-    private JButton left2;
     private JButton jump2;
+    private JButton left1;
+    private JButton left2;
+    private JButton right1;
     private JButton right2;
+    private JButton attack1;
     private JButton attack2;
+    private JPanel controlsPanel;
 
     public ControlsPage(Game g) {
         game = g;
         mainPanel.setPreferredSize(new Dimension(Game.WIDTH, Game.HEIGHT));
         backButton.addActionListener(e -> game.switchPanel(new TitleScreen(game).getMainPanel()));
-
-        KeyAdapter listener = new KeyAdapter() {
+        /*KeyAdapter listener = new KeyAdapter() {
             int key;
             @Override
             public void keyPressed(KeyEvent e) {
@@ -43,7 +42,7 @@ public class ControlsPage {
         left2.addKeyListener(listener);
         jump2.addKeyListener(listener);
         right2.addKeyListener(listener);
-        attack2.addKeyListener(listener);
+        attack2.addKeyListener(listener);*/
     }
 
     public JPanel getMainPanel() {

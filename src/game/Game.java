@@ -7,6 +7,7 @@ import menu.TitleScreen;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
 /** Main game entry point. */
@@ -89,6 +90,6 @@ public final class Game {
         }; // Game world
     }
 
-    public void restart() {
+    public void pauseRound() {
     }
 }
