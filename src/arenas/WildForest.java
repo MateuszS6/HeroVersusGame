@@ -7,7 +7,7 @@ import world.Tile;
 public class WildForest extends BattleArena {
     public WildForest(Game g) {
         super(g,
-                "Wild Forest",
+                "WILD FOREST",
                 "village/tiles",
                 new Vec2(-17, -7),
                 new Vec2(17, -8));

@@ -15,7 +15,7 @@ public class RoyalArena extends BattleArena implements ActionListener {
     // TODO: 24/04/2023 WOODEN TILES???
     public RoyalArena(Game g) {
         super(g,
-                "Royal Arena",
+                "ROYAL ARENA",
                 "grasslands/tiles",
                 new Vec2(-4, -8),
                 new Vec2(4, -9));

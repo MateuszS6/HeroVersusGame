@@ -15,7 +15,7 @@ public class OldHangar extends BattleArena {
      */
     public OldHangar(Game g) {
         super(g,
-                "Old Hangar",
+                "OLD HANGAR",
                 "central_city/tiles",
                 new Vec2(-17, -7.5f),
                 new Vec2(17, -7.5f));

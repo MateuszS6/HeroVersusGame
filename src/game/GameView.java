@@ -36,15 +36,35 @@ public class GameView extends UserView {
 
     @Override
     protected void paintForeground(Graphics2D g) {
-        Point2D.Float p1 = worldToView(arena.getPlayer1().getPosition());
-        Point2D.Float p2 = worldToView(arena.getPlayer2().getPosition());
-
-        arena.drawHUD(g, getWidth(), getHeight(), p1, p2);
+        arena.drawHUD(g, this);
+        if (arena.isPaused()) drawPauseMenu(g);
     }
+
+
 
     public void runDebugViewer() {
         if (debugViewer == null) debugViewer = new DebugViewer(arena, getWidth(), getHeight());
     }
 
-    // TODO: 04/05/2023 Update key listeners and stuff as if it were creating a whole new view
+    public void drawPauseMenu(Graphics2D g) {
+        g.setColor(new Color(0, 0, 0, 128));
+        g.fillRect(0, 0, getWidth(), getHeight());
+        g.setColor(new Color(0xFFFFFF));
+        int d = 20;
+        g.drawRoundRect(d, d, getWidth() - d * 2, getHeight() - d * 2, 10, 10);
+
+        int centre = getWidth() / 2;
+        int middle = getHeight() / 2;
+        g.setFont(new Font("Impact", Font.PLAIN, 72));
+        betterDrawString(g, "Game Paused", centre, middle);
+        g.setFont(new Font("Bahnschrift", Font.BOLD, 20));
+        betterDrawString(g, "[ESC] Resume", centre, middle + 20);
+        betterDrawString(g, "[ENTER] Exit", centre, middle + 60);
+    }
+
+    public void betterDrawString(Graphics2D g, String str, float x, float y) {
+        int c = g.getFontMetrics().stringWidth(str) / 2;
+        int m = g.getFontMetrics().getHeight() / 2;
+        g.drawString(str, x - c, y - m);
+    }
 }

@@ -11,7 +11,7 @@ public class TheVoid extends BattleArena {
     //  Pick-ups that select random spawn location from list - spawn every set time, only when previous collected
     public TheVoid(Game g) {
         super(g,
-                "The Void",
+                "THE VOID",
                 "witchcraft/tiles/outlined",
                 new Vec2(-15, 9),
                 new Vec2(15, -7.5f));

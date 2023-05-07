@@ -57,6 +57,11 @@ public final class Game {
         }
     }
 
+    public void toggleSoundtrack() {
+        if (arena.isPaused()) soundtrack.pause();
+        else soundtrack.resume();
+    }
+
     public void playSound(String fileName) {
         try {
             new SoundClip("assets/sound/" + fileName).play();
@@ -72,8 +77,8 @@ public final class Game {
         if (currentScreen == view) setSoundtrack(MENU_MUSIC);
         currentScreen = to;
     }
-
     // TODO: 29/04/2023 Winning player of final round is ULTIMATE CHAMPION
+
     public void goToArena(Arenas a) {
         arena = getArena(a);
         view = new GameView(arena, WIDTH, HEIGHT); // Game view
@@ -88,8 +93,5 @@ public final class Game {
             case THE_VOID -> new TheVoid(this);
             case OLD_HANGAR -> new OldHangar(this);
         }; // Game world
-    }
-
-    public void pauseRound() {
     }
 }

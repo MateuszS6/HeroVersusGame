@@ -2,6 +2,7 @@ package arenas;
 
 import city.cs.engine.World;
 import game.Game;
+import game.GameView;
 import menu.TitleScreen;
 import org.jbox2d.common.Vec2;
 import player.Characters;
@@ -34,6 +35,7 @@ public abstract class BattleArena extends World {
     private Color bgColour;
     private Image bgImage;
     private DeathZone deathZone;
+    private boolean isPaused = false;
 
     /**
      * Initialise a game world.
@@ -104,30 +106,50 @@ public abstract class BattleArena extends World {
         new Tile(this, tilePath + type, x, y);
     }
 
-    public void drawHUD(Graphics2D g, int scrW, int scrH, Point2D.Float p1, Point2D.Float p2) {
-        Color label = new Color(255, 255, 255, 165);
-        String font = "Bahnschrift";
+    public void drawHUD(Graphics2D g, GameView v) {
+        int centre = v.getWidth() / 2;
+        int middle = v.getHeight() / 2;
 
+        // Arena title
         if (this instanceof RoyalArena) g.setColor(Color.BLACK);
         else g.setColor(Color.WHITE);
-        g.setFont(new Font(font, Font.BOLD, 20));
-        g.drawString(title, (scrW / 2) - 60, 30);
-
-        g.setColor(label);
-        g.setFont(new Font(font, Font.BOLD, 15));
+        g.setFont(new Font("Impact", Font.PLAIN, 26));
+        v.betterDrawString(g, title, centre, 60);
 
         int w = 120;
         int h = 65;
-        int x = 10; // (scrW / 2) - (w + 5);
+        int x = 10;
         int y = 10;
+
+        // Player positions converted from world to view coordinates
+        Point2D.Float p1 = v.worldToView(player1.getPosition());
+        Point2D.Float p2 = v.worldToView(player2.getPosition());
+
+        g.setColor(new Color(255, 255, 255, 165));
+        g.setFont(new Font("Bahnschrift", Font.BOLD, 15));
 
         // Player 1 HUD
         player1.drawStatsBox(g, w, h, x, y);
-        if (player1.getRespawns() > 0) g.drawString("Player 1", p1.x - 30, p1.y - 5);
+        if (player1.getRespawns() > 0) v.betterDrawString(g, "Player 1", p1.x, p1.y - 5);
 
         // Player 2 HUD
-        player2.drawStatsBox(g, w, h, scrW - (w + x), y);
-        if (player2.getRespawns() > 0) g.drawString("Player 2", p2.x - 30, p2.y - 45);
+        player2.drawStatsBox(g, w, h, v.getWidth() - (w + x), y);
+        if (player2.getRespawns() > 0) v.betterDrawString(g, "Player 2", p2.x, p2.y - 45);
+    }
+
+    public boolean isPaused() {
+        return isPaused;
+    }
+
+    public void togglePause() {
+        isPaused = !isPaused;
+        game.toggleSoundtrack();
+        if (isPaused) stop();
+        else start();
+    }
+
+    public void exit() {
+        game.switchPanel(new TitleScreen(game).getMainPanel());
     }
 
     public void isComplete(int winnerID) {
