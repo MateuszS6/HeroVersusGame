@@ -6,7 +6,6 @@ import city.cs.engine.UserView;
 import player.PlayerController;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 
 /** Game view class. */
 public class GameView extends UserView {
@@ -42,7 +41,7 @@ public class GameView extends UserView {
 
     @Override
     protected void paintForeground(Graphics2D g) {
-        arena.drawHUD(g, this);
+        arena.drawHUD(this, g);
         if (arena.isPaused() || arena.isEnded()) drawPauseMenu(g);
     }
 
@@ -63,26 +62,26 @@ public class GameView extends UserView {
         int middle = getHeight() / 2;
         if (arena.isEnded()) {
             g.setFont(new Font("Eras Bold ITC", Font.PLAIN, 72));
-            betterDrawString(g, "Player" + arena.getWinner(), centre, middle - 30);
+            drawText(g, "Player " + arena.getWinner(), centre, middle - 30);
             g.setFont(new Font("Impact", Font.PLAIN, 36));
             g.setColor(new Color(0xBBBBBB));
-            betterDrawString(g, "ARENA CHAMPION", centre, middle + 20);
+            drawText(g, "ARENA CHAMPION", centre, middle + 20);
             g.setColor(new Color(0xFFFFFF));
             g.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-            betterDrawString(g, "[ESC] Rematch", centre, middle + 60);
-            betterDrawString(g, "[ENTER] Exit", centre, middle + 100);
+            drawText(g, "[ESC] Rematch", centre, middle + 60);
+            drawText(g, "[ENTER] Exit", centre, middle + 100);
         } else {
             g.setFont(new Font("Impact", Font.PLAIN, 72));
-            betterDrawString(g, "Game Paused", centre, middle);
+            drawText(g, "Game Paused", centre, middle);
             g.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-            betterDrawString(g, "[ESC] Resume", centre, middle + 20);
-            betterDrawString(g, "[ENTER] Exit", centre, middle + 60);
+            drawText(g, "[ESC] Resume", centre, middle + 20);
+            drawText(g, "[ENTER] Exit", centre, middle + 60);
         }
     }
 
-    public void betterDrawString(Graphics2D g, String str, float x, float y) {
-        int c = g.getFontMetrics().stringWidth(str) / 2;
-        int m = g.getFontMetrics().getHeight() / 2;
-        g.drawString(str, x - c, y - m);
+    public void drawText(Graphics2D g, String text, float x, float y) {
+        int fCentre = g.getFontMetrics().stringWidth(text) / 2;
+        int fMiddle = g.getFontMetrics().getHeight() / 2;
+        g.drawString(text, x - fCentre, y - fMiddle);
     }
 }

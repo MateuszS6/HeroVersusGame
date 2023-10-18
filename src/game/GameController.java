@@ -18,7 +18,10 @@ public class GameController implements KeyListener {
         view = v;
         arena = w;
         GRID = grid;
-        System.out.println("Debug mode off");
+        System.out.println("[0] Debug mode: OFF");
+        System.out.println("    [T] Toggle player outlines");
+        System.out.println("    [G] Toggle grid");
+        System.out.println("    [H] Run debug viewer");
     }
 
     @Override
@@ -29,7 +32,7 @@ public class GameController implements KeyListener {
         key = e.getKeyCode();
         if (key == KeyEvent.VK_0) {
             debugModeOn = !debugModeOn;
-            System.out.println("Debug mode " + (debugModeOn ? "on" : "off"));
+            System.out.println("[0] Debug mode: " + (debugModeOn ? "ON" : "OFF"));
         }
         if (debugModeOn) {
             if (key == KeyEvent.VK_T) togglePlayerOutlines();
@@ -39,7 +42,7 @@ public class GameController implements KeyListener {
         if (!arena.isEnded())
             if (key == KeyEvent.VK_ESCAPE) arena.togglePause(arena.isEnded());
         if (arena.isPaused()) {
-            if (arena.isEnded()) if (key == KeyEvent.VK_ESCAPE) arena.restart();
+            if (arena.isEnded()) if (key == KeyEvent.VK_ESCAPE) System.out.println("Feature unavailable.");
             if (key == KeyEvent.VK_ENTER) arena.exit();
         }
     }

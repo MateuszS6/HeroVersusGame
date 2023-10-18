@@ -1,7 +1,8 @@
 package menu;
 
-import game.Arenas;
+import arenas.*;
 import game.Game;
+import game.Panels;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,26 +11,25 @@ public class PlayScreen {
     private final Game game;
     private JPanel mainPanel;
     private JComboBox<String> comboBox;
-    private Arenas selection;
+    private BattleArena selection;
     private JButton fightButton;
     private JButton backButton;
 
     public PlayScreen(Game g) {
         game = g;
-        mainPanel.setPreferredSize(new Dimension(Game.WIDTH, Game.HEIGHT));
         comboBox.addActionListener(e -> {
             selection = switch (comboBox.getSelectedIndex()) {
-                case 1 -> Arenas.ROYAL_ARENA;
-                case 2 -> Arenas.WILD_FOREST;
-                case 3 -> Arenas.THE_VOID;
-                case 4 -> Arenas.OLD_HANGAR;
+                case 1 -> new RoyalArena(game);
+                case 2 -> new WildForest(game);
+                case 3 -> new TheVoid(game);
+                case 4 -> new OldHangar(game);
                 default -> null;
             };
         });
         fightButton.addActionListener(e -> {
             if (selection != null) game.goToArena(selection);
         });
-        backButton.addActionListener(e -> game.switchPanel(new TitleScreen(game).getMainPanel()));
+        backButton.addActionListener(e -> game.switchToMenu(Panels.TITLE_SCREEN));
     }
 
     public JPanel getMainPanel() {

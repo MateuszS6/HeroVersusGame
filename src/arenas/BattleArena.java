@@ -1,10 +1,9 @@
 package arenas;
 
 import city.cs.engine.World;
-import game.Arenas;
 import game.Game;
 import game.GameView;
-import menu.TitleScreen;
+import game.Panels;
 import org.jbox2d.common.Vec2;
 import player.Characters;
 import player.Player;
@@ -124,15 +123,15 @@ public abstract class BattleArena extends World {
         new Tile(this, tilePath + type, x, y);
     }
 
-    public void drawHUD(Graphics2D g, GameView v) {
-        int centre = v.getWidth() / 2;
-        int middle = v.getHeight() / 2;
+    public void drawHUD(GameView v, Graphics2D g) {
+        int centre = Game.WIDTH / 2;
+        int middle = Game.HEIGHT / 2;
 
         // Arena title
         if (this instanceof RoyalArena) g.setColor(Color.BLACK);
         else g.setColor(Color.WHITE);
         g.setFont(new Font("Impact", Font.PLAIN, 26));
-        v.betterDrawString(g, title, centre, 60);
+        v.drawText(g, title, centre, 60);
 
         int w = 120;
         int h = 65;
@@ -147,12 +146,12 @@ public abstract class BattleArena extends World {
         g.setFont(new Font("Bahnschrift", Font.BOLD, 15));
 
         // Player 1 HUD
-        player1.drawStatsBox(g, w, h, x, y);
-        if (player1.getRespawns() > 0) v.betterDrawString(g, "Player 1", p1.x, p1.y - 5);
+        player1.drawStats(g, w, h, x, y);
+        if (player1.getRespawns() > 0) v.drawText(g, "Player 1", p1.x, p1.y - 5);
 
         // Player 2 HUD
-        player2.drawStatsBox(g, w, h, v.getWidth() - (w + x), y);
-        if (player2.getRespawns() > 0) v.betterDrawString(g, "Player 2", p2.x, p2.y - 45);
+        player2.drawStats(g, w, h, v.getWidth() - (w + x), y);
+        if (player2.getRespawns() > 0) v.drawText(g, "Player 2", p2.x, p2.y - 45);
     }
 
     public boolean isPaused() {
@@ -171,18 +170,20 @@ public abstract class BattleArena extends World {
         else start();
     }
 
+/*
     public void restart() {
-        Arenas a = switch (title) {
-            case "ROYAL ARENA" -> Arenas.ROYAL_ARENA;
-            case "WILD FOREST" -> Arenas.WILD_FOREST;
-            case "THE VOID" -> Arenas.THE_VOID;
-            case "OLD HANGAR" -> Arenas.OLD_HANGAR;
-            default -> null;
+        BattleArena w = switch (title) {
+            case "ROYAL ARENA" -> new RoyalArena(game);
+            case "WILD FOREST" -> new WildForest(game);
+            case "THE VOID" -> new TheVoid(game);
+            case "OLD HANGAR" -> new OldHangar(game);
+            default -> throw new RuntimeException("ARENA IS NULL");
         };
-        game.goToArena(a);
+        game.restartArena(w);
     }
+*/
 
     public void exit() {
-        game.switchPanel(new TitleScreen(game).getMainPanel());
+        game.switchToMenu(Panels.TITLE_SCREEN);
     }
 }

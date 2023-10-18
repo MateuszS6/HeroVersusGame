@@ -1,13 +1,10 @@
 package menu;
 
 import game.Game;
+import game.Panels;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 public class ControlsPage {
     Game game;
@@ -25,8 +22,7 @@ public class ControlsPage {
 
     public ControlsPage(Game g) {
         game = g;
-        mainPanel.setPreferredSize(new Dimension(Game.WIDTH, Game.HEIGHT));
-        backButton.addActionListener(e -> game.switchPanel(new TitleScreen(game).getMainPanel()));
+        backButton.addActionListener(e -> game.switchToMenu(Panels.TITLE_SCREEN));
         /*KeyAdapter listener = new KeyAdapter() {
             int key;
             @Override

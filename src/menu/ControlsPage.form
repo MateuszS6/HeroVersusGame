@@ -182,7 +182,7 @@
         </constraints>
         <properties>
           <foreground color="-4473925"/>
-          <text value="These controls are not yet changeable."/>
+          <text value="Controls are currently immutable."/>
         </properties>
       </component>
     </children>

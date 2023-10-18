@@ -202,39 +202,39 @@ public class Player extends Walker implements ActionListener {
         }
     }
 
-    // TODO: 28/04/2023 Changeable player username, once text outline is implemented
-    public void drawStatsBox(Graphics2D g, int w, int h, int x, int y) {
+    // TODO: 28/04/2023 Changeable player username
+    public void drawStats(Graphics2D g, int w, int h, int x, int y) {
         // Save colour and font
         Color savedColour = g.getColor();
         Font savedFont = g.getFont();
 
+        int arc = 10;
+
         // Back panel
         g.setColor(new Color(0xFFFFFF));
-        g.drawRoundRect(x, y, w, h, 10, 10);
+        g.drawRoundRect(x, y, w, h, arc, arc);
         g.setColor(new Color(255, 255, 255, 65));
-        g.fillRoundRect(x, y, w, h, 10, 10);
-//        g.setColor(panel);
-//        g.fillRect(x + 2, y + 2, w - 4, h - 4);
+        g.fillRoundRect(x, y, w, h, arc, arc);
 
         // Name
+        g.setColor(savedColour);
         g.setFont(new Font("Bahnschrift", Font.BOLD, 15));
-        g.setColor(Color.BLACK);
         g.drawString("Player " + ID, x + 7, y + 20);
 
         // Health bar
-        int xPos = x + 7;
-        int yPos = y + 25;
         int width = w - 14;
         int height = 15;
+        int xPos = x + 7;
+        int yPos = y + 25;
         g.setColor(Color.RED);
-        g.fillRect(xPos, yPos, width, height);
-        float factor = (float) health / 100;
+        g.fillRoundRect(xPos, yPos, width, height, arc, arc);
+        int factoredWidth = width * health / 100;
         g.setColor(Color.GREEN);
-        g.fillRect(xPos, yPos, (int) (width * factor), height);
+        g.fillRoundRect(xPos, yPos, factoredWidth, height, arc, arc);
 
-        // Lives
+        // Respawns
+        g.setColor(savedColour);
         g.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
-        g.setColor(Color.BLACK);
         g.drawString("Respawns: " + respawns, x + 7, y + 55);
 
         // Reset to saved colour and font

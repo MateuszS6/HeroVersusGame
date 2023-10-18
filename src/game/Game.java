@@ -2,6 +2,8 @@ package game;
 
 import arenas.*;
 import city.cs.engine.SoundClip;
+import menu.ControlsPage;
+import menu.PlayScreen;
 import menu.TitleScreen;
 
 import javax.sound.sampled.LineUnavailableException;
@@ -16,10 +18,9 @@ public final class Game {
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
     private final JFrame window;
-    private JPanel currentScreen;
+    private JPanel screen;
     private SoundClip soundtrack;
     private BattleArena arena;
-    private GameView view;
 
     /** Game constructor.
      * <p>
@@ -30,18 +31,16 @@ public final class Game {
 
         window = new JFrame("HeroVersus");
 
-        currentScreen = new TitleScreen(this).getMainPanel();
-        // This JPanel screen is resized instead of the JFrame window,
-        // due to the window size including the borders and top bar
-        // - meaning it is larger (816x639) than the intended GameView size (800x600),
-        // so that the GameView sized correctly when it is created
-        setSoundtrack(MENU_MUSIC);
-        window.add(currentScreen); // Add the component to the window
+        screen = new TitleScreen(this).getMainPanel();
+        // Window would have to be [816x639] to ensure the correct GameView size [800x600]
+        screen.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        window.add(screen); // Add the component to the window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLocationByPlatform(true);
         window.setResizable(false);
         window.setVisible(true);
         window.pack(); // Resize the window to fit the preferred size
+        setSoundtrack(MENU_MUSIC); // Start playing the background music
     }
 
     /** Run the game. */
@@ -73,33 +72,40 @@ public final class Game {
         }
     }
 
-    public void switchPanel(JPanel to) {
-        window.remove(currentScreen);
-        window.add(to);
+    public void switchToMenu(Panels p) {
+        window.remove(screen);
+        screen = switch (p) {
+            case TITLE_SCREEN -> new TitleScreen(this).getMainPanel();
+            case PLAY_SCREEN -> new PlayScreen(this).getMainPanel();
+            case CONTROLS_PAGE -> new ControlsPage(this).getMainPanel();
+        };
+        screen.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        window.add(screen);
         window.pack();
-        if (currentScreen == view) setSoundtrack(MENU_MUSIC);
-        currentScreen = to;
+        setSoundtrack(MENU_MUSIC);
     }
-    // TODO: 29/04/2023 Winning player of final round is ULTIMATE CHAMPION
 
-    public void goToArena(Arenas a) {
-        if (a == null) throw new RuntimeException("ARENA IS NULL.");
-        arena = getArena(a);
-        view = new GameView(arena, WIDTH, HEIGHT); // Game view
-        switchPanel(view);
+    public void goToArena(BattleArena w) {
+        arena = w; // Game world
+        viewArena();
         arena.start();
     }
 
+    private void viewArena() {
+        GameView view = new GameView(arena, WIDTH, HEIGHT); // Game view
+        window.remove(screen);
+        screen = view;
+        window.add(view);
+        window.pack();
+    }
+
+/*
     public void restartArena(BattleArena w) {
-
+        arena = w;
+        view = new GameView(arena, WIDTH, HEIGHT);
+        switchPanel(view);
+        view.repaint();
+        arena.start();
     }
-
-    public BattleArena getArena(Arenas a) {
-        return switch (a) {
-            case ROYAL_ARENA -> new RoyalArena(this);
-            case WILD_FOREST -> new WildForest(this);
-            case THE_VOID -> new TheVoid(this);
-            case OLD_HANGAR -> new OldHangar(this);
-        }; // Game world
-    }
+*/
 }

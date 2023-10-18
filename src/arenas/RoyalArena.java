@@ -12,7 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class RoyalArena extends BattleArena implements ActionListener {
-    // TODO: 24/04/2023 WOODEN TILES???
     public RoyalArena(Game g) {
         super(g,
                 "ROYAL ARENA",
@@ -41,7 +40,7 @@ public class RoyalArena extends BattleArena implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         // Collectible
-        HealthRefill collectible = new HealthRefill(this, 0, 10);
+        new HealthRefill(this, 0, 10);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package menu;
 
 import game.Game;
+import game.Panels;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,9 +15,8 @@ public class TitleScreen {
 
     public TitleScreen(Game g) {
         game = g;
-        mainPanel.setPreferredSize(new Dimension(Game.WIDTH, Game.HEIGHT));
-        playButton.addActionListener(e -> game.switchPanel(new PlayScreen(game).getMainPanel()));
-        controlsButton.addActionListener(e -> game.switchPanel(new ControlsPage(game).getMainPanel()));
+        playButton.addActionListener(e -> game.switchToMenu(Panels.PLAY_SCREEN));
+        controlsButton.addActionListener(e -> game.switchToMenu(Panels.CONTROLS_PAGE));
         quitButton.addActionListener(e -> System.exit(0));
     }
 
