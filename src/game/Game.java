@@ -1,6 +1,6 @@
 package game;
 
-import arenas.*;
+import arenas.BattleArena;
 import city.cs.engine.SoundClip;
 import menu.ControlsPage;
 import menu.PlayScreen;
@@ -8,8 +8,9 @@ import menu.TitleScreen;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.Dimension;
 import java.io.IOException;
 
 /** Main game entry point. */
