@@ -1,1 +1,2 @@
 # HeroVersusGame
+Read me.
