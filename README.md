@@ -2,7 +2,7 @@
 
 A 2-player 2D fighting platformer built for my IN1007 Programming In Java university module coursework.
 
-# Learning Outcomes
+## Learning Outcomes
 
 * Integrated object-oriented techniques, including interfaces, abstract classes, and packages
 * Manipulated Java GUI to create menu pages
