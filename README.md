@@ -8,8 +8,8 @@ A 2-player 2D fighting platformer built for my IN1007 Programming In Java univer
 * Manipulated Java GUI to create menu pages
 * Created four levels with unique features
 * Delivered the project over two milestones
-* Used a variation of the [JBox2D][jbox2d] physics engine
+* Used a variation of the [JBox2D][engine] physics engine
 
 Final score: 91%
 
-[jbox2d]: https://github.com/jbox2d/jbox2d.git
+[engine]: https://github.com/jbox2d/jbox2d.git
