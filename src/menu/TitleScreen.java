@@ -15,8 +15,8 @@ public class TitleScreen {
 
     public TitleScreen(Game g) {
         game = g;
-        playButton.addActionListener(e -> game.switchToMenu(Panels.PLAY_SCREEN));
-        controlsButton.addActionListener(e -> game.switchToMenu(Panels.CONTROLS_PAGE));
+        playButton.addActionListener(_ -> game.switchToMenu(Panels.PLAY_SCREEN));
+        controlsButton.addActionListener(_ -> game.switchToMenu(Panels.CONTROLS_PAGE));
         quitButton.addActionListener(e -> System.exit(0));
     }
 
