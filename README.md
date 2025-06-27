@@ -10,7 +10,7 @@ Welcome to **HeroVersus: Battle Arena**, a dynamic 2-player 2D fighting game dev
 - **Institution**: City, University of London
 - **Term**: Spring 2023
 
-> **Note**: This repository was originally created under the @cityteaching account and has been cloned to this account for public visibility.
+> **Note**: This repository was originally created under @cityteaching and has been cloned here for public visibility.
 
 ## Gameplay Screenshots
 
